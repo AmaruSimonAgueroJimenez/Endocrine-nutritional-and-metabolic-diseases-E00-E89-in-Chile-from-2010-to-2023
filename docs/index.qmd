@@ -1,5 +1,5 @@
 ---
-title: "Malignant neoplasms of digestive organs C15-C26 in Chile from 2010 to 2023"
+title: "Endocrine, nutritional and metabolic diseases in Chile from 2010 to 2023"
 author:
   - name: "Valentina Meilan Ip Francesconi"
     email: "valentina.ip@ug.uchile.cl "
@@ -8,7 +8,7 @@ author:
     email: "aaguero@miaundes.cl"
     orcid: "0000-0001-7336-1833"
 date: "`r Sys.Date()`"
-lang: es
+lang: en
 format:
   html:
     smooth-scroll: true
@@ -25,27 +25,47 @@ format:
 execute:
   warning: false #que los chunks no arrojen mensajes de emergencia
   message: false #que los chunks no arrojen mensajes
-  fig-width: 10 #ancho de las figuras en el documento
-  fig-height: 8 #alto de las figuras
+  fig-width: 14 #ancho de las figuras en el documento
+  fig-height: 10 #alto de las figuras
 ---
 
 # Introduction
 
-## Aim
+## Objective
 
-Assess the incidence of hospitalizations due to malignant neoplasms digestive organs in Chile between the years 2010 and 2023.
+To assess the incidence of hospitalizations due to endocrine, nutritional, and metabolic diseases in Chile between the years 2010 and 2023.
 
 # Methodology
 
-The study design used was a historical retrospective cohort based on the analysis of national anonymized secondary data from hospital records between 2010 and 2023. Open data on hospital discharges are available from the Department of Health Statistics and Information of the Ministry of Health of Chile [@DEIS2024]. 
-This corresponds to a quantitative design, historical retrospective cohort based on the analysis of secondary, national, anonymized data from hospital records between the years 2010 and 2023. These open data on hospital discharges are available in the Department of Health Statistics and Information of the Ministry of Health of Chile, accessible via the following [link](https://deis.minsal.cl/#datosabiertos) [@DEIS2024]. For the diagnosis of MNOD, codes C15-C26 from the International Classification of Diseases revision 10 corresponding to the chapter on MNOD were used. These begin with malignant neoplasms of the esophagus (C15), followed by those of the stomach (C16). Next were those of the small intestine (C17), colon (C18), rectosigmoid junction (C19), and rectum (C20). Neoplasms of the anus and anal canal (C21) are also considered, as are those of the liver and intrahepatic bile ducts (C22), such as hepatocarcinomas and intrahepatic cholangiocarcinomas. Subsequently, those of the gallbladder (C23) and other parts of the biliary system, such as extrahepatic cholangiocarcinomas (C24), were included. Malignant neoplasms of the pancreas (C25) and, finally, those of other digestive organs or unspecified locations (C26) are also included. These hospital rates will be evaluated according to sociodemographic variables and their temporal evolution between the years 2010 and 2023.
+The study design used was a historical retrospective cohort based on the analysis of national, anonymized secondary data from hospital records between 2010 and 2023. Open data on hospital discharges are available from the Department of Health Statistics and Information (DEIS) of the Ministry of Health of Chile \[@DEIS2024\].
 
-## Hospitalization Rates of Malignant neoplasms of female genital organs C51-C58 ICD chapter standardized by age group.
+This corresponds to a quantitative, historical retrospective cohort design, based on the analysis of secondary, national, anonymized data from hospital records between the years 2010 and 2023. These open data on hospital discharges are available in the Department of Health Statistics and Information of the Ministry of Health of Chile, accessible via the following [link](https://deis.minsal.cl/#datosabiertos) \[@DEIS2024\].
+
+For the diagnosis of endocrine, nutritional, and metabolic diseases, codes **E00-E90** from the International Classification of Diseases, 10th revision (ICD-10), corresponding to **Chapter IV: Endocrine, nutritional and metabolic diseases**, were used. This chapter includes, among others:
+
+* **Thyroid gland disorders (E00-E07)**
+
+* **Diabetes mellitus (E10-E14)**
+
+* **Other disorders of glucose regulation and pancreatic internal secretion (E15-E16)**
+
+* **Disorders of other endocrine glands (E20-E35)**
+
+* **Malnutrition (E40-E46)**
+
+* **Other nutritional deficiencies (E50-E64)**
+
+* **Obesity and other hyperalimentation (E65-E68)**
+
+* **Metabolic disorders (E70-E90)**
+
+Hospitalization rates will be evaluated according to sociodemographic variables and their temporal evolution between the years 2010 and 2023.
+
+## Hospitalization Rates for Endocrine, Nutritional, and Metabolic Diseases (E00-E90) standardized by age group.
 
 ### Direct standardization rates (DSR).
 
-For the purpose of calculating the hospitalization rate for each C51-C58 ICD code, the direct standardization by age group (stratum) method was employed [@chiang1984life] [@https://doi.org/10.1002/sim.4780100317]. The total population of Chile by year (2010-2023) is obtained from World Bank Open Data. [@worldbank_population_data]. This method utilizes a standard population from the 2017 Chilean Census as a reference [@censo2017]. The formula used to calculate DSR is as follows:
-
+For the purpose of calculating the hospitalization rate for each E00-E90 ICD code, the direct standardization by age group (stratum) method was employed [@chiang1984life] [@https://doi.org/10.1002/sim.4780100317].
 ```{=tex}
 \begin{align*}
 
