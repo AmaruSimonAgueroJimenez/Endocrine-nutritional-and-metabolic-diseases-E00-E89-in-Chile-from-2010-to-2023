@@ -1,8 +1,14 @@
 ---
 title: "Endocrine, nutritional and metabolic diseases in Chile from 2010 to 2023"
 author:
-  - name: "Valentina Meilan Ip Francesconi"
-    email: "valentina.ip@ug.uchile.cl "
+  - name: "Dominga Elena Ramírez Reyes"
+    email: "dominga.ramirez@ug.uchile.cl"
+    orcid: "0000-0000-0000-0000"
+  - name: "María Matilde Vicuña Watkins"
+    email: "maria.vicuna@ug.uchile.cl "
+    orcid: "0000-0000-0000-0000"
+  - name: "Antonia Fernanda Troncoso Páez"
+    email: "maria.vicuna@ug.uchile.cl "
     orcid: "0000-0000-0000-0000"
   - name: "Amaru Simón Agüero Jiménez"
     email: "aaguero@miaundes.cl"
@@ -37,9 +43,9 @@ To assess the incidence of hospitalizations due to endocrine, nutritional, and m
 
 # Methodology
 
-The study design used was a historical retrospective cohort based on the analysis of national, anonymized secondary data from hospital records between 2010 and 2023. Open data on hospital discharges are available from the Department of Health Statistics and Information (DEIS) of the Ministry of Health of Chile \[@DEIS2024\].
+The study design used was a historical retrospective cohort based on the analysis of national, anonymized secondary data from hospital records between 2010 and 2023. Open data on hospital discharges are available from the Department of Health Statistics and Information (DEIS) of the Ministry of Health of Chile [@DEIS2024].
 
-This corresponds to a quantitative, historical retrospective cohort design, based on the analysis of secondary, national, anonymized data from hospital records between the years 2010 and 2023. These open data on hospital discharges are available in the Department of Health Statistics and Information of the Ministry of Health of Chile, accessible via the following [link](https://deis.minsal.cl/#datosabiertos) \[@DEIS2024\].
+This corresponds to a quantitative, historical retrospective cohort design, based on the analysis of secondary, national, anonymized data from hospital records between the years 2010 and 2023. These open data on hospital discharges are available in the Department of Health Statistics and Information of the Ministry of Health of Chile, accessible via the following [link](https://deis.minsal.cl/#datosabiertos) [@DEIS2024].
 
 For the diagnosis of endocrine, nutritional, and metabolic diseases, codes **E00-E90** from the International Classification of Diseases, 10th revision (ICD-10), corresponding to **Chapter IV: Endocrine, nutritional and metabolic diseases**, were used. This chapter includes, among others:
 
