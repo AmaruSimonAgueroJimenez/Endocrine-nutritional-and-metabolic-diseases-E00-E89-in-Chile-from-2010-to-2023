@@ -40,7 +40,7 @@ execute:
 
 # About repository
 
-- [Epidemiology](https://amarusimonaguerojimenez.github.io/Endocrine-nutritional-and-metabolic-diseases-E00-E89-in-Chile-from-2010-to-2023/Stage1.html).
-- [Network Analysis](https://amarusimonaguerojimenez.github.io/Endocrine-nutritional-and-metabolic-diseases-E00-E89-in-Chile-from-2010-to-2023/Stage2.html).
+- [Epidemiology](https://amarusimonaguerojimenez.github.io/Endocrine-nutritional-and-metabolic-diseases-E00-E89-in-Chile-from-2010-to-2023/stage1.html).
+- [Network Analysis](https://amarusimonaguerojimenez.github.io/Endocrine-nutritional-and-metabolic-diseases-E00-E89-in-Chile-from-2010-to-2023/stage2.html).
 
 
