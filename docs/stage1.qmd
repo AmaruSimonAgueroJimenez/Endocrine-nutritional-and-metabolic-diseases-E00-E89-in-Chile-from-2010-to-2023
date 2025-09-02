@@ -39,6 +39,19 @@ execute:
 ---
 # Abstract
 
+**Title** Trends in endocrine, nutritional and metabolic disease hospitalizations in Chile (2010–2023): lifestyle influences.
+
+**Introduction**  Endocrine, nutritional and metabolic disorders are major contributors to premature death in Chile and worldwide. Their rise has been linked to modifiable behaviours such as sedentary lifestyles, high‑sugar/high‑fat diets, tobacco use and excessive alcohol consumption, together with environmental exposures (endocrine‑disrupting chemicals) and social inequities. Chile faces one of the highest obesity prevalences in the OECD, and a third of adults are metabolically unhealthy. Understanding how these lifestyle‑related factors translate into hospitalisations is crucial for planning preventive strategies.
+
+**Objectives** The main aim was to describe temporal, demographic and regional patterns in hospitalisation rates for endocrine, nutritional and metabolic diseases in Chile between 2010 and 2023. Specific objectives were (a) to quantify age‑standardised rates by year and sex for each ICD‑10 E00–E89 category, (b) to characterise age‑group patterns, and (c) to identify regional differences and their association with lifestyle‑related conditions such as obesity and diabetes.
+
+**Materials and methods** A historical retrospective cohort design analysed de‑identified hospital discharge data from the Department of Health Statistics and Information covering all public hospitals from 2010–2023. Diagnoses were grouped using ICD‑10 codes (E00–E89). Age‑specific rates were directly standardised using the 2017 census population. Analyses stratified by sex, age group and region. Because only anonymised secondary data from public sources were used, no ethics‑committee approval was required; confidentiality was maintained, and bioethical principles of autonomy, beneficence, non‑maleficence and justice were respected.
+
+**Results** During 2010–2023, hospitalisations for obesity and overweight among women increased more than three‑fold, from ~323 to over 1,060 per 100,000 hospitalised individuals, with a sharp surge after 2020. Diabetes‑related hospitalisation rates for men rose from ~306 to ~566 per 100,000. Metabolic disorders declined slightly, while postprocedural and intraoperative complications remained rare. Age‑specific analyses showed that obesity‑related admissions peaked among adults aged 30–59 years (around 1,100–2,200 per 100,000), whereas diabetes hospitalisations were highest in men aged 50–59 and women aged 60–69. Regional analysis revealed marked heterogeneity: southern regions such as Aysén and Magallanes exhibited the highest overall rates, whereas central regions had lower rates but still considerable burdens. Women generally had higher obesity‑related hospitalisation rates, while men had higher diabetes and metabolic disorder rates.
+
+**Conclusions** Hospitalisations for endocrine and metabolic diseases in Chile have risen markedly, driven predominantly by obesity and diabetes. The steep increase after 2020 suggests an acceleration of lifestyle‑related risk factors such as physical inactivity and unhealthy diets, possibly exacerbated by the COVID‑19 pandemic. Middle‑aged adults and residents of certain regions bear a disproportionate burden. These findings underscore the urgency of public‑health interventions promoting physical activity, healthy eating and reduction of obesogenic environments, together with region‑specific strategies to address social determinants of health. Secondary data analyses, while ethically robust, highlight the need for continuous monitoring and targeted prevention to curb the growing impact of lifestyle‑related endocrine and metabolic disorders.
+
+
 
 # Introduction
 
@@ -109,6 +122,8 @@ $N_i$ is the reference population size for the *i*th stratum.
 $y_i$ is the number of events observed in population in the *i*th stratum.
 
 $n_i$ is the person-time for the *i*th stratum of the study population.
+
+# Results
 
 ```{r}
 ################################################################################
