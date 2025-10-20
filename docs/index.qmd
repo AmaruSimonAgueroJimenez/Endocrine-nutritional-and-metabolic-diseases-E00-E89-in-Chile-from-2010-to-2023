@@ -42,5 +42,5 @@ execute:
 
 - [Epidemiology](https://amarusimonaguerojimenez.github.io/Endocrine-nutritional-and-metabolic-diseases-E00-E89-in-Chile-from-2010-to-2023/stage1.html).
 - [Network Analysis](https://amarusimonaguerojimenez.github.io/Endocrine-nutritional-and-metabolic-diseases-E00-E89-in-Chile-from-2010-to-2023/stage2.html).
-
+- [Análisis de redes en ciencias de la salud: fundamentos, métodos y aplicaciones](https://amarusimonaguerojimenez.github.io/Endocrine-nutritional-and-metabolic-diseases-E00-E89-in-Chile-from-2010-to-2023/net(esp).html).
 
