@@ -16,7 +16,7 @@ author:
   - name: "Amaru Simón Agüero Jiménez"
     email: "aaguero@miaundes.cl"
     orcid: "0000-0001-7336-1833"
-date: "`r Sys.Date()`"
+date: "today"
 lang: en
 format:
   html:
