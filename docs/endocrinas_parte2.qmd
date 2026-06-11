@@ -1,0 +1,3458 @@
+---
+title: "Endocrine, Nutritional and Metabolic Diseases in Chile: In-Hospital Mortality and Length of Stay Analysis (GRD 2019–2024)"
+subtitle: "Enfermedades Endocrinas, Nutricionales y Metabólicas en Chile: Análisis de Mortalidad Hospitalaria y Duración de Estadía (GRD 2019–2024)"
+author:
+  - name: "Dominga Elena Ramírez Reyes"
+    email: "dominga.ramirez@ug.uchile.cl"
+    orcid: "0000-0000-0000-0000"
+  - name: "María Matilde Vicuña Watkins"
+    email: "maria.vicuna@ug.uchile.cl"
+    orcid: "0000-0000-0000-0000"
+  - name: "Antonia Fernanda Troncoso Páez"
+    email: "antonia.troncoso.p@ug.uchile.cl"
+    orcid: "0000-0000-0000-0000"
+  - name: "Josefina Poblete Moreno"
+    email: "josefina.poblete@ug.uchile.cl"
+    orcid: "0000-0000-0000-0000"
+  - name: "Amaru Simón Agüero Jiménez"
+    email: "aaguero@miaundes.cl"
+    orcid: "0000-0001-7336-1833"
+date: "2026-04-03"
+lang: en
+format:
+  html:
+    embed-resources: true
+    smooth-scroll: true
+    toc: true
+    toc-depth: 4
+    toc-location: right
+    number-sections: true
+    code-fold: true
+    fig-cap-location: bottom
+bibliography: references_parte2.bib
+nocite: '@*'
+execute:
+  warning: false
+  message: false
+---
+
+::: {.callout-note appearance="minimal"}
+
+## Resumen Estructurado — Congreso BiSide 2026
+
+**PREDICTORES CLÍNICOS Y COMORBILIDADES ASOCIADAS A DESENLACES HOSPITALARIOS EN PATOLOGÍA ENDOCRINO-METABÓLICA EN CHILE, 2019-2024**
+
+**Introducción:** Las enfermedades endocrinas, nutricionales y metabólicas generan una carga hospitalaria creciente en Chile, con perfiles de mortalidad y estadía heterogéneos entre categorías diagnósticas. Identificar predictores pronósticos diferenciados, ajustando por la estructura jerárquica de los establecimientos, resulta esencial para optimizar la gestión clínica intrahospitalaria.
+
+**Materiales y Métodos:** Estudio de cohorte retrospectiva sobre 128.052 egresos del sistema de Grupos Relacionados de Diagnóstico (GRD) de Chile (2019-2024), clasificados en diez categorías diagnósticas (CIE-10 E00-E89) y catorce grupos de comorbilidades derivadas de diagnósticos secundarios. Se ajustaron ecuaciones de estimación generalizadas (GEE) con agrupación por hospital y correlación intercambiable: enlace logit para mortalidad intrahospitalaria y enlace logarítmico con distribución binomial negativa para duración de estadía. La selección de comorbilidades se realizó mediante pruebas bivariadas independientes por categoría (p<0,05). Complementariamente, cinco algoritmos de clasificación fueron evaluados con seis técnicas de balanceo de clases y umbral optimizado por el índice J de Youden.
+
+**Resultados:** Se registraron 2.748 defunciones (mortalidad global 2,15%). Obesidad (32,2%) y diabetes (28,1%) constituyeron las categorías más frecuentes. La mortalidad osciló entre 0,13% (obesidad) y 4,47% (trastornos de glucosa), con diabetes en 2,00%, desnutrición 3,79% y trastornos metabólicos 3,60%. La estadía media varió de 2,9 días (obesidad) a 16,5 días (deficiencias nutricionales). Las GEE alcanzaron AUC de 0,955 (tiroides) a 0,767 (nutricionales) para mortalidad, con edad, severidad y riesgo de mortalidad como predictores transversales consistentes. Las comorbilidades nutricionales incrementaron la estadía en +8,0 días y las cardiovasculares en +7,2 días. El aprendizaje automático con balanceo logró AUC de hasta 0,982 (obesidad) y 0,855 (desnutrición).
+
+**Conclusiones:** La patología endocrino-metabólica presenta perfiles de riesgo marcadamente distintos por categoría, desde la baja letalidad de la obesidad hasta la elevada mortalidad de los trastornos glucémicos. El modelado GEE con estructura hospitalaria y selección específica de comorbilidades proporciona herramientas interpretables para la estratificación de riesgo clínico diferenciado.
+
+**Palabras clave:** enfermedades endocrinas, mortalidad intrahospitalaria, ecuaciones de estimación generalizadas, comorbilidad, aprendizaje automático.
+
+:::
+
+::: {.callout-note appearance="minimal"}
+
+## Structured Abstract — BiSide 2026 Congress
+
+**CLINICAL PREDICTORS AND COMORBIDITIES ASSOCIATED WITH HOSPITAL OUTCOMES IN ENDOCRINE-METABOLIC PATHOLOGY IN CHILE, 2019-2024**
+
+**Introduction:** Endocrine, nutritional, and metabolic diseases impose a growing hospital burden in Chile, with heterogeneous mortality and length-of-stay profiles across diagnostic categories. Identifying differentiated prognostic predictors while accounting for the hierarchical structure of healthcare facilities is essential for optimizing in-hospital clinical management.
+
+**Materials and Methods:** Retrospective cohort study of 128,052 discharges from the Chilean Diagnosis-Related Groups (GRD) system (2019-2024), classified into ten diagnostic categories (ICD-10 E00-E89) and fourteen comorbidity groups derived from secondary diagnoses. Generalized estimating equations (GEE) were fitted with hospital clustering and exchangeable correlation: logit link for in-hospital mortality and log link with negative binomial distribution for length of stay. Comorbidity selection was performed through independent bivariate testing per category (p<0.05). Additionally, five classification algorithms were evaluated with six class balancing techniques and threshold optimized by Youden's J index.
+
+**Results:** A total of 2,748 deaths were recorded (overall mortality 2.15%). Obesity (32.2%) and diabetes (28.1%) were the most frequent categories. Mortality ranged from 0.13% (obesity) to 4.47% (glucose disorders), with diabetes at 2.00%, malnutrition 3.79%, and metabolic disorders 3.60%. Mean length of stay varied from 2.9 days (obesity) to 16.5 days (nutritional deficiencies). GEE achieved AUC from 0.955 (thyroid) to 0.767 (nutritional) for mortality, with age, severity, and mortality risk as consistent cross-cutting predictors. Nutritional comorbidities increased stay by +8.0 days and cardiovascular comorbidities by +7.2 days. Machine learning with class balancing achieved AUC up to 0.982 (obesity) and 0.855 (malnutrition).
+
+**Conclusions:** Endocrine-metabolic pathology exhibits markedly distinct risk profiles by category, from the low lethality of obesity to the elevated mortality of glucose disorders. GEE modeling with hospital structure and category-specific comorbidity selection provides interpretable tools for differentiated clinical risk stratification.
+
+**Keywords:** endocrine diseases, in-hospital mortality, generalized estimating equations, comorbidity, machine learning.
+
+:::
+
+# Methods
+
+## 1.1 Study Design and Data Source
+
+This is a retrospective cohort study using GRD (Grupo Relacionado de Diagnóstico) public hospital discharge data from the Chilean Ministry of Health (MINSAL) for the years 2019–2024. The GRD database captures all hospitalizations in public hospitals and contains 35 diagnostic fields (DIAGNOSTICO1 through DIAGNOSTICO35), administrative variables, and clinical indicators including severity (IR_29301_SEVERIDAD: coded 1–3 as Low, Medium, High) and mortality risk (IR_29301_MORTALIDAD: coded 1–3 as Low, Medium, High). Additional variables include patient dates of birth and admission/discharge, sex, and service of admission.
+
+## 1.2 Case Identification
+
+Cases were identified through the primary diagnosis (DIAGNOSTICO1) field using ICD-10 codes E00–E89 (Endocrine, nutritional and metabolic diseases). Cases were classified into 10 disease categories based on anatomical and functional groupings:
+
+- **E00–E07**: Thyroid disorders
+- **E08–E13**: Diabetes mellitus (including drug-induced and secondary forms)
+- **E15–E16**: Other disorders of glucose regulation
+- **E20–E35**: Disorders of other endocrine glands (parathyroid, pituitary, adrenal, etc.)
+- **E36**: Intraoperative complications of endocrine procedures
+- **E40–E46**: Malnutrition and nutritional deficiencies
+- **E50–E64**: Other nutritional deficiency disorders
+- **E65–E68**: Obesity and hyperalimentation
+- **E70–E88**: Metabolic disorders (amino acid, lipid, carbohydrate metabolism)
+- **E89**: Postprocedural endocrine and metabolic complications
+
+## 1.3 Lifestyle-Related Comorbidity Classification
+
+Comorbidities were identified from secondary diagnoses (DIAGNOSTICO2 through DIAGNOSTICO35) using ICD-10 codes and grouped into 14 lifestyle-related categories:
+
+1. **Obesity/Overweight**: E65, E66, E67, E68, R63, Z68
+2. **Dyslipidemia/Metabolic**: E78, E79, E88
+3. **Diabetes/Glucose disorders**: E08, E09, E10, E11, E12, E13, E14, R73
+4. **Hypertension**: I10, I11, I12, I13, I15, I16, I27
+5. **Tobacco-related**: F17, Z72, Z87, J40, J41, J42, J43, J44, J47, J98
+6. **Alcohol-related**: F10, K70, K29, G31, G62, G72, I42, K86, E24, E52, T51, Y90, Y91
+7. **Substance use**: F11, F12, F13, F14, F15, F16, F18, F19, F55
+8. **Nutritional deficiencies**: E40, E41, E42, E43, E44, E45, E46, E50, E51, E52, E53, E54, E55, E56, E58, E59, E60, E61, E63, E64, D50, D51, D52, D53
+9. **Liver disease (non-alcoholic)**: K72, K73, K74, K75, K76, K77
+10. **Sleep disorders**: G47, F51, G25
+11. **Cardiovascular disease**: I20, I21, I22, I23, I24, I25, I50, I51, I64, I65, I66, I67, I70, I73, I77, I78
+12. **Gastrointestinal disease**: K21, K22, K25, K26, K27, K28, K29, K30, K31, K58, K59, K90, K91, K92
+13. **Musculoskeletal/Sedentary**: M25, M54, M62, M79, M80, M81, M85
+14. **Mental health/Lifestyle**: F32, F33, F34, F41, F43, F48, F50, F54
+
+For each patient, a binary indicator $I_j$ denotes presence of comorbidity $j$, and total comorbidity burden is defined as:
+$$N_{\text{comorbidities}} = \sum_{j=1}^{14} I_j$$
+
+## 1.4 Statistical Analyses
+
+### 1.4.1 Descriptive Statistics
+
+Descriptive statistics were computed for age, sex, mortality, length of stay (LOS), and comorbidity burden. Categorical variables are presented as frequencies and percentages; continuous variables are presented with mean, standard deviation, median, and range. Mortality rate (in-hospital death) is presented as percentage. LOS is presented as mean, median, and interquartile range.
+
+### 1.4.2 Bivariate Associations
+
+Chi-square tests were performed to assess associations between categorical variables and mortality:
+$$\chi^2 = \sum_{i,j} \frac{(O_{ij} - E_{ij})^2}{E_{ij}}$$
+
+where $O_{ij}$ is the observed frequency and $E_{ij}$ is the expected frequency under independence. Fisher's exact test was used when expected cell frequencies were less than 5. Wilcoxon rank-sum test was used to compare LOS between groups:
+$$W = \sum_{i=1}^{n_1} R_i$$
+
+where $R_i$ are ranks assigned to observations from the first group.
+
+### 1.4.3 Mixed-Effects Logistic Regression for Mortality
+
+A mixed-effects logistic regression model was fitted to examine associations between comorbidities and mortality, with year as a random effect:
+$$\log\left(\frac{\pi_{ij}}{1-\pi_{ij}}\right) = \beta_0 + \mathbf{x}_{ij}^T\boldsymbol{\beta} + u_j$$
+
+where $\pi_{ij}$ is the probability of mortality for individual $i$ in year $j$, $\mathbf{x}_{ij}$ are fixed covariates, $\boldsymbol{\beta}$ are fixed effect coefficients, and $u_j \sim N(0, \sigma^2_u)$ is the random year effect. Only comorbidities significant in bivariate analysis ($p < 0.05$) were included in the model. In Python, this was approximated using Generalized Estimating Equations (GEE) with logit link function and exchangeable correlation structure, with year as the grouping variable. Results are presented as Odds Ratios (OR) with 95% confidence intervals (CI).
+
+### 1.4.4 Negative Binomial Mixed Models for Length of Stay
+
+LOS was modeled using a negative binomial mixed regression model with year as a random effect:
+$$\log(\mu_{ij}) = \beta_0 + \mathbf{x}_{ij}^T\boldsymbol{\beta} + u_j$$
+$$Y_{ij} \sim \text{NB}(\mu_{ij}, \theta)$$
+
+where $Y_{ij}$ is the LOS for individual $i$ in year $j$, $\mu_{ij}$ is the expected count, $\theta$ is the dispersion parameter, and variance = $\mu + \mu^2/\theta$. In Python, Negative Binomial regression was fitted with year as categorical predictor using statsmodels. Results are presented as Incidence Rate Ratios (IRR) with 95% CI.
+
+### 1.4.5 Model Performance Assessment
+
+Model performance was assessed using the following metrics:
+
+**Area Under the Receiver Operating Characteristic Curve (AUC)**:
+$$\text{AUC} = P(S_1 > S_0)$$
+
+where $S_1$ and $S_0$ are predicted probabilities for positive and negative cases, respectively.
+
+**Hosmer-Lemeshow Goodness of Fit Test**:
+$$C = \sum_{g=1}^{10} \frac{(O_g - E_g)^2}{E_g(1 - E_g/n_g)}$$
+
+where $O_g$ and $E_g$ are observed and expected frequencies in decile $g$.
+
+### 1.4.6 Pseudo-R² Measures
+
+Multiple pseudo-$R^2$ measures were computed:
+
+**McFadden's $R^2$**:
+$$R^2_{\text{McFadden}} = 1 - \frac{\log L_{\text{full}}}{\log L_{\text{null}}}$$
+
+**Cox-Snell $R^2$**:
+$$R^2_{\text{Cox-Snell}} = 1 - \left(\frac{L_{\text{null}}}{L_{\text{full}}}\right)^{2/n}$$
+
+**Nagelkerke $R^2$**:
+$$R^2_{\text{Nagelkerke}} = \frac{R^2_{\text{Cox-Snell}}}{1 - L_{\text{null}}^{2/n}}$$
+
+### 1.4.7 Additional Classification Metrics
+
+**Sensitivity** (True Positive Rate):
+$$\text{Se} = \frac{TP}{TP + FN}$$
+
+**Specificity** (True Negative Rate):
+$$\text{Sp} = \frac{TN}{TN + FP}$$
+
+**Positive Predictive Value**:
+$$\text{PPV} = \frac{TP}{TP + FP}$$
+
+**Negative Predictive Value**:
+$$\text{NPV} = \frac{TN}{TN + FN}$$
+
+**F1 Score**:
+$$F_1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}$$
+
+**Matthews Correlation Coefficient**:
+$$\text{MCC} = \frac{TP \cdot TN - FP \cdot FN}{\sqrt{(TP+FP)(TP+FN)(TN+FP)(TN+FN)}}$$
+
+**Brier Score**:
+$$\text{BS} = \frac{1}{n}\sum_{i=1}^{n}(p_i - o_i)^2$$
+
+where $p_i$ is predicted probability and $o_i$ is observed outcome.
+
+For length of stay regression models: Root Mean Squared Error (RMSE), Mean Absolute Error (MAE), and R² were computed.
+
+### 1.4.8 Sensitivity Analyses
+
+Youden's index was calculated to determine optimal threshold for binary classification:
+$$J = \max(\text{Se} + \text{Sp} - 1)$$
+
+Machine learning models were evaluated using 80/20 stratified train-test split with feature standardization.
+
+---
+
+# Data Loading and Processing
+
+```{python}
+#| include: false
+# Cargar librerías necesarias
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import plotly.express as px
+import plotly.graph_objects as go
+from datetime import datetime
+from IPython.display import display, HTML
+import warnings
+warnings.filterwarnings('ignore')
+import os
+from pathlib import Path
+
+def show_table(df, caption="", index=False):
+    """Display a DataFrame as a properly formatted HTML table"""
+    html = f'<h4>{caption}</h4>' if caption else ''
+    html += df.to_html(index=index, classes='table table-striped table-hover table-sm',
+                        escape=False, border=0)
+    display(HTML(html))
+from scipy.stats import chi2_contingency, fisher_exact, wilcoxon, ranksums, norm
+from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
+from sklearn.svm import SVC
+from sklearn.neural_network import MLPClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import (
+    roc_auc_score, roc_curve, confusion_matrix, classification_report,
+    accuracy_score, f1_score, precision_score, recall_score,
+    brier_score_loss, matthews_corrcoef, auc
+)
+import statsmodels.formula.api as smf
+from statsmodels.genmod.generalized_estimating_equations import GEE
+from statsmodels.genmod.families import Binomial
+from statsmodels.genmod.cov_struct import Exchangeable
+from statsmodels.discrete.discrete_model import NegativeBinomial, Logit
+
+# Crear directorio de salida si no existe
+os.makedirs('../data/output_files/endocrinas_parte2', exist_ok=True)
+
+# Configurar estilos
+sns.set_style("whitegrid")
+plt.rcParams['figure.figsize'] = (12, 6)
+plt.rcParams['figure.dpi'] = 100
+```
+
+```{python}
+# Display names mapping for all variables
+DISPLAY_NAMES = {
+    'age': 'Age',
+    'male': 'Sex (Male)',
+    'length_of_stay': 'Length of Stay',
+    'mortality': 'In-Hospital Mortality',
+    'total_comorbidities': 'Total Comorbidities',
+    'endocrine_category': 'Disease Category',
+    'service_category': 'Service Category',
+    'year': 'Year',
+    'comor_obesity_overweight': 'Obesity/Overweight',
+    'comor_dyslipidemia_metabolic': 'Dyslipidemia',
+    'comor_diabetes_glucose': 'Diabetes',
+    'comor_hypertension': 'Hypertension',
+    'comor_tobacco_related': 'Tobacco Related',
+    'comor_alcohol_related': 'Alcohol Related',
+    'comor_substance_use': 'Substance Use',
+    'comor_nutritional_deficiencies': 'Nutritional Deficiencies',
+    'comor_liver_disease_nonalcoholic': 'Liver Disease',
+    'comor_sleep_disorders': 'Sleep Disorders',
+    'comor_cardiovascular': 'Cardiovascular',
+    'comor_gastrointestinal': 'Gastrointestinal',
+    'comor_musculoskeletal': 'Musculoskeletal',
+    'comor_mental_health': 'Mental Health',
+    'service_ICU': 'Service: ICU',
+    'service_MS': 'Service: Medical/Surgical',
+    'severity_2': 'Severity: Medium',
+    'severity_3': 'Severity: High',
+    'mort_risk_2': 'Mortality Risk: Medium',
+    'mort_risk_3': 'Mortality Risk: High',
+}
+
+def format_name(name):
+    """Format variable name for display"""
+    if name in DISPLAY_NAMES:
+        return DISPLAY_NAMES[name]
+    # Handle year dummies like 'year_2020'
+    if name.startswith('year_'):
+        year_val = name.split('_')[1]
+        return f'Year {year_val}'
+    # Handle C() statsmodels names
+    if name.startswith('C('):
+        formatted = name.replace('C(', '').replace(')', '').replace('[T.', ': ').replace(']', '')
+        return formatted
+    # Generic cleanup
+    return name.replace('_', ' ').title()
+```
+
+```{python}
+# Definir rutas base (datos en ../data/)
+data_path = Path("../data")
+
+# Verificar archivos disponibles
+grd_files = sorted(data_path.glob("GRD_PUBLICO_*.csv"))
+```
+
+```{python}
+# Cargar y procesar cada archivo GRD
+dfs = []
+
+for grd_file in sorted(data_path.glob("GRD_PUBLICO_*.csv")):
+    year = grd_file.stem.split("_")[-1]
+
+    try:
+        df = pd.read_csv(grd_file, sep="|", encoding="utf-8", low_memory=False)
+        df['year'] = int(year)
+        dfs.append(df)
+    except Exception as e:
+        pass
+
+# Combinar todos los años
+df_grd = pd.concat(dfs, ignore_index=True)
+```
+
+```{python}
+# Cargar catálogos
+import openpyxl
+
+catalog_path = data_path / "códigos grd.xlsx"
+
+catalogs = {}
+
+# IR - GRD catalog
+catalogs['ir_grd'] = pd.read_excel(catalog_path, sheet_name="IR - GRD", dtype=str)
+
+# Hospitals
+catalogs['hospitals'] = pd.read_excel(catalog_path, sheet_name="Hospitales", dtype=str)
+
+# Ward types
+catalogs['ward_types'] = pd.read_excel(catalog_path, sheet_name="Tipo de Pabellon", dtype=str)
+```
+
+```{python}
+# Función para normalizar fechas (maneja formatos diferentes)
+def parse_date_flexible(date_str, year=None):
+    """
+    Parsea fechas que pueden estar en formato DD-MM-YYYY o YYYY-MM-DD
+    """
+    if pd.isna(date_str) or date_str == '':
+        return pd.NaT
+
+    if isinstance(date_str, (int, float)):
+        return pd.NaT
+
+    date_str = str(date_str).strip()
+
+    # Para 2023: DD-MM-YYYY; para otros: YYYY-MM-DD
+    if year == 2023:
+        for fmt in ["%d-%m-%Y", "%Y-%m-%d", "%d/%m/%Y", "%Y/%m/%d"]:
+            try:
+                return pd.to_datetime(date_str, format=fmt)
+            except:
+                continue
+    else:
+        for fmt in ["%Y-%m-%d", "%d-%m-%Y", "%Y/%m/%d", "%d/%m/%Y"]:
+            try:
+                return pd.to_datetime(date_str, format=fmt)
+            except:
+                continue
+
+    return pd.NaT
+
+# Aplicar normalización de fechas
+date_cols = ['FECHA_NACIMIENTO', 'FECHA_INGRESO', 'FECHAALTA']
+
+for col in date_cols:
+    if col in df_grd.columns:
+        df_grd[col] = df_grd.apply(
+            lambda row: parse_date_flexible(row[col], row.get('year')),
+            axis=1
+        )
+```
+
+```{python}
+# Calcular variables derivadas
+# Edad en años (usando fecha de ingreso)
+df_grd['age'] = (df_grd['FECHA_INGRESO'] - df_grd['FECHA_NACIMIENTO']).dt.days / 365.25
+
+# Duración de estadía en días
+df_grd['length_of_stay'] = (df_grd['FECHAALTA'] - df_grd['FECHA_INGRESO']).dt.days.clip(lower=0)
+
+# Estado al alta (TIPOALTA: FALLECIDO vs otros)
+df_grd['mortality'] = (df_grd['TIPOALTA'].fillna('').str.upper().str.contains('FALLEC|MUERTE|DEFUN', regex=True)).astype(int)
+
+# Sexo binario (1 = Hombre, 0 = Mujer)
+df_grd['male'] = (df_grd['SEXO'].fillna('').str.upper() == 'HOMBRE').astype(int)
+
+# Display summary statistics
+summary_data = pd.DataFrame({
+    'Variable': ['age', 'length_of_stay', 'mortality'],
+    'Min/Count': [f"{df_grd['age'].min():.1f}", f"{df_grd['length_of_stay'].min()}", f"{df_grd['mortality'].sum():,}"],
+    'Max/Mean': [f"{df_grd['age'].max():.1f}", f"{df_grd['length_of_stay'].max()}", f"{df_grd['mortality'].mean()*100:.2f}%"],
+    'Mean': [f"{df_grd['age'].mean():.1f}", f"{df_grd['length_of_stay'].mean():.1f}", ""],
+    'Missing': [f"{df_grd['age'].isna().sum():,}", f"{df_grd['length_of_stay'].isna().sum():,}", ""]
+})
+show_table(summary_data, "Data Overview")
+```
+
+```{python}
+# Función para clasificar enfermedades endocrinas
+def get_endocrine_category(diag_str):
+    """Clasifica diagnóstico en categoría de enfermedad endocrina"""
+    if pd.isna(diag_str) or diag_str == '':
+        return None
+
+    diag = str(diag_str).strip().upper()[:3]
+
+    try:
+        num = int(diag[1:])
+        if 0 <= num <= 7:
+            return 'E00-E07: Thyroid'
+        elif 8 <= num <= 13:
+            return 'E08-E13: Diabetes'
+        elif 15 <= num <= 16:
+            return 'E15-E16: Glucose'
+        elif 20 <= num <= 35:
+            return 'E20-E35: Endocrine'
+        elif num == 36:
+            return 'E36: Intraoperative'
+        elif 40 <= num <= 46:
+            return 'E40-E46: Malnutrition'
+        elif 50 <= num <= 64:
+            return 'E50-E64: Nutritional'
+        elif 65 <= num <= 68:
+            return 'E65-E68: Obesity'
+        elif 70 <= num <= 88:
+            return 'E70-E88: Metabolic'
+        elif num == 89:
+            return 'E89: Postprocedural'
+    except:
+        pass
+
+    return None
+
+# Filtrar registros válidos
+# Remover sexo desconocido
+df_clean = df_grd[df_grd['SEXO'] != 'DESCONOCIDO'].copy()
+
+# Remover edades faltantes o inválidas
+df_clean = df_clean[(df_clean['age'].notna()) & (df_clean['age'] > 0) & (df_clean['age'] < 150)].copy()
+
+# Remover duración de estadía inválida
+df_clean = df_clean[(df_clean['length_of_stay'].notna()) & (df_clean['length_of_stay'] >= 0)].copy()
+```
+
+```{python}
+# Filter for ENDOCRINE diseases (DIAGNOSTICO1 starting with E00-E89)
+def is_endocrine_diagnosis(diag):
+    """Checks if diagnosis is an endocrine disease (E00-E89)"""
+    if pd.isna(diag) or diag == '':
+        return False
+
+    diag_str = str(diag).strip().upper()
+    if len(diag_str) < 1:
+        return False
+
+    icd_code = diag_str[:3]
+
+    if icd_code[0] == 'E':
+        try:
+            num = int(icd_code[1:])
+            return 0 <= num <= 89
+        except:
+            return False
+
+    return False
+
+# Apply filter
+df_endocrinas = df_clean[df_clean['DIAGNOSTICO1'].apply(is_endocrine_diagnosis)].copy()
+
+# Classify by category
+df_endocrinas['endocrine_category'] = df_endocrinas['DIAGNOSTICO1'].apply(get_endocrine_category)
+
+vc = df_endocrinas['endocrine_category'].value_counts().reset_index()
+vc.columns = ['Category', 'N']
+vc['%'] = (vc['N'] / vc['N'].sum() * 100).round(1)
+show_table(vc, "Endocrine Disease Category Distribution")
+```
+
+```{python}
+# Detectar comorbilidades basadas en diagnósticos secundarios
+
+# Definir grupos de comorbilidades
+life_groups = {
+    "obesity_overweight": ["E66", "E65", "E67", "E68", "R63", "Z68"],
+    "dyslipidemia_metabolic": ["E78", "E79", "E88"],
+    "diabetes_glucose": ["E10", "E11", "E12", "E13", "E14", "E09", "R73", "E08"],
+    "hypertension": ["I10", "I11", "I12", "I13", "I15", "I16", "I27"],
+    "tobacco_related": ["F17", "Z72", "Z87", "J44", "J43", "J41", "J42", "J47", "J40", "J98"],
+    "alcohol_related": ["F10", "K70", "K29", "G31", "G62", "G72", "I42", "K86", "E24", "E52", "T51", "Y90", "Y91"],
+    "substance_use": ["F11", "F12", "F13", "F14", "F15", "F16", "F18", "F19", "F55"],
+    "nutritional_deficiencies": ["E40", "E41", "E42", "E43", "E44", "E45", "E46", "E50", "E51", "E52", "E53", "E54", "E55", "E56", "E58", "E59", "E60", "E61", "E63", "E64", "D50", "D51", "D52", "D53"],
+    "liver_disease_nonalcoholic": ["K76", "K72", "K73", "K74", "K75", "K77"],
+    "sleep_disorders": ["G47", "F51", "G25"],
+    "cardiovascular": ["I20", "I21", "I22", "I23", "I24", "I25", "I50", "I51", "I64", "I65", "I66", "I67", "I70", "I73", "I77", "I78"],
+    "gastrointestinal": ["K21", "K22", "K25", "K26", "K27", "K28", "K29", "K30", "K31", "K58", "K59", "K90", "K91", "K92"],
+    "musculoskeletal": ["M79", "M81", "M80", "M85", "M62", "M25", "M54"],
+    "mental_health": ["F32", "F33", "F34", "F41", "F43", "F48", "F50", "F54"]
+}
+
+def check_comorbidity_group(row, icd_prefixes):
+    """Verifica si el paciente tiene algún diagnóstico en la lista de prefijos ICD"""
+    for i in range(2, 36):
+        col = f'DIAGNOSTICO{i}'
+        if col in row.index and pd.notna(row[col]):
+            diag = str(row[col]).strip().upper()[:3]
+            for prefix in icd_prefixes:
+                if diag.startswith(prefix):
+                    return 1
+    return 0
+
+# Identificar comorbilidades
+for group_name, icd_codes in life_groups.items():
+    df_endocrinas[f'comor_{group_name}'] = df_endocrinas.apply(
+        lambda row: check_comorbidity_group(row, icd_codes),
+        axis=1
+    )
+
+# Comorbidity statistics
+comor_cols = [col for col in df_endocrinas.columns if col.startswith('comor_')]
+comor_summary = df_endocrinas[comor_cols].sum()
+comor_summary.index = [col.replace('comor_', '') for col in comor_cols]
+comor_pct = 100 * comor_summary / len(df_endocrinas)
+
+# Display comorbidity prevalence
+comor_display = pd.DataFrame({
+    'Comorbidity': sorted(comor_summary.index),
+    'Count': [comor_summary[name] for name in sorted(comor_summary.index)],
+    'Percentage': [comor_pct[name] for name in sorted(comor_summary.index)]
+})
+comor_display.columns = [format_name(c) if c != 'Comorbidity' else c for c in comor_display.columns]
+show_table(comor_display, "Comorbidity Prevalence Overview")
+
+# Total comorbidity burden
+df_endocrinas['total_comorbidities'] = df_endocrinas[comor_cols].sum(axis=1)
+
+# Display comorbidity burden summary
+comorbidity_burden = pd.DataFrame({
+    'Metric': ['Mean', 'Median', 'Std Dev'],
+    'Value': [
+        f"{df_endocrinas['total_comorbidities'].mean():.2f}",
+        f"{df_endocrinas['total_comorbidities'].median():.0f}",
+        f"{df_endocrinas['total_comorbidities'].std():.2f}"
+    ]
+})
+show_table(comorbidity_burden, "Comorbidity Burden Statistics")
+```
+
+```{python}
+# Service categorization
+def categorize_service(service_name):
+    """Categorizes services into ICU/ITU, Medical/Surgical (MS), Others"""
+    if pd.isna(service_name) or service_name == '':
+        return 'Other'
+
+    service = str(service_name).upper()
+
+    if any(x in service for x in ['UCI', 'UTI', 'ICU', 'CRÍTICO', 'INTENSIVO', 'PABELLON CRITICO']):
+        return 'ICU/ITU'
+    elif any(x in service for x in ['CIRUGIA', 'MEDICINA', 'GENERAL']):
+        return 'Medical/Surgical'
+    else:
+        return 'Other'
+
+df_endocrinas['service_category'] = df_endocrinas['SERVICIOINGRESO'].apply(categorize_service)
+
+vc_service = df_endocrinas['service_category'].value_counts().reset_index()
+vc_service.columns = ['Service', 'N']
+vc_service['%'] = (vc_service['N'] / vc_service['N'].sum() * 100).round(1)
+show_table(vc_service, "Service Category Distribution")
+
+# Severity and mortality risk
+sev_cols = [col for col in df_endocrinas.columns if 'SEVERIDAD' in col.upper()]
+if sev_cols:
+    vc_sev = df_endocrinas[sev_cols[0]].value_counts().reset_index()
+    vc_sev.columns = ['Severity', 'N']
+    vc_sev['%'] = (vc_sev['N'] / vc_sev['N'].sum() * 100).round(1)
+    show_table(vc_sev, "Severity Distribution")
+
+mort_cols = [col for col in df_endocrinas.columns if 'MORTALIDAD' in col.upper()]
+if mort_cols:
+    vc_mort = df_endocrinas[mort_cols[0]].value_counts().reset_index()
+    vc_mort.columns = ['Mortality Risk', 'N']
+    vc_mort['%'] = (vc_mort['N'] / vc_mort['N'].sum() * 100).round(1)
+    show_table(vc_mort, "Mortality Risk Distribution")
+```
+
+---
+
+# Descriptive Statistics
+
+```{python}
+# Table 1: Patient Distribution by Disease Category
+cat_summary = []
+for cat in sorted(df_endocrinas['endocrine_category'].dropna().unique()):
+    cat_data = df_endocrinas[df_endocrinas['endocrine_category'] == cat]
+
+    cat_summary.append({
+        'Disease Category': cat,
+        'N': f"{len(cat_data):,}",
+        'Discharged': f"{(cat_data['mortality'] == 0).sum():,}",
+        'Deceased': f"{(cat_data['mortality'] == 1).sum():,}",
+        'Mortality %': f"{100 * cat_data['mortality'].mean():.2f}",
+        'Mean Age': f"{cat_data['age'].mean():.1f}",
+        'Age Range': f"{int(cat_data['age'].min())}-{int(cat_data['age'].max())}",
+        'Female %': f"{100 * (1 - cat_data['male']).mean():.1f}",
+        'Mean LOS': f"{cat_data['length_of_stay'].mean():.1f}",
+        'Median LOS': f"{cat_data['length_of_stay'].median():.1f}",
+        'SD LOS': f"{cat_data['length_of_stay'].std():.1f}"
+    })
+
+table1_df = pd.DataFrame(cat_summary)
+show_table(table1_df, "Table 1: Patient Distribution by Disease Category (All Years Combined)")
+```
+
+```{python}
+# Table 1B: Overall Cohort Summary
+overall_summary = pd.DataFrame({
+    'Metric': [
+        'Total Patients',
+        'Mean Age ± SD',
+        'Median Age [IQR]',
+        'Male',
+        'Female',
+        'In-Hospital Deaths',
+        'Mortality Rate',
+        'Mean LOS ± SD',
+        'Median LOS [IQR]'
+    ],
+    'Value': [
+        f'{len(df_endocrinas):,}',
+        f"{df_endocrinas['age'].mean():.1f} ± {df_endocrinas['age'].std():.1f}",
+        f"{df_endocrinas['age'].median():.1f} [{df_endocrinas['age'].quantile(0.25):.1f}-{df_endocrinas['age'].quantile(0.75):.1f}]",
+        f"{df_endocrinas['male'].sum():,} ({100*df_endocrinas['male'].mean():.1f}%)",
+        f"{(1-df_endocrinas['male']).sum():,} ({100*(1-df_endocrinas['male']).mean():.1f}%)",
+        f"{df_endocrinas['mortality'].sum():,}",
+        f"{100*df_endocrinas['mortality'].mean():.2f}%",
+        f"{df_endocrinas['length_of_stay'].mean():.1f} ± {df_endocrinas['length_of_stay'].std():.1f}",
+        f"{df_endocrinas['length_of_stay'].median():.1f} [{df_endocrinas['length_of_stay'].quantile(0.25):.1f}-{df_endocrinas['length_of_stay'].quantile(0.75):.1f}]"
+    ]
+})
+show_table(overall_summary, "Table 1B: Overall Cohort Summary")
+```
+
+```{python}
+#| label: fig-demographics
+#| fig-cap: "Demographic characteristics by endocrine disease category"
+#| fig-width: 14
+#| fig-height: 10
+
+fig, axes = plt.subplots(2, 2, figsize=(14, 10))
+
+# Age distribution by category - ALL categories shown
+categories_list = sorted([c for c in df_endocrinas['endocrine_category'].unique() if pd.notna(c)])
+colors_list = plt.cm.Set3(np.linspace(0, 1, len(categories_list)))
+for i, category in enumerate(categories_list):
+    data = df_endocrinas[df_endocrinas['endocrine_category'] == category]['age']
+    axes[0, 0].hist(data, alpha=0.5, label=category, bins=25, color=colors_list[i])
+axes[0, 0].set_xlabel('Age (Years)', fontweight='bold', fontsize=11)
+axes[0, 0].set_ylabel('Frequency', fontweight='bold', fontsize=11)
+axes[0, 0].set_title('Age Distribution by Disease Category', fontweight='bold', fontsize=12)
+axes[0, 0].legend(fontsize=8, loc='upper right')
+axes[0, 0].grid(True, alpha=0.3)
+
+# Mortality by category
+mortality_by_cat = df_endocrinas.groupby('endocrine_category')['mortality'].agg(['sum', 'count'])
+mortality_by_cat['pct'] = 100 * mortality_by_cat['sum'] / mortality_by_cat['count']
+mortality_by_cat = mortality_by_cat.sort_values('pct', ascending=False)
+colors_mort = ['#e74c3c' if p > df_endocrinas['mortality'].mean()*100 else '#2ecc71' for p in mortality_by_cat['pct']]
+axes[0, 1].barh(range(len(mortality_by_cat)), mortality_by_cat['pct'], color=colors_mort, alpha=0.8)
+axes[0, 1].set_yticks(range(len(mortality_by_cat)))
+axes[0, 1].set_yticklabels(mortality_by_cat.index, fontsize=9)
+axes[0, 1].set_xlabel('In-Hospital Mortality (%)', fontweight='bold', fontsize=11)
+axes[0, 1].set_title('Mortality Rate by Disease Category', fontweight='bold', fontsize=12)
+axes[0, 1].grid(True, alpha=0.3, axis='x')
+
+# Gender distribution
+gender_counts = df_endocrinas['male'].map({1: 'Male', 0: 'Female'}).value_counts()
+axes[1, 0].pie(gender_counts.values, labels=gender_counts.index, autopct='%1.1f%%',
+               colors=['steelblue', 'coral'], startangle=90)
+axes[1, 0].set_title('Sex Distribution', fontweight='bold', fontsize=12)
+
+# Service category
+service_counts = df_endocrinas['service_category'].value_counts()
+service_labels = [format_name(f'service_{s.replace("/", "_").upper()}') if s != 'Other' else s for s in service_counts.index]
+axes[1, 1].bar(range(len(service_counts)), service_counts.values, color=['coral', 'steelblue', 'forestgreen'][:len(service_counts)], alpha=0.8)
+axes[1, 1].set_xticks(range(len(service_counts)))
+axes[1, 1].set_xticklabels(service_counts.index, rotation=45, ha='right')
+axes[1, 1].set_ylabel('Number of Patients', fontweight='bold', fontsize=11)
+axes[1, 1].set_title('Distribution by Service Category', fontweight='bold', fontsize=12)
+axes[1, 1].grid(True, alpha=0.3, axis='y')
+
+plt.tight_layout()
+plt.savefig('../data/output_files/endocrinas_parte2/fig_demographics.png', dpi=1200, bbox_inches='tight')
+plt.show()
+```
+
+```{python}
+#| label: fig-age-by-category
+#| fig-cap: "Figure 2. Age Distribution by Disease Category"
+#| fig-width: 14
+#| fig-height: 6
+
+fig, axes = plt.subplots(1, 2, figsize=(14, 6))
+
+categories_sorted = sorted(df_endocrinas['endocrine_category'].dropna().unique())
+
+# Violin plot
+ax = axes[0]
+for i, cat in enumerate(categories_sorted):
+    data = df_endocrinas[df_endocrinas['endocrine_category'] == cat]['age'].dropna()
+    ax.violinplot([data], positions=[i], widths=0.7, showmeans=True, showmedians=True)
+ax.set_xticks(range(len(categories_sorted)))
+ax.set_xticklabels(categories_sorted, rotation=45, ha='right', fontsize=8)
+ax.set_ylabel('Age (years)')
+ax.set_title('Age Distribution (Violin Plot)')
+ax.grid(True, alpha=0.3, axis='y')
+
+# Box plot
+ax = axes[1]
+data_by_cat = [df_endocrinas[df_endocrinas['endocrine_category'] == cat]['age'].dropna().values
+               for cat in categories_sorted]
+bp = ax.boxplot(data_by_cat, labels=categories_sorted, patch_artist=True)
+for patch in bp['boxes']:
+    patch.set_facecolor('lightblue')
+ax.set_ylabel('Age (years)')
+ax.set_title('Age Distribution (Box Plot)')
+ax.set_xticklabels(categories_sorted, rotation=45, ha='right', fontsize=8)
+ax.grid(True, alpha=0.3, axis='y')
+
+plt.tight_layout()
+plt.savefig('../data/output_files/endocrinas_parte2/fig_age_by_category.png', dpi=1200, bbox_inches='tight')
+plt.show()
+```
+
+```{python}
+# Table 2: Yearly Trends by Disease Category
+trend_data = []
+for year in sorted(df_endocrinas['year'].unique()):
+    for cat in sorted(df_endocrinas['endocrine_category'].dropna().unique()):
+        subset = df_endocrinas[(df_endocrinas['year'] == year) & (df_endocrinas['endocrine_category'] == cat)]
+
+        if len(subset) >= 5:
+            trend_data.append({
+                'Year': int(year),
+                'Category': cat,
+                'N': f"{len(subset):,}",
+                'Mortality %': f"{100 * subset['mortality'].mean():.2f}",
+                'Mean Age': f"{subset['age'].mean():.1f}",
+                'Mean LOS': f"{subset['length_of_stay'].mean():.1f}",
+                'Any Comorbidity %': f"{100 * (subset['total_comorbidities'] > 0).mean():.1f}"
+            })
+
+table2_df = pd.DataFrame(trend_data)
+show_table(table2_df, "Table 2: Trends by Year and Category")
+```
+
+```{python}
+# Table 3: Discharge Status Summary
+discharge_summary = []
+for status_val, status_label in [(0, 'Discharged'), (1, 'Deceased')]:
+    status_data = df_endocrinas[df_endocrinas['mortality'] == status_val]
+    total_n = len(status_data)
+
+    discharge_summary.append({
+        'Status': status_label,
+        'N': f"{total_n:,}",
+        '%': f"{100 * total_n / len(df_endocrinas):.1f}",
+        'Mean Age': f"{status_data['age'].mean():.1f}",
+        'Female %': f"{100 * (1 - status_data['male']).mean():.1f}",
+        'Mean LOS': f"{status_data['length_of_stay'].mean():.1f}",
+        'Median LOS': f"{status_data['length_of_stay'].median():.1f}"
+    })
+
+table3_df = pd.DataFrame(discharge_summary)
+show_table(table3_df, "Table 3: Summary by Discharge Status")
+```
+
+```{python}
+# Table 4: Length of Stay by Category and Discharge Status
+los_by_status = []
+for cat in sorted(df_endocrinas['endocrine_category'].dropna().unique()):
+    for status_val, status_label in [(0, 'Discharged'), (1, 'Deceased')]:
+        subset = df_endocrinas[(df_endocrinas['endocrine_category'] == cat) & (df_endocrinas['mortality'] == status_val)]
+
+        if len(subset) >= 3:
+            los_by_status.append({
+                'Category': cat,
+                'Status': status_label,
+                'N': f"{len(subset):,}",
+                'Mean LOS': f"{subset['length_of_stay'].mean():.1f}",
+                'Median LOS': f"{subset['length_of_stay'].median():.1f}",
+                'IQR': f"{subset['length_of_stay'].quantile(0.25):.1f}-{subset['length_of_stay'].quantile(0.75):.1f}"
+            })
+
+table4_df = pd.DataFrame(los_by_status)
+show_table(table4_df, "Table 4: Length of Stay by Category and Discharge Status")
+```
+
+```{python}
+# Table 5: Yearly Summary
+yearly_summary = []
+for year in sorted(df_endocrinas['year'].unique()):
+    year_data = df_endocrinas[df_endocrinas['year'] == year]
+
+    yearly_summary.append({
+        'Year': int(year),
+        'Total': f"{len(year_data):,}",
+        'Discharged': f"{(year_data['mortality'] == 0).sum():,}",
+        'Deceased': f"{(year_data['mortality'] == 1).sum():,}",
+        'Mortality %': f"{100 * year_data['mortality'].mean():.2f}",
+        'Mean LOS': f"{year_data['length_of_stay'].mean():.1f}"
+    })
+
+table5_df = pd.DataFrame(yearly_summary)
+show_table(table5_df, "Table 5: Yearly Trends (Total, Discharged, Deceased, Mortality %, Mean LOS)")
+```
+
+```{python}
+# Table 6: Mean LOS by Category and Comorbidity
+los_by_comorbidity = []
+for cat in sorted(df_endocrinas['endocrine_category'].dropna().unique()):
+    cat_data = df_endocrinas[df_endocrinas['endocrine_category'] == cat]
+
+    row = {'Category': cat}
+    for comor_col in sorted(comor_cols):
+        comor_short = comor_col.replace('comor_', '').replace('_', ' ')
+        with_comor = cat_data[cat_data[comor_col] == 1]['length_of_stay'].mean()
+        row[comor_short] = f"{with_comor:.1f}" if pd.notna(with_comor) else "—"
+
+    los_by_comorbidity.append(row)
+
+table6_df = pd.DataFrame(los_by_comorbidity)
+show_table(table6_df, "Table 6: Mean LOS by Category and Comorbidity")
+```
+
+```{python}
+# Table 7: Comorbidity Impact on LOS
+comor_impact = []
+for col in sorted(comor_cols):
+    comor_display = format_name(col)
+    los_with = df_endocrinas[df_endocrinas[col] == 1]['length_of_stay'].mean()
+    los_without = df_endocrinas[df_endocrinas[col] == 0]['length_of_stay'].mean()
+    difference = los_with - los_without
+
+    comor_impact.append({
+        'Comorbidity': comor_display,
+        'N WITH': f"{(df_endocrinas[col] == 1).sum():,}",
+        'Mean LOS WITH': f"{los_with:.1f}",
+        'Mean LOS WITHOUT': f"{los_without:.1f}",
+        'Difference': f"{difference:.1f}"
+    })
+
+table7_df = pd.DataFrame(comor_impact).sort_values('Difference', ascending=False, key=lambda x: pd.to_numeric(x.str.replace(',', ''), errors='coerce'))
+show_table(table7_df, "Table 7: LOS Impact (Difference WITH - WITHOUT comorbidity)")
+```
+
+```{python}
+#| label: fig-los-by-category
+#| fig-cap: "Figure 5. Length of Stay by Disease Category and Discharge Status"
+#| fig-width: 12
+#| fig-height: 6
+
+fig, axes = plt.subplots(1, 2, figsize=(12, 6))
+categories_sorted = sorted(df_endocrinas['endocrine_category'].dropna().unique())
+
+# Box plot
+ax = axes[0]
+data_discharged = []
+data_deceased = []
+labels = []
+for cat in categories_sorted:
+    df_cat = df_endocrinas[df_endocrinas['endocrine_category'] == cat]
+    data_discharged.append(df_cat[df_cat['mortality'] == 0]['length_of_stay'].values)
+    data_deceased.append(df_cat[df_cat['mortality'] == 1]['length_of_stay'].values)
+    labels.append(cat)
+
+positions_dis = np.arange(len(labels)) * 2.5
+positions_dec = positions_dis + 1
+bp1 = ax.boxplot(data_discharged, positions=positions_dis, widths=0.8, patch_artist=True, label='Discharged')
+bp2 = ax.boxplot(data_deceased, positions=positions_dec, widths=0.8, patch_artist=True, label='Deceased')
+for patch in bp1['boxes']:
+    patch.set_facecolor('lightgreen')
+for patch in bp2['boxes']:
+    patch.set_facecolor('lightcoral')
+ax.set_xticks((positions_dis + positions_dec) / 2)
+ax.set_xticklabels(labels, rotation=45, ha='right', fontsize=7)
+ax.set_ylabel('Length of Stay (days)')
+ax.set_title('LOS Distribution by Category and Discharge Status')
+ax.set_ylim([0, 100])
+ax.legend()
+ax.grid(True, alpha=0.3, axis='y')
+
+# Bar plot of means
+ax = axes[1]
+means_dis = [df_endocrinas[(df_endocrinas['endocrine_category'] == cat) & (df_endocrinas['mortality'] == 0)]['length_of_stay'].mean() for cat in categories_sorted]
+means_dec = [df_endocrinas[(df_endocrinas['endocrine_category'] == cat) & (df_endocrinas['mortality'] == 1)]['length_of_stay'].mean() for cat in categories_sorted]
+x = np.arange(len(labels))
+width = 0.35
+ax.bar(x - width/2, means_dis, width, label='Discharged', color='lightgreen')
+ax.bar(x + width/2, means_dec, width, label='Deceased', color='lightcoral')
+ax.set_ylabel('Mean Length of Stay (days)')
+ax.set_title('Mean LOS by Category and Discharge Status')
+ax.set_xticks(x)
+ax.set_xticklabels(labels, rotation=45, ha='right', fontsize=7)
+ax.legend()
+ax.grid(True, alpha=0.3, axis='y')
+
+plt.tight_layout()
+plt.savefig('../data/output_files/endocrinas_parte2/fig_los_by_category.png', dpi=1200, bbox_inches='tight')
+plt.show()
+```
+
+```{python}
+#| label: fig-los-impact-heatmap
+#| fig-cap: "Figure 6. Heatmap: LOS Impact by Comorbidity and Disease Category"
+#| fig-width: 12
+#| fig-height: 6
+
+heatmap_los_impact = []
+for cat in categories_sorted:
+    df_cat = df_endocrinas[df_endocrinas['endocrine_category'] == cat]
+    row = []
+    for col in comor_cols:
+        df_with = df_cat[df_cat[col] == 1]
+        df_without = df_cat[df_cat[col] == 0]
+        los_with = df_with['length_of_stay'].mean() if len(df_with) > 0 else 0
+        los_without = df_without['length_of_stay'].mean() if len(df_without) > 0 else 0
+        row.append(los_with - los_without)
+    heatmap_los_impact.append(row)
+
+heatmap_los_impact_df = pd.DataFrame(heatmap_los_impact, index=categories_sorted,
+                                      columns=[format_name(col) for col in comor_cols])
+
+fig, ax = plt.subplots(figsize=(22, 8))
+sns.heatmap(heatmap_los_impact_df, annot=True, fmt='.1f', cmap='RdBu_r', center=0,
+            cbar_kws={'label': 'LOS Difference (days)'}, ax=ax,
+            annot_kws={'rotation': 90, 'fontsize': 8})
+ax.set_title('Length of Stay Impact: WITH - WITHOUT Comorbidity (days)')
+ax.set_xlabel('Comorbidity')
+ax.set_ylabel('Disease Category')
+plt.setp(ax.get_xticklabels(), rotation=45, ha='right', rotation_mode='anchor', fontsize=8)
+plt.setp(ax.get_yticklabels(), rotation=0)
+plt.tight_layout()
+plt.savefig('../data/output_files/endocrinas_parte2/fig_los_impact_heatmap.png', dpi=1200, bbox_inches='tight', facecolor='white')
+plt.show()
+```
+
+```{python}
+#| label: fig-comorbidity-heatmap
+#| fig-cap: "Comorbidity prevalence heatmap by endocrine disease category (all patients)"
+#| fig-width: 13
+#| fig-height: 8
+
+fig, ax = plt.subplots(figsize=(14, 12))
+
+# Build comorbidity matrix
+categories_for_heatmap = [c for c in df_endocrinas['endocrine_category'].unique() if pd.notna(c) and df_endocrinas[df_endocrinas['endocrine_category'] == c].shape[0] >= 20]
+comor_by_cat = pd.DataFrame()
+
+for category in sorted(categories_for_heatmap):
+    cat_data = df_endocrinas[df_endocrinas['endocrine_category'] == category][comor_cols].mean() * 100
+    cat_data.index = [format_name(col) for col in comor_cols]
+    comor_by_cat[category] = cat_data
+
+comor_by_cat = comor_by_cat.loc[comor_by_cat.mean(axis=1).sort_values(ascending=True).index]
+
+sns.heatmap(comor_by_cat, annot=True, fmt='.1f', cmap='YlOrRd',
+            cbar_kws={'label': 'Prevalence (%)'}, ax=ax, vmin=0, vmax=50,
+            annot_kws={'rotation': 90, 'fontsize': 8})
+ax.set_title('Comorbidity Prevalence by Disease Category (All Patients)', fontweight='bold', fontsize=13)
+ax.set_xlabel('Disease Category', fontweight='bold', fontsize=11)
+ax.set_ylabel('Comorbidity', fontweight='bold', fontsize=11)
+plt.setp(ax.get_xticklabels(), rotation=45, ha='right', rotation_mode='anchor', fontsize=9)
+plt.setp(ax.get_yticklabels(), rotation=0, fontsize=8)
+
+plt.tight_layout()
+plt.savefig('../data/output_files/endocrinas_parte2/fig_comorbidity_heatmap.png', dpi=1200, bbox_inches='tight', facecolor='white')
+plt.show()
+```
+
+```{python}
+#| label: fig-mortality-trends
+#| fig-cap: "Temporal trends in in-hospital mortality rate (2019-2024)"
+#| fig-width: 12
+#| fig-height: 6
+
+fig, ax = plt.subplots(figsize=(12, 6))
+
+mortality_by_year = df_endocrinas.groupby('year')['mortality'].agg(['sum', 'count', 'mean'])
+mortality_by_year['pct'] = mortality_by_year['mean'] * 100
+
+ax.plot(mortality_by_year.index, mortality_by_year['pct'], marker='o', linewidth=2.5, markersize=10, color='coral')
+ax.fill_between(mortality_by_year.index, mortality_by_year['pct'], alpha=0.3, color='coral')
+ax.set_xlabel('Year', fontsize=12, fontweight='bold')
+ax.set_ylabel('In-Hospital Mortality (%)', fontsize=12, fontweight='bold')
+ax.set_title('Temporal Trends in Mortality Rate (2019-2024)', fontsize=13, fontweight='bold')
+ax.grid(True, alpha=0.3)
+
+for year, row in mortality_by_year.iterrows():
+    ax.text(year, row['pct'] + 0.3, f"{row['pct']:.1f}%", ha='center', fontsize=10)
+
+plt.tight_layout()
+plt.savefig('../data/output_files/endocrinas_parte2/fig_mortality_trends.png', dpi=1200, bbox_inches='tight')
+plt.show()
+```
+
+---
+
+# Bivariate Analysis
+
+```{python}
+# Table 8: Comorbidity Prevalence - All Patients
+discharged = df_endocrinas[df_endocrinas['mortality'] == 0]
+deceased = df_endocrinas[df_endocrinas['mortality'] == 1]
+
+comor_prevalence_all = []
+for col in sorted(comor_cols):
+    total_with = (df_endocrinas[col] == 1).sum()
+    pct = 100 * total_with / len(df_endocrinas)
+    comor_prevalence_all.append({
+        'Comorbidity': format_name(col),
+        'N': f"{total_with:,}",
+        'Prevalence %': f"{pct:.1f}"
+    })
+
+comor_prev_all_df = pd.DataFrame(comor_prevalence_all).sort_values('Prevalence %', ascending=False, key=lambda x: pd.to_numeric(x.str.rstrip('%'), errors='coerce'))
+show_table(comor_prev_all_df, f"Table 8: Comorbidity Prevalence - All Patients (N={len(df_endocrinas):,})")
+```
+
+```{python}
+# Table 9: Comorbidity Prevalence - Discharged Patients
+comor_prevalence_discharged = []
+for col in sorted(comor_cols):
+    total_with = (discharged[col] == 1).sum()
+    pct = 100 * total_with / len(discharged) if len(discharged) > 0 else 0
+    comor_prevalence_discharged.append({
+        'Comorbidity': format_name(col),
+        'N': f"{total_with:,}",
+        'Prevalence %': f"{pct:.1f}"
+    })
+
+comor_prev_discharged_df = pd.DataFrame(comor_prevalence_discharged).sort_values('Prevalence %', ascending=False, key=lambda x: pd.to_numeric(x.str.rstrip('%'), errors='coerce'))
+show_table(comor_prev_discharged_df, f"Table 9: Comorbidity Prevalence - Discharged (N={len(discharged):,})")
+```
+
+```{python}
+# Table 10: Comorbidity Prevalence - Deceased Patients
+comor_prevalence_deceased = []
+for col in sorted(comor_cols):
+    total_with = (deceased[col] == 1).sum()
+    pct = 100 * total_with / len(deceased) if len(deceased) > 0 else 0
+    comor_prevalence_deceased.append({
+        'Comorbidity': format_name(col),
+        'N': f"{total_with:,}",
+        'Prevalence %': f"{pct:.1f}"
+    })
+
+comor_prev_deceased_df = pd.DataFrame(comor_prevalence_deceased).sort_values('Prevalence %', ascending=False, key=lambda x: pd.to_numeric(x.str.rstrip('%'), errors='coerce'))
+show_table(comor_prev_deceased_df, f"Table 10: Comorbidity Prevalence - Deceased (N={len(deceased):,})")
+```
+
+```{python}
+# Table 10B: Difference in Comorbidity Prevalence (Deceased - Discharged) with chi-square
+comorb_diff = []
+for cat in sorted(df_endocrinas['endocrine_category'].dropna().unique()):
+    df_cat = df_endocrinas[df_endocrinas['endocrine_category'] == cat]
+    row = {'Disease Category': cat}
+
+    for col in comor_cols:
+        df_dis = df_cat[df_cat['mortality'] == 0]
+        df_dec = df_cat[df_cat['mortality'] == 1]
+
+        prev_dis = (df_dis[col].mean() * 100) if len(df_dis) > 0 else 0
+        prev_dec = (df_dec[col].mean() * 100) if len(df_dec) > 0 else 0
+        diff = prev_dec - prev_dis
+
+        try:
+            contingency_table = pd.crosstab(df_cat['mortality'], df_cat[col])
+            chi2, pval, dof, expected = chi2_contingency(contingency_table)
+            sig_stars = '***' if pval < 0.001 else '**' if pval < 0.01 else '*' if pval < 0.05 else ''
+        except:
+            sig_stars = ''
+
+        row[format_name(col)] = f'{diff:+.1f}%{sig_stars}'
+
+    comorb_diff.append(row)
+
+comorb_diff_df = pd.DataFrame(comorb_diff)
+show_table(comorb_diff_df, "Table 10B: Difference in Comorbidity Prevalence (Deceased - Discharged, %)\n* p<0.05, ** p<0.01, *** p<0.001", index=False)
+```
+
+```{python}
+# Table 11: Bivariate Associations - Comorbidities and Mortality
+comor_associations = []
+
+for col in sorted(comor_cols):
+    if df_endocrinas[col].sum() > 5:
+        contingency = pd.crosstab(df_endocrinas[col], df_endocrinas['mortality'])
+
+        try:
+            expected_freq = pd.crosstab(df_endocrinas[col], df_endocrinas['mortality'], margins=True).iloc[:-1, :-1].values
+            if (expected_freq >= 5).all():
+                chi2, p, dof, _ = chi2_contingency(contingency)
+            else:
+                try:
+                    _, p = fisher_exact([[contingency.iloc[0,0], contingency.iloc[0,1]],
+                                         [contingency.iloc[1,0], contingency.iloc[1,1]]])
+                except:
+                    p = np.nan
+        except:
+            p = np.nan
+
+        mortality_with = df_endocrinas[df_endocrinas[col] == 1]['mortality'].mean() * 100
+        mortality_without = df_endocrinas[df_endocrinas[col] == 0]['mortality'].mean() * 100
+
+        sig_star = ''
+        if pd.notna(p):
+            if p < 0.001:
+                sig_star = '***'
+            elif p < 0.01:
+                sig_star = '**'
+            elif p < 0.05:
+                sig_star = '*'
+
+        p_str = f"{p:.4f}" if pd.notna(p) else "—"
+
+        comor_associations.append({
+            'Comorbidity': format_name(col),
+            'N WITH': f"{(df_endocrinas[col] == 1).sum():,}",
+            'Mortality WITH %': f"{mortality_with:.1f}",
+            'Mortality WITHOUT %': f"{mortality_without:.1f}",
+            'p-value': p_str,
+            'Sig': sig_star
+        })
+
+comor_assoc_df = pd.DataFrame(comor_associations)
+show_table(comor_assoc_df, "Table 11: Bivariate Associations - Comorbidities and Mortality")
+
+sig_comorbidities = [row['Comorbidity'] for _, row in comor_assoc_df.iterrows() if row['Sig'] != '']
+```
+
+```{python}
+#| label: fig-comorbidity-pvalues
+#| fig-cap: "P-values from bivariate tests of comorbidity-mortality associations"
+#| fig-width: 12
+#| fig-height: 8
+
+fig, ax = plt.subplots(figsize=(12, 8))
+
+comor_assoc_df_sorted = comor_assoc_df.copy()
+comor_assoc_df_sorted['p_numeric'] = pd.to_numeric(comor_assoc_df_sorted['p-value'], errors='coerce')
+comor_assoc_df_sorted = comor_assoc_df_sorted.dropna(subset=['p_numeric']).sort_values('p_numeric')
+colors = ['coral' if p < 0.05 else '#95a5a6' for p in comor_assoc_df_sorted['p_numeric']]
+
+ax.barh(range(len(comor_assoc_df_sorted)), -np.log10(comor_assoc_df_sorted['p_numeric']), color=colors, alpha=0.8)
+ax.axvline(-np.log10(0.05), color='red', linestyle='--', linewidth=2, label='p=0.05 threshold')
+ax.set_yticks(range(len(comor_assoc_df_sorted)))
+ax.set_yticklabels(comor_assoc_df_sorted['Comorbidity'], fontsize=10)
+ax.set_xlabel('-log10(p-value)', fontsize=11, fontweight='bold')
+ax.set_title('Statistical Significance of Comorbidity-Mortality Associations', fontweight='bold', fontsize=12)
+ax.legend(fontsize=10)
+ax.grid(True, alpha=0.3, axis='x')
+
+plt.tight_layout()
+plt.savefig('../data/output_files/endocrinas_parte2/fig_bivariate_pvalues.png', dpi=1200, bbox_inches='tight')
+plt.show()
+```
+
+---
+
+# 5. Bivariate Analysis (Per Disease Category)
+
+```{python}
+from scipy.stats import chi2_contingency, ranksums
+
+# Bivariate analysis: chi-square for mortality, Wilcoxon for LOS per disease category
+all_categories = sorted(df_endocrinas['endocrine_category'].dropna().unique())
+df_bivariate = []
+
+for cat in all_categories:
+    df_cat = df_endocrinas[df_endocrinas['endocrine_category'] == cat]
+
+    if len(df_cat) < 30:
+        continue
+
+    for col in comor_cols:
+        # Chi-square test for mortality association
+        contingency = pd.crosstab(df_cat[col], df_cat['mortality'])
+        try:
+            chi2, pval_mort, dof, expected = chi2_contingency(contingency)
+        except:
+            pval_mort = np.nan
+
+        # Wilcoxon rank-sum test for LOS difference
+        group_with = df_cat[df_cat[col] == 1]['length_of_stay'].dropna()
+        group_without = df_cat[df_cat[col] == 0]['length_of_stay'].dropna()
+        try:
+            if len(group_with) >= 5 and len(group_without) >= 5:
+                stat, pval_los = ranksums(group_with, group_without)
+            else:
+                pval_los = np.nan
+        except:
+            pval_los = np.nan
+
+        df_bivariate.append({
+            'Disease Category': cat,
+            'Comorbidity': format_name(col),
+            'Chi-square p-value': pval_mort,
+            'LOS p-value (Wilcoxon)': pval_los,
+            'N with': len(group_with),
+            'N without': len(group_without)
+        })
+
+df_bivariate = pd.DataFrame(df_bivariate)
+show_table(df_bivariate, "Table 20: Bivariate Analysis by Disease Category", index=False)
+```
+
+```{python}
+# Build dictionaries of significant comorbidities per category (p < 0.05)
+display_to_col = {format_name(c): c for c in comor_cols}
+
+sig_comorbidities_mortality = {}
+sig_comorbidities_los = {}
+
+for cat in all_categories:
+    cat_biv = df_bivariate[df_bivariate['Disease Category'] == cat]
+    sig_mort = []
+    sig_los = []
+    for _, row in cat_biv.iterrows():
+        comorb_display = row['Comorbidity']
+        col_name = display_to_col.get(comorb_display, None)
+        if col_name is None:
+            continue
+        if not np.isnan(row['Chi-square p-value']) and row['Chi-square p-value'] < 0.05:
+            sig_mort.append(col_name)
+        if not np.isnan(row['LOS p-value (Wilcoxon)']) and row['LOS p-value (Wilcoxon)'] < 0.05:
+            sig_los.append(col_name)
+    sig_comorbidities_mortality[cat] = sig_mort
+    sig_comorbidities_los[cat] = sig_los
+
+sig_summary = []
+for cat in all_categories:
+    sig_summary.append({
+        'Disease Category': cat,
+        'Sig. Comorbidities (Mortality)': len(sig_comorbidities_mortality.get(cat, [])),
+        'Sig. Comorbidities (LOS)': len(sig_comorbidities_los.get(cat, [])),
+        'Mortality List': ', '.join([format_name(c) for c in sig_comorbidities_mortality.get(cat, [])]) or '—',
+        'LOS List': ', '.join([format_name(c) for c in sig_comorbidities_los.get(cat, [])]) or '—'
+    })
+
+sig_summary_df = pd.DataFrame(sig_summary)
+show_table(sig_summary_df, "Table 21: Significant Comorbidities by Disease Category (p < 0.05 in Bivariate Analysis)", index=False)
+```
+
+---
+
+# 6. GEE Mixed-Effects Logistic Regression for Mortality (All Disease Categories)
+
+```{python}
+from statsmodels.genmod.generalized_estimating_equations import GEE
+from statsmodels.genmod.families import Binomial, Poisson, NegativeBinomial
+from statsmodels.genmod.cov_struct import Exchangeable, Independence
+import statsmodels.api as sm
+
+# Prepare hospital clustering variable
+if 'COD_HOSPITAL' in df_endocrinas.columns:
+    df_endocrinas['hospital_id'] = df_endocrinas['COD_HOSPITAL'].astype(str)
+elif 'COD_HOSPITAL' in df_grd.columns:
+    df_endocrinas['hospital_id'] = df_grd.loc[df_endocrinas.index, 'COD_HOSPITAL'].astype(str)
+else:
+    df_endocrinas['hospital_id'] = '1'
+
+df_endocrinas['year_factor'] = df_endocrinas['year'].astype(str)
+
+# Store GEE model results
+gee_mortality_models = {}
+gee_mortality_results = {}
+
+def find_optimal_threshold(y_true, y_proba):
+    """Find optimal classification threshold using Youden's J statistic"""
+    fpr, tpr, thresholds = roc_curve(y_true, y_proba)
+    j_scores = tpr - fpr
+    best_idx = np.argmax(j_scores)
+    return thresholds[best_idx]
+
+def safe_fmt(val, fmt='.4f'):
+    """Format a value safely, returning '—' for NaN/Inf"""
+    if isinstance(val, float) and (np.isnan(val) or np.isinf(val)):
+        return '—'
+    try:
+        return f'{val:{fmt}}'
+    except:
+        return '—'
+
+def build_gee_mortality_model(df_cat, cat_name):
+    """Build GEE logistic regression for mortality.
+    Uses hospital_id as cluster group, year_factor as fixed effect,
+    and only significant comorbidities from bivariate analysis."""
+    df_model = df_cat.copy()
+
+    # Create service dummies
+    service_dummies = pd.get_dummies(df_model['service_category'], prefix='service', drop_first=True)
+    for col in service_dummies.columns:
+        df_model[col] = service_dummies[col]
+    service_dummy_cols = list(service_dummies.columns)
+
+    # Create year dummies (year_factor as fixed effect)
+    year_dummies = pd.get_dummies(df_model['year_factor'], prefix='year', drop_first=True)
+    for col in year_dummies.columns:
+        df_model[col] = year_dummies[col]
+    year_dummy_cols = list(year_dummies.columns)
+
+    df_model['age'] = pd.to_numeric(df_model['age'], errors='coerce')
+
+    # Base predictors
+    predictor_cols = ['age', 'male'] + service_dummy_cols + year_dummy_cols
+
+    # Add severity and mortality risk as categorical dummies
+    for col in ['IR_29301_SEVERIDAD', 'IR_29301_MORTALIDAD']:
+        if col in df_model.columns:
+            df_model[col] = pd.to_numeric(df_model[col], errors='coerce')
+            df_model[col] = df_model[col].fillna(1)
+            df_model[col] = df_model[col].clip(lower=1).astype(int)
+            prefix = 'severity' if 'SEVERIDAD' in col else 'mort_risk'
+            col_dummies = pd.get_dummies(df_model[col], prefix=prefix, drop_first=True)
+            for dc in col_dummies.columns:
+                df_model[dc] = col_dummies[dc]
+                predictor_cols.append(dc)
+
+    # Add ONLY significant comorbidities from bivariate analysis
+    sig_comorbs = sig_comorbidities_mortality.get(cat_name, [])
+    used_comorbs = []
+    for col in sig_comorbs:
+        if col in df_model.columns:
+            df_model[col] = pd.to_numeric(df_model[col], errors='coerce').fillna(0).astype(int)
+            if df_model[col].sum() >= 3:
+                predictor_cols.append(col)
+                used_comorbs.append(col)
+
+    df_model['_group'] = df_model['hospital_id']
+
+    cols_for_model = ['mortality', '_group'] + predictor_cols
+    df_gee = df_model[cols_for_model].dropna()
+
+    n_clusters = df_gee['_group'].nunique()
+    if len(df_gee) < 50 or n_clusters < 2:
+        return None, None, [], []
+
+    y = df_gee['mortality'].astype(float)
+    X = df_gee[predictor_cols].astype(float)
+    X = sm.add_constant(X)
+    groups = df_gee['_group']
+
+    try:
+        gee_model = GEE(y, X, groups=groups, family=Binomial(), cov_struct=Exchangeable())
+        gee_result = gee_model.fit(maxiter=200)
+    except Exception:
+        try:
+            gee_model = GEE(y, X, groups=groups, family=Binomial(), cov_struct=Independence())
+            gee_result = gee_model.fit(maxiter=200)
+        except Exception:
+            return None, None, [], []
+
+    # Remove problematic variables
+    max_retries = 5
+    current_predictors = list(predictor_cols)
+    for _ in range(max_retries):
+        params = gee_result.params
+        bad_vars = []
+        for i, var in enumerate(current_predictors):
+            idx = i + 1
+            if idx < len(params) and (np.isinf(params.iloc[idx]) or abs(params.iloc[idx]) > 50):
+                bad_vars.append(var)
+        if not bad_vars:
+            break
+        current_predictors = [p for p in current_predictors if p not in bad_vars]
+        if len(current_predictors) < 2:
+            return None, None, [], []
+        X = df_gee[current_predictors].astype(float)
+        X = sm.add_constant(X)
+        try:
+            gee_model = GEE(y, X, groups=groups, family=Binomial(), cov_struct=Exchangeable())
+            gee_result = gee_model.fit(maxiter=200)
+        except:
+            try:
+                gee_model = GEE(y, X, groups=groups, family=Binomial(), cov_struct=Independence())
+                gee_result = gee_model.fit(maxiter=200)
+            except:
+                return None, None, [], []
+
+    return gee_result, df_gee, current_predictors, used_comorbs
+
+def get_gee_fit_metrics(gee_result, y, family_type='binomial'):
+    """Extract model fit metrics from a GEE result object."""
+    metrics = {}
+    metrics['N_obs'] = int(gee_result.nobs)
+    metrics['N_clusters'] = int(len(set(gee_result.model.groups)))
+    metrics['N_params'] = int(len(gee_result.params))
+
+    try:
+        qic, qicu = gee_result.qic()
+        metrics['QIC'] = qic
+        metrics['QICu'] = qicu
+    except Exception:
+        metrics['QIC'] = np.nan
+        metrics['QICu'] = np.nan
+
+    try:
+        metrics['Scale'] = float(gee_result.scale)
+    except Exception:
+        metrics['Scale'] = np.nan
+
+    try:
+        y_pred = gee_result.fittedvalues
+        if family_type == 'binomial':
+            y_arr = np.asarray(y, dtype=float)
+            p_hat = np.clip(np.asarray(y_pred, dtype=float), 1e-10, 1 - 1e-10)
+            ll_model = np.sum(y_arr * np.log(p_hat) + (1 - y_arr) * np.log(1 - p_hat))
+            p_null = np.mean(y_arr)
+            ll_null = np.sum(y_arr * np.log(p_null) + (1 - y_arr) * np.log(1 - p_null))
+            metrics['Log-Lik (model)'] = ll_model
+            metrics['Log-Lik (null)'] = ll_null
+            metrics['Pseudo R² (McFadden)'] = 1 - ll_model / ll_null if ll_null != 0 else np.nan
+        else:
+            y_arr = np.asarray(y, dtype=float)
+            y_pred_arr = np.asarray(y_pred, dtype=float)
+            ss_res = np.sum((y_arr - y_pred_arr) ** 2)
+            ss_tot = np.sum((y_arr - np.mean(y_arr)) ** 2)
+            metrics['Pseudo R²'] = 1 - ss_res / ss_tot if ss_tot > 0 else np.nan
+    except Exception:
+        if family_type == 'binomial':
+            metrics['Log-Lik (model)'] = np.nan
+            metrics['Log-Lik (null)'] = np.nan
+            metrics['Pseudo R² (McFadden)'] = np.nan
+        else:
+            metrics['Pseudo R²'] = np.nan
+
+    try:
+        metrics['Correlation'] = gee_result.cov_struct.__class__.__name__
+    except Exception:
+        metrics['Correlation'] = '—'
+
+    return metrics
+
+# Fit GEE mortality models for EACH disease category
+for cat in all_categories:
+    df_cat = df_endocrinas[df_endocrinas['endocrine_category'] == cat].copy()
+
+    n_events = df_cat['mortality'].sum()
+    n_total = len(df_cat)
+    if n_events < 10 or n_total < 50:
+        continue
+
+    gee_result, df_gee, used_cols, used_comorbs = build_gee_mortality_model(df_cat, cat)
+
+    if gee_result is not None:
+        gee_mortality_models[cat] = (gee_result, df_gee, used_cols)
+        gee_mortality_results[cat] = gee_result
+```
+
+## 6.1 GEE Logistic Regression Results - OR [95% CI]
+
+```{python}
+# Table: GEE Logistic Regression - OR [95% CI] by Disease Category
+gee_or_table = {}
+
+for cat in all_categories:
+    if cat not in gee_mortality_results:
+        continue
+
+    result = gee_mortality_results[cat]
+    used_cols = gee_mortality_models[cat][2]
+
+    params = result.params
+    conf = result.conf_int()
+    pvalues = result.pvalues
+
+    col_data = {}
+    for i, var in enumerate(used_cols):
+        idx = i + 1  # skip constant
+        if idx >= len(params):
+            continue
+        coef = params.iloc[idx]
+        if np.isinf(coef) or abs(coef) > 50:
+            continue
+        or_val = np.exp(coef)
+        ci_low = np.exp(conf.iloc[idx, 0])
+        ci_high = np.exp(conf.iloc[idx, 1])
+        pval = pvalues.iloc[idx]
+
+        if np.isnan(or_val) or np.isnan(pval):
+            continue
+
+        sig = '***' if pval < 0.001 else '**' if pval < 0.01 else '*' if pval < 0.05 else ''
+        col_data[format_name(var)] = f'{or_val:.3f} [{ci_low:.3f}, {ci_high:.3f}]{sig}'
+
+    gee_or_table[cat] = col_data
+
+if gee_or_table:
+    all_vars = set()
+    for col_data in gee_or_table.values():
+        all_vars.update(col_data.keys())
+
+    or_rows = []
+    for var in sorted(all_vars):
+        row = {'Variable': var}
+        for cat in sorted(gee_or_table.keys()):
+            row[cat] = gee_or_table[cat].get(var, '—')
+        or_rows.append(row)
+
+    gee_or_df = pd.DataFrame(or_rows).set_index('Variable')
+    show_table(gee_or_df, "Table 9: GEE Mixed-Effects Logistic Regression - Odds Ratios [95% CI] for In-Hospital Mortality by Disease Category\n(Hospital as cluster, year as fixed effect, only significant comorbidities from bivariate analysis)\n* p<0.05, ** p<0.01, *** p<0.001", index=True)
+```
+
+**Forest plot — Odds Ratios (OR) [95% CI] for in-hospital mortality, by disease category.**
+
+```{python}
+#| label: fig-forest-gee-or-mortality
+#| fig-cap: "Figure 8a. Forest plot of Odds Ratios [95% CI] from GEE logistic regression for in-hospital mortality, one panel per disease category. Vertical reference line at OR = 1 (log scale); estimates with p < 0.05 are highlighted in red."
+
+from matplotlib.lines import Line2D
+
+def plot_gee_forest(results_dict, ordered_keys, effect_label, sup_title, save_path,
+                    sig_color='#c0392b', ns_color='#95a5a6'):
+    """Forest plot of exp(coef) [95% CI] for each GEE model (one panel per group)."""
+    panels = []
+    for key in ordered_keys:
+        res = results_dict.get(key)
+        if res is None:
+            continue
+        params = res.params
+        try:
+            conf = res.conf_int()
+        except Exception:
+            continue
+        pvals = res.pvalues
+        lo_col, hi_col = conf.columns[0], conf.columns[1]
+        rows = []
+        for var in params.index:
+            if str(var).lower() in ('const', 'intercept'):
+                continue
+            coef = params[var]
+            if not np.isfinite(coef) or abs(coef) > 50:
+                continue
+            try:
+                lo, hi = conf.loc[var, lo_col], conf.loc[var, hi_col]
+            except Exception:
+                continue
+            if not (np.isfinite(lo) and np.isfinite(hi)):
+                continue
+            pval = float(pvals[var]) if var in pvals.index else np.nan
+            rows.append((format_name(var), np.exp(coef), np.exp(lo), np.exp(hi), pval))
+        if rows:
+            rows.sort(key=lambda r: r[1])
+            panels.append((key, rows))
+    if not panels:
+        print('No estimable models available to plot.')
+        return
+    n = len(panels)
+    ncols = 2 if n > 1 else 1
+    nrows = int(np.ceil(n / ncols))
+    max_rows = max(len(r) for _, r in panels)
+    fig_w = 7.5 * ncols
+    fig_h = min(18, nrows * (0.30 * max_rows + 1.2))
+    fig, axes = plt.subplots(nrows, ncols, figsize=(fig_w, fig_h), squeeze=False)
+    axes_flat = axes.flatten()
+    for ax_i, (key, rows) in enumerate(panels):
+        ax = axes_flat[ax_i]
+        labels = [r[0] for r in rows]
+        ests = np.array([r[1] for r in rows])
+        los = np.array([r[2] for r in rows])
+        his = np.array([r[3] for r in rows])
+        pvs = [r[4] for r in rows]
+        for yi, (e, lo, hi, pv) in enumerate(zip(ests, los, his, pvs)):
+            c = sig_color if (np.isfinite(pv) and pv < 0.05) else ns_color
+            ax.plot([lo, hi], [yi, yi], color=c, lw=1.8, solid_capstyle='round', zorder=2)
+            ax.plot([e], [yi], 'o', color=c, ms=6, zorder=3)
+        ax.axvline(1.0, color='black', ls='--', lw=1.0, alpha=0.7, zorder=1)
+        ax.set_yticks(range(len(rows)))
+        ax.set_yticklabels(labels, fontsize=8)
+        ax.set_ylim(-0.6, len(rows) - 0.4)
+        ax.set_xscale('log')
+        fin_lo = los[np.isfinite(los) & (los > 0)]
+        fin_hi = his[np.isfinite(his) & (his > 0)]
+        if len(fin_lo) and len(fin_hi):
+            xlo, xhi = max(fin_lo.min() * 0.7, 1e-2), min(fin_hi.max() * 1.5, 1e3)
+            if xlo < xhi:
+                ax.set_xlim(xlo, xhi)
+        ax.set_title(str(key), fontsize=10, fontweight='bold')
+        ax.set_xlabel(effect_label, fontsize=9)
+        ax.grid(True, axis='x', alpha=0.3)
+    for j in range(len(panels), len(axes_flat)):
+        axes_flat[j].axis('off')
+    fig.suptitle(sup_title, fontsize=13, fontweight='bold')
+    legend_elems = [Line2D([0], [0], marker='o', color=sig_color, lw=1.8, label='p < 0.05'),
+                    Line2D([0], [0], marker='o', color=ns_color, lw=1.8, label='p ≥ 0.05')]
+    fig.legend(handles=legend_elems, loc='lower center', ncol=2, fontsize=9, frameon=False)
+    plt.tight_layout(rect=[0, 0.03, 1, 0.98])
+    plt.savefig(save_path, dpi=1200, bbox_inches='tight')
+    plt.show()
+
+plot_gee_forest(gee_mortality_results, all_categories,
+                'Odds Ratio (log scale)',
+                'Forest Plot — GEE Logistic Regression (In-Hospital Mortality): OR [95% CI] by Disease Category',
+                '../data/output_files/endocrinas_parte2/forest_gee_or_mortality.png')
+```
+
+```{python}
+# Table 10: Performance & Fit Metrics - GEE Logistic Models
+gee_perf = []
+for cat in all_categories:
+    if cat not in gee_mortality_results:
+        continue
+
+    result = gee_mortality_results[cat]
+    df_gee = gee_mortality_models[cat][1]
+    df_cat = df_endocrinas[df_endocrinas['endocrine_category'] == cat]
+    n_total = len(df_cat)
+    n_events = df_cat['mortality'].sum()
+    event_rate = n_events / n_total * 100 if n_total > 0 else 0
+
+    try:
+        y_pred_proba = result.fittedvalues
+        y_actual = df_gee['mortality'].values
+
+        auc_val = roc_auc_score(y_actual, y_pred_proba) if len(np.unique(y_actual)) > 1 else np.nan
+        brier = brier_score_loss(y_actual, y_pred_proba)
+
+        opt_threshold = find_optimal_threshold(y_actual, y_pred_proba)
+        y_pred = (y_pred_proba >= opt_threshold).astype(int)
+
+        accuracy = accuracy_score(y_actual, y_pred)
+        sensitivity = recall_score(y_actual, y_pred, zero_division=0)
+        specificity = recall_score(y_actual, y_pred, pos_label=0, zero_division=0)
+        ppv = precision_score(y_actual, y_pred, zero_division=0)
+        tn = ((1 - y_actual) * (1 - y_pred)).sum()
+        fn = (y_actual * (1 - y_pred)).sum()
+        npv = tn / (tn + fn) if (tn + fn) > 0 else 0
+        f1 = f1_score(y_actual, y_pred, zero_division=0)
+        mcc = matthews_corrcoef(y_actual, y_pred)
+        youdens_j = sensitivity + specificity - 1
+
+    except Exception:
+        accuracy = sensitivity = specificity = ppv = npv = f1 = mcc = brier = auc_val = np.nan
+        opt_threshold = np.nan
+        youdens_j = np.nan
+
+    n_sig_comorbs = len(sig_comorbidities_mortality.get(cat, []))
+    fit_metrics = get_gee_fit_metrics(result, df_gee['mortality'], family_type='binomial')
+
+    gee_perf.append({
+        'Disease Category': cat,
+        'N obs': fit_metrics['N_obs'],
+        'N clusters': fit_metrics['N_clusters'],
+        'N params': fit_metrics['N_params'],
+        'Events': f'{n_events} ({event_rate:.1f}%)',
+        'Sig. Comorb.': n_sig_comorbs,
+        'Correlation': fit_metrics['Correlation'],
+        'QIC': safe_fmt(fit_metrics['QIC'], '.1f'),
+        'QICu': safe_fmt(fit_metrics['QICu'], '.1f'),
+        'Log-Lik': safe_fmt(fit_metrics['Log-Lik (model)'], '.1f'),
+        'Pseudo R²': safe_fmt(fit_metrics['Pseudo R² (McFadden)']),
+        'Scale': safe_fmt(fit_metrics['Scale']),
+        'Threshold': safe_fmt(opt_threshold),
+        'AUC': safe_fmt(auc_val),
+        'Brier': safe_fmt(brier),
+        'Sensitivity': safe_fmt(sensitivity),
+        'Specificity': safe_fmt(specificity),
+        'PPV': safe_fmt(ppv),
+        'NPV': safe_fmt(npv),
+        'Bal. Accuracy': safe_fmt((sensitivity + specificity) / 2 if not np.isnan(sensitivity) else np.nan),
+        'F1': safe_fmt(f1),
+        'MCC': safe_fmt(mcc),
+        "Youden's J": safe_fmt(youdens_j),
+    })
+
+gee_perf_df = pd.DataFrame(gee_perf)
+show_table(gee_perf_df, "Table 10: Performance & Fit Metrics - GEE Logistic Regression for Mortality\n(QIC = Quasi-Information Criterion, Pseudo R² = McFadden)", index=False)
+```
+
+```{python}
+#| label: fig-roc-gee-logistic
+#| fig-cap: "Figure 8. ROC Curves - GEE Logistic Regression Models by Disease Category"
+#| fig-width: 10
+#| fig-height: 7
+
+fig, ax = plt.subplots(figsize=(10, 7))
+colors_roc = plt.cm.tab10(np.linspace(0, 1, len(gee_mortality_results)))
+
+for idx, (cat, result) in enumerate(gee_mortality_results.items()):
+    try:
+        y_pred_proba = result.fittedvalues
+        df_gee = gee_mortality_models[cat][1]
+        y_actual = df_gee['mortality'].values
+        fpr, tpr, _ = roc_curve(y_actual, y_pred_proba)
+        auc_val = roc_auc_score(y_actual, y_pred_proba)
+        ax.plot(fpr, tpr, label=f'{cat} ({auc_val:.3f})', linewidth=2, color=colors_roc[idx])
+    except:
+        pass
+
+ax.plot([0, 1], [0, 1], 'k--', linewidth=1)
+ax.set_xlabel('False Positive Rate')
+ax.set_ylabel('True Positive Rate')
+ax.set_title('ROC Curves - GEE Logistic Regression by Disease Category', fontsize=12, fontweight='bold')
+ax.legend(fontsize=7, loc='lower right')
+ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.savefig('../data/output_files/endocrinas_parte2/roc_gee_logistic_by_category.png', dpi=1200, bbox_inches='tight')
+plt.show()
+```
+
+```{python}
+#| label: fig-comorbidity-heatmap-deceased
+#| fig-cap: "Heatmap of comorbidity prevalence in deceased patients"
+#| fig-width: 14
+#| fig-height: 12
+
+fig, ax = plt.subplots(figsize=(14, 12))
+
+categories_for_heatmap = [c for c in df_endocrinas['endocrine_category'].unique() if pd.notna(c) and (deceased[deceased['endocrine_category'] == c].shape[0] >= 5)]
+comor_by_cat_deceased = pd.DataFrame()
+
+for category in sorted(categories_for_heatmap):
+    cat_data = deceased[deceased['endocrine_category'] == category][comor_cols].mean() * 100
+    cat_data.index = [format_name(col) for col in comor_cols]
+    comor_by_cat_deceased[category] = cat_data
+
+comor_by_cat_deceased = comor_by_cat_deceased.loc[comor_by_cat_deceased.mean(axis=1).sort_values(ascending=True).index]
+
+sns.heatmap(comor_by_cat_deceased, annot=True, fmt='.1f', cmap='YlOrRd',
+            cbar_kws={'label': 'Prevalence (%)'}, ax=ax, vmin=0, vmax=50,
+            annot_kws={'rotation': 90, 'fontsize': 8})
+ax.set_title('Comorbidity Prevalence by Disease Category (Deceased Patients)', fontweight='bold', fontsize=13)
+ax.set_xlabel('Disease Category', fontsize=11)
+ax.set_ylabel('Comorbidity', fontsize=11)
+plt.setp(ax.get_xticklabels(), rotation=45, ha='right', rotation_mode='anchor', fontsize=9)
+plt.setp(ax.get_yticklabels(), rotation=0, fontsize=8)
+
+plt.tight_layout()
+plt.savefig('../data/output_files/endocrinas_parte2/fig_comorbidity_heatmap_deceased.png', dpi=1200, bbox_inches='tight', facecolor='white')
+plt.show()
+```
+
+```{python}
+#| label: fig-los-comorbidity-heatmap
+#| fig-cap: "Heatmap of LOS difference by comorbidity presence"
+#| fig-width: 14
+#| fig-height: 12
+
+fig, ax = plt.subplots(figsize=(14, 12))
+
+categories_for_los_heatmap = [c for c in df_endocrinas['endocrine_category'].unique() if pd.notna(c) and (df_endocrinas[df_endocrinas['endocrine_category'] == c].shape[0] >= 20)]
+los_diff_matrix = pd.DataFrame()
+
+for category in sorted(categories_for_los_heatmap):
+    cat_data = df_endocrinas[df_endocrinas['endocrine_category'] == category]
+    col_data = []
+    for col in sorted(comor_cols):
+        los_with = cat_data[cat_data[col] == 1]['length_of_stay'].mean()
+        los_without = cat_data[cat_data[col] == 0]['length_of_stay'].mean()
+        diff = los_with - los_without if pd.notna(los_with) else 0
+        col_data.append(diff)
+    los_diff_matrix[category] = col_data
+
+los_diff_matrix.index = [format_name(col) for col in sorted(comor_cols)]
+
+sns.heatmap(los_diff_matrix, annot=True, fmt='.1f', cmap='coolwarm', center=0,
+            cbar_kws={'label': 'LOS Difference (days)'}, ax=ax,
+            annot_kws={'rotation': 90, 'fontsize': 8})
+ax.set_title('Length of Stay Difference by Comorbidity (WITH - WITHOUT)', fontweight='bold', fontsize=13)
+ax.set_xlabel('Disease Category', fontsize=11)
+ax.set_ylabel('Comorbidity', fontsize=11)
+plt.setp(ax.get_xticklabels(), rotation=45, ha='right', rotation_mode='anchor', fontsize=9)
+plt.setp(ax.get_yticklabels(), rotation=0, fontsize=8)
+
+plt.tight_layout()
+plt.savefig('../data/output_files/endocrinas_parte2/fig_los_comorbidity_heatmap.png', dpi=1200, bbox_inches='tight', facecolor='white')
+plt.show()
+```
+
+```{python}
+#| label: fig-temporal-trends
+#| fig-cap: "Figure 7. Temporal Trends: Cases and Mortality by Year and Disease Category"
+#| fig-width: 14
+#| fig-height: 8
+
+fig, axes = plt.subplots(2, 2, figsize=(14, 8))
+
+categories_top = df_endocrinas['endocrine_category'].value_counts().head(6).index.tolist()
+colors = plt.cm.tab10(np.linspace(0, 1, len(categories_top)))
+
+# Cases by year per category
+ax = axes[0, 0]
+for cat, color in zip(categories_top, colors):
+    df_cat = df_endocrinas[df_endocrinas['endocrine_category'] == cat]
+    cases_by_year = df_cat['year'].value_counts().sort_index()
+    ax.plot(cases_by_year.index, cases_by_year.values, marker='o', linewidth=2, label=cat, color=color)
+ax.set_xlabel('Year')
+ax.set_ylabel('Number of Cases')
+ax.set_title('Trend: Cases by Year')
+ax.legend(fontsize=6)
+ax.grid(True, alpha=0.3)
+
+# Mortality rate by year per category
+ax = axes[0, 1]
+for cat, color in zip(categories_top, colors):
+    df_cat = df_endocrinas[df_endocrinas['endocrine_category'] == cat]
+    mortality_by_year = df_cat.groupby('year')['mortality'].mean() * 100
+    ax.plot(mortality_by_year.index, mortality_by_year.values, marker='o', linewidth=2, label=cat, color=color)
+ax.set_xlabel('Year')
+ax.set_ylabel('Mortality Rate (%)')
+ax.set_title('Trend: Mortality Rate by Year')
+ax.legend(fontsize=6)
+ax.grid(True, alpha=0.3)
+
+# Mean LOS by year per category
+ax = axes[1, 0]
+for cat, color in zip(categories_top, colors):
+    df_cat = df_endocrinas[df_endocrinas['endocrine_category'] == cat]
+    los_by_year = df_cat.groupby('year')['length_of_stay'].mean()
+    ax.plot(los_by_year.index, los_by_year.values, marker='o', linewidth=2, label=cat, color=color)
+ax.set_xlabel('Year')
+ax.set_ylabel('Mean Length of Stay (days)')
+ax.set_title('Trend: Mean LOS by Year')
+ax.legend(fontsize=6)
+ax.grid(True, alpha=0.3)
+
+# Overall mortality trend
+ax = axes[1, 1]
+overall_mortality = df_endocrinas.groupby('year')['mortality'].mean() * 100
+ax.plot(overall_mortality.index, overall_mortality.values, marker='o', linewidth=3, markersize=10, color='darkred')
+ax.fill_between(overall_mortality.index, overall_mortality.values, alpha=0.3, color='darkred')
+ax.set_xlabel('Year')
+ax.set_ylabel('Mortality Rate (%)')
+ax.set_title('Trend: Overall Mortality Rate')
+ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.savefig('../data/output_files/endocrinas_parte2/fig_temporal_trends.png', dpi=1200, bbox_inches='tight')
+plt.show()
+```
+
+---
+
+# 7. GEE Mixed-Effects Regression for Length of Stay (All Disease Categories)
+
+```{python}
+# Store GEE LOS model results
+gee_los_models = {}
+gee_los_results = {}
+
+def build_gee_los_model(df_cat, cat_name):
+    """Build GEE Negative Binomial regression for LOS.
+    Uses hospital_id as cluster group, year_factor as fixed effect."""
+    df_model = df_cat[df_cat['length_of_stay'] > 0].copy()
+
+    service_dummies = pd.get_dummies(df_model['service_category'], prefix='service', drop_first=True)
+    for col in service_dummies.columns:
+        df_model[col] = service_dummies[col]
+    service_dummy_cols = list(service_dummies.columns)
+
+    year_dummies = pd.get_dummies(df_model['year_factor'], prefix='year', drop_first=True)
+    for col in year_dummies.columns:
+        df_model[col] = year_dummies[col]
+    year_dummy_cols = list(year_dummies.columns)
+
+    df_model['age'] = pd.to_numeric(df_model['age'], errors='coerce')
+
+    predictor_cols = ['age', 'male'] + service_dummy_cols + year_dummy_cols
+
+    for col in ['IR_29301_SEVERIDAD', 'IR_29301_MORTALIDAD']:
+        if col in df_model.columns:
+            df_model[col] = pd.to_numeric(df_model[col], errors='coerce')
+            df_model[col] = df_model[col].fillna(1).clip(lower=1).astype(int)
+            prefix = 'severity' if 'SEVERIDAD' in col else 'mort_risk'
+            col_dummies = pd.get_dummies(df_model[col], prefix=prefix, drop_first=True)
+            for dc in col_dummies.columns:
+                df_model[dc] = col_dummies[dc]
+                predictor_cols.append(dc)
+
+    sig_comorbs = sig_comorbidities_los.get(cat_name, [])
+    used_comorbs = []
+    for col in sig_comorbs:
+        if col in df_model.columns:
+            df_model[col] = pd.to_numeric(df_model[col], errors='coerce').fillna(0).astype(int)
+            if df_model[col].sum() >= 3:
+                predictor_cols.append(col)
+                used_comorbs.append(col)
+
+    df_model['_group'] = df_model['hospital_id']
+    cols_for_model = ['length_of_stay', '_group'] + predictor_cols
+    df_gee = df_model[cols_for_model].dropna()
+
+    n_clusters = df_gee['_group'].nunique()
+    if len(df_gee) < 50 or n_clusters < 2:
+        return None, None, [], []
+
+    y = df_gee['length_of_stay'].astype(float)
+    X = df_gee[predictor_cols].astype(float)
+    X = sm.add_constant(X)
+    groups = df_gee['_group']
+
+    try:
+        gee_model = GEE(y, X, groups=groups, family=NegativeBinomial(alpha=1.0), cov_struct=Exchangeable())
+        gee_result = gee_model.fit(maxiter=200)
+    except Exception:
+        try:
+            gee_model = GEE(y, X, groups=groups, family=NegativeBinomial(alpha=1.0), cov_struct=Independence())
+            gee_result = gee_model.fit(maxiter=200)
+        except Exception:
+            try:
+                gee_model = GEE(y, X, groups=groups, family=Poisson(), cov_struct=Exchangeable())
+                gee_result = gee_model.fit(maxiter=200)
+            except Exception:
+                return None, None, [], []
+
+    max_retries = 5
+    current_predictors = list(predictor_cols)
+    for _ in range(max_retries):
+        params = gee_result.params
+        bad_vars = []
+        for i, var in enumerate(current_predictors):
+            idx = i + 1
+            if idx < len(params) and (np.isinf(params.iloc[idx]) or abs(params.iloc[idx]) > 50):
+                bad_vars.append(var)
+        if not bad_vars:
+            break
+        current_predictors = [p for p in current_predictors if p not in bad_vars]
+        if len(current_predictors) < 2:
+            return None, None, [], []
+        X = df_gee[current_predictors].astype(float)
+        X = sm.add_constant(X)
+        try:
+            gee_model = GEE(y, X, groups=groups, family=NegativeBinomial(alpha=1.0), cov_struct=Exchangeable())
+            gee_result = gee_model.fit(maxiter=200)
+        except:
+            try:
+                gee_model = GEE(y, X, groups=groups, family=Poisson(), cov_struct=Exchangeable())
+                gee_result = gee_model.fit(maxiter=200)
+            except:
+                return None, None, [], []
+
+    return gee_result, df_gee, current_predictors, used_comorbs
+
+# Fit GEE LOS models for EACH disease category
+for cat in all_categories:
+    df_cat = df_endocrinas[df_endocrinas['endocrine_category'] == cat].copy()
+    if len(df_cat) < 50:
+        continue
+    gee_result, df_gee, used_cols, used_comorbs = build_gee_los_model(df_cat, cat)
+    if gee_result is not None:
+        gee_los_models[cat] = (gee_result, df_gee, used_cols)
+        gee_los_results[cat] = gee_result
+
+```
+
+## 7.1 GEE Regression Results - IRR [95% CI]
+
+```{python}
+# Table 11: GEE Regression - IRR [95% CI] by Disease Category
+gee_irr_table = {}
+
+for cat in all_categories:
+    if cat not in gee_los_results:
+        continue
+
+    result = gee_los_results[cat]
+    used_cols = gee_los_models[cat][2]
+
+    params = result.params
+    conf = result.conf_int()
+    pvalues = result.pvalues
+
+    col_data = {}
+    for i, var in enumerate(used_cols):
+        idx = i + 1
+        if idx >= len(params):
+            continue
+        coef = params.iloc[idx]
+        if np.isinf(coef) or abs(coef) > 50:
+            continue
+        irr_val = np.exp(coef)
+        ci_low = np.exp(conf.iloc[idx, 0])
+        ci_high = np.exp(conf.iloc[idx, 1])
+        pval = pvalues.iloc[idx]
+
+        if np.isnan(irr_val) or np.isnan(pval):
+            continue
+
+        sig = '***' if pval < 0.001 else '**' if pval < 0.01 else '*' if pval < 0.05 else ''
+        col_data[format_name(var)] = f'{irr_val:.3f} [{ci_low:.3f}, {ci_high:.3f}]{sig}'
+
+    gee_irr_table[cat] = col_data
+
+if gee_irr_table:
+    all_vars = set()
+    for col_data in gee_irr_table.values():
+        all_vars.update(col_data.keys())
+
+    irr_rows = []
+    for var in sorted(all_vars):
+        row = {'Variable': var}
+        for cat in sorted(gee_irr_table.keys()):
+            row[cat] = gee_irr_table[cat].get(var, '—')
+        irr_rows.append(row)
+
+    gee_irr_df = pd.DataFrame(irr_rows).set_index('Variable')
+    show_table(gee_irr_df, "Table 11: GEE Mixed-Effects Regression - IRR [95% CI] for Length of Stay by Disease Category\n(Hospital as cluster, year as fixed effect, Negative Binomial family, only significant comorbidities)\n* p<0.05, ** p<0.01, *** p<0.001", index=True)
+```
+
+**Forest plot — Incidence Rate Ratios (IRR) [95% CI] for length of stay, by disease category.**
+
+```{python}
+#| label: fig-forest-gee-irr-los
+#| fig-cap: "Figure. Forest plot of Incidence Rate Ratios [95% CI] from GEE Negative Binomial regression for length of stay, one panel per disease category. Vertical reference line at IRR = 1 (log scale); estimates with p < 0.05 are highlighted in red."
+
+plot_gee_forest(gee_los_results, all_categories,
+                'Incidence Rate Ratio (log scale)',
+                'Forest Plot — GEE Negative Binomial (Length of Stay): IRR [95% CI] by Disease Category',
+                '../data/output_files/endocrinas_parte2/forest_gee_irr_los.png')
+```
+
+```{python}
+# Table 12: Performance & Fit Metrics - GEE LOS Models
+gee_los_perf = []
+for cat in all_categories:
+    if cat not in gee_los_results:
+        continue
+
+    result = gee_los_results[cat]
+    df_gee = gee_los_models[cat][1]
+    df_cat = df_endocrinas[df_endocrinas['endocrine_category'] == cat]
+    n_total = len(df_cat)
+
+    try:
+        y_pred = result.fittedvalues
+        y_actual = df_gee['length_of_stay'].values
+
+        rmse = np.sqrt(np.mean((y_actual - y_pred) ** 2))
+        mae = np.mean(np.abs(y_actual - y_pred))
+        ss_res = np.sum((y_actual - y_pred) ** 2)
+        ss_tot = np.sum((y_actual - np.mean(y_actual)) ** 2)
+        pseudo_r2 = 1 - ss_res / ss_tot if ss_tot > 0 else np.nan
+    except Exception:
+        rmse = mae = pseudo_r2 = np.nan
+
+    n_sig_comorbs = len(sig_comorbidities_los.get(cat, []))
+    fit_metrics = get_gee_fit_metrics(result, df_gee['length_of_stay'], family_type='count')
+
+    gee_los_perf.append({
+        'Disease Category': cat,
+        'N obs': fit_metrics['N_obs'],
+        'N clusters': fit_metrics['N_clusters'],
+        'N params': fit_metrics['N_params'],
+        'Mean LOS': f'{df_cat["length_of_stay"].mean():.1f}',
+        'Median LOS': f'{df_cat["length_of_stay"].median():.0f}',
+        'Sig. Comorb.': n_sig_comorbs,
+        'Correlation': fit_metrics['Correlation'],
+        'QIC': safe_fmt(fit_metrics['QIC'], '.1f'),
+        'QICu': safe_fmt(fit_metrics['QICu'], '.1f'),
+        'Pseudo R²': safe_fmt(fit_metrics['Pseudo R²']),
+        'Scale': safe_fmt(fit_metrics['Scale']),
+        'RMSE': f'{rmse:.2f}' if not np.isnan(rmse) else '—',
+        'MAE': f'{mae:.2f}' if not np.isnan(mae) else '—',
+    })
+
+gee_los_perf_df = pd.DataFrame(gee_los_perf)
+show_table(gee_los_perf_df, "Table 12: Performance & Fit Metrics - GEE Regression Models for LOS\n(QIC = Quasi-Information Criterion, Negative Binomial/Poisson family)", index=False)
+```
+---
+
+# 8. Machine Learning Models for Mortality Prediction (Per Disease Category, Multiple Class Balancing)
+
+```{python}
+from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
+from sklearn.svm import SVC
+from sklearn.neural_network import MLPClassifier
+from sklearn.linear_model import LogisticRegression as LR_sklearn
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import (
+    roc_auc_score, roc_curve, confusion_matrix as cm_func,
+    accuracy_score, f1_score, precision_score, recall_score,
+    brier_score_loss, matthews_corrcoef
+)
+
+# Import multiple class balancing techniques
+from collections import OrderedDict
+try:
+    from imblearn.over_sampling import SMOTE, ADASYN, RandomOverSampler
+    from imblearn.under_sampling import RandomUnderSampler
+    from imblearn.combine import SMOTETomek
+    IMBLEARN_AVAILABLE = True
+except ImportError:
+    IMBLEARN_AVAILABLE = False
+
+# Feature columns
+ml_comorbidity_cols = [c for c in df_endocrinas.columns if c.startswith('comor_')]
+
+ALL_BALANCING_NAMES = ['None (Original)', 'SMOTE', 'ADASYN', 'SMOTETomek',
+                       'Random Oversampling', 'Random Undersampling']
+
+def get_balancing_methods(y_train):
+    """Return ALL class balancing methods, adapting k_neighbors to minority class size."""
+    methods = OrderedDict()
+    methods['None (Original)'] = None
+
+    if not IMBLEARN_AVAILABLE:
+        for name in ALL_BALANCING_NAMES[1:]:
+            methods[name] = 'imblearn not installed'
+        return methods
+
+    n_minority = int(y_train.sum())
+    k = min(5, n_minority - 1) if n_minority > 1 else 0
+
+    if k >= 1:
+        methods['SMOTE'] = SMOTE(random_state=42, k_neighbors=k)
+        methods['ADASYN'] = ADASYN(random_state=42, n_neighbors=min(k, n_minority - 1))
+        methods['SMOTETomek'] = SMOTETomek(random_state=42, smote=SMOTE(random_state=42, k_neighbors=k))
+    else:
+        methods['SMOTE'] = f'Insufficient minority samples (n={n_minority}, need k>=1)'
+        methods['ADASYN'] = f'Insufficient minority samples (n={n_minority}, need k>=1)'
+        methods['SMOTETomek'] = f'Insufficient minority samples (n={n_minority}, need k>=1)'
+    methods['Random Oversampling'] = RandomOverSampler(random_state=42)
+    methods['Random Undersampling'] = RandomUnderSampler(random_state=42)
+
+    return methods
+
+def _failed_balancing_entry(reason):
+    """Return a placeholder result dict for a failed balancing technique."""
+    return {
+        'model': None, 'y_pred': None, 'y_proba': None, 'y_test': None,
+        'opt_threshold': np.nan, 'cm': None, 'failed': True, 'fail_reason': reason,
+        'metrics': {
+            'AUC': np.nan, 'Bal. Accuracy': np.nan, 'Sensitivity': np.nan,
+            'Specificity': np.nan, 'PPV': np.nan, 'NPV': np.nan,
+            'F1': np.nan, 'MCC': np.nan, 'Brier': np.nan,
+            "Youden's J": np.nan, 'Threshold': np.nan,
+            'Train Size': '—', 'Minority %': '—'
+        }
+    }
+
+def run_ml_mortality_multi_balancing(df_cat, cat_name):
+    """Train ML classifiers with multiple class balancing techniques + optimal threshold"""
+    df_ml = df_cat.copy()
+    df_ml['age'] = pd.to_numeric(df_ml['age'], errors='coerce')
+
+    svc_dummies = pd.get_dummies(df_ml['service_category'], prefix='service', drop_first=True)
+    for c in svc_dummies.columns:
+        df_ml[c] = svc_dummies[c]
+
+    feature_names = ['age', 'male'] + list(svc_dummies.columns) + ml_comorbidity_cols
+    target = 'mortality'
+
+    df_ml = df_ml[feature_names + [target]].dropna()
+
+    n_pos = int(df_ml[target].sum())
+    n_neg = int((df_ml[target] == 0).sum())
+
+    if len(df_ml) < 30 or n_pos < 5 or n_neg < 5:
+        return None, None, None
+
+    X = df_ml[feature_names].values
+    y = df_ml[target].values
+
+    scaler = StandardScaler()
+    X_scaled = scaler.fit_transform(X)
+
+    try:
+        X_train, X_test, y_train, y_test = train_test_split(
+            X_scaled, y, test_size=0.2, random_state=42, stratify=y
+        )
+    except ValueError:
+        X_train, X_test, y_train, y_test = train_test_split(
+            X_scaled, y, test_size=0.2, random_state=42
+        )
+
+    balancing_methods = get_balancing_methods(y_train)
+
+    base_model_class = GradientBoostingClassifier
+    base_model_params = {'n_estimators': 150, 'random_state': 42, 'max_depth': 4}
+
+    balancing_results = OrderedDict()
+
+    for bal_name, balancer in balancing_methods.items():
+        if isinstance(balancer, str):
+            balancing_results[bal_name] = _failed_balancing_entry(balancer)
+            continue
+
+        try:
+            if balancer is not None:
+                X_res, y_res = balancer.fit_resample(X_train, y_train)
+            else:
+                X_res, y_res = X_train, y_train
+
+            model = base_model_class(**base_model_params)
+            model.fit(X_res, y_res)
+            y_proba = model.predict_proba(X_test)[:, 1]
+
+            fpr_t, tpr_t, thresholds_t = roc_curve(y_test, y_proba)
+            j_scores = tpr_t - fpr_t
+            best_idx = np.argmax(j_scores)
+            opt_threshold = thresholds_t[best_idx]
+            y_pred = (y_proba >= opt_threshold).astype(int)
+
+            tn, fp, fn, tp = cm_func(y_test, y_pred).ravel()
+            sens = tp / (tp + fn) if (tp + fn) > 0 else 0
+            spec = tn / (tn + fp) if (tn + fp) > 0 else 0
+            ppv_val = tp / (tp + fp) if (tp + fp) > 0 else 0
+            npv_val = tn / (tn + fn) if (tn + fn) > 0 else 0
+
+            balancing_results[bal_name] = {
+                'model': model, 'y_pred': y_pred, 'y_proba': y_proba,
+                'y_test': y_test, 'opt_threshold': opt_threshold,
+                'cm': cm_func(y_test, y_pred), 'failed': False,
+                'metrics': {
+                    'AUC': roc_auc_score(y_test, y_proba) if len(np.unique(y_test)) > 1 else 0,
+                    'Bal. Accuracy': (sens + spec) / 2,
+                    'Sensitivity': sens, 'Specificity': spec,
+                    'PPV': ppv_val, 'NPV': npv_val,
+                    'F1': f1_score(y_test, y_pred, zero_division=0),
+                    'MCC': matthews_corrcoef(y_test, y_pred),
+                    'Brier': brier_score_loss(y_test, y_proba),
+                    "Youden's J": sens + spec - 1,
+                    'Threshold': opt_threshold,
+                    'Train Size': len(y_res),
+                    'Minority %': f'{y_res.sum()/len(y_res)*100:.1f}'
+                }
+            }
+        except Exception as e:
+            balancing_results[bal_name] = _failed_balancing_entry(str(e))
+
+    # Run multiple model types with the BEST balancing technique
+    successful_results = {k: v for k, v in balancing_results.items() if not v.get('failed', False)}
+    if not successful_results:
+        return balancing_results, None, None
+
+    best_balancing = max(successful_results, key=lambda k: successful_results[k]['metrics']['AUC'])
+    best_balancer = balancing_methods.get(best_balancing)
+
+    if best_balancer is not None:
+        try:
+            X_best, y_best = best_balancer.fit_resample(X_train, y_train)
+        except:
+            X_best, y_best = X_train, y_train
+    else:
+        X_best, y_best = X_train, y_train
+
+    all_models = {
+        'Logistic Regression': LR_sklearn(max_iter=1000, random_state=42, class_weight='balanced'),
+        'Random Forest': RandomForestClassifier(n_estimators=200, random_state=42, n_jobs=-1, class_weight='balanced'),
+        'Gradient Boosting': GradientBoostingClassifier(n_estimators=150, random_state=42, max_depth=4),
+        'SVM': SVC(kernel='rbf', probability=True, random_state=42, class_weight='balanced'),
+        'MLP': MLPClassifier(hidden_layer_sizes=(64, 32), max_iter=1000, random_state=42)
+    }
+
+    model_results = {}
+    for name, model in all_models.items():
+        try:
+            model.fit(X_best, y_best)
+            y_proba = model.predict_proba(X_test)[:, 1]
+
+            fpr_t, tpr_t, thresholds_t = roc_curve(y_test, y_proba)
+            j_scores = tpr_t - fpr_t
+            best_idx = np.argmax(j_scores)
+            opt_threshold = thresholds_t[best_idx]
+            y_pred = (y_proba >= opt_threshold).astype(int)
+
+            tn, fp, fn, tp = cm_func(y_test, y_pred).ravel()
+            sens = tp / (tp + fn) if (tp + fn) > 0 else 0
+            spec = tn / (tn + fp) if (tn + fp) > 0 else 0
+            ppv_val = tp / (tp + fp) if (tp + fp) > 0 else 0
+            npv_val = tn / (tn + fn) if (tn + fn) > 0 else 0
+
+            model_results[name] = {
+                'model': model, 'y_pred': y_pred, 'y_proba': y_proba,
+                'y_test': y_test, 'opt_threshold': opt_threshold,
+                'cm': cm_func(y_test, y_pred),
+                'metrics': {
+                    'AUC': roc_auc_score(y_test, y_proba) if len(np.unique(y_test)) > 1 else 0,
+                    'Bal. Accuracy': (sens + spec) / 2,
+                    'Sensitivity': sens, 'Specificity': spec,
+                    'PPV': ppv_val, 'NPV': npv_val,
+                    'F1': f1_score(y_test, y_pred, zero_division=0),
+                    'MCC': matthews_corrcoef(y_test, y_pred),
+                    'Brier': brier_score_loss(y_test, y_proba),
+                    "Youden's J": sens + spec - 1,
+                    'Threshold': opt_threshold
+                }
+            }
+        except:
+            pass
+
+    return balancing_results, model_results, (feature_names, X_test, y_test, best_balancing)
+
+# Run ML mortality models for EACH disease category
+ml_balancing_by_cat = {}
+ml_models_by_cat = {}
+ml_meta_by_cat = {}
+
+for cat in all_categories:
+    df_cat = df_endocrinas[df_endocrinas['endocrine_category'] == cat].copy()
+    bal_results, model_results, meta = run_ml_mortality_multi_balancing(df_cat, cat)
+    if bal_results is not None and len(bal_results) > 0:
+        ml_balancing_by_cat[cat] = bal_results
+        if model_results is not None:
+            ml_models_by_cat[cat] = model_results
+        if meta is not None:
+            ml_meta_by_cat[cat] = meta
+```
+
+## 8.1 Class Balancing Technique Comparison by Disease Category
+
+```{python}
+# Table: Class balancing technique comparison for each category (Gradient Boosting as base model)
+for cat in all_categories:
+    if cat not in ml_balancing_by_cat:
+        continue
+
+    results = ml_balancing_by_cat[cat]
+    df_cat = df_endocrinas[df_endocrinas['endocrine_category'] == cat]
+    n_total = len(df_cat)
+    n_events = df_cat['mortality'].sum()
+
+    metrics_df = pd.DataFrame({name: d['metrics'] for name, d in results.items()}).T
+    metrics_df.index.name = 'Balancing'
+
+    status_col = []
+    for name in metrics_df.index:
+        entry = results[name]
+        if entry.get('failed', False):
+            reason = entry.get('fail_reason', 'Error')
+            status_col.append(reason[:40])
+        else:
+            status_col.append('OK')
+    metrics_df.insert(0, 'Status', status_col)
+
+    for col in metrics_df.columns:
+        if col in ['Train Size', 'Minority %', 'Status']:
+            metrics_df[col] = metrics_df[col].apply(lambda x: '—' if (isinstance(x, float) and np.isnan(x)) else x)
+        else:
+            metrics_df[col] = metrics_df[col].apply(lambda x: '—' if (isinstance(x, float) and (np.isnan(x) or np.isinf(x))) else f'{x:.4f}')
+
+    show_table(metrics_df,
+               f"Class Balancing Comparison (Gradient Boosting): {cat} (N={n_total:,}, Events={n_events}, {n_events/n_total*100:.1f}%)",
+               index=True)
+```
+
+## 8.2 ML Model Comparison (Best Balancing per Category)
+
+```{python}
+# Table: ML model comparison with best balancing for each category
+for cat in all_categories:
+    if cat not in ml_models_by_cat or not ml_models_by_cat[cat]:
+        continue
+
+    results = ml_models_by_cat[cat]
+    meta = ml_meta_by_cat.get(cat)
+    best_balancing = meta[3] if meta else 'Unknown'
+    df_cat = df_endocrinas[df_endocrinas['endocrine_category'] == cat]
+    n_total = len(df_cat)
+    n_events = df_cat['mortality'].sum()
+
+    metrics_df = pd.DataFrame({name: d['metrics'] for name, d in results.items()}).T
+    metrics_df.index.name = 'Model'
+
+    for col in metrics_df.columns:
+        metrics_df[col] = metrics_df[col].apply(lambda x: '—' if (isinstance(x, float) and (np.isnan(x) or np.isinf(x))) else f'{x:.4f}')
+
+    show_table(metrics_df,
+               f"ML Models: {cat} (N={n_total:,}, Events={n_events}, Best balancing: {best_balancing})",
+               index=True)
+```
+
+```{python}
+#| label: fig-roc-ml-mortality
+#| fig-cap: "Figure 9. ROC Curves - ML Mortality Models by Disease Category (Best Class Balancing)"
+#| fig-width: 16
+#| fig-height: 12
+
+n_cats_ml = len(ml_models_by_cat)
+if n_cats_ml > 0:
+    ncols = min(3, n_cats_ml)
+    nrows = (n_cats_ml + ncols - 1) // ncols
+    fig, axes = plt.subplots(nrows, ncols, figsize=(6 * ncols, 5 * nrows))
+    if n_cats_ml == 1:
+        axes = np.array([axes])
+    axes = axes.flatten() if hasattr(axes, 'flatten') else [axes]
+
+    for idx, (cat, results) in enumerate(ml_models_by_cat.items()):
+        if not results:
+            continue
+        ax = axes[idx]
+        best_balancing = ml_meta_by_cat[cat][3] if ml_meta_by_cat.get(cat) else ''
+        for name, data in results.items():
+            y_test = data['y_test']
+            y_proba = data['y_proba']
+            fpr, tpr, _ = roc_curve(y_test, y_proba)
+            auc_val = data['metrics']['AUC']
+            ax.plot(fpr, tpr, label=f'{name} ({auc_val:.3f})', linewidth=2)
+
+        ax.plot([0, 1], [0, 1], 'k--', linewidth=1)
+        ax.set_xlabel('FPR')
+        ax.set_ylabel('TPR')
+        ax.set_title(f'{cat}\n(Balancing: {best_balancing})', fontweight='bold', fontsize=10)
+        ax.legend(fontsize=7, loc='lower right')
+        ax.grid(True, alpha=0.3)
+
+    for idx in range(len(ml_models_by_cat), len(axes)):
+        axes[idx].set_visible(False)
+
+    plt.tight_layout()
+    plt.savefig('../data/output_files/endocrinas_parte2/roc_ml_mortality_by_category.png', dpi=1200, bbox_inches='tight')
+    plt.show()
+```
+
+```{python}
+#| label: fig-balancing-comparison
+#| fig-cap: "Figure 10. Class Balancing Technique AUC Comparison by Disease Category"
+#| fig-width: 14
+#| fig-height: 8
+
+if len(ml_balancing_by_cat) > 0:
+    comparison_data = []
+    for cat, results in ml_balancing_by_cat.items():
+        for bal_name, data in results.items():
+            failed = data.get('failed', False)
+            comparison_data.append({
+                'Disease Category': cat,
+                'Balancing': bal_name,
+                'AUC': 0.0 if failed else data['metrics']['AUC'],
+                'Bal. Accuracy': 0.0 if failed else data['metrics']['Bal. Accuracy'],
+                'F1': 0.0 if failed else data['metrics']['F1'],
+                'Failed': failed
+            })
+
+    comp_df = pd.DataFrame(comparison_data)
+    bal_order = [b for b in ALL_BALANCING_NAMES if b in comp_df['Balancing'].unique()]
+    comp_df['Balancing'] = pd.Categorical(comp_df['Balancing'], categories=bal_order, ordered=True)
+
+    fig, axes = plt.subplots(1, 3, figsize=(14, 8))
+    metrics_to_plot = ['AUC', 'Bal. Accuracy', 'F1']
+    colors_resamp = plt.cm.Set2(np.linspace(0, 1, len(bal_order)))
+
+    for ax_idx, metric in enumerate(metrics_to_plot):
+        ax = axes[ax_idx]
+        pivot = comp_df.pivot(index='Disease Category', columns='Balancing', values=metric)
+        pivot = pivot[[c for c in bal_order if c in pivot.columns]]
+        pivot.fillna(0).plot(kind='bar', ax=ax, color=colors_resamp[:len(pivot.columns)])
+        ax.set_title(metric, fontweight='bold')
+        ax.set_ylabel(metric)
+        ax.legend(fontsize=6, loc='lower right')
+        ax.grid(True, alpha=0.3, axis='y')
+        plt.setp(ax.get_xticklabels(), rotation=30, ha='right', fontsize=8)
+
+    plt.tight_layout()
+    plt.savefig('../data/output_files/endocrinas_parte2/balancing_comparison_by_category.png', dpi=1200, bbox_inches='tight', facecolor='white')
+    plt.show()
+```
+
+```{python}
+#| label: fig-cm-ml-mortality
+#| fig-cap: "Figure 11. Confusion Matrices - Best ML Mortality Model per Category"
+#| fig-width: 16
+#| fig-height: 10
+
+n_cats_ml = len(ml_models_by_cat)
+if n_cats_ml > 0:
+    ncols = min(4, n_cats_ml)
+    nrows = (n_cats_ml + ncols - 1) // ncols
+    fig, axes = plt.subplots(nrows, ncols, figsize=(4 * ncols, 4 * nrows))
+    if n_cats_ml == 1:
+        axes = np.array([axes])
+    axes = axes.flatten() if hasattr(axes, 'flatten') else [axes]
+
+    for idx, (cat, results) in enumerate(ml_models_by_cat.items()):
+        if not results:
+            continue
+        best_name = max(results, key=lambda k: results[k]['metrics']['AUC'])
+        best = results[best_name]
+        cm = best['cm']
+
+        ax = axes[idx]
+        sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', ax=ax, cbar=False,
+                    xticklabels=['Alive', 'Deceased'], yticklabels=['Alive', 'Deceased'])
+        ax.set_title(f'{cat}\n{best_name} (AUC={best["metrics"]["AUC"]:.3f})',
+                     fontweight='bold', fontsize=9)
+        ax.set_ylabel('True')
+        ax.set_xlabel('Predicted')
+
+    for idx in range(n_cats_ml, len(axes)):
+        axes[idx].set_visible(False)
+
+    plt.tight_layout()
+    plt.savefig('../data/output_files/endocrinas_parte2/confusion_matrices_by_category.png', dpi=1200, bbox_inches='tight')
+    plt.show()
+```
+
+```{python}
+#| label: fig-feat-importance-mortality
+#| fig-cap: "Figure 11B. Feature Importance - Gradient Boosting Mortality by Disease Category (Best Class Balancing)"
+#| fig-width: 16
+#| fig-height: 12
+
+cats_with_gb = [c for c in ml_models_by_cat if ml_models_by_cat[c] and 'Gradient Boosting' in ml_models_by_cat[c]]
+n_gb = len(cats_with_gb)
+
+if n_gb > 0:
+    ncols = min(3, n_gb)
+    nrows = (n_gb + ncols - 1) // ncols
+    fig, axes = plt.subplots(nrows, ncols, figsize=(6 * ncols, 5 * nrows))
+    if n_gb == 1:
+        axes = np.array([axes])
+    axes = axes.flatten() if hasattr(axes, 'flatten') else [axes]
+
+    for idx, cat in enumerate(cats_with_gb):
+        model = ml_models_by_cat[cat]['Gradient Boosting']['model']
+        feat_names = ml_meta_by_cat[cat][0]
+        importances = model.feature_importances_
+        formatted = [format_name(f) for f in feat_names]
+
+        imp_df = pd.DataFrame({'Feature': formatted, 'Importance': importances})
+        imp_df = imp_df.sort_values('Importance', ascending=True).tail(12)
+
+        ax = axes[idx]
+        ax.barh(imp_df['Feature'], imp_df['Importance'], color='steelblue')
+        ax.set_xlabel('Importance')
+        ax.set_title(f'{cat}', fontweight='bold')
+        ax.grid(True, alpha=0.3, axis='x')
+
+    for idx in range(n_gb, len(axes)):
+        axes[idx].set_visible(False)
+
+    plt.tight_layout()
+    plt.savefig('../data/output_files/endocrinas_parte2/feat_importance_mortality_by_category.png', dpi=1200, bbox_inches='tight')
+    plt.show()
+```
+
+---
+
+# 9. Machine Learning Models for Length of Stay Prediction (Per Disease Category)
+
+```{python}
+from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
+from sklearn.linear_model import LinearRegression, Ridge, Lasso
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+
+def run_ml_los_for_cat(df_cat, cat_name):
+    """Train 5 ML regressors for LOS on a single disease category"""
+    df_ml = df_cat[df_cat['length_of_stay'] > 0].copy()
+    df_ml['age'] = pd.to_numeric(df_ml['age'], errors='coerce')
+
+    svc_dummies = pd.get_dummies(df_ml['service_category'], prefix='service', drop_first=True)
+    for c in svc_dummies.columns:
+        df_ml[c] = svc_dummies[c]
+
+    feature_names = ['age', 'male'] + list(svc_dummies.columns) + ml_comorbidity_cols
+    target = 'length_of_stay'
+
+    df_ml = df_ml[feature_names + [target]].dropna()
+
+    if len(df_ml) < 80:
+        return None, None
+
+    X = df_ml[feature_names].values
+    y = df_ml[target].values
+
+    scaler = StandardScaler()
+    X_scaled = scaler.fit_transform(X)
+
+    X_train, X_test, y_train, y_test = train_test_split(
+        X_scaled, y, test_size=0.2, random_state=42
+    )
+
+    models = {
+        'Linear Regression': LinearRegression(),
+        'Ridge': Ridge(alpha=1.0),
+        'Lasso': Lasso(alpha=0.1, max_iter=5000),
+        'Random Forest': RandomForestRegressor(n_estimators=100, random_state=42, n_jobs=-1),
+        'Gradient Boosting': GradientBoostingRegressor(n_estimators=100, random_state=42)
+    }
+
+    results = {}
+    for name, model in models.items():
+        try:
+            model.fit(X_train, y_train)
+            y_pred = model.predict(X_test)
+
+            results[name] = {
+                'model': model, 'y_pred': y_pred, 'y_test': y_test,
+                'metrics': {
+                    'RMSE': np.sqrt(mean_squared_error(y_test, y_pred)),
+                    'MAE': mean_absolute_error(y_test, y_pred),
+                    'R2': r2_score(y_test, y_pred),
+                    'MSE': mean_squared_error(y_test, y_pred)
+                }
+            }
+        except:
+            pass
+
+    return results, feature_names
+
+# Run ML LOS models for EACH disease category
+ml_los_by_cat = {}
+ml_los_features_by_cat = {}
+
+for cat in all_categories:
+    df_cat = df_endocrinas[df_endocrinas['endocrine_category'] == cat].copy()
+    results, feat_names = run_ml_los_for_cat(df_cat, cat)
+    if results and len(results) > 0:
+        ml_los_by_cat[cat] = results
+        ml_los_features_by_cat[cat] = feat_names
+```
+
+## 9.1 ML LOS Results by Disease Category
+
+```{python}
+# Table: ML LOS Performance by Category
+for cat in all_categories:
+    if cat not in ml_los_by_cat:
+        continue
+
+    results = ml_los_by_cat[cat]
+    df_cat = df_endocrinas[df_endocrinas['endocrine_category'] == cat]
+    n_total = len(df_cat)
+    mean_los = df_cat['length_of_stay'].mean()
+
+    metrics_df = pd.DataFrame({name: d['metrics'] for name, d in results.items()}).T
+    metrics_df.index.name = 'Model'
+
+    for col in metrics_df.columns:
+        metrics_df[col] = metrics_df[col].apply(lambda x: '—' if (isinstance(x, float) and (np.isnan(x) or np.isinf(x))) else f'{x:.4f}')
+
+    show_table(metrics_df,
+               f"ML LOS Performance: {cat} (N={n_total:,}, Mean LOS={mean_los:.1f} days)",
+               index=True)
+```
+
+```{python}
+#| label: fig-pred-vs-obs-los
+#| fig-cap: "Figure 12. Predicted vs Observed LOS - Best ML Model per Category"
+#| fig-width: 16
+#| fig-height: 12
+
+n_cats_los = len(ml_los_by_cat)
+if n_cats_los > 0:
+    ncols = min(3, n_cats_los)
+    nrows = (n_cats_los + ncols - 1) // ncols
+    fig, axes = plt.subplots(nrows, ncols, figsize=(6 * ncols, 5 * nrows))
+    if n_cats_los == 1:
+        axes = np.array([axes])
+    axes = axes.flatten() if hasattr(axes, 'flatten') else [axes]
+
+    for idx, (cat, results) in enumerate(ml_los_by_cat.items()):
+        best_name = max(results, key=lambda k: results[k]['metrics']['R2'])
+        best = results[best_name]
+        y_test = best['y_test']
+        y_pred = best['y_pred']
+        r2 = best['metrics']['R2']
+
+        ax = axes[idx]
+        ax.scatter(y_test, y_pred, alpha=0.4, s=15, color='steelblue')
+        lims = [min(y_test.min(), y_pred.min()), max(np.percentile(y_test, 95), np.percentile(y_pred, 95))]
+        ax.plot(lims, lims, 'r--', lw=2)
+        ax.set_xlabel('Observed LOS (days)')
+        ax.set_ylabel('Predicted LOS (days)')
+        ax.set_title(f'{cat}\n{best_name} (R²={r2:.3f})', fontweight='bold', fontsize=10)
+        ax.grid(True, alpha=0.3)
+
+    for idx in range(n_cats_los, len(axes)):
+        axes[idx].set_visible(False)
+
+    plt.tight_layout()
+    plt.savefig('../data/output_files/endocrinas_parte2/pred_vs_obs_los_by_category.png', dpi=1200, bbox_inches='tight')
+    plt.show()
+```
+
+```{python}
+#| label: fig-feat-importance-los
+#| fig-cap: "Figure 13. Feature Importance - Random Forest LOS by Disease Category"
+#| fig-width: 16
+#| fig-height: 12
+
+cats_with_rf_los = [c for c in ml_los_by_cat if 'Random Forest' in ml_los_by_cat[c]]
+n_rf_los = len(cats_with_rf_los)
+
+if n_rf_los > 0:
+    ncols = min(3, n_rf_los)
+    nrows = (n_rf_los + ncols - 1) // ncols
+    fig, axes = plt.subplots(nrows, ncols, figsize=(6 * ncols, 5 * nrows))
+    if n_rf_los == 1:
+        axes = np.array([axes])
+    axes = axes.flatten() if hasattr(axes, 'flatten') else [axes]
+
+    for idx, cat in enumerate(cats_with_rf_los):
+        model = ml_los_by_cat[cat]['Random Forest']['model']
+        feat_names = ml_los_features_by_cat[cat]
+        importances = model.feature_importances_
+        formatted = [format_name(f) for f in feat_names]
+
+        imp_df = pd.DataFrame({'Feature': formatted, 'Importance': importances})
+        imp_df = imp_df.sort_values('Importance', ascending=True).tail(12)
+
+        ax = axes[idx]
+        ax.barh(imp_df['Feature'], imp_df['Importance'], color='forestgreen')
+        ax.set_xlabel('Importance')
+        ax.set_title(f'{cat}', fontweight='bold')
+        ax.grid(True, alpha=0.3, axis='x')
+
+    for idx in range(n_rf_los, len(axes)):
+        axes[idx].set_visible(False)
+
+    plt.tight_layout()
+    plt.savefig('../data/output_files/endocrinas_parte2/feat_importance_los_by_category.png', dpi=1200, bbox_inches='tight')
+    plt.show()
+```
+
+---
+
+# 10. Summary Comparison Table
+
+```{python}
+# Combined summary: best model per category for mortality and LOS
+summary_rows = []
+for cat in all_categories:
+    row = {'Disease Category': cat}
+    df_cat = df_endocrinas[df_endocrinas['endocrine_category'] == cat]
+    row['N'] = f'{len(df_cat):,}'
+    row['Mortality %'] = f'{df_cat["mortality"].mean()*100:.1f}'
+    row['Mean LOS'] = f'{df_cat["length_of_stay"].mean():.1f}'
+
+    # GEE Logistic regression AUC
+    if cat in gee_mortality_results:
+        try:
+            result = gee_mortality_results[cat]
+            df_gee = gee_mortality_models[cat][1]
+            y_proba = result.fittedvalues
+            y_actual = df_gee['mortality'].values
+            row['GEE Mortality AUC'] = f'{roc_auc_score(y_actual, y_proba):.3f}'
+        except:
+            row['GEE Mortality AUC'] = '—'
+    else:
+        row['GEE Mortality AUC'] = '—'
+
+    # Best ML mortality AUC
+    if cat in ml_models_by_cat and ml_models_by_cat[cat]:
+        best_name = max(ml_models_by_cat[cat], key=lambda k: ml_models_by_cat[cat][k]['metrics']['AUC'])
+        best_auc = ml_models_by_cat[cat][best_name]['metrics']['AUC']
+        best_balancing = ml_meta_by_cat[cat][3] if ml_meta_by_cat.get(cat) else 'Unknown'
+        row['Best ML Mortality AUC'] = f'{best_auc:.3f} ({best_name}, {best_balancing})'
+    else:
+        row['Best ML Mortality AUC'] = '—'
+
+    # GEE LOS RMSE
+    if cat in gee_los_results:
+        try:
+            result = gee_los_results[cat]
+            df_gee = gee_los_models[cat][1]
+            y_pred = result.fittedvalues
+            y_actual = df_gee['length_of_stay'].values
+            rmse = np.sqrt(np.mean((y_actual - y_pred) ** 2))
+            row['GEE LOS RMSE'] = f'{rmse:.2f}'
+        except:
+            row['GEE LOS RMSE'] = '—'
+    else:
+        row['GEE LOS RMSE'] = '—'
+
+    # Best ML LOS R²
+    if cat in ml_los_by_cat:
+        best_name = max(ml_los_by_cat[cat], key=lambda k: ml_los_by_cat[cat][k]['metrics']['R2'])
+        best_r2 = ml_los_by_cat[cat][best_name]['metrics']['R2']
+        row['Best ML R² (LOS)'] = f'{best_r2:.3f} ({best_name})'
+    else:
+        row['Best ML R² (LOS)'] = '—'
+
+    summary_rows.append(row)
+
+summary_df = pd.DataFrame(summary_rows)
+show_table(summary_df, "Table 13: Summary - GEE & ML Model Performance Across All Disease Categories\n(GEE: Mixed-Effects with hospital clustering; ML: Multiple Class Balancing Techniques)", index=False)
+```
+
+# 11. Discussion
+
+## 11.1 Key Findings
+
+This analysis of endocrine, nutritional and metabolic diseases in Chile (2019-2024) provides independent regression and machine learning models for each disease category, enabling category-specific risk assessment for both in-hospital mortality and length of stay.
+
+## 11.2 Regression Model Approach
+
+Mixed-effects models were fit using Generalized Estimating Equations (GEE) to account for the hierarchical structure of observations within hospitals and years. For mortality, GEE logistic regression was used with Binomial family and exchangeable correlation structure. For length of stay, GEE negative binomial regression was used to account for overdispersion in count data, with Poisson as fallback. All models include age, sex, service category, severity/mortality indices, and only significant comorbidities from bivariate analysis (p < 0.05), improving parsimony and interpretability. Hospital was specified as the grouping variable to capture clustering effects.
+
+## 11.3 Machine Learning Approach
+
+To address class imbalance and improve generalization, multiple class balancing techniques were evaluated: SMOTE, ADASYN, SMOTETomek, random oversampling, random undersampling, and no balancing (original). For each disease category, gradient boosting was used as the base model to identify the best-performing balancing method by AUC. Subsequently, five classifiers (Logistic Regression, Random Forest, Gradient Boosting, SVM, MLP) were trained using the optimal balancing strategy. All models used optimal decision thresholds derived from Youden's J statistic rather than default 0.5 cutoff, improving balanced accuracy and clinical utility.
+
+---
+
+# 12. Conclusion
+
+This analysis provides a comprehensive epidemiological profile of endocrine, nutritional and metabolic diseases in Chilean public hospitals. The results highlight the importance of comorbidity screening, the differential impact of lifestyle-related factors by disease category, and temporal patterns that may inform resource allocation and clinical practice.
+
+---
+
+**Analysis of endocrine, nutritional and metabolic diseases in Chile using GRD public hospital discharge records (2019-2024). This document provides a comprehensive statistical analysis following mixed-effects modeling methodology with machine learning validation.**
+
+# References
+
+::: {#refs}
+:::
+
+
+\newpage
+
+# Composite Figure — Publication Summary
+
+```{python}
+#| label: fig-composite-summary
+#| fig-cap: "Composite summary of the most relevant results. (A) In-hospital mortality rate by endocrine disease category; (B) mean length of stay by category for discharged vs deceased patients; (C) model discrimination (AUC) comparing GEE logistic regression with the best machine-learning classifier per category; (D) ROC curves of the GEE mortality models; (E) cross-cutting GEE odds ratios for age, severity and mortality-risk predictors; (F) length-of-stay impact (days, WITH minus WITHOUT comorbidity) across categories."
+#| fig-width: 11
+#| fig-height: 13
+
+import re as _re
+
+# Colorblind-safe Okabe-Ito palette
+_okabe = ['#E69F00', '#56B4E9', '#009E73', '#F0E442', '#0072B2', '#D55E00', '#CC79A7', '#000000']
+
+def _short_cat(c):
+    """Drop the 'Exx-Exx: ' code prefix for compact axis labels."""
+    s = str(c)
+    return s.split(':', 1)[1].strip() if ':' in s else s
+
+def _parse_lead(txt):
+    """Extract the leading numeric estimate from an 'OR [lo, hi]sig' string."""
+    m = _re.match(r'\s*([0-9]*\.?[0-9]+)', str(txt))
+    return float(m.group(1)) if m else np.nan
+
+def _parse_ci(txt):
+    """Extract (est, lo, hi) from an 'est [lo, hi]sig' string."""
+    est = _parse_lead(txt)
+    m = _re.search(r'\[\s*([0-9]*\.?[0-9]+)\s*,\s*([0-9]*\.?[0-9]+)\s*\]', str(txt))
+    if m:
+        return est, float(m.group(1)), float(m.group(2))
+    return est, np.nan, np.nan
+
+panel_labels = ['A', 'B', 'C', 'D', 'E', 'F']
+fig = plt.figure(figsize=(11, 13))
+gs = fig.add_gridspec(3, 2, hspace=0.55, wspace=0.32,
+                      left=0.09, right=0.97, top=0.93, bottom=0.06)
+axes = [fig.add_subplot(gs[r, c]) for r in range(3) for c in range(2)]
+for ax, lab in zip(axes, panel_labels):
+    ax.text(-0.08, 1.06, lab, transform=ax.transAxes, fontsize=13,
+            fontweight='bold', va='top')
+
+# ---- Panel A: mortality rate (%) by disease category ----
+ax = axes[0]
+try:
+    mort = (df_endocrinas.groupby('endocrine_category')['mortality'].mean() * 100)
+    mort = mort.dropna().sort_values(ascending=True)
+    ylabs = [_short_cat(c) for c in mort.index]
+    overall = df_endocrinas['mortality'].mean() * 100
+    bar_colors = ['#D55E00' if v > overall else '#56B4E9' for v in mort.values]
+    ax.barh(range(len(mort)), mort.values, color=bar_colors, alpha=0.9)
+    ax.axvline(overall, color='black', ls='--', lw=1.0, alpha=0.7,
+               label=f'Overall {overall:.2f}%')
+    ax.set_yticks(range(len(mort)))
+    ax.set_yticklabels(ylabs, fontsize=8)
+    ax.set_xlabel('In-hospital mortality (%)', fontsize=9)
+    ax.set_title('Mortality by disease category', fontsize=10, fontweight='bold')
+    ax.legend(fontsize=7, loc='lower right', frameon=False)
+    sns.despine(ax=ax)
+    ax.grid(True, axis='x', alpha=0.3)
+except Exception as e:
+    ax.axis('off'); ax.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+                            fontsize=8, transform=ax.transAxes)
+
+# ---- Panel B: mean LOS by category, discharged vs deceased ----
+ax = axes[1]
+try:
+    cats_b = sorted(df_endocrinas['endocrine_category'].dropna().unique())
+    means_dis, means_dec = [], []
+    for c in cats_b:
+        d = df_endocrinas[df_endocrinas['endocrine_category'] == c]
+        means_dis.append(d.loc[d['mortality'] == 0, 'length_of_stay'].mean())
+        means_dec.append(d.loc[d['mortality'] == 1, 'length_of_stay'].mean())
+    x = np.arange(len(cats_b)); w = 0.4
+    ax.bar(x - w/2, means_dis, w, label='Discharged', color='#009E73', alpha=0.9)
+    ax.bar(x + w/2, means_dec, w, label='Deceased', color='#D55E00', alpha=0.9)
+    ax.set_xticks(x)
+    ax.set_xticklabels([_short_cat(c) for c in cats_b], rotation=45, ha='right', fontsize=7)
+    ax.set_ylabel('Mean length of stay (days)', fontsize=9)
+    ax.set_title('Length of stay by outcome', fontsize=10, fontweight='bold')
+    ax.legend(fontsize=7, frameon=False)
+    sns.despine(ax=ax)
+    ax.grid(True, axis='y', alpha=0.3)
+except Exception as e:
+    ax.axis('off'); ax.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+                            fontsize=8, transform=ax.transAxes)
+
+# ---- Panel C: GEE vs best-ML AUC per category ----
+ax = axes[2]
+try:
+    sdf = summary_df.copy()
+    sdf['gee_auc'] = pd.to_numeric(sdf['GEE Mortality AUC'], errors='coerce')
+    sdf['ml_auc'] = sdf['Best ML Mortality AUC'].apply(_parse_lead)
+    sdf = sdf.dropna(subset=['gee_auc', 'ml_auc'], how='all')
+    sdf = sdf.sort_values('gee_auc', ascending=True)
+    yc = np.arange(len(sdf))
+    ax.scatter(sdf['gee_auc'], yc, s=45, color='#0072B2', label='GEE logistic', zorder=3)
+    ax.scatter(sdf['ml_auc'], yc, s=45, color='#E69F00', marker='s',
+               label='Best ML', zorder=3)
+    for yi, (g, m) in enumerate(zip(sdf['gee_auc'], sdf['ml_auc'])):
+        if np.isfinite(g) and np.isfinite(m):
+            ax.plot([g, m], [yi, yi], color='#999999', lw=1.0, zorder=2)
+    ax.axvline(0.5, color='black', ls='--', lw=0.9, alpha=0.6)
+    ax.set_yticks(yc)
+    ax.set_yticklabels([_short_cat(c) for c in sdf['Disease Category']], fontsize=8)
+    ax.set_xlabel('AUC (mortality discrimination)', fontsize=9)
+    ax.set_xlim(0.45, 1.0)
+    ax.set_title('Model discrimination by category', fontsize=10, fontweight='bold')
+    ax.legend(fontsize=7, loc='lower left', frameon=False)
+    sns.despine(ax=ax)
+    ax.grid(True, axis='x', alpha=0.3)
+except Exception as e:
+    ax.axis('off'); ax.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+                            fontsize=8, transform=ax.transAxes)
+
+# ---- Panel D: ROC curves of GEE mortality models ----
+ax = axes[3]
+try:
+    cats_d = [c for c in all_categories if c in gee_mortality_results]
+    cmap_d = plt.cm.viridis(np.linspace(0, 0.9, max(len(cats_d), 1)))
+    plotted = 0
+    for i, c in enumerate(cats_d):
+        try:
+            res = gee_mortality_results[c]
+            df_g = gee_mortality_models[c][1]
+            y_true = df_g['mortality'].values
+            y_sc = np.asarray(res.fittedvalues, dtype=float)
+            if len(np.unique(y_true)) < 2:
+                continue
+            fpr, tpr, _ = roc_curve(y_true, y_sc)
+            a = roc_auc_score(y_true, y_sc)
+            ax.plot(fpr, tpr, lw=1.6, color=cmap_d[i],
+                    label=f'{_short_cat(c)} ({a:.2f})')
+            plotted += 1
+        except Exception:
+            continue
+    ax.plot([0, 1], [0, 1], 'k--', lw=1.0, alpha=0.6)
+    ax.set_xlabel('False-positive rate', fontsize=9)
+    ax.set_ylabel('True-positive rate', fontsize=9)
+    ax.set_title('GEE mortality ROC curves', fontsize=10, fontweight='bold')
+    if plotted:
+        ax.legend(fontsize=6, loc='lower right', frameon=False, ncol=1)
+    sns.despine(ax=ax)
+    ax.grid(True, alpha=0.3)
+except Exception as e:
+    ax.axis('off'); ax.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+                            fontsize=8, transform=ax.transAxes)
+
+# ---- Panel E: cross-cutting GEE odds ratios (age, severity, mortality risk) ----
+ax = axes[4]
+try:
+    target_vars = ['Age', 'Severity: High', 'Mortality Risk: High']
+    cats_e = [c for c in all_categories if c in gee_or_table]
+    cmap_e = dict(zip(target_vars, ['#0072B2', '#E69F00', '#D55E00']))
+    yticks, yticklabels = [], []
+    ypos = 0
+    any_drawn = False
+    for var in target_vars:
+        for c in cats_e:
+            cell = gee_or_table.get(c, {}).get(var)
+            if cell is None:
+                continue
+            est, lo, hi = _parse_ci(cell)
+            if not np.isfinite(est):
+                continue
+            ax.plot([lo, hi], [ypos, ypos], color=cmap_e[var], lw=1.6,
+                    solid_capstyle='round', zorder=2)
+            ax.plot([est], [ypos], 'o', color=cmap_e[var], ms=4.5, zorder=3)
+            yticks.append(ypos)
+            yticklabels.append(f'{_short_cat(c)} · {var.split(":")[0]}')
+            ypos += 1
+            any_drawn = True
+    if not any_drawn:
+        raise ValueError('no estimable cross-cutting predictors')
+    ax.axvline(1.0, color='black', ls='--', lw=1.0, alpha=0.7, zorder=1)
+    ax.set_xscale('log')
+    ax.set_yticks(yticks)
+    ax.set_yticklabels(yticklabels, fontsize=6.5)
+    ax.set_ylim(-0.6, ypos - 0.4)
+    ax.set_xlabel('Odds ratio (log scale)', fontsize=9)
+    ax.set_title('Cross-cutting mortality predictors', fontsize=10, fontweight='bold')
+    handles = [plt.Line2D([0], [0], color=cmap_e[v], marker='o', lw=1.6, label=v)
+               for v in target_vars]
+    ax.legend(handles=handles, fontsize=6, loc='lower right', frameon=False)
+    sns.despine(ax=ax)
+    ax.grid(True, axis='x', alpha=0.3)
+except Exception as e:
+    ax.axis('off'); ax.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+                            fontsize=8, transform=ax.transAxes)
+
+# ---- Panel F: LOS impact heatmap (WITH - WITHOUT comorbidity) ----
+ax = axes[5]
+try:
+    hm = heatmap_los_impact_df.copy()
+    hm.index = [_short_cat(c) for c in hm.index]
+    vmax = float(np.nanmax(np.abs(hm.values))) if hm.size else 1.0
+    vmax = vmax if np.isfinite(vmax) and vmax > 0 else 1.0
+    sns.heatmap(hm, ax=ax, cmap='RdBu_r', center=0, vmin=-vmax, vmax=vmax,
+                cbar_kws={'label': 'LOS difference (days)', 'shrink': 0.7},
+                linewidths=0.3, linecolor='white')
+    ax.set_title('LOS impact: with − without comorbidity', fontsize=10, fontweight='bold')
+    ax.set_xlabel('Comorbidity', fontsize=9)
+    ax.set_ylabel('')
+    plt.setp(ax.get_xticklabels(), rotation=45, ha='right', fontsize=5.5)
+    plt.setp(ax.get_yticklabels(), rotation=0, fontsize=6.5)
+except Exception as e:
+    ax.axis('off'); ax.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+                            fontsize=8, transform=ax.transAxes)
+
+fig.suptitle('Endocrine-metabolic hospitalizations in Chile (GRD 2019–2024): '
+             'mortality, length of stay and risk-prediction summary',
+             fontsize=13, fontweight='bold', y=0.975)
+
+import os as _os
+_os.makedirs('../data/output_files/endocrinas_parte2', exist_ok=True)
+plt.savefig('../data/output_files/endocrinas_parte2/composite_summary.png',
+            dpi=1200, bbox_inches='tight', facecolor='white')
+plt.show()
+```
+
+
+\newpage
+
+# Composite Figure — Mortality: Burden, Discrimination and Predictors
+
+```{python}
+#| label: fig-composite-mortality
+#| fig-cap: "Composite mortality summary across endocrine-metabolic disease categories (GRD 2019-2024). (A) In-hospital mortality rate (%) by disease category relative to the overall cohort mean; (B) GEE logistic-regression discrimination (AUC) for in-hospital mortality per category; (C) ROC-curve overlay of the GEE mortality models; (D) strongest in-hospital mortality odds-ratio predictors across categories (forest plot, log scale, reference OR = 1); (E) best machine-learning classifier AUC for mortality per category with the no-skill reference at 0.5."
+#| fig-width: 11
+#| fig-height: 13
+
+import re as _re
+
+# Okabe-Ito colorblind-safe categorical palette
+_okabe_m = ['#E69F00', '#56B4E9', '#009E73', '#F0E442', '#0072B2', '#D55E00', '#CC79A7', '#000000']
+
+def _short_cat_m(c):
+    """Drop the 'Exx-Exx: ' code prefix for compact axis labels."""
+    s = str(c)
+    return s.split(':', 1)[1].strip() if ':' in s else s
+
+def _parse_lead_m(txt):
+    """Extract the leading numeric estimate from an 'OR [lo, hi]sig' string."""
+    m = _re.match(r'\s*([0-9]*\.?[0-9]+)', str(txt))
+    return float(m.group(1)) if m else np.nan
+
+def _parse_ci_m(txt):
+    """Extract (est, lo, hi) from an 'est [lo, hi]sig' string."""
+    est = _parse_lead_m(txt)
+    m = _re.search(r'\[\s*([0-9]*\.?[0-9]+)\s*,\s*([0-9]*\.?[0-9]+)\s*\]', str(txt))
+    if m:
+        return est, float(m.group(1)), float(m.group(2))
+    return est, np.nan, np.nan
+
+panel_labels_m = ['A', 'B', 'C', 'D', 'E']
+fig = plt.figure(figsize=(11, 13))
+gs = fig.add_gridspec(3, 2, hspace=0.55, wspace=0.34,
+                      left=0.10, right=0.97, top=0.93, bottom=0.06)
+axes = [fig.add_subplot(gs[0, 0]), fig.add_subplot(gs[0, 1]),
+        fig.add_subplot(gs[1, 0]), fig.add_subplot(gs[1, 1]),
+        fig.add_subplot(gs[2, :])]
+for ax, lab in zip(axes, panel_labels_m):
+    ax.text(-0.08, 1.06, lab, transform=ax.transAxes, fontsize=13,
+            fontweight='bold', va='top')
+
+# ---- Panel A: in-hospital mortality rate (%) by disease category ----
+ax = axes[0]
+try:
+    mort = (df_endocrinas.groupby('endocrine_category')['mortality'].mean() * 100)
+    mort = mort.dropna().sort_values(ascending=True)
+    overall = df_endocrinas['mortality'].mean() * 100
+    bar_colors = ['#D55E00' if v > overall else '#56B4E9' for v in mort.values]
+    ax.barh(range(len(mort)), mort.values, color=bar_colors, alpha=0.9)
+    ax.axvline(overall, color='black', ls='--', lw=1.0, alpha=0.7,
+               label=f'Overall {overall:.2f}%')
+    ax.set_yticks(range(len(mort)))
+    ax.set_yticklabels([_short_cat_m(c) for c in mort.index], fontsize=8)
+    ax.set_xlabel('In-hospital mortality (%)', fontsize=9)
+    ax.set_title('Mortality rate by category', fontsize=10, fontweight='bold')
+    ax.legend(fontsize=7, loc='lower right', frameon=False)
+    sns.despine(ax=ax)
+    ax.grid(True, axis='x', alpha=0.3)
+except Exception as e:
+    ax.axis('off'); ax.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+                            fontsize=8, transform=ax.transAxes)
+
+# ---- Panel B: GEE mortality AUC per category ----
+ax = axes[1]
+try:
+    rows_b = []
+    for c in all_categories:
+        if c not in gee_mortality_results:
+            continue
+        try:
+            res = gee_mortality_results[c]
+            df_g = gee_mortality_models[c][1]
+            y_true = df_g['mortality'].values
+            y_sc = np.asarray(res.fittedvalues, dtype=float)
+            if len(np.unique(y_true)) < 2:
+                continue
+            rows_b.append((c, roc_auc_score(y_true, y_sc)))
+        except Exception:
+            continue
+    if not rows_b:
+        raise ValueError('no GEE AUCs')
+    rows_b.sort(key=lambda r: r[1])
+    cats_b = [r[0] for r in rows_b]
+    aucs_b = [r[1] for r in rows_b]
+    cmap_b = plt.cm.viridis(np.linspace(0.1, 0.85, len(cats_b)))
+    ax.barh(range(len(cats_b)), aucs_b, color=cmap_b, alpha=0.95)
+    ax.axvline(0.5, color='black', ls='--', lw=1.0, alpha=0.6, label='No skill')
+    for yi, a in enumerate(aucs_b):
+        ax.text(a + 0.005, yi, f'{a:.3f}', va='center', fontsize=6.5)
+    ax.set_yticks(range(len(cats_b)))
+    ax.set_yticklabels([_short_cat_m(c) for c in cats_b], fontsize=8)
+    ax.set_xlim(0.45, 1.02)
+    ax.set_xlabel('AUC (mortality discrimination)', fontsize=9)
+    ax.set_title('GEE logistic AUC by category', fontsize=10, fontweight='bold')
+    ax.legend(fontsize=7, loc='lower right', frameon=False)
+    sns.despine(ax=ax)
+    ax.grid(True, axis='x', alpha=0.3)
+except Exception as e:
+    ax.axis('off'); ax.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+                            fontsize=8, transform=ax.transAxes)
+
+# ---- Panel C: ROC overlay of GEE mortality models ----
+ax = axes[2]
+try:
+    cats_c = [c for c in all_categories if c in gee_mortality_results]
+    cmap_c = plt.cm.viridis(np.linspace(0, 0.9, max(len(cats_c), 1)))
+    plotted = 0
+    for i, c in enumerate(cats_c):
+        try:
+            res = gee_mortality_results[c]
+            df_g = gee_mortality_models[c][1]
+            y_true = df_g['mortality'].values
+            y_sc = np.asarray(res.fittedvalues, dtype=float)
+            if len(np.unique(y_true)) < 2:
+                continue
+            fpr, tpr, _ = roc_curve(y_true, y_sc)
+            a = roc_auc_score(y_true, y_sc)
+            ax.plot(fpr, tpr, lw=1.6, color=cmap_c[i],
+                    label=f'{_short_cat_m(c)} ({a:.2f})')
+            plotted += 1
+        except Exception:
+            continue
+    ax.plot([0, 1], [0, 1], 'k--', lw=1.0, alpha=0.6)
+    ax.set_xlabel('False-positive rate', fontsize=9)
+    ax.set_ylabel('True-positive rate', fontsize=9)
+    ax.set_title('GEE mortality ROC curves', fontsize=10, fontweight='bold')
+    if plotted:
+        ax.legend(fontsize=6, loc='lower right', frameon=False, ncol=1)
+    sns.despine(ax=ax)
+    ax.grid(True, alpha=0.3)
+except Exception as e:
+    ax.axis('off'); ax.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+                            fontsize=8, transform=ax.transAxes)
+
+# ---- Panel D: strongest mortality OR predictors (forest) ----
+ax = axes[3]
+try:
+    or_rows = []
+    for c in all_categories:
+        cell_map = gee_or_table.get(c, {})
+        for var, cell in cell_map.items():
+            est, lo, hi = _parse_ci_m(cell)
+            if not (np.isfinite(est) and np.isfinite(lo) and np.isfinite(hi)):
+                continue
+            if est <= 0 or est > 50:
+                continue
+            # strength = distance from OR = 1 on log scale, require finite CI
+            or_rows.append((f'{_short_cat_m(c)} · {var}', est, lo, hi,
+                            abs(np.log(est))))
+    if not or_rows:
+        raise ValueError('no OR predictors')
+    or_rows.sort(key=lambda r: r[4])
+    or_rows = or_rows[-12:]  # 12 strongest
+    labels_d = [r[0] for r in or_rows]
+    ests_d = np.array([r[1] for r in or_rows])
+    los_d = np.array([r[2] for r in or_rows])
+    his_d = np.array([r[3] for r in or_rows])
+    for yi, (e, lo, hi) in enumerate(zip(ests_d, los_d, his_d)):
+        col = '#D55E00' if e > 1 else '#0072B2'
+        ax.plot([lo, hi], [yi, yi], color=col, lw=1.7, solid_capstyle='round', zorder=2)
+        ax.plot([e], [yi], 'o', color=col, ms=5, zorder=3)
+    ax.axvline(1.0, color='black', ls='--', lw=1.0, alpha=0.7, zorder=1)
+    ax.set_xscale('log')
+    ax.set_yticks(range(len(labels_d)))
+    ax.set_yticklabels(labels_d, fontsize=6)
+    ax.set_ylim(-0.6, len(labels_d) - 0.4)
+    ax.set_xlabel('Odds ratio (log scale)', fontsize=9)
+    ax.set_title('Strongest mortality OR predictors', fontsize=10, fontweight='bold')
+    sns.despine(ax=ax)
+    ax.grid(True, axis='x', alpha=0.3)
+except Exception as e:
+    ax.axis('off'); ax.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+                            fontsize=8, transform=ax.transAxes)
+
+# ---- Panel E: best ML mortality AUC per category ----
+ax = axes[4]
+try:
+    rows_e = []
+    for c in all_categories:
+        res = ml_models_by_cat.get(c)
+        if not res:
+            continue
+        best_name = max(res, key=lambda k: res[k]['metrics']['AUC'])
+        best_auc = res[best_name]['metrics']['AUC']
+        if not np.isfinite(best_auc):
+            continue
+        rows_e.append((c, best_auc, best_name))
+    if not rows_e:
+        raise ValueError('no ML AUCs')
+    rows_e.sort(key=lambda r: r[1])
+    cats_e = [r[0] for r in rows_e]
+    aucs_e = [r[1] for r in rows_e]
+    x = np.arange(len(cats_e))
+    cmap_e = plt.cm.viridis(np.linspace(0.1, 0.85, len(cats_e)))
+    ax.bar(x, aucs_e, color=cmap_e, alpha=0.95)
+    ax.axhline(0.5, color='black', ls='--', lw=1.0, alpha=0.6, label='No skill')
+    for xi, a in enumerate(aucs_e):
+        ax.text(xi, a + 0.01, f'{a:.3f}', ha='center', va='bottom', fontsize=6.5)
+    ax.set_xticks(x)
+    ax.set_xticklabels([_short_cat_m(c) for c in cats_e], rotation=45, ha='right', fontsize=7)
+    ax.set_ylim(0.45, 1.05)
+    ax.set_ylabel('AUC (best ML classifier)', fontsize=9)
+    ax.set_title('Best machine-learning mortality AUC by category', fontsize=10, fontweight='bold')
+    ax.legend(fontsize=7, loc='lower right', frameon=False)
+    sns.despine(ax=ax)
+    ax.grid(True, axis='y', alpha=0.3)
+except Exception as e:
+    ax.axis('off'); ax.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+                            fontsize=8, transform=ax.transAxes)
+
+fig.suptitle('Endocrine-metabolic hospitalizations in Chile (GRD 2019-2024): '
+             'mortality burden, model discrimination and key predictors',
+             fontsize=13, fontweight='bold', y=0.975)
+
+import os as _os
+_os.makedirs('../data/output_files/endocrinas_parte2', exist_ok=True)
+plt.savefig('../data/output_files/endocrinas_parte2/composite_mortality.png',
+            dpi=1200, bbox_inches='tight', facecolor='white')
+plt.show()
+```
+
+\newpage
+
+# Composite Figure — Length of Stay and Comorbidity Burden
+
+```{python}
+#| label: fig-composite-los
+#| fig-cap: "Composite length-of-stay and comorbidity summary across endocrine-metabolic disease categories (GRD 2019-2024). (A) Mean length of stay (days) by disease category; (B) GEE Negative-Binomial incidence-rate ratios for length of stay per category (forest plot, log scale, reference IRR = 1); (C) length-of-stay impact heatmap (mean days with minus without each comorbidity, by category); (D) comorbidity prevalence across the cohort (%); (E) temporal trends in overall in-hospital mortality and mean length of stay, 2019-2024."
+#| fig-width: 11
+#| fig-height: 13
+
+import re as _re2
+
+_okabe_l = ['#E69F00', '#56B4E9', '#009E73', '#F0E442', '#0072B2', '#D55E00', '#CC79A7', '#000000']
+
+def _short_cat_l(c):
+    """Drop the 'Exx-Exx: ' code prefix for compact axis labels."""
+    s = str(c)
+    return s.split(':', 1)[1].strip() if ':' in s else s
+
+def _parse_lead_l(txt):
+    m = _re2.match(r'\s*([0-9]*\.?[0-9]+)', str(txt))
+    return float(m.group(1)) if m else np.nan
+
+def _parse_ci_l(txt):
+    est = _parse_lead_l(txt)
+    m = _re2.search(r'\[\s*([0-9]*\.?[0-9]+)\s*,\s*([0-9]*\.?[0-9]+)\s*\]', str(txt))
+    if m:
+        return est, float(m.group(1)), float(m.group(2))
+    return est, np.nan, np.nan
+
+panel_labels_l = ['A', 'B', 'C', 'D', 'E']
+fig = plt.figure(figsize=(11, 13))
+gs = fig.add_gridspec(3, 2, hspace=0.58, wspace=0.34,
+                      left=0.10, right=0.97, top=0.93, bottom=0.07)
+axes = [fig.add_subplot(gs[0, 0]), fig.add_subplot(gs[0, 1]),
+        fig.add_subplot(gs[1, :]),
+        fig.add_subplot(gs[2, 0]), fig.add_subplot(gs[2, 1])]
+for ax, lab in zip(axes, panel_labels_l):
+    ax.text(-0.08, 1.06, lab, transform=ax.transAxes, fontsize=13,
+            fontweight='bold', va='top')
+
+# ---- Panel A: mean LOS by disease category ----
+ax = axes[0]
+try:
+    los = df_endocrinas.groupby('endocrine_category')['length_of_stay'].mean()
+    los = los.dropna().sort_values(ascending=True)
+    overall_los = df_endocrinas['length_of_stay'].mean()
+    cmap_a = plt.cm.viridis(np.linspace(0.1, 0.85, len(los)))
+    ax.barh(range(len(los)), los.values, color=cmap_a, alpha=0.95)
+    ax.axvline(overall_los, color='black', ls='--', lw=1.0, alpha=0.7,
+               label=f'Overall {overall_los:.1f} d')
+    for yi, v in enumerate(los.values):
+        ax.text(v + 0.1, yi, f'{v:.1f}', va='center', fontsize=6.5)
+    ax.set_yticks(range(len(los)))
+    ax.set_yticklabels([_short_cat_l(c) for c in los.index], fontsize=8)
+    ax.set_xlabel('Mean length of stay (days)', fontsize=9)
+    ax.set_title('Length of stay by category', fontsize=10, fontweight='bold')
+    ax.legend(fontsize=7, loc='lower right', frameon=False)
+    sns.despine(ax=ax)
+    ax.grid(True, axis='x', alpha=0.3)
+except Exception as e:
+    ax.axis('off'); ax.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+                            fontsize=8, transform=ax.transAxes)
+
+# ---- Panel B: GEE Negative-Binomial IRR by category (forest) ----
+ax = axes[1]
+try:
+    irr_rows = []
+    for c in all_categories:
+        cell_map = gee_irr_table.get(c, {})
+        for var, cell in cell_map.items():
+            est, lo, hi = _parse_ci_l(cell)
+            if not (np.isfinite(est) and np.isfinite(lo) and np.isfinite(hi)):
+                continue
+            if est <= 0 or est > 50:
+                continue
+            irr_rows.append((f'{_short_cat_l(c)} · {var}', est, lo, hi, abs(np.log(est))))
+    if not irr_rows:
+        raise ValueError('no IRR predictors')
+    irr_rows.sort(key=lambda r: r[4])
+    irr_rows = irr_rows[-12:]  # 12 strongest
+    labels_b = [r[0] for r in irr_rows]
+    ests_b = np.array([r[1] for r in irr_rows])
+    los_b = np.array([r[2] for r in irr_rows])
+    his_b = np.array([r[3] for r in irr_rows])
+    for yi, (e, lo, hi) in enumerate(zip(ests_b, los_b, his_b)):
+        col = '#D55E00' if e > 1 else '#0072B2'
+        ax.plot([lo, hi], [yi, yi], color=col, lw=1.7, solid_capstyle='round', zorder=2)
+        ax.plot([e], [yi], 'o', color=col, ms=5, zorder=3)
+    ax.axvline(1.0, color='black', ls='--', lw=1.0, alpha=0.7, zorder=1)
+    ax.set_xscale('log')
+    ax.set_yticks(range(len(labels_b)))
+    ax.set_yticklabels(labels_b, fontsize=6)
+    ax.set_ylim(-0.6, len(labels_b) - 0.4)
+    ax.set_xlabel('Incidence rate ratio (log scale)', fontsize=9)
+    ax.set_title('Strongest GEE NB length-of-stay IRR', fontsize=10, fontweight='bold')
+    sns.despine(ax=ax)
+    ax.grid(True, axis='x', alpha=0.3)
+except Exception as e:
+    ax.axis('off'); ax.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+                            fontsize=8, transform=ax.transAxes)
+
+# ---- Panel C: LOS-impact comorbidity heatmap ----
+ax = axes[2]
+try:
+    hm = heatmap_los_impact_df.copy()
+    hm.index = [_short_cat_l(c) for c in hm.index]
+    vmax = float(np.nanmax(np.abs(hm.values))) if hm.size else 1.0
+    vmax = vmax if np.isfinite(vmax) and vmax > 0 else 1.0
+    sns.heatmap(hm, ax=ax, cmap='RdBu_r', center=0, vmin=-vmax, vmax=vmax,
+                cbar_kws={'label': 'LOS difference (days)', 'shrink': 0.7},
+                linewidths=0.3, linecolor='white')
+    ax.set_title('LOS impact: with - without comorbidity', fontsize=10, fontweight='bold')
+    ax.set_xlabel('Comorbidity', fontsize=9)
+    ax.set_ylabel('')
+    plt.setp(ax.get_xticklabels(), rotation=45, ha='right', fontsize=6)
+    plt.setp(ax.get_yticklabels(), rotation=0, fontsize=7)
+except Exception as e:
+    ax.axis('off'); ax.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+                            fontsize=8, transform=ax.transAxes)
+
+# ---- Panel D: comorbidity prevalence across cohort ----
+ax = axes[3]
+try:
+    prev = comor_pct.copy()
+    prev.index = [format_name('comor_' + str(i)) for i in prev.index]
+    prev = prev.sort_values(ascending=True)
+    cmap_d = plt.cm.viridis(np.linspace(0.1, 0.85, len(prev)))
+    ax.barh(range(len(prev)), prev.values, color=cmap_d, alpha=0.95)
+    for yi, v in enumerate(prev.values):
+        ax.text(v + 0.2, yi, f'{v:.1f}', va='center', fontsize=6)
+    ax.set_yticks(range(len(prev)))
+    ax.set_yticklabels(prev.index, fontsize=6.5)
+    ax.set_xlabel('Prevalence (% of cohort)', fontsize=9)
+    ax.set_title('Comorbidity prevalence', fontsize=10, fontweight='bold')
+    sns.despine(ax=ax)
+    ax.grid(True, axis='x', alpha=0.3)
+except Exception as e:
+    ax.axis('off'); ax.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+                            fontsize=8, transform=ax.transAxes)
+
+# ---- Panel E: temporal mortality and LOS trends ----
+ax = axes[4]
+try:
+    mort_yr = df_endocrinas.groupby('year')['mortality'].mean() * 100
+    los_yr = df_endocrinas.groupby('year')['length_of_stay'].mean()
+    yrs = mort_yr.index.values
+    ln1 = ax.plot(yrs, mort_yr.values, marker='o', lw=2.2, ms=7,
+                  color='#D55E00', label='Mortality (%)')
+    ax.set_xlabel('Year', fontsize=9)
+    ax.set_ylabel('In-hospital mortality (%)', fontsize=9, color='#D55E00')
+    ax.tick_params(axis='y', labelcolor='#D55E00')
+    ax2 = ax.twinx()
+    ln2 = ax2.plot(yrs, los_yr.values, marker='s', lw=2.2, ms=7,
+                   color='#0072B2', label='Mean LOS (days)')
+    ax2.set_ylabel('Mean length of stay (days)', fontsize=9, color='#0072B2')
+    ax2.tick_params(axis='y', labelcolor='#0072B2')
+    ax.set_title('Temporal trends, 2019-2024', fontsize=10, fontweight='bold')
+    lns = ln1 + ln2
+    ax.legend(lns, [l.get_label() for l in lns], fontsize=7, loc='best', frameon=False)
+    ax.set_xticks(yrs)
+    ax.grid(True, alpha=0.3)
+    sns.despine(ax=ax, right=False)
+except Exception as e:
+    ax.axis('off'); ax.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+                            fontsize=8, transform=ax.transAxes)
+
+fig.suptitle('Endocrine-metabolic hospitalizations in Chile (GRD 2019-2024): '
+             'length of stay, comorbidity burden and temporal trends',
+             fontsize=13, fontweight='bold', y=0.975)
+
+import os as _os2
+_os2.makedirs('../data/output_files/endocrinas_parte2', exist_ok=True)
+plt.savefig('../data/output_files/endocrinas_parte2/composite_los_comorbidity.png',
+            dpi=1200, bbox_inches='tight', facecolor='white')
+plt.show()
+```

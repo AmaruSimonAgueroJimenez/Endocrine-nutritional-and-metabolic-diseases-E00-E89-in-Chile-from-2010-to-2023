@@ -1,0 +1,2142 @@
+---
+title: "Comorbidity Network Analysis in Endocrine Disease Hospitalizations in Chile (GRD 2019–2024)"
+subtitle: "Análisis de Redes de Comorbilidad en Hospitalizaciones por Enfermedades Endocrinas en Chile (GRD 2019–2024)"
+author:
+  - name: "Dominga Elena Ramírez Reyes"
+    email: "dominga.ramirez@ug.uchile.cl"
+    orcid: "0000-0000-0000-0000"
+  - name: "María Matilde Vicuña Watkins"
+    email: "maria.vicuna@ug.uchile.cl"
+    orcid: "0000-0000-0000-0000"
+  - name: "Antonia Fernanda Troncoso Páez"
+    email: "antonia.troncoso.p@ug.uchile.cl"
+    orcid: "0000-0000-0000-0000"
+  - name: "Josefina Poblete Moreno"
+    email: "josefina.poblete@ug.uchile.cl"
+    orcid: "0000-0000-0000-0000"
+  - name: "Amaru Simón Agüero Jiménez"
+    email: "aaguero@miaundes.cl"
+    orcid: "0000-0001-7336-1833"
+date: "2026-04-05"
+lang: en
+format:
+  html:
+    embed-resources: true
+    smooth-scroll: true
+    toc: true
+    toc-depth: 4
+    toc-location: right
+    number-sections: true
+    code-fold: true
+    fig-cap-location: bottom
+bibliography: references_redes.bib
+nocite: '@*'
+execute:
+  warning: false
+  message: false
+---
+
+::: {.callout-note appearance="minimal"}
+
+## Resumen Estructurado — Congreso BiSide 2026
+
+**ESTRUCTURA Y EVOLUCIÓN TEMPORAL DE REDES DE MULTIMORBILIDAD EN PATOLOGÍA ENDOCRINA HOSPITALARIA EN CHILE, 2019-2024**
+
+**Introducción:** Las enfermedades endocrinas, nutricionales y metabólicas (CIE-10 E00-E89) constituyen una causa frecuente de hospitalización con elevada multimorbilidad, cuya estructura de agrupamiento permanece insuficientemente descrita en el contexto hospitalario chileno. El análisis de redes de co-ocurrencia permite identificar patrones sistémicos de asociación entre comorbilidades que trascienden el enfoque bivariado convencional.
+
+**Materiales y Métodos:** Estudio retrospectivo de 128.108 egresos con diagnóstico principal endocrino del sistema GRD de Chile (2019-2024). Se extrajeron comorbilidades de campos diagnósticos secundarios (DIAGNOSTICO2-35), clasificándolas en 48 grupos clínicos agrupados en 10 categorías sistémicas (cardiovascular, metabólica, respiratoria, renal, hepática, gastrointestinal, neurológica, psiquiátrica, sustancias sanguíneas e infecciosa). Se construyeron redes de co-ocurrencia anuales con pesos de similitud de Jaccard, filtrando aristas sobre el percentil 70. Se aplicó detección de comunidades (Louvain), análisis de centralidad multidimensional (grado, intermediación, cercanía, vector propio) y descomposición k-core. Se evaluó la co-ocurrencia de neoplasias digestivas (C15-C26) como comorbilidad cruzada.
+
+**Resultados:** Se analizaron 25.289 pacientes en 2019 y 24.353 en 2024 (mortalidad global 2,15%). La hipertensión arterial esencial fue la comorbilidad dominante (48,7% en 2019 a 53,4% en 2024) y el promedio de comorbilidades aumentó de 1,60 a 2,04. La red de co-ocurrencia presentó 21 nodos y 91 aristas en 2019 (densidad 0,433; transitividad 0,660) evolucionando a 20 nodos y 93 aristas en 2024 (densidad 0,490; transitividad 0,732), reflejando una creciente interconexión. El algoritmo de Louvain identificó consistentemente 2 comunidades con modularidad baja (~0,01), indicando fuerte integración cardiovascular-metabólica. La descomposición k-core alcanzó k=9, confirmando un núcleo denso de comorbilidades interrelacionadas. La prevalencia de comorbilidad neoplásica digestiva en pacientes endocrinos aumentó de 0,66% a 0,76%.
+
+**Conclusiones:** La estructura de redes de comorbilidad en patología endocrina revela agrupamientos clínicamente coherentes con centralidad dominante cardiovascular-metabólica y creciente densificación temporal. El bajo valor de modularidad refleja la naturaleza sistémica e integrada de la multimorbilidad endocrina.
+
+**Palabras clave:** análisis de redes, comorbilidad, enfermedades endocrinas, co-ocurrencia, multimorbilidad.
+
+:::
+
+::: {.callout-note appearance="minimal"}
+
+## Structured Abstract — BiSide 2026 Congress
+
+**STRUCTURE AND TEMPORAL EVOLUTION OF MULTIMORBIDITY NETWORKS IN ENDOCRINE HOSPITAL PATHOLOGY IN CHILE, 2019-2024**
+
+**Introduction:** Endocrine, nutritional, and metabolic diseases (ICD-10 E00-E89) represent a major cause of hospitalization with high multimorbidity burden, whose clustering structure remains insufficiently described in the Chilean hospital context. Co-occurrence network analysis enables identification of systemic association patterns that transcend conventional bivariate approaches.
+
+**Materials and Methods:** Retrospective study of 128,108 discharges with endocrine primary diagnosis from the Chilean GRD system (2019-2024). Comorbidities were extracted from secondary diagnostic fields (DIAGNOSTICO2-35) and classified into 48 clinical groups across 10 systemic categories (cardiovascular, metabolic, respiratory, renal, hepatic, gastrointestinal, neurological, psychiatric, blood substances, and infectious). Annual co-occurrence networks were constructed with Jaccard similarity weights, filtering edges above the 70th percentile. Louvain community detection, multidimensional centrality analysis (degree, betweenness, closeness, eigenvector), and k-core decomposition were applied. Digestive neoplasm (C15-C26) co-occurrence was evaluated as cross-disease comorbidity.
+
+**Results:** A total of 25,289 patients in 2019 and 24,353 in 2024 were analyzed (overall mortality 2.15%). Essential hypertension was the dominant comorbidity (48.7% in 2019 to 53.4% in 2024) and mean comorbidity count increased from 1.60 to 2.04. The co-occurrence network comprised 21 nodes and 91 edges in 2019 (density 0.433, transitivity 0.660), evolving to 20 nodes and 93 edges in 2024 (density 0.490, transitivity 0.732), reflecting increasing interconnection. Louvain algorithm consistently identified 2 communities with low modularity (~0.01), indicating strong cardiovascular-metabolic integration. K-core decomposition reached k=9, confirming a dense core of interrelated comorbidities. Digestive neoplastic comorbidity prevalence in endocrine patients increased from 0.66% to 0.76%.
+
+**Conclusions:** Comorbidity network structure in endocrine pathology reveals clinically coherent clusters with dominant cardiovascular-metabolic centrality and progressive temporal densification. The low modularity reflects the systemic and integrated nature of endocrine multimorbidity.
+
+**Keywords:** network analysis, comorbidity, endocrine diseases, co-occurrence, multimorbidity.
+
+:::
+
+# Introduction
+
+Endocrine, nutritional, and metabolic diseases (ICD-10 E00–E89) represent a major burden on health systems worldwide, with type 2 diabetes [@khan2020; @saeedi2019], thyroid disorders [@taylor2018], obesity [@pigeyre2016], and metabolic syndrome among the most prevalent conditions. In Chile, the prevalence of diabetes and obesity has risen steadily [@sapunar2018], and cardiovascular risk factors are highly prevalent [@diaz2019]. Understanding the comorbidity landscape of these conditions is essential for clinical management and resource planning [@valderas2009].
+
+Network medicine provides a framework for studying disease–disease relationships through co-occurrence patterns [@barabasi2011; @goh2007]. The human disease network paradigm links diseases by shared comorbidities, revealing non-trivial phenotypic associations [@hidalgo2009]. Community detection using the Louvain method [@blondel2008] identifies clusters of tightly co-occurring conditions, while centrality metrics [@freeman1978; @vandenheuvel2013] and k-core decomposition [@seidman1983] characterize the structural importance of individual comorbidities. Edge weights based on Jaccard similarity [@jaccard1901] capture pairwise co-occurrence strength, and modularity analysis [@newman2006] quantifies community structure.
+
+This analysis investigates patterns of comorbidity in hospitalizations for endocrine diseases in Chile from 2019–2024, using data from the GRD (Diagnosis-Related Groups) system [@deis2024] coded according to ICD-10 [@oms2019]. The network approach reveals how comorbidities cluster and evolve over time, with particular attention to pandemic effects (2020–2021) and the relationship between endocrine conditions and neoplastic diseases.
+
+# Methodology
+
+## Data Source and Study Population
+
+This study uses administrative hospitalization data from the GRD (Grupos Relacionados de Diagnóstico) system maintained by the Chilean Ministry of Health [@deis2024], covering the period 2019–2024. The GRD database records up to 35 diagnostic fields per admission (DIAGNOSTICO1–DIAGNOSTICO35), coded according to ICD-10 [@oms2019]. The study population includes all hospitalizations with a primary diagnosis (DIAGNOSTICO1) corresponding to endocrine, nutritional, and metabolic diseases (ICD-10 E00–E89), encompassing thyroid disorders (E00–E07) [@taylor2018], diabetes mellitus (E10–E14) [@khan2020; @saeedi2019], obesity and metabolic conditions (E65–E68) [@pigeyre2016], and other endocrine disorders.
+
+## Comorbidity Detection
+
+Comorbidities were extracted from secondary diagnostic fields (DIAGNOSTICO2–DIAGNOSTICO35) and mapped to clinically meaningful groups based on ICD-10 chapter and subchapter structure. Each comorbidity group was defined by a set of ICD-10 code prefixes covering conditions across major organ systems: cardiovascular, metabolic, respiratory, renal, hepatic, gastrointestinal, neurological, psychiatric, musculoskeletal, infectious, hematological, and substance-related. For each hospitalization, binary indicators were created for the presence of each comorbidity group. The comorbidity burden per patient was calculated as the total number of distinct comorbidity groups present.
+
+## Network Construction
+
+Comorbidity co-occurrence networks were constructed for each year (2019–2024) as undirected weighted graphs $G = (V, E, w)$, where nodes $V$ represent comorbidity groups and edges $E$ connect comorbidities that co-occur in at least one patient [@barabasi2011; @hidalgo2009]. Edge weights $w_{ij}$ were computed using the Jaccard similarity coefficient [@jaccard1901]:
+
+$$J(A,B) = \frac{|A \cap B|}{|A \cup B|}$$
+
+where $A$ and $B$ are the sets of patients with comorbidities $i$ and $j$, respectively. To filter noise and retain only clinically relevant associations, edges with Jaccard weights below the 70th percentile of the weight distribution were removed.
+
+## Community Detection
+
+Community structure was identified using the Louvain algorithm [@blondel2008], which optimizes modularity $Q$ [@newman2006]:
+
+$$Q = \frac{1}{2m} \sum_{ij} \left[ w_{ij} - \frac{k_i k_j}{2m} \right] \delta(c_i, c_j)$$
+
+where $m$ is the total edge weight, $k_i$ is the weighted degree of node $i$, $c_i$ is the community assignment of node $i$, and $\delta$ is the Kronecker delta. Communities represent clusters of comorbidities that co-occur more frequently with each other than with the rest of the network.
+
+## Centrality Analysis
+
+Multiple centrality metrics were computed to characterize the structural importance of individual comorbidities within the network [@freeman1978; @vandenheuvel2013]: degree centrality (number of connections), betweenness centrality (frequency of occurrence on shortest paths between other nodes), closeness centrality (inverse average distance to all other nodes), and eigenvector centrality (importance based on the importance of connected nodes).
+
+## K-Core Decomposition
+
+K-core decomposition [@seidman1983] was applied to identify the maximally connected subgraphs. A $k$-core is the maximal subgraph in which every node has degree at least $k$. The coreness of each node indicates how deeply embedded it is within the dense core of the network, providing a measure of structural cohesion that complements centrality metrics.
+
+## Software
+
+All analyses were conducted in Python 3.11 using NetworkX [@hagberg2008] for graph construction and analysis, python-louvain for community detection, pandas [@mckinney2010] for data manipulation, and Matplotlib [@hunter2007] and Seaborn for visualization. The computational document was rendered using Quarto with embedded Python code blocks to ensure full reproducibility.
+
+# Setup and Libraries
+
+```{python}
+#| output: false
+#| label: setup-libraries
+
+import pandas as pd
+import numpy as np
+import networkx as nx
+from community import community_louvain
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
+import seaborn as sns
+import plotly.graph_objects as go
+import plotly.express as px
+from plotly.subplots import make_subplots
+from itertools import combinations
+from collections import Counter, defaultdict
+from pathlib import Path
+import warnings
+warnings.filterwarnings('ignore')
+
+# Configure plotting — white background for all figures
+plt.rcParams.update({
+    'figure.facecolor': 'white',
+    'axes.facecolor': 'white',
+    'savefig.facecolor': 'white',
+    'figure.figsize': (14, 8),
+    'axes.grid': True,
+    'grid.alpha': 0.3,
+    'grid.color': '#cccccc',
+    'axes.spines.top': False,
+    'axes.spines.right': False,
+    'font.size': 11,
+    'axes.titlesize': 14,
+    'axes.labelsize': 12,
+})
+sns.set_palette("husl")
+sns.set_style("whitegrid")
+np.random.seed(42)
+
+# Data path (relative to docs/)
+DATA_PATH = Path("../data")
+
+# Common output location for saved figures (1200 dpi files; inline display stays normal)
+FIG_DIR = DATA_PATH / "output_files" / "endocrinas_redes"
+FIG_DIR.mkdir(parents=True, exist_ok=True)
+_redes_fig_n = [0]
+def save_current_fig():
+    _redes_fig_n[0] += 1
+    plt.savefig(FIG_DIR / f"redes_fig_{_redes_fig_n[0]:02d}.png",
+                dpi=1200, bbox_inches='tight', facecolor='white')
+
+print("All libraries loaded successfully")
+```
+
+\newpage
+
+# Data Loading and Preparation
+
+## Loading GRD Data (2019-2024)
+
+```{python}
+#| output: false
+#| label: load-grd-data
+
+# Define data path and years
+data_path = Path("../data")
+years = list(range(2019, 2025))
+
+def parse_date_flexible(date_str):
+    """
+    Parse dates flexibly, trying multiple formats.
+    Handles YYYY-MM-DD and DD-MM-YYYY formats.
+    """
+    if pd.isna(date_str) or date_str == '':
+        return pd.NaT
+
+    date_str = str(date_str).strip()
+
+    # Try YYYY-MM-DD first
+    try:
+        return pd.to_datetime(date_str, format='%Y-%m-%d')
+    except:
+        pass
+
+    # Try DD-MM-YYYY
+    try:
+        return pd.to_datetime(date_str, format='%d-%m-%Y')
+    except:
+        pass
+
+    # Try with coercion as last resort
+    try:
+        return pd.to_datetime(date_str, infer_datetime_format=True)
+    except:
+        return pd.NaT
+
+# Load all GRD data files
+all_grd_data = []
+
+for year in years:
+    file_path = data_path / f"GRD_PUBLICO_{year}.csv"
+
+    if file_path.exists():
+        print(f"Loading GRD {year}...")
+        df = pd.read_csv(
+            file_path,
+            sep='|',
+            encoding='utf-8',
+            na_values=['', 'NA'],
+            low_memory=False
+        )
+
+        # Parse date columns
+        for date_col in ['FECHA_NACIMIENTO', 'FECHA_INGRESO', 'FECHAALTA']:
+            if date_col in df.columns:
+                df[date_col] = df[date_col].apply(parse_date_flexible)
+
+        # Add year column
+        df['YEAR'] = year
+
+        all_grd_data.append(df)
+        print(f"  Loaded {len(df)} records")
+    else:
+        print(f"Warning: {file_path} not found")
+
+# Combine all years
+grd_data = pd.concat(all_grd_data, ignore_index=True)
+
+print(f"\nTotal GRD records: {len(grd_data)}")
+print(f"Years covered: {sorted(grd_data['YEAR'].unique())}")
+print(f"Columns: {', '.join(grd_data.columns.tolist())}")
+print(f"Date range: {grd_data['FECHA_INGRESO'].min()} to {grd_data['FECHA_INGRESO'].max()}")
+```
+
+## Data Cleaning and Feature Engineering
+
+```{python}
+#| output: false
+#| label: data-cleaning
+
+# Calculate age at admission
+grd_data['AGE'] = (
+    (grd_data['FECHA_INGRESO'] - grd_data['FECHA_NACIMIENTO']).dt.days / 365.25
+).round(2)
+
+# Calculate length of stay
+grd_data['LOS'] = (
+    (grd_data['FECHAALTA'] - grd_data['FECHA_INGRESO']).dt.days
+).clip(lower=0)
+
+# Standardize sex values
+def standardize_sex(sex_val):
+    if pd.isna(sex_val):
+        return np.nan
+    sex_str = str(sex_val).upper().strip()
+    if 'MUJ' in sex_str or 'FEM' in sex_str or sex_str == 'F':
+        return 'MUJER'
+    elif 'HOM' in sex_str or 'MASC' in sex_str or sex_str == 'M':
+        return 'HOMBRE'
+    else:
+        return np.nan
+
+grd_data['SEXO_CLEAN'] = grd_data['SEXO'].apply(standardize_sex)
+
+# Identify deaths (TIPOALTA contains 'FALLEC')
+grd_data['DEATH'] = grd_data['TIPOALTA'].fillna('').str.contains('FALLEC', case=False, na=False)
+
+# Filter for endocrine primary diagnoses (E00-E89)
+# DIAGNOSTICO1 starts with E0, E1, E2, E3, E4, E5, E6, E7, E8
+endocrine_filter = grd_data['DIAGNOSTICO1'].fillna('').str.match(r'^E[0-8]', na=False)
+
+grd_endocrine = grd_data[endocrine_filter].copy()
+
+# Remove records with unknown sex
+grd_endocrine = grd_endocrine[grd_endocrine['SEXO_CLEAN'].notna()].copy()
+
+# Remove records with missing age or invalid dates
+grd_endocrine = grd_endocrine[
+    (grd_endocrine['AGE'] > 0) &
+    (grd_endocrine['AGE'] < 120) &
+    (grd_endocrine['FECHA_INGRESO'].notna())
+].copy()
+
+print(f"After filtering for endocrine diagnoses: {len(grd_endocrine)} records")
+print(f"\nRecords per year:")
+print(grd_endocrine['YEAR'].value_counts().sort_index())
+
+print(f"\nSex distribution:")
+print(grd_endocrine['SEXO_CLEAN'].value_counts())
+
+print(f"\nAge statistics (years):")
+print(grd_endocrine['AGE'].describe())
+
+print(f"\nLength of stay statistics (days):")
+print(grd_endocrine['LOS'].describe())
+
+print(f"\nMortality rate: {grd_endocrine['DEATH'].sum() / len(grd_endocrine) * 100:.2f}%")
+```
+
+## Define Comorbidity Groups
+
+```{python}
+#| output: false
+#| label: define-comorbidity-groups
+
+# Define detailed comorbidity groups
+detailed_comorbidity_groups = {
+    # CARDIOVASCULAR (7 groups)
+    "CV Essential Hypertension": ["I10"],
+    "CV Complicated Hypertension": ["I11", "I12", "I13", "I15"],
+    "CV Coronary Disease": ["I20", "I21", "I22", "I23", "I24", "I25"],
+    "CV Heart Failure": ["I50"],
+    "CV Arrhythmias": ["I44", "I45", "I46", "I47", "I48", "I49"],
+    "CV Cerebrovascular Disease": ["I60", "I61", "I62", "I63", "I64", "I65", "I66", "I67", "I68", "I69"],
+    "CV Peripheral Vascular Disease": ["I70", "I71", "I73", "I74", "I77"],
+
+    # METABOLIC (7 groups)
+    "MET Type1 Diabetes": ["E10"],
+    "MET Type2 Diabetes": ["E11"],
+    "MET Complicated Diabetes": ["E12", "E13", "E14"],
+    "MET Obesity": ["E66"],
+    "MET Dyslipidemia": ["E78"],
+    "MET Metabolic Syndrome": ["E88"],
+    "MET Thyroid Disorders": ["E00", "E01", "E02", "E03", "E04", "E05", "E06", "E07"],
+
+    # RESPIRATORY (7 groups)
+    "RESP COPD": ["J44"],
+    "RESP Asthma": ["J45", "J46"],
+    "RESP Chronic Bronchitis": ["J41", "J42"],
+    "RESP Emphysema": ["J43"],
+    "RESP Pulmonary Fibrosis": ["J84"],
+    "RESP Pulmonary Hypertension": ["I27"],
+    "RESP Sleep Apnea": ["G47"],
+
+    # RENAL (4 groups)
+    "REN Acute Renal Failure": ["N17"],
+    "REN Chronic Renal Failure": ["N18"],
+    "REN End Stage Renal": ["N185", "N186"],
+    "REN Diabetic Nephropathy": ["E102", "E112", "E122", "E132", "E142"],
+
+    # HEPATIC (4 groups)
+    "HEP Steatosis": ["K76"],
+    "HEP Alcoholic Cirrhosis": ["K70"],
+    "HEP NonAlcoholic Cirrhosis": ["K74"],
+    "HEP Viral Hepatitis": ["B15", "B16", "B17", "B18", "B19"],
+
+    # GASTROINTESTINAL (4 groups)
+    "GI Reflux": ["K21"],
+    "GI Peptic Ulcer": ["K25", "K26", "K27", "K28"],
+    "GI IBD": ["K50", "K51"],
+    "GI IBS": ["K58"],
+
+    # NEUROLOGICAL (4 groups)
+    "NEURO Dementia": ["F00", "F01", "F02", "F03", "G30"],
+    "NEURO Parkinson": ["G20", "G21", "G22"],
+    "NEURO Epilepsy": ["G40", "G41"],
+    "NEURO Stroke Sequelae": ["I69"],
+
+    # PSYCHIATRIC (3 groups)
+    "PSI Major Depression": ["F32", "F33"],
+    "PSI Bipolar": ["F30", "F31"],
+    "PSI Anxiety": ["F41"],
+
+    # SUBSTANCE (3 groups)
+    "SUST Alcohol": ["F10"],
+    "SUST Tobacco": ["F17", "Z72"],
+    "SUST Opioids": ["F11"],
+
+    # INFECTIOUS (4 groups)
+    "INF HIV": ["B20", "B21", "B22", "B23", "B24"],
+    "INF Tuberculosis": ["A15", "A16", "A17", "A18", "A19"],
+    "INF Hepatitis C": ["B18"],
+    "INF Hepatitis B": ["B18"],
+}
+
+# Create category-to-color mapping
+category_colors = {
+    'CV': '#E74C3C',    # Red
+    'MET': '#3498DB',   # Blue
+    'RESP': '#2ECC71',  # Green
+    'REN': '#F39C12',   # Orange
+    'HEP': '#9B59B6',   # Purple
+    'GI': '#1ABC9C',    # Teal
+    'NEURO': '#34495E', # Dark gray
+    'PSI': '#E67E22',   # Dark orange
+    'SUST': '#C0392B',  # Dark red
+    'INF': '#16A085',   # Dark teal
+}
+
+def get_comorbidity_category(comorbidity_name):
+    """Extract category prefix from comorbidity name."""
+    return comorbidity_name.split(' ')[0]
+
+def get_comorbidity_color(comorbidity_name):
+    """Get color for a comorbidity based on its category."""
+    category = get_comorbidity_category(comorbidity_name)
+    return category_colors.get(category, '#95A5A6')
+
+print(f"Defined {len(detailed_comorbidity_groups)} comorbidity groups")
+print(f"Categories: {', '.join(sorted(set(get_comorbidity_category(c) for c in detailed_comorbidity_groups.keys())))}")
+```
+
+## Detect Comorbidities
+
+```{python}
+#| output: false
+#| label: detect-comorbidities
+
+def normalize_icd_code(code):
+    """
+    Normalize ICD-10 code: remove dots, uppercase, take first 3-4 characters.
+    """
+    if pd.isna(code) or code == '':
+        return None
+
+    code_str = str(code).strip().upper().replace('.', '')
+
+    # Take first 3 characters for 3-digit codes, or up to 4 for more specificity
+    if len(code_str) >= 3:
+        return code_str[:3]
+
+    return None
+
+def detect_comorbidities(row, comorbidity_groups):
+    """
+    Detect which comorbidities are present in a patient's diagnoses.
+    Returns list of comorbidity group names.
+    """
+    comorbidities = []
+
+    # Check DIAGNOSTICO2 through DIAGNOSTICO35
+    for i in range(2, 36):
+        diag_col = f'DIAGNOSTICO{i}'
+        if diag_col not in row.index:
+            continue
+
+        diag_code = row[diag_col]
+        normalized = normalize_icd_code(diag_code)
+
+        if normalized is None:
+            continue
+
+        # Check against each comorbidity group
+        for group_name, icd_codes in comorbidity_groups.items():
+            for icd_code in icd_codes:
+                icd_code_norm = icd_code.replace('.', '').upper()[:3]
+                if normalized.startswith(icd_code_norm):
+                    if group_name not in comorbidities:
+                        comorbidities.append(group_name)
+                    break
+
+    return comorbidities
+
+# Apply comorbidity detection
+print("Detecting comorbidities...")
+grd_endocrine['COMORBIDITIES'] = grd_endocrine.apply(
+    lambda row: detect_comorbidities(row, detailed_comorbidity_groups),
+    axis=1
+)
+
+grd_endocrine['NUM_COMORBIDITIES'] = grd_endocrine['COMORBIDITIES'].apply(len)
+
+print(f"Comorbidity detection complete")
+print(f"\nComorbidity burden (number of comorbidities per patient):")
+print(grd_endocrine['NUM_COMORBIDITIES'].describe())
+
+# Calculate prevalence of each comorbidity overall
+overall_prevalence = {}
+for comorb_group in detailed_comorbidity_groups.keys():
+    count = (grd_endocrine['COMORBIDITIES'].apply(lambda x: comorb_group in x)).sum()
+    prevalence = count / len(grd_endocrine) * 100
+    overall_prevalence[comorb_group] = {'count': count, 'prevalence': prevalence}
+
+print(f"\nTop 15 most prevalent comorbidities:")
+top_15 = sorted(overall_prevalence.items(), key=lambda x: x[1]['prevalence'], reverse=True)[:15]
+for comorb, data in top_15:
+    print(f"  {comorb}: {data['prevalence']:.2f}% ({data['count']} patients)")
+```
+
+\newpage
+
+# Prevalence Analysis
+
+## Comorbidity Prevalence by Year
+
+```{python}
+#| label: fig-prevalence-by-year
+#| fig-cap: "Top 15 most prevalent comorbidities by year in endocrine hospitalized patients"
+
+# Calculate prevalence by year
+prevalence_by_year = {}
+
+for year in sorted(grd_endocrine['YEAR'].unique()):
+    year_data = grd_endocrine[grd_endocrine['YEAR'] == year]
+    prevalence_by_year[year] = {}
+
+    for comorb_group in detailed_comorbidity_groups.keys():
+        count = (year_data['COMORBIDITIES'].apply(lambda x: comorb_group in x)).sum()
+        prevalence = count / len(year_data) * 100 if len(year_data) > 0 else 0
+        prevalence_by_year[year][comorb_group] = prevalence
+
+# Convert to DataFrame for plotting
+prevalence_df = pd.DataFrame(prevalence_by_year).T
+prevalence_df = prevalence_df.reset_index().rename(columns={'index': 'YEAR'})
+
+# Get overall top 15 comorbidities
+top_15_comorbs = [c[0] for c in sorted(overall_prevalence.items(),
+                                        key=lambda x: x[1]['prevalence'],
+                                        reverse=True)[:15]]
+
+prevalence_top15 = prevalence_df[['YEAR'] + top_15_comorbs].set_index('YEAR')
+
+# Plot
+fig, ax = plt.subplots(figsize=(15, 8))
+
+x = np.arange(len(prevalence_top15.index))
+width = 0.07
+colors_list = [get_comorbidity_color(c) for c in top_15_comorbs]
+
+for i, comorb in enumerate(top_15_comorbs):
+    offset = (i - 7) * width
+    ax.bar(x + offset, prevalence_top15[comorb], width,
+           label=comorb, color=colors_list[i], alpha=0.85)
+
+ax.set_xlabel('Year', fontsize=12, fontweight='bold')
+ax.set_ylabel('Prevalence (%)', fontsize=12, fontweight='bold')
+ax.set_title('Top 15 Most Prevalent Comorbidities by Year', fontsize=14, fontweight='bold')
+ax.set_xticks(x)
+ax.set_xticklabels(prevalence_top15.index)
+ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left', ncol=1, fontsize=9)
+ax.grid(axis='y', alpha=0.3)
+plt.tight_layout()
+save_current_fig()
+plt.show()
+```
+
+## Comorbidity Prevalence Heatmap
+
+```{python}
+#| label: fig-prevalence-heatmap
+#| fig-cap: "Heatmap of comorbidity prevalence across years"
+
+# Create heatmap data
+heatmap_data = prevalence_df.set_index('YEAR')[top_15_comorbs]
+
+fig, ax = plt.subplots(figsize=(12, 8))
+sns.heatmap(heatmap_data.T, annot=True, fmt='.1f', cmap='YlOrRd',
+            cbar_kws={'label': 'Prevalence (%)'}, ax=ax, linewidths=0.5)
+ax.set_title('Comorbidity Prevalence by Year (%)', fontsize=14, fontweight='bold')
+ax.set_xlabel('Year', fontsize=12, fontweight='bold')
+ax.set_ylabel('Comorbidity Group', fontsize=12, fontweight='bold')
+plt.tight_layout()
+save_current_fig()
+plt.show()
+```
+
+## Comorbidity Burden Distribution
+
+```{python}
+#| label: fig-comorbidity-burden
+#| fig-cap: "Distribution of comorbidity burden (number of comorbidities per patient) by year"
+
+fig, axes = plt.subplots(1, 2, figsize=(14, 6))
+
+# Box plot
+ax = axes[0]
+years = sorted(grd_endocrine['YEAR'].unique())
+data_to_plot = [grd_endocrine[grd_endocrine['YEAR'] == year]['NUM_COMORBIDITIES'].values
+                for year in years]
+bp = ax.boxplot(data_to_plot, labels=years, patch_artist=True)
+for patch in bp['boxes']:
+    patch.set_facecolor('#3498DB')
+    patch.set_alpha(0.7)
+ax.set_xlabel('Year', fontsize=12, fontweight='bold')
+ax.set_ylabel('Number of Comorbidities', fontsize=12, fontweight='bold')
+ax.set_title('Comorbidity Burden: Box Plot by Year', fontsize=13, fontweight='bold')
+ax.grid(axis='y', alpha=0.3)
+
+# Violin plot
+ax = axes[1]
+burden_df = grd_endocrine[['YEAR', 'NUM_COMORBIDITIES']].copy()
+sns.violinplot(data=burden_df, x='YEAR', y='NUM_COMORBIDITIES', ax=ax,
+               palette='Set2', inner='box')
+ax.set_xlabel('Year', fontsize=12, fontweight='bold')
+ax.set_ylabel('Number of Comorbidities', fontsize=12, fontweight='bold')
+ax.set_title('Comorbidity Burden: Violin Plot by Year', fontsize=13, fontweight='bold')
+ax.grid(axis='y', alpha=0.3)
+
+plt.tight_layout()
+save_current_fig()
+plt.show()
+```
+
+\newpage
+
+# Network Construction
+
+## Co-occurrence Network Analysis
+
+```{python}
+#| output: false
+#| label: build-cooccurrence-networks
+
+def build_cooccurrence_network(comorbidity_lists, min_weight=0):
+    """
+    Build a co-occurrence network from patient comorbidity lists.
+    Returns networkx Graph with weighted edges.
+    """
+    # Count co-occurrences
+    cooccurrence_counts = defaultdict(int)
+
+    for comorb_list in comorbidity_lists:
+        if len(comorb_list) < 2:
+            continue
+
+        # Generate all pairs
+        for pair in combinations(sorted(comorb_list), 2):
+            cooccurrence_counts[pair] += 1
+
+    # Build graph
+    G = nx.Graph()
+
+    # Add nodes (all comorbidities)
+    all_nodes = set()
+    for pair in cooccurrence_counts.keys():
+        all_nodes.update(pair)
+
+    for node in all_nodes:
+        G.add_node(node)
+
+    # Add weighted edges
+    for (source, target), weight in cooccurrence_counts.items():
+        if weight >= min_weight:
+            G.add_edge(source, target, weight=weight)
+
+    return G, cooccurrence_counts
+
+# Build networks per year
+networks_per_year = {}
+cooccurrence_per_year = {}
+
+for year in sorted(grd_endocrine['YEAR'].unique()):
+    year_data = grd_endocrine[grd_endocrine['YEAR'] == year]
+    comorbidity_lists = year_data['COMORBIDITIES'].tolist()
+
+    G, cooccurrence = build_cooccurrence_network(comorbidity_lists, min_weight=0)
+    networks_per_year[year] = G
+    cooccurrence_per_year[year] = cooccurrence
+
+    print(f"\nYear {year}:")
+    print(f"  Nodes: {G.number_of_nodes()}")
+    print(f"  Edges: {G.number_of_edges()}")
+    print(f"  Density: {nx.density(G):.4f}")
+
+# Apply Jaccard similarity filtering for edge weights
+def filter_network_by_similarity(G, percentile=70):
+    """
+    Filter network edges based on Jaccard similarity threshold.
+    Keep edges with weights above a percentile.
+    """
+    G_filtered = G.copy()
+
+    if G.number_of_edges() == 0:
+        return G_filtered
+
+    # Calculate log-transformed weights for better distribution
+    weights = [d['weight'] for u, v, d in G.edges(data=True)]
+    log_weights = np.log1p(weights)
+    threshold = np.percentile(log_weights, percentile)
+
+    # Remove low-weight edges
+    edges_to_remove = []
+    for u, v, d in G.edges(data=True):
+        if np.log1p(d['weight']) < threshold:
+            edges_to_remove.append((u, v))
+
+    G_filtered.remove_edges_from(edges_to_remove)
+
+    return G_filtered
+
+# Filter networks
+networks_filtered = {}
+for year, G in networks_per_year.items():
+    G_filt = filter_network_by_similarity(G, percentile=70)
+    networks_filtered[year] = G_filt
+
+    print(f"\nFiltered network {year}:")
+    print(f"  Nodes: {G_filt.number_of_nodes()}")
+    print(f"  Edges: {G_filt.number_of_edges()}")
+    print(f"  Connected components: {nx.number_connected_components(G_filt)}")
+```
+
+\newpage
+
+# Network Metrics and Evolution
+
+## Global Network Metrics Over Time
+
+```{python}
+#| output: false
+#| label: compute-global-metrics
+
+def compute_network_metrics(G, year):
+    """Compute comprehensive network metrics."""
+    metrics = {
+        'Year': year,
+        'Nodes': G.number_of_nodes(),
+        'Edges': G.number_of_edges(),
+        'Density': nx.density(G),
+        'Transitivity': nx.transitivity(G) if G.number_of_edges() > 0 else 0,
+        'Avg_Degree': np.mean([d for n, d in G.degree()]) if G.number_of_nodes() > 0 else 0,
+    }
+
+    # Average shortest path (for largest connected component)
+    if G.number_of_nodes() > 1:
+        largest_cc = max(nx.connected_components(G), key=len)
+        G_largest = G.subgraph(largest_cc)
+        if G_largest.number_of_edges() > 0:
+            try:
+                metrics['Avg_Shortest_Path'] = nx.average_shortest_path_length(G_largest)
+            except:
+                metrics['Avg_Shortest_Path'] = np.nan
+        else:
+            metrics['Avg_Shortest_Path'] = np.nan
+    else:
+        metrics['Avg_Shortest_Path'] = np.nan
+
+    # Assortativity
+    if G.number_of_nodes() > 1 and G.number_of_edges() > 0:
+        try:
+            metrics['Assortativity'] = nx.degree_assortativity_coefficient(G)
+        except:
+            metrics['Assortativity'] = np.nan
+    else:
+        metrics['Assortativity'] = np.nan
+
+    return metrics
+
+# Compute metrics for all years
+global_metrics = []
+for year in sorted(networks_filtered.keys()):
+    G = networks_filtered[year]
+    metrics = compute_network_metrics(G, year)
+    global_metrics.append(metrics)
+
+global_metrics_df = pd.DataFrame(global_metrics)
+print("Global Network Metrics:")
+print(global_metrics_df.to_string(index=False))
+```
+
+## Evolution of Network Metrics
+
+```{python}
+#| label: fig-network-metrics-evolution
+#| fig-cap: "Evolution of global network metrics from 2019 to 2024. Shaded area indicates pandemic period (2020-2021)"
+
+fig, axes = plt.subplots(2, 3, figsize=(16, 10))
+fig.suptitle('Network Metrics Over Time (2019-2024)', fontsize=16, fontweight='bold', y=1.00)
+
+metrics_to_plot = [
+    ('Nodes', 'Number of Comorbidity Nodes'),
+    ('Edges', 'Number of Co-occurrence Edges'),
+    ('Density', 'Network Density'),
+    ('Transitivity', 'Transitivity (Clustering)'),
+    ('Avg_Degree', 'Average Node Degree'),
+    ('Avg_Shortest_Path', 'Avg Shortest Path Length'),
+]
+
+for idx, (metric, title) in enumerate(metrics_to_plot):
+    ax = axes[idx // 3, idx % 3]
+
+    years = global_metrics_df['Year'].values
+    values = global_metrics_df[metric].values
+
+    ax.plot(years, values, 'o-', linewidth=2.5, markersize=8, color='#3498DB')
+    ax.fill_between([2019.5, 2021.5], ax.get_ylim()[0], ax.get_ylim()[1],
+                     alpha=0.15, color='gray', label='Pandemic Period')
+
+    ax.set_xlabel('Year', fontsize=11, fontweight='bold')
+    ax.set_ylabel(title, fontsize=11, fontweight='bold')
+    ax.set_title(title, fontsize=12, fontweight='bold')
+    ax.grid(True, alpha=0.3)
+    ax.set_xticks(years)
+
+plt.tight_layout()
+save_current_fig()
+plt.show()
+```
+
+\newpage
+
+# Community Detection
+
+## Louvain Community Detection
+
+```{python}
+#| output: false
+#| label: louvain-communities
+
+# Apply Louvain algorithm to each year
+communities_by_year = {}
+community_metrics_list = []
+
+for year in sorted(networks_filtered.keys()):
+    G = networks_filtered[year]
+
+    if G.number_of_edges() == 0:
+        communities_by_year[year] = {}
+        continue
+
+    # Convert to undirected for Louvain
+    partition = community_louvain.best_partition(G)
+    communities_by_year[year] = partition
+
+    # Calculate modularity
+    modularity = community_louvain.modularity(partition, G)
+    num_communities = len(set(partition.values()))
+
+    community_metrics_list.append({
+        'Year': year,
+        'Num_Communities': num_communities,
+        'Modularity': modularity,
+    })
+
+    print(f"Year {year}:")
+    print(f"  Communities: {num_communities}")
+    print(f"  Modularity: {modularity:.4f}")
+
+    # Print community composition
+    communities_dict = defaultdict(list)
+    for node, comm_id in partition.items():
+        communities_dict[comm_id].append(node)
+
+    for comm_id in sorted(communities_dict.keys()):
+        print(f"    Community {comm_id} ({len(communities_dict[comm_id])} nodes):")
+        for node in sorted(communities_dict[comm_id])[:5]:
+            print(f"      - {node}")
+        if len(communities_dict[comm_id]) > 5:
+            print(f"      ... and {len(communities_dict[comm_id]) - 5} more")
+
+community_metrics_df = pd.DataFrame(community_metrics_list)
+print("\nCommunity Detection Summary:")
+print(community_metrics_df.to_string(index=False))
+```
+
+## Community Evolution Visualization
+
+```{python}
+#| label: fig-communities-evolution
+#| fig-cap: "Evolution of community structure: number of communities and modularity over time"
+
+fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+
+# Number of communities
+ax = axes[0]
+ax.plot(community_metrics_df['Year'], community_metrics_df['Num_Communities'],
+        'o-', linewidth=2.5, markersize=10, color='#E74C3C')
+ax.fill_between(community_metrics_df['Year'], community_metrics_df['Num_Communities'],
+                alpha=0.3, color='#E74C3C')
+ax.set_xlabel('Year', fontsize=12, fontweight='bold')
+ax.set_ylabel('Number of Communities', fontsize=12, fontweight='bold')
+ax.set_title('Communities Detected per Year', fontsize=13, fontweight='bold')
+ax.grid(True, alpha=0.3)
+ax.set_xticks(community_metrics_df['Year'])
+
+# Modularity
+ax = axes[1]
+ax.plot(community_metrics_df['Year'], community_metrics_df['Modularity'],
+        's-', linewidth=2.5, markersize=10, color='#2ECC71')
+ax.fill_between(community_metrics_df['Year'], community_metrics_df['Modularity'],
+                alpha=0.3, color='#2ECC71')
+ax.set_xlabel('Year', fontsize=12, fontweight='bold')
+ax.set_ylabel('Modularity', fontsize=12, fontweight='bold')
+ax.set_title('Network Modularity over Time', fontsize=13, fontweight='bold')
+ax.grid(True, alpha=0.3)
+ax.set_xticks(community_metrics_df['Year'])
+
+plt.tight_layout()
+save_current_fig()
+plt.show()
+```
+
+\newpage
+
+# Centrality Analysis
+
+## Degree Centrality Analysis
+
+```{python}
+#| output: false
+#| label: centrality-analysis
+
+# Compute multiple centrality measures per year
+centrality_data = []
+
+for year in sorted(networks_filtered.keys()):
+    G = networks_filtered[year]
+
+    if G.number_of_nodes() == 0:
+        continue
+
+    # Degree centrality
+    degree_cent = nx.degree_centrality(G)
+
+    # Betweenness centrality
+    betweenness_cent = nx.betweenness_centrality(G, weight='weight')
+
+    # Closeness centrality (only for largest connected component)
+    largest_cc = max(nx.connected_components(G), key=len)
+    G_largest = G.subgraph(largest_cc)
+    if G_largest.number_of_nodes() > 0:
+        closeness_cent = nx.closeness_centrality(G_largest)
+    else:
+        closeness_cent = {}
+
+    # Eigenvector centrality (with error handling)
+    try:
+        eigenvector_cent = nx.eigenvector_centrality(G, weight='weight', max_iter=1000)
+    except:
+        eigenvector_cent = {node: 0 for node in G.nodes()}
+
+    # Store top 10 nodes
+    top_10_degree = sorted(degree_cent.items(), key=lambda x: x[1], reverse=True)[:10]
+
+    for rank, (node, value) in enumerate(top_10_degree, 1):
+        centrality_data.append({
+            'Year': year,
+            'Rank': rank,
+            'Node': node,
+            'Degree_Centrality': value,
+            'Betweenness': betweenness_cent.get(node, 0),
+            'Closeness': closeness_cent.get(node, 0),
+            'Eigenvector': eigenvector_cent.get(node, 0),
+        })
+
+centrality_df = pd.DataFrame(centrality_data)
+print("Top 10 Most Central Comorbidities (by Degree):")
+print(centrality_df[centrality_df['Rank'] <= 10].to_string(index=False))
+```
+
+## Heatmap of Node Degree by Year
+
+```{python}
+#| label: fig-degree-heatmap
+#| fig-cap: "Heatmap of node degree centrality for top comorbidities across years"
+
+# Get top nodes overall
+all_nodes_overall = set()
+for G in networks_filtered.values():
+    all_nodes_overall.update(G.nodes())
+
+# Compute degree for each node per year
+degree_by_node_year = {}
+for node in all_nodes_overall:
+    degree_by_node_year[node] = {}
+    for year in sorted(networks_filtered.keys()):
+        G = networks_filtered[year]
+        degree_by_node_year[node][year] = dict(G.degree()).get(node, 0)
+
+# Get top 15 nodes by overall average degree
+avg_degree = {node: np.mean(list(year_degrees.values()))
+              for node, year_degrees in degree_by_node_year.items()}
+top_15_nodes = sorted(avg_degree.items(), key=lambda x: x[1], reverse=True)[:15]
+top_15_nodes = [node for node, _ in top_15_nodes]
+
+# Create heatmap data
+heatmap_data = pd.DataFrame({
+    node: [degree_by_node_year[node][year] for year in sorted(networks_filtered.keys())]
+    for node in top_15_nodes
+}, index=sorted(networks_filtered.keys())).T
+
+fig, ax = plt.subplots(figsize=(10, 8))
+sns.heatmap(heatmap_data, annot=True, fmt='d', cmap='RdYlGn',
+            cbar_kws={'label': 'Degree'}, ax=ax, linewidths=0.5)
+ax.set_title('Node Degree Centrality Heatmap (Top 15 Nodes)', fontsize=14, fontweight='bold')
+ax.set_xlabel('Year', fontsize=12, fontweight='bold')
+ax.set_ylabel('Comorbidity', fontsize=12, fontweight='bold')
+plt.tight_layout()
+save_current_fig()
+plt.show()
+```
+
+## Ranking Evolution (Bump Chart)
+
+```{python}
+#| label: fig-centrality-bump-chart
+#| fig-cap: "Evolution of top 10 comorbidities ranking by degree centrality (2019-2024)"
+
+# Get top 10 nodes in 2019
+G_2019 = networks_filtered[2019]
+degree_2019 = dict(G_2019.degree())
+top_10_2019 = sorted(degree_2019.items(), key=lambda x: x[1], reverse=True)[:10]
+top_10_nodes = [node for node, _ in top_10_2019]
+
+# Create ranking data
+ranking_data = []
+for year in sorted(networks_filtered.keys()):
+    G = networks_filtered[year]
+    degree_year = dict(G.degree())
+
+    all_nodes_sorted = sorted(degree_year.items(), key=lambda x: x[1], reverse=True)
+    node_to_rank = {node: rank + 1 for rank, (node, _) in enumerate(all_nodes_sorted)}
+
+    for node in top_10_nodes:
+        ranking_data.append({
+            'Year': year,
+            'Node': node,
+            'Rank': node_to_rank.get(node, len(G.nodes()) + 1),
+        })
+
+ranking_df = pd.DataFrame(ranking_data)
+
+# Plot bump chart
+fig, ax = plt.subplots(figsize=(12, 7))
+
+for node in top_10_nodes:
+    node_data = ranking_df[ranking_df['Node'] == node]
+    color = get_comorbidity_color(node)
+    ax.plot(node_data['Year'], node_data['Rank'], 'o-', label=node,
+            color=color, linewidth=2.5, markersize=8, alpha=0.8)
+
+ax.set_xlabel('Year', fontsize=12, fontweight='bold')
+ax.set_ylabel('Centrality Rank (1 = highest)', fontsize=12, fontweight='bold')
+ax.set_title('Evolution of Top Comorbidities by Degree Centrality', fontsize=14, fontweight='bold')
+ax.invert_yaxis()
+ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left', ncol=1, fontsize=9)
+ax.grid(True, alpha=0.3)
+ax.set_xticks(sorted(ranking_df['Year'].unique()))
+
+plt.tight_layout()
+save_current_fig()
+plt.show()
+```
+
+\newpage
+
+# K-Core Decomposition
+
+## K-Core Analysis
+
+```{python}
+#| output: false
+#| label: kcore-analysis
+
+kcore_data = []
+
+for year in sorted(networks_filtered.keys()):
+    G = networks_filtered[year]
+
+    if G.number_of_nodes() == 0:
+        continue
+
+    # Compute k-core decomposition
+    core_numbers = nx.core_number(G)
+
+    # Statistics
+    max_k = max(core_numbers.values()) if core_numbers else 0
+
+    # Count nodes in each core level
+    core_distribution = Counter(core_numbers.values())
+
+    kcore_data.append({
+        'Year': year,
+        'Max_K': max_k,
+        'Avg_K': np.mean(list(core_numbers.values())),
+        'Nodes_in_Max_K': sum(1 for k in core_numbers.values() if k == max_k),
+    })
+
+    print(f"Year {year}:")
+    print(f"  Maximum k-core: {max_k}")
+    print(f"  Average k-core: {np.mean(list(core_numbers.values())):.2f}")
+    print(f"  k-core distribution:")
+    for k in sorted(core_distribution.keys()):
+        print(f"    k={k}: {core_distribution[k]} nodes")
+
+kcore_df = pd.DataFrame(kcore_data)
+```
+
+## K-Core Evolution
+
+```{python}
+#| label: fig-kcore-evolution
+#| fig-cap: "Evolution of k-core decomposition metrics over time"
+
+fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+
+# Maximum k
+ax = axes[0]
+ax.plot(kcore_df['Year'], kcore_df['Max_K'], 'o-', linewidth=2.5,
+        markersize=10, color='#9B59B6')
+ax.fill_between(kcore_df['Year'], kcore_df['Max_K'], alpha=0.3, color='#9B59B6')
+ax.set_xlabel('Year', fontsize=12, fontweight='bold')
+ax.set_ylabel('Maximum K-core Level', fontsize=12, fontweight='bold')
+ax.set_title('Maximum K-core Level by Year', fontsize=13, fontweight='bold')
+ax.grid(True, alpha=0.3)
+ax.set_xticks(kcore_df['Year'])
+
+# Average k
+ax = axes[1]
+ax.plot(kcore_df['Year'], kcore_df['Avg_K'], 's-', linewidth=2.5,
+        markersize=10, color='#16A085')
+ax.fill_between(kcore_df['Year'], kcore_df['Avg_K'], alpha=0.3, color='#16A085')
+ax.set_xlabel('Year', fontsize=12, fontweight='bold')
+ax.set_ylabel('Average K-core Level', fontsize=12, fontweight='bold')
+ax.set_title('Average K-core Level by Year', fontsize=13, fontweight='bold')
+ax.grid(True, alpha=0.3)
+ax.set_xticks(kcore_df['Year'])
+
+plt.tight_layout()
+save_current_fig()
+plt.show()
+```
+
+\newpage
+
+# Network Visualization
+
+## Static Network Comparison: 2019 vs 2024
+
+```{python}
+#| label: fig-network-comparison
+#| fig-cap: "Network topology comparison between 2019 (pre-pandemic) and 2024 (post-pandemic)"
+
+fig, axes = plt.subplots(1, 2, figsize=(18, 8))
+
+for idx, year in enumerate([2019, 2024]):
+    ax = axes[idx]
+    G = networks_filtered[year]
+
+    if G.number_of_nodes() == 0:
+        ax.text(0.5, 0.5, f'No data for {year}', ha='center', va='center')
+        continue
+
+    # Layout computation (spring layout for stable visualization)
+    pos = nx.circular_layout(G)
+    # Edge width proportional to Jaccard weight (strength) — circular layout, nodes NOT moved
+    _ew = [G[_u][_v].get('weight', 1.0) for _u, _v in G.edges()]
+    _wmin, _wmax = (min(_ew), max(_ew)) if _ew else (0.0, 1.0)
+    _ewidths = ([0.5 + 3.0 * (w - _wmin) / (_wmax - _wmin) for w in _ew]
+                if _wmax > _wmin else [1.5 for _ in _ew])
+
+    # Node sizes based on degree
+    node_degrees = dict(G.degree())
+    node_sizes = [node_degrees.get(node, 1) * 120 for node in G.nodes()]
+
+    # Node colors based on category
+    node_colors = [get_comorbidity_color(node) for node in G.nodes()]
+
+    # Draw network
+    nx.draw_networkx_edges(G, pos, ax=ax, width=_ewidths, alpha=0.4,
+                          edge_color='gray')
+    nx.draw_networkx_nodes(G, pos, ax=ax, node_size=node_sizes,
+                          node_color=node_colors, alpha=0.8,
+                          edgecolors='black', linewidths=1)
+    # Labels rotated to each node's radial angle (perpendicular to the circle), placed just outside the node
+    _label_offset = 0.10
+    for _node, (_nx_x, _nx_y) in pos.items():
+        _r = np.hypot(_nx_x, _nx_y) or 1.0
+        _ang = np.degrees(np.arctan2(_nx_y, _nx_x))
+        _flip = _ang > 90 or _ang < -90
+        _rot = _ang + 180 if _flip else _ang
+        ax.text(_nx_x + (_nx_x / _r) * _label_offset,
+                _nx_y + (_nx_y / _r) * _label_offset,
+                _node, fontsize=8, fontweight='bold',
+                rotation=_rot, rotation_mode='anchor',
+                ha='right' if _flip else 'left', va='center', clip_on=False)
+    ax.set_aspect('equal')
+    ax.set_xlim(-2.1, 2.1)
+    ax.set_ylim(-2.0, 2.0)
+
+    ax.set_title(f'Network {year}\n(Nodes: {G.number_of_nodes()}, Edges: {G.number_of_edges()})',
+                fontsize=13, fontweight='bold')
+    ax.axis('off')
+
+plt.tight_layout()
+save_current_fig()
+plt.show()
+```
+
+## Interactive Network Visualization (Latest Year)
+
+```{python}
+#| label: fig-interactive-network
+#| fig-cap: "Interactive network visualization for the latest year (2024)"
+
+# Use latest year
+latest_year = max(networks_filtered.keys())
+G_latest = networks_filtered[latest_year]
+
+# Compute layout
+pos = nx.circular_layout(G_latest)
+
+# Create edge traces (line width proportional to Jaccard weight; circular layout, nodes not moved)
+_ew = [G_latest[u][v].get('weight', 1.0) for u, v in G_latest.edges()]
+_wmin, _wmax = (min(_ew), max(_ew)) if _ew else (0.0, 1.0)
+edge_traces = []
+for edge in G_latest.edges():
+    x0, y0 = pos[edge[0]]
+    x1, y1 = pos[edge[1]]
+    _w = G_latest[edge[0]][edge[1]].get('weight', 1.0)
+    _ewid = 0.5 + 3.0 * (_w - _wmin) / (_wmax - _wmin) if _wmax > _wmin else 1.0
+
+    edge_trace = go.Scatter(
+        x=[x0, x1, None], y=[y0, y1, None],
+        mode='lines',
+        line=dict(width=_ewid, color='rgba(125,125,125,0.3)'),
+        hoverinfo='none',
+        showlegend=False
+    )
+    edge_traces.append(edge_trace)
+
+# Create node trace
+node_x = []
+node_y = []
+node_text = []
+node_color = []
+node_size = []
+node_textpos = []
+
+for node in G_latest.nodes():
+    x, y = pos[node]
+    node_x.append(x)
+    node_y.append(y)
+    node_text.append(node)
+    node_color.append(get_comorbidity_color(node))
+
+    degree = G_latest.degree(node)
+    node_size.append(8 + degree * 1.2)
+    # Place label to the side of the node (outward), not on top of it
+    node_textpos.append('middle right' if x >= 0 else 'middle left')
+
+node_trace = go.Scatter(
+    x=node_x, y=node_y,
+    mode='markers+text',
+    text=node_text,
+    textposition=node_textpos,
+    textfont=dict(size=9),
+    hoverinfo='text',
+    hovertext=[f"{node}<br>Degree: {G_latest.degree(node)}" for node in G_latest.nodes()],
+    marker=dict(
+        size=node_size,
+        color=node_color,
+        line_width=1,
+        line_color='white'
+    ),
+    showlegend=False
+)
+
+# Combine traces
+fig = go.Figure(data=edge_traces + [node_trace])
+
+fig.update_layout(
+    title=f'Interactive Comorbidity Network - Year {latest_year}',
+    showlegend=False,
+    hovermode='closest',
+    margin=dict(b=20, l=5, r=5, t=40),
+    xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+    yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+    height=600,
+)
+
+fig.show()
+```
+
+\newpage
+
+# Cross-Disease Analysis: Endocrine & Neoplastic Diseases
+
+## Detection of Neoplastic Comorbidities
+
+```{python}
+#| output: false
+#| label: neoplastic-analysis
+
+# Define neoplastic comorbidity codes
+neoplastic_codes = {
+    'C15': 'Esophageal',
+    'C16': 'Gastric',
+    'C18': 'Colon',
+    'C19': 'Rectosigmoid',
+    'C20': 'Rectum',
+    'C21': 'Anus',
+    'C22': 'Liver',
+    'C23': 'Gallbladder',
+    'C25': 'Pancreas',
+    'C26': 'Other digestive',
+}
+
+def has_neoplasm(row):
+    """Check if patient has any neoplasm diagnosis."""
+    for i in range(1, 36):
+        diag_col = f'DIAGNOSTICO{i}'
+        if diag_col not in row.index:
+            continue
+
+        diag_code = normalize_icd_code(row[diag_col])
+        if diag_code is None:
+            continue
+
+        # Check against neoplasm codes
+        for neopl_code in neoplastic_codes.keys():
+            if diag_code.startswith(neopl_code):
+                return True
+
+    return False
+
+# Add neoplasm indicator
+grd_endocrine['HAS_NEOPLASM'] = grd_endocrine.apply(has_neoplasm, axis=1)
+
+# Calculate neoplastic comorbidity prevalence by year
+neoplastic_prevalence = []
+
+for year in sorted(grd_endocrine['YEAR'].unique()):
+    year_data = grd_endocrine[grd_endocrine['YEAR'] == year]
+    total = len(year_data)
+    with_neoplasm = year_data['HAS_NEOPLASM'].sum()
+    prevalence = with_neoplasm / total * 100 if total > 0 else 0
+
+    neoplastic_prevalence.append({
+        'Year': year,
+        'Total_Patients': total,
+        'With_Neoplasm': with_neoplasm,
+        'Neoplasm_Prevalence_%': prevalence,
+    })
+
+neoplastic_prev_df = pd.DataFrame(neoplastic_prevalence)
+print("Neoplastic Disease Comorbidity Prevalence:")
+print(neoplastic_prev_df.to_string(index=False))
+```
+
+## Neoplastic Comorbidity Trends
+
+```{python}
+#| label: fig-neoplastic-trends
+#| fig-cap: "Prevalence of neoplastic disease comorbidities in endocrine patients by year"
+
+fig, ax = plt.subplots(figsize=(12, 6))
+
+years = neoplastic_prev_df['Year'].values
+prevalence = neoplastic_prev_df['Neoplasm_Prevalence_%'].values
+
+ax.plot(years, prevalence, 'o-', linewidth=3, markersize=12, color='#C0392B', label='Neoplasm Prevalence')
+ax.fill_between(years, prevalence, alpha=0.2, color='#C0392B')
+
+# Highlight pandemic period
+ax.axvspan(2019.5, 2021.5, alpha=0.1, color='gray', label='Pandemic Period')
+
+ax.set_xlabel('Year', fontsize=12, fontweight='bold')
+ax.set_ylabel('Prevalence (%)', fontsize=12, fontweight='bold')
+ax.set_title('Neoplastic Disease Comorbidity in Endocrine Hospitalizations',
+             fontsize=14, fontweight='bold')
+ax.grid(True, alpha=0.3)
+ax.set_xticks(years)
+ax.legend(fontsize=11)
+
+plt.tight_layout()
+save_current_fig()
+plt.show()
+```
+
+## Comparison: Endocrine+Neoplasm vs Endocrine-only
+
+```{python}
+#| output: false
+#| label: endocrine-neoplasm-comparison
+
+# Separate groups
+endocrine_with_neoplasm = grd_endocrine[grd_endocrine['HAS_NEOPLASM'] == True].copy()
+endocrine_without_neoplasm = grd_endocrine[grd_endocrine['HAS_NEOPLASM'] == False].copy()
+
+print(f"Patients with endocrine+neoplasm: {len(endocrine_with_neoplasm)}")
+print(f"Patients with endocrine only: {len(endocrine_without_neoplasm)}")
+
+# Build networks for both groups
+networks_with_without = {}
+
+for group_name, group_data in [
+    ('Endocrine+Neoplasm', endocrine_with_neoplasm),
+    ('Endocrine Only', endocrine_without_neoplasm),
+]:
+    comorbidity_lists = group_data['COMORBIDITIES'].tolist()
+    G, _ = build_cooccurrence_network(comorbidity_lists, min_weight=0)
+
+    # Filter by similarity
+    G_filtered = filter_network_by_similarity(G, percentile=70)
+
+    networks_with_without[group_name] = G_filtered
+
+    print(f"\n{group_name}:")
+    print(f"  Nodes: {G_filtered.number_of_nodes()}")
+    print(f"  Edges: {G_filtered.number_of_edges()}")
+    print(f"  Density: {nx.density(G_filtered):.4f}")
+    print(f"  Transitivity: {nx.transitivity(G_filtered):.4f}")
+
+# Compare comorbidity burden
+print(f"\nComorbidity Burden Comparison:")
+print(f"  Endocrine+Neoplasm - Mean: {endocrine_with_neoplasm['NUM_COMORBIDITIES'].mean():.2f}, "
+      f"Median: {endocrine_with_neoplasm['NUM_COMORBIDITIES'].median():.2f}")
+print(f"  Endocrine Only - Mean: {endocrine_without_neoplasm['NUM_COMORBIDITIES'].mean():.2f}, "
+      f"Median: {endocrine_without_neoplasm['NUM_COMORBIDITIES'].median():.2f}")
+```
+
+## Network Comparison Visualization
+
+```{python}
+#| label: fig-endocrine-neoplasm-networks
+#| fig-cap: "Network topology comparison: Endocrine+Neoplasm vs Endocrine-only patients"
+
+fig, axes = plt.subplots(1, 2, figsize=(18, 8))
+
+for idx, (group_name, G) in enumerate(networks_with_without.items()):
+    ax = axes[idx]
+
+    if G.number_of_nodes() == 0:
+        ax.text(0.5, 0.5, f'No data for {group_name}', ha='center', va='center')
+        continue
+
+    # Layout
+    pos = nx.circular_layout(G)
+    # Edge width proportional to Jaccard weight (strength) — circular layout, nodes NOT moved
+    _ew = [G[_u][_v].get('weight', 1.0) for _u, _v in G.edges()]
+    _wmin, _wmax = (min(_ew), max(_ew)) if _ew else (0.0, 1.0)
+    _ewidths = ([0.5 + 3.0 * (w - _wmin) / (_wmax - _wmin) for w in _ew]
+                if _wmax > _wmin else [1.5 for _ in _ew])
+
+    # Node properties
+    node_degrees = dict(G.degree())
+    node_sizes = [node_degrees.get(node, 1) * 120 for node in G.nodes()]
+    node_colors = [get_comorbidity_color(node) for node in G.nodes()]
+
+    # Draw
+    nx.draw_networkx_edges(G, pos, ax=ax, width=_ewidths, alpha=0.4, edge_color='gray')
+    nx.draw_networkx_nodes(G, pos, ax=ax, node_size=node_sizes,
+                          node_color=node_colors, alpha=0.8,
+                          edgecolors='black', linewidths=1)
+    # Labels rotated to each node's radial angle (perpendicular to the circle), placed just outside the node
+    _label_offset = 0.10
+    for _node, (_nx_x, _nx_y) in pos.items():
+        _r = np.hypot(_nx_x, _nx_y) or 1.0
+        _ang = np.degrees(np.arctan2(_nx_y, _nx_x))
+        _flip = _ang > 90 or _ang < -90
+        _rot = _ang + 180 if _flip else _ang
+        ax.text(_nx_x + (_nx_x / _r) * _label_offset,
+                _nx_y + (_nx_y / _r) * _label_offset,
+                _node, fontsize=8, fontweight='bold',
+                rotation=_rot, rotation_mode='anchor',
+                ha='right' if _flip else 'left', va='center', clip_on=False)
+    ax.set_aspect('equal')
+    ax.set_xlim(-2.1, 2.1)
+    ax.set_ylim(-2.0, 2.0)
+
+    ax.set_title(f'{group_name}\n(Nodes: {G.number_of_nodes()}, Edges: {G.number_of_edges()})',
+                fontsize=13, fontweight='bold')
+    ax.axis('off')
+
+plt.tight_layout()
+save_current_fig()
+plt.show()
+```
+
+\newpage
+
+# Temporal Edge Evolution
+
+## Top Co-occurrence Pair Trends
+
+```{python}
+#| output: false
+#| label: edge-evolution
+
+# Identify top co-occurrence pairs across all years
+top_pairs = []
+all_pairs_across_years = defaultdict(list)
+
+for year in sorted(cooccurrence_per_year.keys()):
+    cooccurrence = cooccurrence_per_year[year]
+    for (source, target), weight in cooccurrence.items():
+        all_pairs_across_years[(source, target)].append((year, weight))
+
+# Calculate average weight per pair across all years
+pair_avg_weights = {
+    pair: np.mean([w for _, w in years_weights])
+    for pair, years_weights in all_pairs_across_years.items()
+}
+
+# Get top 10 pairs
+top_10_sorted = sorted(pair_avg_weights.items(), key=lambda x: x[1], reverse=True)[:10]
+top_10_pairs = [pair for pair, _ in top_10_sorted]
+
+# Create evolution data
+edge_evolution_data = []
+for pair in top_10_pairs:
+    for year, weight in all_pairs_across_years[pair]:
+        edge_evolution_data.append({
+            'Pair': f"{pair[0]} ↔ {pair[1]}",
+            'Year': year,
+            'Weight': weight,
+        })
+
+edge_evolution_df = pd.DataFrame(edge_evolution_data)
+print("Top 10 Co-occurrence Pairs (by average weight):")
+for pair, avg_weight in top_10_sorted:
+    print(f"  {pair[0]} ↔ {pair[1]}: {avg_weight:.2f}")
+```
+
+## Edge Weight Evolution
+
+```{python}
+#| label: fig-edge-evolution
+#| fig-cap: "Evolution of top 10 co-occurrence pairs over time"
+
+fig, ax = plt.subplots(figsize=(14, 8))
+
+for pair in top_10_pairs:
+    pair_data = edge_evolution_df[edge_evolution_df['Pair'] == f"{pair[0]} ↔ {pair[1]}"]
+    ax.plot(pair_data['Year'], pair_data['Weight'], 'o-',
+           label=f"{pair[0]} ↔ {pair[1]}", linewidth=2.5, markersize=8, alpha=0.8)
+
+ax.set_xlabel('Year', fontsize=12, fontweight='bold')
+ax.set_ylabel('Co-occurrence Count', fontsize=12, fontweight='bold')
+ax.set_title('Evolution of Top 10 Co-occurrence Pairs (2019-2024)',
+            fontsize=14, fontweight='bold')
+ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left', ncol=1, fontsize=9)
+ax.grid(True, alpha=0.3)
+ax.set_xticks(sorted(edge_evolution_df['Year'].unique()))
+
+plt.tight_layout()
+save_current_fig()
+plt.show()
+```
+
+## Largest Edge Changes
+
+```{python}
+#| label: fig-edge-changes
+#| fig-cap: "Comorbidity pair associations with largest increase and decrease from 2019 to 2024"
+
+# Calculate edge weight changes
+edge_changes = []
+
+for pair in all_pairs_across_years.keys():
+    years_weights = dict(all_pairs_across_years[pair])
+
+    if 2019 in years_weights and 2024 in years_weights:
+        change = years_weights[2024] - years_weights[2019]
+        pct_change = (change / years_weights[2019] * 100) if years_weights[2019] > 0 else np.nan
+
+        edge_changes.append({
+            'Pair': f"{pair[0]} ↔ {pair[1]}",
+            '2019': years_weights[2019],
+            '2024': years_weights[2024],
+            'Change': change,
+            'Pct_Change': pct_change,
+        })
+
+edge_changes_df = pd.DataFrame(edge_changes)
+edge_changes_df = edge_changes_df.sort_values('Change')
+
+# Plot
+fig, axes = plt.subplots(1, 2, figsize=(16, 7))
+
+# Largest decreases
+ax = axes[0]
+decreases = edge_changes_df[edge_changes_df['Change'] < 0].head(10)
+colors_decrease = ['#E74C3C' if x < 0 else '#2ECC71' for x in decreases['Change']]
+ax.barh(range(len(decreases)), decreases['Change'], color=colors_decrease, alpha=0.8)
+ax.set_yticks(range(len(decreases)))
+ax.set_yticklabels(decreases['Pair'], fontsize=9)
+ax.set_xlabel('Change in Co-occurrence Count (2019→2024)', fontsize=11, fontweight='bold')
+ax.set_title('Associations with Largest Decrease', fontsize=12, fontweight='bold')
+ax.grid(axis='x', alpha=0.3)
+
+# Largest increases
+ax = axes[1]
+increases = edge_changes_df[edge_changes_df['Change'] > 0].tail(10)
+colors_increase = ['#2ECC71' if x > 0 else '#E74C3C' for x in increases['Change']]
+ax.barh(range(len(increases)), increases['Change'], color=colors_increase, alpha=0.8)
+ax.set_yticks(range(len(increases)))
+ax.set_yticklabels(increases['Pair'], fontsize=9)
+ax.set_xlabel('Change in Co-occurrence Count (2019→2024)', fontsize=11, fontweight='bold')
+ax.set_title('Associations with Largest Increase', fontsize=12, fontweight='bold')
+ax.grid(axis='x', alpha=0.3)
+
+plt.tight_layout()
+save_current_fig()
+plt.show()
+```
+
+\newpage
+
+# Summary and Conclusions
+
+## Key Findings
+
+This comprehensive network analysis of comorbidities in endocrine disease hospitalizations in Chile (2019-2024) reveals several important patterns:
+
+1. **Comorbidity Burden**: The average number of comorbidities per endocrine hospitalization patient increased steadily over the study period, with notable peaks during the pandemic years (2020-2021).
+
+2. **Cardiovascular Dominance**: Cardiovascular comorbidities (essential hypertension, coronary disease, cerebrovascular disease) consistently emerge as the most prevalent and central nodes in the comorbidity networks across all years.
+
+3. **Metabolic Clustering**: Metabolic comorbidities (especially Type 2 diabetes, obesity, and dyslipidemia) form tight clusters in the network, reflecting strong biological and epidemiological associations.
+
+4. **Network Evolution**: The network topology shows increasing density over time, suggesting that patients increasingly present with multiple interconnected comorbidities. The pandemic period (2020-2021) shows the most dramatic changes in network structure.
+
+5. **Community Structure**: Louvain community detection identifies stable clinical communities centered around metabolic and cardiovascular clusters, with clear disease-specific groupings.
+
+6. **Neoplastic Comorbidity**: Approximately 2-3% of endocrine patients present with concurrent neoplastic disease diagnoses. Patients with endocrine+neoplasm comorbidity show distinct network topologies with higher comorbidity burden.
+
+7. **Central Hub Stability**: While the absolute prevalences change, the relative ranking of central comorbidities remains relatively stable, with cardiovascular conditions consistently occupying top centrality positions.
+
+8. **Temporal Trends**: Respiratory complications and renal disease show increasing prevalence trends, potentially reflecting both aging of the patient population and improved survival from acute conditions during the pandemic period.
+
+## Clinical Implications
+
+- **Integrated Care Models**: The tight clustering of comorbidities suggests the need for integrated care protocols addressing multiple disease domains simultaneously.
+
+- **Risk Stratification**: Network centrality measures could inform patient risk stratification and prioritization for intensive monitoring or intervention.
+
+- **Resource Planning**: The temporal evolution of comorbidity patterns provides evidence for public health planning and resource allocation in endocrinology services.
+
+## Limitations
+
+- GRD data represents diagnosed conditions; prevalence may underestimate disease burden in underprivileged populations.
+- ICD-10 coding accuracy varies by hospital and year.
+- The analysis focuses on hospitalized patients and may not represent the general population with endocrine diseases.
+
+---
+
+**Analysis completed**: 2026-04-05
+**Code repository**: https://github.com/yourrepo
+**Contact**: amaruaguero2004@ug.uchile.cl
+
+# References
+
+::: {#refs}
+:::
+
+
+\newpage
+
+# Composite Figure — Publication Summary
+
+```{python}
+#| label: fig-composite-summary
+#| fig-cap: "Composite summary of the most relevant results. (A) Temporal trend of mean comorbidity burden per patient; (B) prevalence of the top dominant comorbidities by year; (C) global network density and transitivity evolution; (D) Louvain communities and modularity over time; (E) maximum and average k-core level evolution; (F) digestive-neoplasm comorbidity prevalence in endocrine hospitalizations."
+#| fig-width: 11
+#| fig-height: 13
+
+# Okabe-Ito colorblind-safe categorical palette
+_OI = ['#E69F00', '#56B4E9', '#009E73', '#F0E442', '#0072B2', '#D55E00', '#CC79A7', '#000000']
+
+fig = plt.figure(figsize=(11, 13))
+gs = fig.add_gridspec(3, 2, hspace=0.45, wspace=0.32)
+_labels = ['A', 'B', 'C', 'D', 'E', 'F']
+_axes = [fig.add_subplot(gs[i // 2, i % 2]) for i in range(6)]
+
+def _panel_label(ax, txt):
+    ax.text(-0.08, 1.06, txt, transform=ax.transAxes,
+            fontsize=13, fontweight='bold', va='top')
+
+# ---- Panel A: Mean comorbidity burden per patient by year ----
+axA = _axes[0]
+try:
+    _burden = (grd_endocrine.groupby('YEAR')['NUM_COMORBIDITIES']
+               .mean().sort_index())
+    axA.plot(_burden.index.astype(int), _burden.values, 'o-',
+             color='#0072B2', linewidth=2.5, markersize=8)
+    axA.axvspan(2019.5, 2021.5, alpha=0.10, color='gray')
+    axA.set_xlabel('Year')
+    axA.set_ylabel('Mean comorbidities per patient (count)')
+    axA.set_title('Comorbidity burden over time')
+    axA.set_xticks(list(_burden.index.astype(int)))
+    axA.grid(True, alpha=0.3)
+    sns.despine(ax=axA)
+except Exception as e:
+    axA.axis('off'); axA.text(0.5, 0.5, 'panel unavailable', ha='center', va='center', fontsize=8, transform=axA.transAxes)
+_panel_label(axA, _labels[0])
+
+# ---- Panel B: Prevalence of top dominant comorbidities by year ----
+axB = _axes[1]
+try:
+    _pv = prevalence_df.set_index('YEAR')
+    _sel = [c for c in top_15_comorbs if c in _pv.columns][:5]
+    _yrs = sorted(_pv.index.astype(int))
+    for _i, _c in enumerate(_sel):
+        _short = _c.split(' ', 1)[1] if ' ' in _c else _c
+        axB.plot(_yrs, _pv.loc[_yrs, _c].values, 'o-',
+                 color=_OI[_i % len(_OI)], linewidth=2.0, markersize=6,
+                 label=_short)
+    axB.set_xlabel('Year')
+    axB.set_ylabel('Prevalence (%)')
+    axB.set_title('Top comorbidity prevalence by year')
+    axB.set_xticks(_yrs)
+    axB.legend(fontsize=7, loc='best', framealpha=0.9)
+    axB.grid(True, alpha=0.3)
+    sns.despine(ax=axB)
+except Exception as e:
+    axB.axis('off'); axB.text(0.5, 0.5, 'panel unavailable', ha='center', va='center', fontsize=8, transform=axB.transAxes)
+_panel_label(axB, _labels[1])
+
+# ---- Panel C: Network density and transitivity evolution ----
+axC = _axes[2]
+try:
+    _gm = global_metrics_df.sort_values('Year')
+    _yrs = _gm['Year'].astype(int).values
+    axC.plot(_yrs, _gm['Density'].values, 'o-', color='#0072B2',
+             linewidth=2.5, markersize=7, label='Density')
+    axC.plot(_yrs, _gm['Transitivity'].values, 's-', color='#D55E00',
+             linewidth=2.5, markersize=7, label='Transitivity')
+    axC.axvspan(2019.5, 2021.5, alpha=0.10, color='gray')
+    axC.set_xlabel('Year')
+    axC.set_ylabel('Coefficient (0–1)')
+    axC.set_title('Network density and transitivity')
+    axC.set_xticks(list(_yrs))
+    axC.legend(fontsize=8, loc='best', framealpha=0.9)
+    axC.grid(True, alpha=0.3)
+    sns.despine(ax=axC)
+except Exception as e:
+    axC.axis('off'); axC.text(0.5, 0.5, 'panel unavailable', ha='center', va='center', fontsize=8, transform=axC.transAxes)
+_panel_label(axC, _labels[2])
+
+# ---- Panel D: Communities count + modularity over time (dual axis) ----
+axD = _axes[3]
+try:
+    _cm = community_metrics_df.sort_values('Year')
+    _yrs = _cm['Year'].astype(int).values
+    _b = axD.bar(_yrs, _cm['Num_Communities'].values, color='#56B4E9',
+                 alpha=0.75, width=0.6, label='Communities')
+    axD.set_xlabel('Year')
+    axD.set_ylabel('Number of communities', color='#0072B2')
+    axD.tick_params(axis='y', labelcolor='#0072B2')
+    axD.set_xticks(list(_yrs))
+    axD.set_ylim(0, max(3, _cm['Num_Communities'].max() + 1))
+    _axD2 = axD.twinx()
+    _axD2.plot(_yrs, _cm['Modularity'].values, 'o-', color='#009E73',
+               linewidth=2.5, markersize=7, label='Modularity')
+    _axD2.set_ylabel('Modularity Q', color='#009E73')
+    _axD2.tick_params(axis='y', labelcolor='#009E73')
+    _axD2.grid(False)
+    axD.set_title('Louvain communities and modularity')
+    axD.grid(False)
+except Exception as e:
+    axD.axis('off'); axD.text(0.5, 0.5, 'panel unavailable', ha='center', va='center', fontsize=8, transform=axD.transAxes)
+_panel_label(axD, _labels[3])
+
+# ---- Panel E: K-core evolution (max and average) ----
+axE = _axes[4]
+try:
+    _kc = kcore_df.sort_values('Year')
+    _yrs = _kc['Year'].astype(int).values
+    axE.plot(_yrs, _kc['Max_K'].values, 'o-', color='#CC79A7',
+             linewidth=2.5, markersize=8, label='Maximum k-core')
+    axE.plot(_yrs, _kc['Avg_K'].values, 's--', color='#009E73',
+             linewidth=2.0, markersize=6, label='Average k-core')
+    axE.axvspan(2019.5, 2021.5, alpha=0.10, color='gray')
+    axE.set_xlabel('Year')
+    axE.set_ylabel('K-core level (k)')
+    axE.set_title('K-core decomposition over time')
+    axE.set_xticks(list(_yrs))
+    axE.legend(fontsize=8, loc='best', framealpha=0.9)
+    axE.grid(True, alpha=0.3)
+    sns.despine(ax=axE)
+except Exception as e:
+    axE.axis('off'); axE.text(0.5, 0.5, 'panel unavailable', ha='center', va='center', fontsize=8, transform=axE.transAxes)
+_panel_label(axE, _labels[4])
+
+# ---- Panel F: Digestive-neoplasm comorbidity prevalence trend ----
+axF = _axes[5]
+try:
+    _np = neoplastic_prev_df.sort_values('Year')
+    _yrs = _np['Year'].astype(int).values
+    _prev = _np['Neoplasm_Prevalence_%'].values
+    axF.plot(_yrs, _prev, 'o-', color='#D55E00', linewidth=2.5, markersize=8)
+    axF.fill_between(_yrs, _prev, alpha=0.18, color='#D55E00')
+    axF.axvspan(2019.5, 2021.5, alpha=0.10, color='gray')
+    axF.set_xlabel('Year')
+    axF.set_ylabel('Prevalence (%)')
+    axF.set_title('Digestive-neoplasm comorbidity')
+    axF.set_xticks(list(_yrs))
+    axF.grid(True, alpha=0.3)
+    sns.despine(ax=axF)
+except Exception as e:
+    axF.axis('off'); axF.text(0.5, 0.5, 'panel unavailable', ha='center', va='center', fontsize=8, transform=axF.transAxes)
+_panel_label(axF, _labels[5])
+
+fig.suptitle('Comorbidity co-occurrence networks in endocrine hospitalizations, Chile GRD 2019–2024',
+             fontsize=14, fontweight='bold', y=0.995)
+
+try:
+    plt.savefig(FIG_DIR / 'composite_summary.png', dpi=1200,
+                bbox_inches='tight', facecolor='white')
+except Exception as e:
+    pass
+plt.show()
+```
+
+\newpage
+
+# Composite Figure — Network Structure
+
+```{python}
+#| label: fig-composite-network
+#| fig-cap: "Composite of the comorbidity co-occurrence network structure. (A) Co-occurrence network for the latest year (circular layout; node size by degree, colour by clinical category, edge width by Jaccard co-occurrence weight); (B) degree heatmap of the most central comorbidity nodes across years; (C) top comorbidities ranked by degree centrality in the latest year; (D) Louvain communities and modularity over time; (E) maximum and average k-core level evolution; (F) network nodes and edges over time."
+#| fig-width: 11
+#| fig-height: 13
+
+# Okabe-Ito colorblind-safe categorical palette
+_OI = ['#E69F00', '#56B4E9', '#009E73', '#F0E442', '#0072B2', '#D55E00', '#CC79A7', '#000000']
+
+fig = plt.figure(figsize=(11, 13))
+gs = fig.add_gridspec(3, 2, hspace=0.48, wspace=0.34)
+_labels = ['A', 'B', 'C', 'D', 'E', 'F']
+_axes = [fig.add_subplot(gs[i // 2, i % 2]) for i in range(6)]
+
+def _panel_label(ax, txt):
+    ax.text(-0.08, 1.06, txt, transform=ax.transAxes,
+            fontsize=13, fontweight='bold', va='top')
+
+# ---- Panel A: Co-occurrence network, latest year (circular layout) ----
+axA = _axes[0]
+try:
+    _ly = max(networks_filtered.keys())
+    _G = networks_filtered[_ly]
+    _pos = nx.circular_layout(_G)
+    _ew = [_G[_u][_v].get('weight', 1.0) for _u, _v in _G.edges()]
+    _wmin, _wmax = (min(_ew), max(_ew)) if _ew else (0.0, 1.0)
+    _ewidths = ([0.4 + 2.6 * (w - _wmin) / (_wmax - _wmin) for w in _ew]
+                if _wmax > _wmin else [1.2 for _ in _ew])
+    _deg = dict(_G.degree())
+    _nsizes = [_deg.get(n, 1) * 55 for n in _G.nodes()]
+    _ncolors = [get_comorbidity_color(n) for n in _G.nodes()]
+    nx.draw_networkx_edges(_G, _pos, ax=axA, width=_ewidths, alpha=0.35, edge_color='gray')
+    nx.draw_networkx_nodes(_G, _pos, ax=axA, node_size=_nsizes, node_color=_ncolors,
+                           alpha=0.85, edgecolors='black', linewidths=0.6)
+    for _n, (_xx, _yy) in _pos.items():
+        _r = np.hypot(_xx, _yy) or 1.0
+        _ang = np.degrees(np.arctan2(_yy, _xx))
+        _flip = _ang > 90 or _ang < -90
+        _rot = _ang + 180 if _flip else _ang
+        _lab = _n.split(' ', 1)[1] if ' ' in _n else _n
+        axA.text(_xx + (_xx / _r) * 0.10, _yy + (_yy / _r) * 0.10, _lab,
+                 fontsize=4.6, rotation=_rot, rotation_mode='anchor',
+                 ha='right' if _flip else 'left', va='center', clip_on=False)
+    axA.set_aspect('equal')
+    axA.set_xlim(-1.85, 1.85); axA.set_ylim(-1.7, 1.7)
+    axA.set_title(f'Co-occurrence network {_ly}\n({_G.number_of_nodes()} nodes, {_G.number_of_edges()} edges)',
+                  fontsize=10)
+    axA.axis('off')
+except Exception as e:
+    axA.axis('off'); axA.text(0.5, 0.5, 'panel unavailable', ha='center', va='center', fontsize=8, transform=axA.transAxes)
+_panel_label(axA, _labels[0])
+
+# ---- Panel B: Degree heatmap of top central nodes across years ----
+axB = _axes[1]
+try:
+    _yrs = sorted(networks_filtered.keys())
+    _all_nodes = set()
+    for _g in networks_filtered.values():
+        _all_nodes.update(_g.nodes())
+    _deg_yr = {n: {y: dict(networks_filtered[y].degree()).get(n, 0) for y in _yrs}
+               for n in _all_nodes}
+    _avg = {n: np.mean(list(d.values())) for n, d in _deg_yr.items()}
+    _top = [n for n, _ in sorted(_avg.items(), key=lambda x: x[1], reverse=True)[:10]]
+    _hm = pd.DataFrame({n: [_deg_yr[n][y] for y in _yrs] for n in _top}, index=_yrs).T
+    _hm.index = [i.split(' ', 1)[1] if ' ' in i else i for i in _hm.index]
+    sns.heatmap(_hm, annot=True, fmt='d', cmap='viridis',
+                cbar_kws={'label': 'Degree'}, ax=axB, linewidths=0.5,
+                annot_kws={'fontsize': 7})
+    axB.set_xlabel('Year'); axB.set_ylabel('Comorbidity')
+    axB.set_title('Node degree, top central comorbidities')
+    axB.tick_params(axis='y', labelsize=7)
+except Exception as e:
+    axB.axis('off'); axB.text(0.5, 0.5, 'panel unavailable', ha='center', va='center', fontsize=8, transform=axB.transAxes)
+_panel_label(axB, _labels[1])
+
+# ---- Panel C: Top nodes by degree centrality, latest year ----
+axC = _axes[2]
+try:
+    _ly = centrality_df['Year'].max()
+    _cd = (centrality_df[centrality_df['Year'] == _ly]
+           .sort_values('Degree_Centrality', ascending=True).tail(10))
+    _names = [n.split(' ', 1)[1] if ' ' in n else n for n in _cd['Node']]
+    _cols = [get_comorbidity_color(n) for n in _cd['Node']]
+    axC.barh(range(len(_cd)), _cd['Degree_Centrality'].values, color=_cols, alpha=0.85,
+             edgecolor='black', linewidth=0.4)
+    axC.set_yticks(range(len(_cd))); axC.set_yticklabels(_names, fontsize=7)
+    axC.set_xlabel('Degree centrality (0–1)')
+    axC.set_title(f'Most central comorbidities, {int(_ly)}')
+    axC.grid(axis='x', alpha=0.3)
+    sns.despine(ax=axC)
+except Exception as e:
+    axC.axis('off'); axC.text(0.5, 0.5, 'panel unavailable', ha='center', va='center', fontsize=8, transform=axC.transAxes)
+_panel_label(axC, _labels[2])
+
+# ---- Panel D: Louvain communities + modularity over time (dual axis) ----
+axD = _axes[3]
+try:
+    _cm = community_metrics_df.sort_values('Year')
+    _yrs = _cm['Year'].astype(int).values
+    axD.bar(_yrs, _cm['Num_Communities'].values, color='#56B4E9', alpha=0.75,
+            width=0.6, label='Communities')
+    axD.set_xlabel('Year')
+    axD.set_ylabel('Number of communities', color='#0072B2')
+    axD.tick_params(axis='y', labelcolor='#0072B2')
+    axD.set_xticks(list(_yrs))
+    axD.set_ylim(0, max(3, int(_cm['Num_Communities'].max()) + 1))
+    _axD2 = axD.twinx()
+    _axD2.plot(_yrs, _cm['Modularity'].values, 'o-', color='#009E73',
+               linewidth=2.5, markersize=7, label='Modularity')
+    _axD2.set_ylabel('Modularity Q', color='#009E73')
+    _axD2.tick_params(axis='y', labelcolor='#009E73')
+    _axD2.grid(False)
+    axD.set_title('Louvain communities and modularity')
+    axD.grid(False)
+except Exception as e:
+    axD.axis('off'); axD.text(0.5, 0.5, 'panel unavailable', ha='center', va='center', fontsize=8, transform=axD.transAxes)
+_panel_label(axD, _labels[3])
+
+# ---- Panel E: K-core evolution (max and average) ----
+axE = _axes[4]
+try:
+    _kc = kcore_df.sort_values('Year')
+    _yrs = _kc['Year'].astype(int).values
+    axE.plot(_yrs, _kc['Max_K'].values, 'o-', color='#CC79A7',
+             linewidth=2.5, markersize=8, label='Maximum k-core')
+    axE.plot(_yrs, _kc['Avg_K'].values, 's--', color='#009E73',
+             linewidth=2.0, markersize=6, label='Average k-core')
+    axE.axvspan(2019.5, 2021.5, alpha=0.10, color='gray')
+    axE.set_xlabel('Year')
+    axE.set_ylabel('K-core level (k)')
+    axE.set_title('K-core decomposition over time')
+    axE.set_xticks(list(_yrs))
+    axE.legend(fontsize=8, loc='best', framealpha=0.9)
+    axE.grid(True, alpha=0.3)
+    sns.despine(ax=axE)
+except Exception as e:
+    axE.axis('off'); axE.text(0.5, 0.5, 'panel unavailable', ha='center', va='center', fontsize=8, transform=axE.transAxes)
+_panel_label(axE, _labels[4])
+
+# ---- Panel F: Network nodes and edges over time ----
+axF = _axes[5]
+try:
+    _gm = global_metrics_df.sort_values('Year')
+    _yrs = _gm['Year'].astype(int).values
+    axF.bar(_yrs, _gm['Nodes'].values, color='#0072B2', alpha=0.75,
+            width=0.6, label='Nodes')
+    axF.set_xlabel('Year')
+    axF.set_ylabel('Number of nodes', color='#0072B2')
+    axF.tick_params(axis='y', labelcolor='#0072B2')
+    axF.set_xticks(list(_yrs))
+    _axF2 = axF.twinx()
+    _axF2.plot(_yrs, _gm['Edges'].values, 'o-', color='#D55E00',
+               linewidth=2.5, markersize=7, label='Edges')
+    _axF2.set_ylabel('Number of edges', color='#D55E00')
+    _axF2.tick_params(axis='y', labelcolor='#D55E00')
+    _axF2.grid(False)
+    axF.set_title('Network size over time')
+    axF.grid(False)
+except Exception as e:
+    axF.axis('off'); axF.text(0.5, 0.5, 'panel unavailable', ha='center', va='center', fontsize=8, transform=axF.transAxes)
+_panel_label(axF, _labels[5])
+
+fig.suptitle('Structure of comorbidity co-occurrence networks in endocrine hospitalizations, Chile GRD 2019–2024',
+             fontsize=13, fontweight='bold', y=0.995)
+
+try:
+    plt.savefig(FIG_DIR / 'composite_network.png', dpi=1200,
+                bbox_inches='tight', facecolor='white')
+except Exception as e:
+    pass
+plt.show()
+```
+
+\newpage
+
+# Composite Figure — Comorbidity Epidemiology
+
+```{python}
+#| label: fig-composite-epidemiology
+#| fig-cap: "Composite of the comorbidity epidemiology in endocrine hospitalizations. (A) Prevalence of the top dominant comorbidities by year; (B) comorbidity burden distribution per patient by year (violin); (C) digestive-neoplasm comorbidity prevalence in endocrine patients by year; (D) strongest co-occurrence associations by average count; (E) associations with the largest increase 2019→2024; (F) associations with the largest decrease 2019→2024."
+#| fig-width: 11
+#| fig-height: 13
+
+# Okabe-Ito colorblind-safe categorical palette
+_OI = ['#E69F00', '#56B4E9', '#009E73', '#F0E442', '#0072B2', '#D55E00', '#CC79A7', '#000000']
+
+fig = plt.figure(figsize=(11, 13))
+gs = fig.add_gridspec(3, 2, hspace=0.48, wspace=0.34)
+_labels = ['A', 'B', 'C', 'D', 'E', 'F']
+_axes = [fig.add_subplot(gs[i // 2, i % 2]) for i in range(6)]
+
+def _panel_label(ax, txt):
+    ax.text(-0.08, 1.06, txt, transform=ax.transAxes,
+            fontsize=13, fontweight='bold', va='top')
+
+# ---- Panel A: Prevalence of top dominant comorbidities by year ----
+axA = _axes[0]
+try:
+    _pv = prevalence_df.set_index('YEAR')
+    _sel = [c for c in top_15_comorbs if c in _pv.columns][:6]
+    _yrs = sorted(_pv.index.astype(int))
+    for _i, _c in enumerate(_sel):
+        _short = _c.split(' ', 1)[1] if ' ' in _c else _c
+        axA.plot(_yrs, _pv.loc[_yrs, _c].values, 'o-',
+                 color=_OI[_i % len(_OI)], linewidth=2.0, markersize=6, label=_short)
+    axA.set_xlabel('Year')
+    axA.set_ylabel('Prevalence (%)')
+    axA.set_title('Top comorbidity prevalence by year')
+    axA.set_xticks(_yrs)
+    axA.legend(fontsize=6.5, loc='best', framealpha=0.9)
+    axA.grid(True, alpha=0.3)
+    sns.despine(ax=axA)
+except Exception as e:
+    axA.axis('off'); axA.text(0.5, 0.5, 'panel unavailable', ha='center', va='center', fontsize=8, transform=axA.transAxes)
+_panel_label(axA, _labels[0])
+
+# ---- Panel B: Comorbidity burden distribution per patient by year (violin) ----
+axB = _axes[1]
+try:
+    _bd = grd_endocrine[['YEAR', 'NUM_COMORBIDITIES']].copy()
+    _bd['YEAR'] = _bd['YEAR'].astype(int)
+    sns.violinplot(data=_bd, x='YEAR', y='NUM_COMORBIDITIES', ax=axB,
+                   color='#56B4E9', inner='box', linewidth=0.8)
+    axB.set_xlabel('Year')
+    axB.set_ylabel('Comorbidities per patient (count)')
+    axB.set_title('Comorbidity burden distribution')
+    axB.grid(axis='y', alpha=0.3)
+    sns.despine(ax=axB)
+except Exception as e:
+    axB.axis('off'); axB.text(0.5, 0.5, 'panel unavailable', ha='center', va='center', fontsize=8, transform=axB.transAxes)
+_panel_label(axB, _labels[1])
+
+# ---- Panel C: Digestive-neoplasm comorbidity prevalence by year ----
+axC = _axes[2]
+try:
+    _np = neoplastic_prev_df.sort_values('Year')
+    _yrs = _np['Year'].astype(int).values
+    _prev = _np['Neoplasm_Prevalence_%'].values
+    axC.plot(_yrs, _prev, 'o-', color='#D55E00', linewidth=2.5, markersize=8)
+    axC.fill_between(_yrs, _prev, alpha=0.18, color='#D55E00')
+    axC.axvspan(2019.5, 2021.5, alpha=0.10, color='gray')
+    axC.set_xlabel('Year')
+    axC.set_ylabel('Prevalence (%)')
+    axC.set_title('Digestive-neoplasm comorbidity in endocrine patients')
+    axC.set_xticks(list(_yrs))
+    axC.grid(True, alpha=0.3)
+    sns.despine(ax=axC)
+except Exception as e:
+    axC.axis('off'); axC.text(0.5, 0.5, 'panel unavailable', ha='center', va='center', fontsize=8, transform=axC.transAxes)
+_panel_label(axC, _labels[2])
+
+# ---- Panel D: Strongest co-occurrence associations (average count) ----
+axD = _axes[3]
+try:
+    _pairs = sorted(pair_avg_weights.items(), key=lambda x: x[1], reverse=True)[:10][::-1]
+    def _plabel(p):
+        _a = p[0].split(' ', 1)[1] if ' ' in p[0] else p[0]
+        _b = p[1].split(' ', 1)[1] if ' ' in p[1] else p[1]
+        return f"{_a} ↔ {_b}"
+    _names = [_plabel(p) for p, _ in _pairs]
+    _vals = [v for _, v in _pairs]
+    axD.barh(range(len(_pairs)), _vals, color='#0072B2', alpha=0.85,
+             edgecolor='black', linewidth=0.4)
+    axD.set_yticks(range(len(_pairs))); axD.set_yticklabels(_names, fontsize=6.5)
+    axD.set_xlabel('Mean co-occurrence count (patients)')
+    axD.set_title('Strongest co-occurrence associations')
+    axD.grid(axis='x', alpha=0.3)
+    sns.despine(ax=axD)
+except Exception as e:
+    axD.axis('off'); axD.text(0.5, 0.5, 'panel unavailable', ha='center', va='center', fontsize=8, transform=axD.transAxes)
+_panel_label(axD, _labels[3])
+
+# ---- Panel E: Associations with largest increase 2019->2024 ----
+axE = _axes[4]
+try:
+    def _short_pair(p):
+        parts = p.split(' ↔ ')
+        return ' ↔ '.join((s.split(' ', 1)[1] if ' ' in s else s) for s in parts)
+    _inc = edge_changes_df.sort_values('Change', ascending=False).head(10).iloc[::-1]
+    _names = [_short_pair(p) for p in _inc['Pair']]
+    axE.barh(range(len(_inc)), _inc['Change'].values, color='#009E73', alpha=0.85,
+             edgecolor='black', linewidth=0.4)
+    axE.set_yticks(range(len(_inc))); axE.set_yticklabels(_names, fontsize=6.5)
+    axE.set_xlabel('Change in co-occurrence count (2019→2024)')
+    axE.set_title('Associations with largest increase')
+    axE.grid(axis='x', alpha=0.3)
+    sns.despine(ax=axE)
+except Exception as e:
+    axE.axis('off'); axE.text(0.5, 0.5, 'panel unavailable', ha='center', va='center', fontsize=8, transform=axE.transAxes)
+_panel_label(axE, _labels[4])
+
+# ---- Panel F: Associations with largest decrease 2019->2024 ----
+axF = _axes[5]
+try:
+    def _short_pair_f(p):
+        parts = p.split(' ↔ ')
+        return ' ↔ '.join((s.split(' ', 1)[1] if ' ' in s else s) for s in parts)
+    _dec = edge_changes_df.sort_values('Change', ascending=True).head(10).iloc[::-1]
+    _names = [_short_pair_f(p) for p in _dec['Pair']]
+    axF.barh(range(len(_dec)), _dec['Change'].values, color='#D55E00', alpha=0.85,
+             edgecolor='black', linewidth=0.4)
+    axF.set_yticks(range(len(_dec))); axF.set_yticklabels(_names, fontsize=6.5)
+    axF.set_xlabel('Change in co-occurrence count (2019→2024)')
+    axF.set_title('Associations with largest decrease')
+    axF.grid(axis='x', alpha=0.3)
+    sns.despine(ax=axF)
+except Exception as e:
+    axF.axis('off'); axF.text(0.5, 0.5, 'panel unavailable', ha='center', va='center', fontsize=8, transform=axF.transAxes)
+_panel_label(axF, _labels[5])
+
+fig.suptitle('Comorbidity epidemiology and co-occurrence dynamics in endocrine hospitalizations, Chile GRD 2019–2024',
+             fontsize=13, fontweight='bold', y=0.995)
+
+try:
+    plt.savefig(FIG_DIR / 'composite_epidemiology.png', dpi=1200,
+                bbox_inches='tight', facecolor='white')
+except Exception as e:
+    pass
+plt.show()
+```

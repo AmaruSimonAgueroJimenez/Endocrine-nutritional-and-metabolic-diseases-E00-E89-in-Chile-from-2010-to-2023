@@ -1,0 +1,2766 @@
+---
+title: "Spatiotemporal Burden of Endocrine, Nutritional and Metabolic Diseases (E00–E89) in Chile: A Nationwide Hospitalization Analysis, 2010–2024"
+subtitle: "Carga Espaciotemporal de las Enfermedades Endocrinas, Nutricionales y Metabólicas (E00–E89) en Chile: Análisis Nacional de Hospitalizaciones, 2010–2024"
+author:
+  - name: "Dominga Elena Ramírez Reyes"
+    email: "dominga.ramirez@ug.uchile.cl"
+    orcid: "0000-0000-0000-0000"
+  - name: "María Matilde Vicuña Watkins"
+    email: "maria.vicuna@ug.uchile.cl"
+    orcid: "0000-0000-0000-0000"
+  - name: "Antonia Fernanda Troncoso Páez"
+    email: "antonia.troncoso.p@ug.uchile.cl"
+    orcid: "0000-0000-0000-0000"
+  - name: "Josefina Poblete Moreno"
+    email: "josefina.poblete@ug.uchile.cl"
+    orcid: "0000-0000-0000-0000"
+  - name: "Amaru Simón Agüero Jiménez"
+    email: "aaguero@miaundes.cl"
+    orcid: "0000-0001-7336-1833"
+date: "2026-03-31"
+lang: en
+format:
+  html:
+    embed-resources: true
+    smooth-scroll: true
+    toc: true
+    toc-depth: 6
+    toc-location: right
+    number-sections: true
+    number-depth: 6
+    code-fold: true
+    theme: cosmo
+    fig-cap-location: bottom
+bibliography: ref.bib
+csl: apa-numeric-superscript.csl
+execute:
+  warning: false
+  message: false
+  fig-width: 14
+  fig-height: 10
+---
+
+::: {.callout-note appearance="minimal"}
+
+## Resumen
+
+**EPIDEMIOLOGÍA DE HOSPITALIZACIONES POR ENFERMEDADES ENDOCRINAS Y METABÓLICAS EN CHILE: TENDENCIAS Y AUTOCORRELACIÓN ESPACIAL, 2010-2024**
+
+**Introducción:** Las enfermedades endocrinas, nutricionales y metabólicas (CIE-10 E00-E89) representan una carga creciente para los sistemas de salud. En Chile, la diabetes mellitus alcanza el 12,3% y la obesidad el 34,4% en adultos. 
+
+**Materiales y Métodos:** Estudio descriptivo ecológico basado en Egresos Hospitalarios del DEIS, período 2010–2024. Se incluyeron egresos con diagnóstico principal E00-E89 clasificados en 10 categorías. Se calcularon tasas estandarizadas por edad (TEE) con la Población Estándar de la OMS. El análisis geoespacial comunal empleó Moran's I y LISA con contigüidad Queen. 
+
+**Resultados:** Se analizaron 616.564 egresos (promedio anual: 41.104). La TEE global aumentó de 165,61 (2010) a 272,16 por 100.000 (2024), un incremento del 64,3%, con caída pandémica transitoria (143,44 en 2020). Predominó el sexo femenino (razón H:M = 0,59; TEE femenina 356,65 vs. 190,78 en hombres, 2024). Obesidad (E65-E68) concentró el 32,2% (198.410 egresos), seguida por diabetes (E08-E13, 28,1%; 173.132) y trastornos metabólicos (E70-E88, 20,1%; 123.838). Aysén (298,08) y Magallanes (263,30) registraron las tasas crudas más altas; Coquimbo la más baja (125,24). El Moran's I global confirmó agrupamiento significativo (I = 0,20; p < 0,001), siendo obesidad la categoría con mayor autocorrelación (I = 0,61). LISA identificó 23 hot spots y 22 cold spots comunales para E00-E89, y 54 hot spots para obesidad. 
+
+**Conclusiones:** Las hospitalizaciones endocrinas en Chile muestran crecimiento acelerado liderado por obesidad y diabetes, con predominio femenino y agrupamiento geoespacial significativo, aportando evidencia para intervenciones focalizadas.
+
+**Palabras clave:** enfermedades metabólicas; diabetes mellitus; obesidad; tasas estandarizadas por edad; análisis espacial.
+
+:::
+
+::: {.callout-note appearance="minimal"}
+
+## Abstract
+
+**EPIDEMIOLOGY OF HOSPITALIZATIONS FOR ENDOCRINE AND METABOLIC DISEASES IN CHILE: TRENDS AND SPATIAL AUTOCORRELATION, 2010-2024**
+
+**Introduction:** Endocrine, nutritional, and metabolic diseases (ICD-10 E00-E89) represent a growing burden on health systems. In Chile, diabetes mellitus prevalence reaches 12.3% and obesity 34.4% among adults.
+
+ **Materials and Methods:** Descriptive ecological study using the Hospital Discharge Database (EGRESOS) from DEIS, Chilean Ministry of Health, 2010–2024. Discharges with primary diagnosis E00–E89 were classified into 10 diagnostic categories. Age-standardized rates (ASR) were computed using the WHO World Standard Population. Municipal-level geospatial analysis employed Moran's I and LISA with Queen contiguity weights. 
+ 
+ **Results:** A total of 616,564 hospital discharges were analyzed (annual mean: 41,104). The overall ASR increased from 165.61 (2010) to 272.16 per 100,000 (2024), representing a 64.3% rise, with a transient pandemic-related decline (143.44 in 2020). Females predominated (M:F ratio = 0.59; female ASR 356.65 vs. 190.78 for males, 2024). Obesity (E65-E68) accounted for 32.2% of discharges (198,410), followed by diabetes (E08-E13, 28.1%; 173,132) and metabolic disorders (E70-E88, 20.1%; 123,838). Aysén (298.08) and Magallanes (263.30) had the highest crude rates; Coquimbo the lowest (125.24). Global Moran's I confirmed significant clustering (I = 0.20; p < 0.001), with obesity showing the strongest autocorrelation (I = 0.61). LISA identified 23 hot spots and 22 cold spots for E00-E89, and 54 hot spots for obesity. 
+ 
+ **Conclusions:** Endocrine hospitalizations in Chile show accelerated growth driven by obesity and diabetes, with female predominance and significant geospatial clustering, providing evidence for targeted interventions.
+
+**Keywords:** metabolic diseases; diabetes mellitus; obesity; age-standardized rates; spatial analysis.
+
+:::
+
+\newpage
+
+# Introduction
+
+Endocrine, nutritional, and metabolic diseases (ICD-10 codes E00-E89) constitute a heterogeneous group of pathologies encompassing thyroid disorders (E00-E07), diabetes mellitus (E08-E13), other glucose regulation disorders (E15-E16), disorders of other endocrine glands (E20-E35), intraoperative endocrine complications (E36), malnutrition (E40-E46), other nutritional deficiencies (E50-E64), obesity and overweight (E65-E68), metabolic disorders (E70-E88), and post-surgical endocrine complications (E89). Collectively, these conditions represent one of the leading causes of morbidity, disability, and mortality globally, and their prevalence has increased steadily over recent decades as a consequence of epidemiological transition, urbanization, population aging, and dietary pattern changes [@gbd2023diabetes; @ncdrisc2024trends].
+
+Globally, diabetes mellitus affects approximately 537 million adults, a figure projected to exceed 783 million by 2045, with a disproportionate burden in middle-income countries [@idf2021atlas]. Obesity has reached epidemic proportions, with over 1 billion people with obesity worldwide in 2022, and is causally associated with type 2 diabetes, cardiovascular disease, certain cancers, and premature mortality [@lancet2024obesity; @ncdrisc2024trends]. Thyroid disorders, particularly hypothyroidism and thyrotoxicosis, affect 5–10% of the adult population in most countries and constitute a common cause of hospitalization when presenting with acute complications such as thyrotoxic crisis or myxedema coma [@taylor2018epidemiology]. Malnutrition, in both its protein-calorie form and specific micronutrient deficiencies, remains a public health problem in vulnerable populations, including hospitalized elderly adults, where prevalence ranges from 20–50% depending on the screening tool used [@cederholm2017espen]. Inborn errors of metabolism, though individually rare, collectively affect approximately 1 in 800 live births and frequently require recurrent hospitalizations [@saudubray2018overview].
+
+In Chile, these pathologies hold particular epidemiological relevance. The 2016–2017 National Health Survey reported a diabetes mellitus prevalence of 12.3% in the adult population, with an additional 3.2% of previously undiagnosed cases [@minsal2018ens]. The prevalence of obesity (BMI ≥ 30) reached 34.4%, and overweight (BMI 25–29.9) reached 39.8%, placing Chile among countries with the highest rates of excess weight in Latin America [@minsal2018ens; @oecd2023health]. Thyroid disorders are particularly common, with hypothyroidism prevalence estimated at 18.6% in women over 60 years [@fardella2001prevalencia]. Hospital malnutrition in Chile has been documented with prevalences of 30–47% in hospitalized adult patients [@correia2017hospital]. This convergence of high prevalence of chronic metabolic diseases and persistent malnutrition in vulnerable populations generates a "double burden" of malnutrition that directly reflects on demand for hospital services.
+
+Hospital discharge records (EGRESOS) from the Department of Statistics and Health Information (DEIS) of Chile's Ministry of Health constitute an administrative data source that captures virtually all publicly funded hospitalization episodes in the country, covering both the public sector (FONASA) and, partially, the private sector (ISAPRE). Although these records reflect hospitalizations rather than incident diagnoses per se, they constitute a robust indicator of disease burden and health service utilization at the population level [@minsal2024egresos]. The continuous availability of EGRESOS data since 2001, combined with census-based population projections from the National Institute of Statistics (INE), enables the calculation of age-standardized hospitalization rates comparable across regions, time periods, and demographic subgroups.
+
+This analysis covers the period 2010–2024 and has the following objectives: (1) calculate age-standardized hospitalization rates (ASR) overall and by disease category within the E00-E89 spectrum; (2) describe temporal trends over 15 years; (3) identify disparities by sex, age group, and administrative region; (4) evaluate geospatial clustering patterns at the municipal level using spatial autocorrelation statistics; and (5) provide a detailed epidemiological profile for each of the 10 individual ICD-10 categories.
+
+# Methods
+
+## Data Sources
+
+Two main data sources were used. The first is the Hospital Discharge Database (EGRESOS) maintained by the Department of Statistics and Health Information (DEIS) of Chile's Ministry of Health, covering fiscal years 2010 to 2024. Each record contains the primary discharge diagnosis coded according to the International Classification of Diseases, 10th Revision (ICD-10), along with patient demographic information (sex, age group), geographic identifiers (region and municipality of residence), and administrative variables (discharge year). EGRESOS captures all discharges from public hospitals of the National Health Services System (SNSS) and, since 2012, progressively includes discharges from private institutions, providing near-universal coverage of hospitalization episodes in Chile.
+
+The second source is the population projections database produced by the National Institute of Statistics (INE) based on the 2017 National Census. These projections provide annual population estimates disaggregated by region, municipality, individual age, and sex for the period 2002–2035. The projections were stored in Apache Parquet format and accessed programmatically.
+
+## Case Selection
+
+All hospital discharges with a primary diagnosis (DIAG1 field) corresponding to ICD-10 codes E00 to E89 (endocrine, nutritional, and metabolic diseases) were included, encompassing all subcodes (e.g., E10.0 to E10.9). Records with missing or invalid diagnosis codes, missing sex, or missing age group were excluded. The 10 categories comprise: thyroid disorders (E00-E07), diabetes mellitus (E08-E13), other glucose regulation disorders (E15-E16), disorders of other endocrine glands (E20-E35), intraoperative complications (E36), malnutrition (E40-E46), other nutritional deficiencies (E50-E64), obesity and overweight (E65-E68), metabolic disorders (E70-E88), and post-surgical endocrine complications (E89).
+
+## Age Standardization
+
+Direct standardization was applied using the WHO World Standard Population [@ahmad2001age], which comprises 17 five-year age groups from 0–4 to 80+. The weights used are: 0–4: 8,860; 5–9: 8,690; 10–14: 8,600; 15–19: 8,470; 20–24: 8,220; 25–29: 7,930; 30–34: 7,610; 35–39: 7,150; 40–44: 6,590; 45–49: 6,040; 50–54: 5,370; 55–59: 4,550; 60–64: 3,720; 65–69: 2,960; 70–74: 2,210; 75–79: 1,520; 80+: 1,540 (total weight $W = \sum w_i = 100{,}000$).
+
+The population denominator for each year × age group × sex cell derives from INE census projections. For each stratum defined by year $t$, sex $s$, and age group $i$, the age-specific hospitalization rate was calculated as:
+
+$$\text{Rate}_{i,t,s} = \frac{d_{i,t,s}}{N_{i,t,s}} \times 100{,}000$$
+
+where $d_{i,t,s}$ denotes the number of hospital discharges and $N_{i,t,s}$ the corresponding mid-year population estimate.
+
+The age-standardized rate (ASR) was obtained by weighting these specific rates according to the standard population:
+
+$$\text{ASR}_{t,s} = \frac{\sum_{i=1}^{17} \text{Rate}_{i,t,s} \times w_i}{\sum_{i=1}^{17} w_i}$$
+
+where $w_i$ is the WHO weight for age group $i$. This formulation removes the confounding effect of differential age structures across regions and time periods, enabling valid comparisons.
+
+### Proportional Redistribution of Age Bands
+
+Because EGRESOS data from 2010 to 2023 report age in broad 10-year bands (e.g., "10 to 19"), while WHO standardization requires 5-year bands, a proportional redistribution procedure was applied. For a given 10-year age band $B$ (e.g., 10–19) comprising two 5-year subgroups $b_1$ (10–14) and $b_2$ (15–19), the hospitalizations were apportioned as:
+
+$$d_{b_j} = d_B \times \frac{N_{b_j}}{N_{b_1} + N_{b_2}}, \quad j \in \{1, 2\}$$
+
+where $d_B$ is the total discharge count in the 10-year band and $N_{b_j}$ is the population of the $j$-th 5-year subgroup in the corresponding year, sex, and geographic unit. This approach assumes that the age-specific hospitalization rate is approximately uniform within each 10-year band — a standard assumption in demographic redistribution when finer age detail is unavailable. Data from 2024, which are already provided in 5-year bands, were assigned directly without redistribution.
+
+### Sex Ratio and Temporal Trends
+
+The male-to-female sex ratio was computed annually as the quotient of the male ASR over the female ASR:
+
+$$\text{SR}_t = \frac{\text{ASR}_{t,\text{male}}}{\text{ASR}_{t,\text{female}}}$$
+
+Values above 1.0 indicate male predominance, while values below 1.0 indicate female predominance. Temporal trends in ASR were assessed descriptively through time-series visualization and percentage change calculations between the baseline year (2010) and the final year (2024), defined as:
+
+$$\Delta\% = \frac{\text{ASR}_{2024} - \text{ASR}_{2010}}{\text{ASR}_{2010}} \times 100$$
+
+## Geospatial Analysis
+
+### Municipal-Level Rate Estimation
+
+ASR values at the municipal (comuna) level were calculated by aggregating hospitalizations and population denominators across the entire 2010–2024 period for each municipality, then applying the same direct standardization procedure described above. The resulting rates were joined with a Chilean municipalities shapefile for cartographic visualization using choropleth maps. Island municipalities (Easter Island, Juan Fernández, and Antarctic territories) were excluded from spatial analysis due to their geographic isolation and absence of contiguous neighbors.
+
+### Spatial Weights Matrix
+
+Spatial relationships between municipalities were formalized through a Queen contiguity weights matrix $\mathbf{W}$ [@anselin1988spatial], where two municipalities $i$ and $j$ are considered neighbors ($w_{ij} = 1$) if they share any portion of their boundary (edge or vertex), and $w_{ij} = 0$ otherwise, with $w_{ii} = 0$ by convention. The weights were row-standardized such that $\sum_j w_{ij} = 1$ for each municipality $i$, ensuring that the spatial lag of a variable represents the weighted average of its neighbors' values.
+
+### Global Spatial Autocorrelation — Moran's I
+
+Global spatial autocorrelation was assessed using Moran's I statistic [@moran1950notes], defined as:
+
+$$I = \frac{n}{\sum_{i}\sum_{j} w_{ij}} \times \frac{\sum_{i}\sum_{j} w_{ij}(x_i - \bar{x})(x_j - \bar{x})}{\sum_{i}(x_i - \bar{x})^2}$$
+
+where $n$ is the number of spatial units, $x_i$ is the ASR value for municipality $i$, $\bar{x}$ is the overall mean, and $w_{ij}$ are the elements of the spatial weights matrix. Moran's I ranges approximately from $-1$ (perfect dispersion) to $+1$ (perfect clustering), with the expected value under the null hypothesis of spatial randomness being $E[I] = -1/(n-1)$. Statistical significance was assessed using the analytical normal approximation, where the $z$-score is computed as:
+
+$$z = \frac{I - E[I]}{\sqrt{\text{Var}(I)}}$$
+
+and evaluated against the standard normal distribution at $\alpha = 0.05$.
+
+### Local Indicators of Spatial Association (LISA)
+
+To identify the specific location of spatial clusters and outliers, Local Indicators of Spatial Association [LISA; @anselin1995local] were computed. The local Moran's $I_i$ for each municipality $i$ is defined as:
+
+$$I_i = \frac{(x_i - \bar{x})}{\sigma^2_x} \sum_{j} w_{ij}(x_j - \bar{x})$$
+
+where $\sigma^2_x = \frac{1}{n}\sum_i(x_i - \bar{x})^2$. Statistical significance of each local statistic was determined through a conditional randomization procedure with 999 permutations, where the value of $x_i$ is held fixed and the remaining $n-1$ values are randomly permuted across spatial locations to generate a reference distribution under the null hypothesis of spatial randomness. Pseudo $p$-values were computed as the proportion of permuted statistics equal to or more extreme than the observed $I_i$, and significance was set at $p < 0.05$.
+
+Based on the combination of sign and significance, each municipality was classified into one of five categories: High-High (hot spot: high ASR municipality surrounded by high ASR neighbors), Low-Low (cold spot: low ASR surrounded by low ASR), High-Low (spatial outlier: high ASR surrounded by low ASR), Low-High (spatial outlier: low ASR surrounded by high ASR), or Not Significant.
+
+## Diagnostic Classification
+
+ICD-10 codes were grouped into 10 disease categories: thyroid disorders (E00-E07), diabetes mellitus (E08-E13), other glucose regulation disorders (E15-E16), disorders of other endocrine glands (E20-E35), intraoperative complications (E36), malnutrition (E40-E46), other nutritional deficiencies (E50-E64), obesity and overweight (E65-E68), metabolic disorders (E70-E88), and post-surgical endocrine complications (E89).
+
+## Software
+
+All analyses were conducted in Python 3.11. Age standardization and data manipulation were performed using pandas (v2.0+) and NumPy. Geospatial operations used GeoPandas for spatial joins and cartographic rendering, libpysal for the construction of spatial weights matrices, and esda for the computation of global Moran's I and local LISA statistics. Visualization was produced with Matplotlib and Seaborn. The computational document was rendered using Quarto with embedded Python code blocks to ensure full reproducibility.
+
+---
+
+## Configuration and Constants
+
+```{python}
+#| label: setup
+#| include: false
+
+import sys
+import subprocess
+import importlib
+from subprocess import DEVNULL
+
+def _pip_install(requirement: str):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "--upgrade", requirement],
+                          stdout=DEVNULL, stderr=DEVNULL)
+
+try:
+    from packaging.requirements import Requirement
+except Exception:
+    _pip_install("packaging")
+    from packaging.requirements import Requirement
+
+def ensure(requirement: str, import_name: str = None):
+    req = Requirement(requirement)
+    name = import_name or req.name
+    try:
+        mod = importlib.import_module(name)
+        ver = getattr(mod, "__version__", None)
+        if ver is not None and req.specifier and not req.specifier.contains(ver, prereleases=True):
+            raise ImportError()
+        return mod
+    except Exception:
+        _pip_install(requirement)
+        return importlib.import_module(name)
+
+ensure("numpy")
+ensure("scipy")
+ensure("pandas>=2.0.0", "pandas")
+ensure("pyarrow>=10.0.0", "pyarrow")
+ensure("matplotlib")
+ensure("seaborn")
+ensure("geopandas")
+ensure("libpysal")
+ensure("esda")
+ensure("splot")
+
+import pandas as pd
+import numpy as np
+import os
+import glob
+import warnings
+import matplotlib.pyplot as plt
+import seaborn as sns
+import geopandas as gpd
+from pathlib import Path
+from IPython.display import display
+from libpysal.weights import Queen
+from esda.moran import Moran
+
+warnings.filterwarnings('ignore')
+plt.rcParams['figure.dpi'] = 100
+plt.rcParams['savefig.dpi'] = 150
+sns.set_style("whitegrid")
+pd.set_option('display.max_columns', None)
+pd.set_option('display.precision', 2)
+
+base_path = os.path.dirname(os.getcwd())
+data_path = os.path.join(base_path, 'data')
+output_path = os.path.join(data_path, 'output_files')
+figures_path = os.path.join(output_path, 'endocrinas_parte1')
+
+os.makedirs(output_path, exist_ok=True)
+os.makedirs(figures_path, exist_ok=True)
+```
+
+```{python}
+#| label: constants
+#| include: false
+
+# Years of analysis
+YEARS = list(range(2010, 2025))
+
+# WHO Standard Population for direct standardization
+WHO_STANDARD_POPULATION = {
+    '0-4': 8860, '5-9': 8690, '10-14': 8600, '15-19': 8470,
+    '20-24': 8220, '25-29': 7930, '30-34': 7610, '35-39': 7150,
+    '40-44': 6590, '45-49': 6040, '50-54': 5370, '55-59': 4550,
+    '60-64': 3720, '65-69': 2960, '70-74': 2210, '75-79': 1520,
+    '80+': 1540
+}
+TOTAL_WHO_WEIGHT = sum(WHO_STANDARD_POPULATION.values())
+
+AGE_GROUPS_TUPLES = [
+    (0, 4), (5, 9), (10, 14), (15, 19), (20, 24), (25, 29),
+    (30, 34), (35, 39), (40, 44), (45, 49), (50, 54), (55, 59),
+    (60, 64), (65, 69), (70, 74), (75, 79)
+]
+
+AGE_ORDER = ['0-4', '5-9', '10-14', '15-19', '20-24', '25-29', '30-34', '35-39',
+             '40-44', '45-49', '50-54', '55-59', '60-64', '65-69', '70-74', '75-79', '80+']
+
+# ICD-10 mapping for endocrine, nutritional and metabolic diseases (E00-E89)
+ICD10_MAPPING = {
+    "E00-E07": "Thyroid Disorders",
+    "E08-E13": "Diabetes Mellitus",
+    "E15-E16": "Other Glucose Regulation Disorders",
+    "E20-E35": "Disorders of Other Endocrine Glands",
+    "E36": "Intraoperative Complications",
+    "E40-E46": "Malnutrition",
+    "E50-E64": "Other Nutritional Deficiencies",
+    "E65-E68": "Obesity and Overweight",
+    "E70-E88": "Metabolic Disorders",
+    "E89": "Post-surgical Complications"
+}
+
+# Color palette for the 10 ICD categories
+ICD_COLORS = {
+    'E00-E07': '#e41a1c', 'E08-E13': '#377eb8', 'E15-E16': '#4daf4a',
+    'E20-E35': '#984ea3', 'E36': '#ff7f00', 'E40-E46': '#a65628',
+    'E50-E64': '#f781bf', 'E65-E68': '#999999', 'E70-E88': '#66c2a5',
+    'E89': '#fc8d62',
+}
+
+# Data paths
+data_base = Path(data_path)
+egresos_path = data_base / "EGRESOS"
+pop_file_path = data_base / "censo_proyecciones_ano_edad_genero.parquet"
+comunas_shp = data_base / "shapefiles" / "comunas.shp"
+regional_shp = data_base / "shapefiles" / "Regional.shp"
+
+PARQUET_TO_STANDARD_REGION = {
+    # Parquet (INE) names
+    'Arica y Parinacota': 'Arica y Parinacota',
+    'Tarapacá': 'Tarapacá',
+    'Antofagasta': 'Antofagasta',
+    'Atacama': 'Atacama',
+    'Coquimbo': 'Coquimbo',
+    'Valparaíso': 'Valparaíso',
+    'Metropolitana de Santiago': 'Metropolitana',
+    "Libertador General Bernardo O'Higgins": "O'Higgins",
+    'Maule': 'Maule',
+    'Ñuble': 'Ñuble',
+    'Biobío': 'Biobío',
+    'La Araucanía': 'La Araucanía',
+    'Los Ríos': 'Los Ríos',
+    'Los Lagos': 'Los Lagos',
+    'Aysén del General Carlos Ibáñez del Campo': 'Aysén',
+    'Magallanes y de la Antártica Chilena': 'Magallanes',
+    # DEIS (EGRESOS) names
+    'De Arica y Parinacota': 'Arica y Parinacota',
+    'De Tarapacá': 'Tarapacá',
+    'De Antofagasta': 'Antofagasta',
+    'De Atacama': 'Atacama',
+    'De Coquimbo': 'Coquimbo',
+    'De Valparaíso': 'Valparaíso',
+    "Del Libertador B. O'Higgins": "O'Higgins",
+    'Del Maule': 'Maule',
+    'De Ñuble': 'Ñuble',
+    'Del Bíobío': 'Biobío',
+    'De La Araucanía': 'La Araucanía',
+    'De Los Ríos': 'Los Ríos',
+    'De Los Lagos': 'Los Lagos',
+    'De Aisén del Gral. C. Ibáñez del Campo': 'Aysén',
+    'De Magallanes y de La Antártica Chilena': 'Magallanes',
+}
+```
+
+```{python}
+#| label: functions
+#| include: false
+
+def assign_age_group(age):
+    if pd.isna(age) or age is None:
+        return None
+    try:
+        age = int(float(age))
+    except (ValueError, TypeError):
+        return None
+    if age < 0:
+        return None
+    if age >= 80:
+        return '80+'
+    for start, end in AGE_GROUPS_TUPLES:
+        if start <= age <= end:
+            return f"{start}-{end}"
+    return None
+
+
+def categorize_e_code(code):
+    """Categorize ICD-10 E code into disease categories."""
+    if not isinstance(code, str) or not code.startswith('E'):
+        return None
+    code_upper = code.upper().strip()
+    try:
+        code_num = int(code_upper[1:3])
+    except (ValueError, IndexError):
+        return None
+
+    if 0 <= code_num <= 7:
+        return "E00-E07"
+    elif 8 <= code_num <= 13:
+        return "E08-E13"
+    elif 15 <= code_num <= 16:
+        return "E15-E16"
+    elif 20 <= code_num <= 35:
+        return "E20-E35"
+    elif code_num == 36:
+        return "E36"
+    elif 40 <= code_num <= 46:
+        return "E40-E46"
+    elif 50 <= code_num <= 64:
+        return "E50-E64"
+    elif 65 <= code_num <= 68:
+        return "E65-E68"
+    elif 70 <= code_num <= 88:
+        return "E70-E88"
+    elif code_num == 89:
+        return "E89"
+    return None
+
+
+def _normalize_txt(x):
+    if pd.isna(x):
+        return None
+    s = str(x).strip().lower()
+    repl = str.maketrans({'á': 'a', 'é': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u', 'ñ': 'n'})
+    return s.translate(repl)
+
+
+def _standardize_sex(x):
+    if pd.isna(x):
+        return None
+    v = _normalize_txt(x)
+    if v is None:
+        return None
+    v = v.replace('.', '').replace('-', ' ').replace('_', ' ').strip()
+    if v in {'1', 'm', 'male', 'masculino', 'hombre', 'hombres', 'varon', 'varones'}:
+        return 'Male'
+    if v in {'2', 'f', 'female', 'femenino', 'mujer', 'mujeres'}:
+        return 'Female'
+    return None
+
+
+def normalize_region_to_standard(region_name):
+    if pd.isna(region_name):
+        return None
+    name = str(region_name).strip()
+    return PARQUET_TO_STANDARD_REGION.get(name, name)
+
+
+def load_population_data(years=YEARS):
+    candidate_paths = [
+        str(data_base / 'censo_proyecciones_ano_edad_genero.parquet'),
+        str(data_base / 'censo_proyecciones_año_edad_genero.parquet'),
+    ]
+    pop_file = None
+    for p in candidate_paths:
+        if os.path.exists(p):
+            pop_file = p
+            break
+    if pop_file is None:
+        matches = glob.glob(str(data_base / '**' / 'censo_proyecciones*edad_genero*.parquet'), recursive=True)
+        pop_file = matches[0] if matches else None
+    if pop_file is None:
+        raise FileNotFoundError("Population projections file not found.")
+
+    df = pd.read_parquet(pop_file, engine="pyarrow")
+    df.columns = [str(c).strip() for c in df.columns]
+    cols_norm = {_normalize_txt(c): c for c in df.columns}
+
+    year_col = cols_norm.get('ano') or cols_norm.get('anio') or cols_norm.get('year')
+    age_col = cols_norm.get('edad') or cols_norm.get('age')
+    sex_col = cols_norm.get('genero') or cols_norm.get('sexo') or cols_norm.get('sex')
+    pop_col = cols_norm.get('poblacion') or cols_norm.get('population')
+    region_col = cols_norm.get('region')
+    comuna_col = cols_norm.get('comuna')
+
+    keep_cols = [year_col, age_col, sex_col, pop_col]
+    if region_col:
+        keep_cols.append(region_col)
+    if comuna_col:
+        keep_cols.append(comuna_col)
+
+    pop = df[keep_cols].copy()
+    rename_map = {year_col: 'year', age_col: 'age', sex_col: 'sex', pop_col: 'population'}
+    if region_col:
+        rename_map[region_col] = 'region'
+    if comuna_col:
+        rename_map[comuna_col] = 'comuna'
+    pop.rename(columns=rename_map, inplace=True)
+
+    pop['year'] = pd.to_numeric(pop['year'], errors='coerce').astype('Int64')
+    pop = pop[pop['year'].isin(years)]
+    pop['population'] = pd.to_numeric(pop['population'], errors='coerce')
+    pop['sex'] = pop['sex'].apply(_standardize_sex)
+    pop['age_group'] = pop['age'].apply(assign_age_group)
+    pop = pop.dropna(subset=['year', 'sex', 'age_group', 'population'])
+    pop = pop[pop['population'] > 0]
+
+    if 'region' in pop.columns:
+        pop['region'] = pop['region'].apply(normalize_region_to_standard)
+
+    group_cols = [c for c in ['region', 'comuna', 'year', 'age_group', 'sex'] if c in pop.columns]
+    pop_agg = pop.groupby(group_cols, as_index=False)['population'].sum()
+    return pop_agg
+
+
+def calculate_asr_by_sex(hosp, pop, per=100000):
+    who_weights = pd.DataFrame([
+        {'age_group': k, 'who_weight': v} for k, v in WHO_STANDARD_POPULATION.items()
+    ])
+    hosp_agg = hosp.groupby(['year', 'age_group', 'sex'])['hospitalizations'].sum().reset_index()
+    pop_agg = pop.groupby(['year', 'age_group', 'sex'])['population'].sum().reset_index()
+    merged = hosp_agg.merge(pop_agg, on=['year', 'age_group', 'sex'], how='left')
+    merged = merged.dropna(subset=['population'])
+    merged = merged[merged['population'] > 0]
+    merged['age_specific_rate'] = (merged['hospitalizations'] / merged['population']) * per
+    merged = merged.merge(who_weights, on='age_group', how='left')
+    merged['weighted_rate'] = merged['age_specific_rate'] * merged['who_weight']
+    result = merged.groupby(['year', 'sex']).agg({
+        'hospitalizations': 'sum',
+        'population': 'sum',
+        'weighted_rate': 'sum'
+    }).reset_index()
+    result['crude_rate'] = ((result['hospitalizations'] / result['population']) * per).round(2)
+    result['asr'] = (result['weighted_rate'] / TOTAL_WHO_WEIGHT).round(2)
+    result.drop(columns=['weighted_rate'], inplace=True)
+    return result[['year', 'sex', 'hospitalizations', 'population', 'crude_rate', 'asr']]
+
+
+def calculate_asr_sex_columns(hosp, pop, per=100000):
+    who_weights = pd.DataFrame([
+        {'age_group': k, 'who_weight': v} for k, v in WHO_STANDARD_POPULATION.items()
+    ])
+    hosp_agg = hosp.groupby(['year', 'age_group', 'sex'])['hospitalizations'].sum().reset_index()
+    pop_agg = pop.groupby(['year', 'age_group', 'sex'])['population'].sum().reset_index()
+    merged = hosp_agg.merge(pop_agg, on=['year', 'age_group', 'sex'], how='left')
+    merged = merged.dropna(subset=['population'])
+    merged = merged[merged['population'] > 0]
+    merged['age_specific_rate'] = (merged['hospitalizations'] / merged['population']) * per
+    merged = merged.merge(who_weights, on='age_group', how='left')
+    merged['weighted_rate'] = merged['age_specific_rate'] * merged['who_weight']
+
+    by_sex = merged.groupby(['year', 'sex']).agg({
+        'hospitalizations': 'sum', 'population': 'sum', 'weighted_rate': 'sum'
+    }).reset_index()
+    by_sex['crude_rate'] = ((by_sex['hospitalizations'] / by_sex['population']) * per).round(2)
+    by_sex['asr'] = (by_sex['weighted_rate'] / TOTAL_WHO_WEIGHT).round(2)
+
+    hosp_total = hosp.groupby(['year', 'age_group'])['hospitalizations'].sum().reset_index()
+    pop_total = pop.groupby(['year', 'age_group'])['population'].sum().reset_index()
+    merged_total = hosp_total.merge(pop_total, on=['year', 'age_group'], how='left')
+    merged_total = merged_total.dropna(subset=['population'])
+    merged_total = merged_total[merged_total['population'] > 0]
+    merged_total['age_specific_rate'] = (merged_total['hospitalizations'] / merged_total['population']) * per
+    merged_total = merged_total.merge(who_weights, on='age_group', how='left')
+    merged_total['weighted_rate'] = merged_total['age_specific_rate'] * merged_total['who_weight']
+    total_agg = merged_total.groupby('year').agg({
+        'hospitalizations': 'sum', 'population': 'sum', 'weighted_rate': 'sum'
+    }).reset_index()
+    total_agg['crude_rate'] = ((total_agg['hospitalizations'] / total_agg['population']) * per).round(2)
+    total_agg['asr'] = (total_agg['weighted_rate'] / TOTAL_WHO_WEIGHT).round(2)
+
+    male = by_sex[by_sex['sex'] == 'Male'][['year', 'hospitalizations', 'population', 'crude_rate', 'asr']].copy()
+    male.columns = ['year', 'hosp_male', 'pop_male', 'crude_rate_male', 'asr_male']
+    female = by_sex[by_sex['sex'] == 'Female'][['year', 'hospitalizations', 'population', 'crude_rate', 'asr']].copy()
+    female.columns = ['year', 'hosp_female', 'pop_female', 'crude_rate_female', 'asr_female']
+    total = total_agg[['year', 'hospitalizations', 'population', 'crude_rate', 'asr']].copy()
+    total.columns = ['year', 'hosp_total', 'pop_total', 'crude_rate_total', 'asr_total']
+
+    result = male.merge(female, on='year', how='outer').merge(total, on='year', how='outer')
+    result.sort_values('year', inplace=True)
+    result.reset_index(drop=True, inplace=True)
+    return result
+
+
+def calculate_asr_by_icd(hosp, pop, per=100000):
+    who_weights = pd.DataFrame([
+        {'age_group': k, 'who_weight': v} for k, v in WHO_STANDARD_POPULATION.items()
+    ])
+    hosp_agg = hosp.groupby(['year', 'age_group', 'icd_category'])['hospitalizations'].sum().reset_index()
+    pop_agg = pop.groupby(['year', 'age_group'])['population'].sum().reset_index()
+    merged = hosp_agg.merge(pop_agg, on=['year', 'age_group'], how='left')
+    merged = merged.dropna(subset=['population'])
+    merged = merged[merged['population'] > 0]
+    merged['age_specific_rate'] = (merged['hospitalizations'] / merged['population']) * per
+    merged = merged.merge(who_weights, on='age_group', how='left')
+    merged['weighted_rate'] = merged['age_specific_rate'] * merged['who_weight']
+
+    total_agg = merged.groupby(['year', 'icd_category']).agg({
+        'hospitalizations': 'sum', 'weighted_rate': 'sum'
+    }).reset_index()
+    total_agg['asr'] = (total_agg['weighted_rate'] / TOTAL_WHO_WEIGHT).round(2)
+    return total_agg[['year', 'icd_category', 'hospitalizations', 'asr']]
+
+
+def save_figure(fig, filename):
+    filepath = os.path.join(figures_path, filename)
+    fig.savefig(filepath, dpi=1200, bbox_inches='tight', facecolor='white')
+```
+
+```{python}
+#| label: load-egresos
+#| include: false
+
+csv_files = sorted(glob.glob(str(egresos_path / "*.csv")))
+
+all_egresos = []
+for filepath in csv_files:
+    try:
+        df = pd.read_csv(filepath, sep=";", encoding="latin1", low_memory=False)
+        required_cols = ['SEXO', 'GRUPO_EDAD', 'ANO_EGRESO', 'DIAG1',
+                         'COMUNA_RESIDENCIA', 'GLOSA_COMUNA_RESIDENCIA',
+                         'REGION_RESIDENCIA', 'GLOSA_REGION_RESIDENCIA']
+        df = df[[c for c in required_cols if c in df.columns]]
+        df['SEXO'] = df['SEXO'].apply(lambda x:
+            'Male' if str(x).strip().upper() in ['HOMBRE', 'H', '1', 'M']
+            else ('Female' if str(x).strip().upper() in ['MUJER', 'M', '2', 'F']
+                  else None))
+        df = df[df['DIAG1'].notna()]
+        df['DIAG1'] = df['DIAG1'].astype(str).str.strip().str.upper()
+        df = df[df['DIAG1'].str.startswith('E')]
+        df = df[df['DIAG1'].str[1:3].str.isnumeric()]
+        df['code_num'] = df['DIAG1'].str[1:3].astype(int)
+        df = df[df['code_num'] <= 89]
+        df = df.drop(columns=['code_num'])
+        df['icd_category'] = df['DIAG1'].apply(categorize_e_code)
+        df = df[df['icd_category'].notna()]
+        df.rename(columns={
+            'ANO_EGRESO': 'year',
+            'GLOSA_REGION_RESIDENCIA': 'region',
+            'GLOSA_COMUNA_RESIDENCIA': 'comuna'
+        }, inplace=True)
+        all_egresos.append(df)
+    except Exception:
+        pass
+
+egresos_df = pd.concat(all_egresos, ignore_index=True)
+egresos_df = egresos_df.dropna(subset=['year', 'SEXO', 'GRUPO_EDAD', 'region'])
+egresos_df['region'] = egresos_df['region'].apply(normalize_region_to_standard)
+egresos_df['year'] = pd.to_numeric(egresos_df['year'], errors='coerce').astype('Int64')
+```
+
+```{python}
+#| label: load-population
+#| include: false
+
+pop_data = load_population_data(YEARS)
+pop_5year = pop_data.groupby(['year', 'age_group', 'sex'])['population'].sum().reset_index()
+```
+
+```{python}
+#| label: redistribute-age-groups
+#| include: false
+
+# EGRESOS 10-year age bands -> 5-year WHO bands (proportional redistribution)
+grupo_edad_mapping = {
+    'MENOR DE UN AÑO': [('0-4', [0, 0.2])],
+    '1 A 9': [('0-4', [0.25, 0.5]), ('5-9', [0.5, 0.75])],
+    '10 A 19': [('10-14', [0.5, 0.75]), ('15-19', [0.75, 1.0])],
+    '20 A 29': [('20-24', [0.5, 0.75]), ('25-29', [0.75, 1.0])],
+    '30 A 39': [('30-34', [0.5, 0.75]), ('35-39', [0.75, 1.0])],
+    '40 A 49': [('40-44', [0.5, 0.75]), ('45-49', [0.75, 1.0])],
+    '50 A 59': [('50-54', [0.5, 0.75]), ('55-59', [0.75, 1.0])],
+    '60 A 69': [('60-64', [0.5, 0.75]), ('65-69', [0.75, 1.0])],
+    '70 A 79': [('70-74', [0.5, 0.75]), ('75-79', [0.75, 1.0])],
+    '80 Y MAS': [('80+', [1.0, 1.0])],
+    '80 Y MÁS': [('80+', [1.0, 1.0])],
+    '80 A 89': [('80+', [1.0, 1.0])],
+    '90 Y MAS': [('80+', [1.0, 1.0])],
+    '90 Y MÁS': [('80+', [1.0, 1.0])],
+    'MENOR A 7 DÍAS': [('0-4', [0, 0.2])],
+    '7 A 27 DIAS': [('0-4', [0, 0.2])],
+    '28 DIAS A 2 MES': [('0-4', [0, 0.2])],
+    '2 MESES A MENOS DE 1 AÑO': [('0-4', [0, 0.2])],
+    '1 A 4 AÑOS': [('0-4', [1.0, 1.0])],
+    '5 A 9 AÑOS': [('5-9', [1.0, 1.0])],
+    '10 A 14 AÑOS': [('10-14', [1.0, 1.0])],
+    '15 A 19 AÑOS': [('15-19', [1.0, 1.0])],
+    '20 A 24 AÑOS': [('20-24', [1.0, 1.0])],
+    '25 A 29 AÑOS': [('25-29', [1.0, 1.0])],
+    '30 A 34 AÑOS': [('30-34', [1.0, 1.0])],
+    '35 A 39 AÑOS': [('35-39', [1.0, 1.0])],
+    '40 A 44 AÑOS': [('40-44', [1.0, 1.0])],
+    '45 A 49 AÑOS': [('45-49', [1.0, 1.0])],
+    '50 A 54 AÑOS': [('50-54', [1.0, 1.0])],
+    '55 A 59 AÑOS': [('55-59', [1.0, 1.0])],
+    '60 A 64 AÑOS': [('60-64', [1.0, 1.0])],
+    '65 A 69 AÑOS': [('65-69', [1.0, 1.0])],
+    '70 A 74 AÑOS': [('70-74', [1.0, 1.0])],
+    '75 A 79 AÑOS': [('75-79', [1.0, 1.0])],
+    '80 A 84 AÑOS': [('80+', [1.0, 1.0])],
+    '85 A MAS': [('80+', [1.0, 1.0])],
+}
+
+egresos_df['GRUPO_EDAD'] = egresos_df['GRUPO_EDAD'].astype(str).str.strip().str.upper()
+
+hosp_5year_list = []
+for year in YEARS:
+    year_egresos = egresos_df[egresos_df['year'] == year].copy()
+    year_pop = pop_5year[pop_5year['year'] == year]
+    for _, row in year_egresos.iterrows():
+        sex = row['SEXO']
+        grupo = row['GRUPO_EDAD']
+        icd_cat = row['icd_category']
+        age_groups_list = grupo_edad_mapping.get(grupo, [])
+        if not age_groups_list:
+            continue
+        sex_year_pop = year_pop[year_pop['sex'] == sex]
+        # Compute total population across all 5-year subgroups for this band
+        total_pop_band = sum([
+            sex_year_pop[sex_year_pop['age_group'] == ag]['population'].sum()
+            for ag, _ in age_groups_list
+        ])
+        if total_pop_band <= 0:
+            continue
+        for age_5yr, _ in age_groups_list:
+            subpop = sex_year_pop[sex_year_pop['age_group'] == age_5yr]['population'].sum()
+            if subpop > 0:
+                # Fraction of hospitalization assigned to this 5-year subgroup
+                frac = subpop / total_pop_band
+                hosp_5year_list.append({
+                    'year': year,
+                    'age_group': age_5yr,
+                    'sex': sex,
+                    'icd_category': icd_cat,
+                    'region': row['region'],
+                    'comuna': row.get('comuna', None),
+                    'hospitalizations': frac
+                })
+
+hosp_5year = pd.DataFrame(hosp_5year_list)
+hosp_by_icd = hosp_5year.groupby(['year', 'age_group', 'sex', 'icd_category']).agg(
+    {'hospitalizations': 'sum'}).reset_index()
+hosp_overall = hosp_5year.groupby(['year', 'age_group', 'sex']).agg(
+    {'hospitalizations': 'sum'}).reset_index()
+hosp_regional = hosp_5year.groupby(['year', 'region', 'age_group', 'sex']).agg(
+    {'hospitalizations': 'sum'}).reset_index()
+```
+
+```{python}
+#| label: compute-asr
+#| include: false
+
+population = pop_data.groupby(['year', 'age_group', 'sex'])['population'].sum().reset_index()
+
+asr_by_sex = calculate_asr_by_sex(hosp_overall, population)
+asr_sex_cols = calculate_asr_sex_columns(hosp_overall, population)
+asr_by_icd = calculate_asr_by_icd(hosp_by_icd, population)
+```
+
+# Results
+
+## Age-Standardized Rates (ASR)
+
+### ASR by Sex and Year
+
+```{python}
+#| label: tbl-asr-by-sex
+#| tbl-cap: "Age-standardized hospitalization rates for endocrine diseases by sex (per 100,000 population)"
+#| tbl-cap-location: bottom
+
+asr_by_sex.style.format({
+    'hospitalizations': '{:,.0f}',
+    'population': '{:,.0f}',
+    'crude_rate': '{:.2f}',
+    'asr': '{:.2f}'
+}).hide(axis="index")
+```
+
+```{python}
+#| label: tbl-asr-sex-columns
+#| tbl-cap: "Hospitalizations and ASR by sex — Endocrine diseases (columnar format, per 100,000 population)"
+#| tbl-cap-location: bottom
+
+display_cols = asr_sex_cols.copy()
+display_cols.columns = ['Year', 'Hosp. Males', 'Pop. Males', 'Crude Rate M', 'ASR M',
+                         'Hosp. Females', 'Pop. Females', 'Crude Rate F', 'ASR F',
+                         'Hosp. Total', 'Pop. Total', 'Crude Rate Total', 'ASR Total']
+
+display_cols.style.format({
+    'Hosp. Males': '{:,.0f}', 'Pop. Males': '{:,.0f}', 'Crude Rate M': '{:.2f}', 'ASR M': '{:.2f}',
+    'Hosp. Females': '{:,.0f}', 'Pop. Females': '{:,.0f}', 'Crude Rate F': '{:.2f}', 'ASR F': '{:.2f}',
+    'Hosp. Total': '{:,.0f}', 'Pop. Total': '{:,.0f}', 'Crude Rate Total': '{:.2f}', 'ASR Total': '{:.2f}'
+}).hide(axis="index")
+```
+
+### Time Series of ASR
+
+```{python}
+#| label: fig-asr-time-series
+#| fig-cap: "Trends in age-standardized rates — Endocrine diseases (E00-E89), 2010–2024"
+#| fig-width: 16
+#| fig-height: 5
+
+fig, axes = plt.subplots(1, 3, figsize=(16, 5))
+
+# Panel 1: By sex
+ax1 = axes[0]
+for sex, color, label in [('Male', 'steelblue', 'Males'), ('Female', 'coral', 'Females')]:
+    sex_data = asr_by_sex[asr_by_sex['sex'] == sex]
+    ax1.plot(sex_data['year'], sex_data['asr'], marker='o', linewidth=2.5,
+            label=label, markersize=7, color=color)
+ax1.set_xlabel('Year', fontsize=11, fontweight='bold')
+ax1.set_ylabel('ASR (per 100,000)', fontsize=11, fontweight='bold')
+ax1.set_title('ASR by Sex', fontsize=12, fontweight='bold')
+ax1.legend(fontsize=10, loc='best')
+ax1.grid(True, alpha=0.3)
+
+# Panel 2: Total ASR
+ax2 = axes[1]
+ax2.plot(asr_sex_cols['year'], asr_sex_cols['asr_total'], marker='s', linewidth=2.5,
+         color='darkgreen', markersize=7)
+ax2.fill_between(asr_sex_cols['year'], asr_sex_cols['asr_total'], alpha=0.2, color='green')
+ax2.set_xlabel('Year', fontsize=11, fontweight='bold')
+ax2.set_ylabel('ASR (per 100,000)', fontsize=11, fontweight='bold')
+ax2.set_title('Total ASR', fontsize=12, fontweight='bold')
+ax2.grid(True, alpha=0.3)
+
+# Panel 3: Sex ratio
+asr_sex_cols['sex_ratio'] = (asr_sex_cols['asr_male'] / asr_sex_cols['asr_female'].replace(0, np.nan)).round(4)
+ax3 = axes[2]
+ax3.plot(asr_sex_cols['year'], asr_sex_cols['sex_ratio'], marker='D', linewidth=2.5,
+         color='purple', markersize=7)
+ax3.axhline(y=1, color='red', linestyle='--', linewidth=1.5, alpha=0.7)
+ax3.set_xlabel('Year', fontsize=11, fontweight='bold')
+ax3.set_ylabel('Sex Ratio M:F', fontsize=11, fontweight='bold')
+ax3.set_title('Sex Ratio (ASR)', fontsize=12, fontweight='bold')
+ax3.grid(True, alpha=0.3)
+
+plt.suptitle('ASR Trends — Endocrine Diseases (E00-E89), 2010–2024',
+             fontsize=13, fontweight='bold', y=1.03)
+plt.tight_layout()
+save_figure(fig, 'asr_time_series_by_sex.png')
+plt.show()
+```
+
+---
+
+## Analysis by ICD Category
+
+### ASR by Disease Category
+
+```{python}
+#| label: icd-asr-calc
+#| include: false
+
+# asr_by_icd already computed in compute-asr block
+
+# Summary table by ICD category (aggregated across all years)
+icd_summary = asr_by_icd.groupby('icd_category').agg({
+    'hospitalizations': 'sum',
+    'asr': 'mean'
+}).reset_index()
+icd_summary['asr'] = icd_summary['asr'].round(2)
+icd_summary = icd_summary.sort_values('hospitalizations', ascending=False)
+
+# Add disease names
+icd_summary['disease_name'] = icd_summary['icd_category'].map(ICD10_MAPPING)
+```
+
+```{python}
+#| label: tbl-asr-by-icd-latest
+#| tbl-cap: "Age-standardized rates by ICD category — Latest available year (per 100,000 population)"
+#| tbl-cap-location: bottom
+
+latest_year_icd = asr_by_icd['year'].max()
+asr_latest = asr_by_icd[asr_by_icd['year'] == latest_year_icd].copy()
+asr_latest['disease_name'] = asr_latest['icd_category'].map(ICD10_MAPPING)
+
+asr_latest[['icd_category', 'disease_name', 'hospitalizations', 'asr']].style.format({
+    'hospitalizations': '{:,.0f}',
+    'asr': '{:.2f}'
+}).hide(axis="index")
+```
+
+```{python}
+#| label: tbl-icd-summary
+#| tbl-cap: "Summary of hospitalizations and mean ASR by ICD category (2010–2024)"
+#| tbl-cap-location: bottom
+
+icd_summary[['icd_category', 'disease_name', 'hospitalizations', 'asr']].style.format({
+    'hospitalizations': '{:,.0f}',
+    'asr': '{:.2f}'
+}).hide(axis="index")
+```
+
+```{python}
+#| code-fold: true
+
+# Pie chart of hospitalizations by ICD category
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 7))
+
+# Pie chart
+colors = plt.cm.Set3(np.linspace(0, 1, len(icd_summary)))
+wedges, texts, autotexts = ax1.pie(icd_summary['hospitalizations'],
+                                     labels=icd_summary['icd_category'],
+                                     autopct='%1.1f%%',
+                                     colors=colors,
+                                     startangle=90)
+ax1.set_title('Distribution of Hospitalizations by ICD-10 Category',
+              fontsize=12, fontweight='bold')
+
+for autotext in autotexts:
+    autotext.set_color('black')
+    autotext.set_fontsize(9)
+
+# Bar chart
+icd_sorted = icd_summary.sort_values('hospitalizations', ascending=True)
+ax2.barh(icd_sorted['icd_category'], icd_sorted['hospitalizations'], color=colors[::-1])
+ax2.set_xlabel('Total Hospitalizations', fontsize=11, fontweight='bold')
+ax2.set_title('Hospitalizations by ICD-10 Category (2010-2024)',
+              fontsize=12, fontweight='bold')
+ax2.grid(axis='x', alpha=0.3)
+
+plt.tight_layout()
+save_figure(fig, 'icd_distribution.png')
+plt.show()
+
+print("Figure saved: icd_distribution.png")
+```
+
+```{python}
+#| code-fold: true
+
+# ASR trends by top ICD categories
+top_icd = icd_summary.head(5)['icd_category'].tolist()
+asr_icd_subset = asr_by_icd[asr_by_icd['icd_category'].isin(top_icd)]
+
+fig, ax = plt.subplots(figsize=(14, 8))
+
+for icd in top_icd:
+    icd_data = asr_icd_subset[asr_icd_subset['icd_category'] == icd]
+    disease_name = ICD10_MAPPING.get(icd, icd)
+    ax.plot(icd_data['year'], icd_data['asr'], marker='o', linewidth=2.5,
+            label=f"{icd}: {disease_name}", markersize=8)
+
+ax.set_xlabel('Year', fontsize=12, fontweight='bold')
+ax.set_ylabel('ASR (per 100,000)', fontsize=12, fontweight='bold')
+ax.set_title('ASR Trends by Major ICD-10 Categories, 2010-2024',
+             fontsize=13, fontweight='bold')
+ax.legend(fontsize=10, loc='best')
+ax.grid(True, alpha=0.3)
+plt.tight_layout()
+save_figure(fig, 'asr_trends_by_icd.png')
+plt.show()
+
+print("Figure saved: asr_trends_by_icd.png")
+```
+
+```{python}
+#| label: fig-asr-trends-all-icd
+#| fig-cap: "ASR Trends by All ICD Categories — Total, Male, and Female (2010–2024)"
+#| fig-width: 18
+#| fig-height: 16
+
+# Compute ASR by ICD category for each sex separately
+who_weights_df = pd.DataFrame([
+    {'age_group': k, 'who_weight': v} for k, v in WHO_STANDARD_POPULATION.items()
+])
+
+def _asr_by_icd_sex(hosp_df, pop_df, sex_filter=None, per=100000):
+    if sex_filter:
+        h = hosp_df[hosp_df['sex'] == sex_filter].groupby(
+            ['year', 'age_group', 'icd_category'])['hospitalizations'].sum().reset_index()
+        p = pop_df[pop_df['sex'] == sex_filter].groupby(
+            ['year', 'age_group'])['population'].sum().reset_index()
+    else:
+        h = hosp_df.groupby(
+            ['year', 'age_group', 'icd_category'])['hospitalizations'].sum().reset_index()
+        p = pop_df.groupby(
+            ['year', 'age_group'])['population'].sum().reset_index()
+    m = h.merge(p, on=['year', 'age_group'], how='left').dropna(subset=['population'])
+    m = m[m['population'] > 0]
+    m['rate'] = (m['hospitalizations'] / m['population']) * per
+    m = m.merge(who_weights_df, on='age_group', how='left')
+    m['wr'] = m['rate'] * m['who_weight']
+    agg = m.groupby(['year', 'icd_category']).agg(
+        hospitalizations=('hospitalizations', 'sum'), weighted_rate=('wr', 'sum')
+    ).reset_index()
+    agg['asr'] = (agg['weighted_rate'] / TOTAL_WHO_WEIGHT).round(2)
+    return agg[['year', 'icd_category', 'hospitalizations', 'asr']]
+
+asr_icd_total  = _asr_by_icd_sex(hosp_by_icd, population, sex_filter=None)
+asr_icd_male   = _asr_by_icd_sex(hosp_by_icd, population, sex_filter='Male')
+asr_icd_female = _asr_by_icd_sex(hosp_by_icd, population, sex_filter='Female')
+
+icd_list = icd_summary['icd_category'].tolist()
+
+fig, axes = plt.subplots(3, 1, figsize=(18, 16), sharex=True)
+panel_data = [
+    (axes[0], asr_icd_total, 'Total (Both Sexes)'),
+    (axes[1], asr_icd_male, 'Male'),
+    (axes[2], asr_icd_female, 'Female'),
+]
+
+for ax, data, title in panel_data:
+    for icd_cat in icd_list:
+        icd_data = data[data['icd_category'] == icd_cat]
+        ax.plot(icd_data['year'], icd_data['asr'], marker='o', linewidth=2.5,
+                label=f"{icd_cat}: {ICD10_MAPPING.get(icd_cat, icd_cat)}", markersize=6,
+                color=ICD_COLORS.get(icd_cat, None))
+    ax.set_ylabel('ASR (per 100,000)', fontsize=11, fontweight='bold')
+    ax.set_title(f'ASR Trends by ICD Category — {title}', fontsize=12, fontweight='bold')
+    ax.legend(fontsize=8, loc='best', ncol=2)
+    ax.grid(True, alpha=0.3)
+
+axes[2].set_xlabel('Year', fontsize=11, fontweight='bold')
+plt.suptitle('ASR Trends by ICD Category — Endocrine Diseases (E00-E89), 2010–2024',
+             fontsize=14, fontweight='bold', y=1.01)
+plt.tight_layout()
+save_figure(fig, 'asr_trends_all_icd_endocrinas.png')
+plt.show()
+```
+
+```{python}
+#| label: fig-heatmap-asr-icd
+#| fig-cap: "ASR Heatmap by ICD Category and Year"
+#| fig-width: 16
+#| fig-height: 10
+
+heatmap_data = asr_by_icd.pivot_table(index='icd_category', columns='year', values='asr', aggfunc='first')
+
+fig, ax = plt.subplots(figsize=(16, 10))
+sns.heatmap(heatmap_data, annot=True, fmt='.1f', cmap='YlOrRd',
+            cbar_kws={'label': 'ASR (per 100,000)'}, ax=ax)
+ax.set_title('ASR Heatmap — Endocrine Diseases (E00-E89) by Category and Year', fontweight='bold', fontsize=14)
+ax.set_xlabel('Year')
+ax.set_ylabel('ICD Category')
+plt.tight_layout()
+save_figure(fig, 'asr_heatmap_icd_endocrinas.png')
+plt.show()
+```
+
+\newpage
+
+---
+
+## Regional Analysis
+
+```{python}
+#| code-fold: true
+
+# Use hosp_regional already computed in redistribute-age-groups block
+# Count by region and year
+regional_count = hosp_regional.groupby(['year', 'region'])['hospitalizations'].sum().reset_index()
+
+# Merge with population (sum across all ages for regional totals)
+regional_pop = pop_data.groupby(['year', 'region']).agg({'population': 'sum'}).reset_index()
+
+regional_merged = regional_count.merge(regional_pop, on=['year', 'region'], how='left')
+regional_merged = regional_merged.dropna(subset=['population'])
+regional_merged = regional_merged[regional_merged['population'] > 0]
+
+# Calculate crude rates for regions (simplified, not age-standardized for this view)
+regional_merged['crude_rate'] = ((regional_merged['hospitalizations'] / regional_merged['population']) * 100000).round(2)
+
+# Display regional summary
+regional_summary = regional_merged.groupby('region').agg({
+    'hospitalizations': 'sum',
+    'population': 'mean',
+    'crude_rate': 'mean'
+}).reset_index()
+regional_summary['crude_rate'] = regional_summary['crude_rate'].round(2)
+regional_summary = regional_summary.sort_values('crude_rate', ascending=False)
+
+```
+
+```{python}
+#| label: tbl-regional-summary
+#| tbl-cap: "Summary of hospitalizations by region — Endocrine diseases (2010–2024)"
+#| tbl-cap-location: bottom
+
+reg_display = regional_summary.copy()
+reg_display.columns = ['Region', 'Hospitalizations', 'Mean Population', 'Mean Crude Rate']
+
+reg_display.style.format({
+    'Hospitalizations': '{:,.0f}',
+    'Mean Population': '{:,.0f}',
+    'Mean Crude Rate': '{:.2f}'
+}).hide(axis="index")
+```
+
+```{python}
+#| code-fold: true
+
+# Heatmap of crude rates by region and year
+regional_pivot = regional_merged.pivot_table(
+    values='crude_rate',
+    index='region',
+    columns='year',
+    aggfunc='first'
+)
+
+# Sort by 2024 rate
+regional_pivot = regional_pivot.loc[regional_pivot[2024].sort_values(ascending=False).index]
+
+fig, ax = plt.subplots(figsize=(16, 10))
+sns.heatmap(regional_pivot, annot=False, fmt='.0f', cmap='YlOrRd', ax=ax, cbar_kws={'label': 'Crude Rate (per 100,000)'})
+ax.set_title('Crude Hospitalization Rates by Region and Year, 2010-2024\n(Endocrine Diseases E00-E89)',
+             fontsize=13, fontweight='bold')
+ax.set_xlabel('Year', fontsize=11, fontweight='bold')
+ax.set_ylabel('Region', fontsize=11, fontweight='bold')
+plt.xticks(rotation=0)
+plt.yticks(rotation=0, fontsize=9)
+plt.tight_layout()
+save_figure(fig, 'regional_heatmap.png')
+plt.show()
+
+print("Figure saved: regional_heatmap.png")
+```
+
+```{python}
+#| code-fold: true
+
+# Top 10 regions by hospitalization burden
+top_regions = regional_summary.head(10)
+
+fig, ax = plt.subplots(figsize=(12, 8))
+ax.barh(top_regions['region'], top_regions['hospitalizations'], color='steelblue')
+ax.set_xlabel('Total Hospitalizations', fontsize=11, fontweight='bold')
+ax.set_title('Top 10 Regions by Hospitalization Burden\nEndocrine Diseases (E00-E89), 2010-2024',
+             fontsize=12, fontweight='bold')
+ax.grid(axis='x', alpha=0.3)
+plt.tight_layout()
+save_figure(fig, 'top_regions_hospitalization.png')
+plt.show()
+
+print("Figure saved: top_regions_hospitalization.png")
+```
+
+```{python}
+#| label: fig-regional-icd-composition
+#| fig-cap: "ICD Category Composition — Top 10 Regions"
+#| fig-width: 16
+#| fig-height: 10
+
+top10_regions = regional_summary.head(10)['region'].tolist()
+reg_icd_data = egresos_df[egresos_df['region'].isin(top10_regions)].groupby(
+    ['region', 'icd_category']).size().reset_index(name='count')
+reg_icd_pivot = reg_icd_data.pivot_table(index='region', columns='icd_category', values='count', fill_value=0)
+reg_icd_pivot = reg_icd_pivot.loc[top10_regions]
+
+fig, ax = plt.subplots(figsize=(16, 10))
+reg_icd_pivot.plot(kind='barh', stacked=True, ax=ax,
+                    color=[ICD_COLORS.get(c, '#ccc') for c in reg_icd_pivot.columns])
+ax.set_xlabel('Hospitalizations', fontsize=11, fontweight='bold')
+ax.set_title('ICD Category Composition — Top 10 Regions', fontsize=13, fontweight='bold')
+ax.legend(title='Category', bbox_to_anchor=(1.02, 1), loc='upper left', fontsize=8)
+ax.grid(axis='x', alpha=0.3)
+plt.tight_layout()
+save_figure(fig, 'regional_icd_composition_endocrinas.png')
+plt.show()
+```
+
+\newpage
+
+---
+
+## Sex Ratio Analysis
+
+```{python}
+#| label: fig-sex-ratio-trends
+#| fig-cap: "Sex ratio analysis — Endocrine diseases (E00-E89)"
+#| fig-width: 14
+#| fig-height: 6
+
+# Sex ratio already computed in section 4; reuse
+sex_ratio_data = asr_sex_cols[asr_sex_cols['sex_ratio'].notna()].copy()
+
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
+
+# Time series of sex ratio
+ax1.plot(sex_ratio_data['year'], sex_ratio_data['sex_ratio'], marker='o', linewidth=2.5,
+         color='darkgreen', markersize=8)
+ax1.axhline(y=1, color='red', linestyle='--', linewidth=2, label='Sex Ratio = 1 (Equal)')
+ax1.set_xlabel('Year', fontsize=11, fontweight='bold')
+ax1.set_ylabel('Sex Ratio (M:F)', fontsize=11, fontweight='bold')
+ax1.set_title('Sex Ratio in ASR Over Time', fontsize=12, fontweight='bold')
+ax1.legend(fontsize=10)
+ax1.grid(True, alpha=0.3)
+
+# Absolute ASR by sex (latest year)
+latest_year = asr_sex_cols['year'].max()
+latest_data = asr_sex_cols[asr_sex_cols['year'] == latest_year].iloc[0]
+
+sexes = ['Male', 'Female']
+asr_values = [latest_data['asr_male'], latest_data['asr_female']]
+colors_bar = ['#1f77b4', '#ff7f0e']
+
+ax2.bar(sexes, asr_values, color=colors_bar, edgecolor='black', linewidth=1.5)
+ax2.set_ylabel('ASR (per 100,000)', fontsize=11, fontweight='bold')
+ax2.set_title(f'ASR by Sex - Year {latest_year}', fontsize=12, fontweight='bold')
+ax2.grid(axis='y', alpha=0.3)
+
+for i, (sex, val) in enumerate(zip(sexes, asr_values)):
+    ax2.text(i, val + 5, f'{val:.1f}', ha='center', fontsize=11, fontweight='bold')
+
+plt.tight_layout()
+save_figure(fig, 'sex_ratio_analysis.png')
+plt.show()
+
+print("Figure saved: sex_ratio_analysis.png")
+```
+
+```{python}
+#| label: tbl-sex-ratio
+#| tbl-cap: "Male-to-female ratio by year — Endocrine diseases"
+#| tbl-cap-location: bottom
+
+sr_display = asr_sex_cols[['year', 'hosp_male', 'hosp_female', 'asr_male', 'asr_female', 'sex_ratio']].copy()
+sr_display.columns = ['Year', 'Hosp. Males', 'Hosp. Females', 'ASR Males', 'ASR Females', 'Ratio M:F (ASR)']
+
+sr_display.style.format({
+    'Hosp. Males': '{:,.0f}',
+    'Hosp. Females': '{:,.0f}',
+    'ASR Males': '{:.2f}',
+    'ASR Females': '{:.2f}',
+    'Ratio M:F (ASR)': '{:.2f}'
+}).hide(axis="index")
+```
+
+```{python}
+#| label: fig-sex-ratio-by-icd
+#| fig-cap: "M:F Sex Ratio of ASR by ICD Category — Endocrine Diseases (Latest Year)"
+#| fig-width: 14
+#| fig-height: 8
+
+# Compute sex-specific ASR by ICD category for the latest year
+hosp_sex_icd = hosp_5year.groupby(['year', 'age_group', 'sex', 'icd_category']).agg(
+    {'hospitalizations': 'sum'}).reset_index()
+who_weights = pd.DataFrame([{'age_group': k, 'who_weight': v} for k, v in WHO_STANDARD_POPULATION.items()])
+
+icd_sex_list = []
+for icd_cat in icd_summary['icd_category'].tolist():
+    for sex in ['Male', 'Female']:
+        icd_sex_data = hosp_sex_icd[
+            (hosp_sex_icd['year'] == latest_year) &
+            (hosp_sex_icd['icd_category'] == icd_cat) &
+            (hosp_sex_icd['sex'] == sex)
+        ]
+        sex_pop = pop_data[(pop_data['year'] == latest_year) & (pop_data['sex'] == sex)]
+        sex_pop_agg = sex_pop.groupby('age_group')['population'].sum().reset_index()
+        merged = icd_sex_data.merge(sex_pop_agg, on='age_group', how='left')
+        merged = merged[merged['population'] > 0].dropna(subset=['population'])
+        merged['age_specific_rate'] = (merged['hospitalizations'] / merged['population']) * 100000
+        merged = merged.merge(who_weights, on='age_group', how='left')
+        merged['weighted_rate'] = merged['age_specific_rate'] * merged['who_weight']
+        asr_val = merged['weighted_rate'].sum() / TOTAL_WHO_WEIGHT
+        icd_sex_list.append({'icd_category': icd_cat, 'sex': sex, 'asr': round(asr_val, 2)})
+
+icd_sex_df = pd.DataFrame(icd_sex_list)
+icd_sex_pivot = icd_sex_df.pivot(index='icd_category', columns='sex', values='asr').fillna(0)
+icd_sex_pivot['ratio'] = (icd_sex_pivot['Male'] / icd_sex_pivot['Female'].replace(0, np.nan)).round(2)
+
+fig, axes = plt.subplots(1, 2, figsize=(14, 8))
+
+ax1 = axes[0]
+x = np.arange(len(icd_sex_pivot))
+width = 0.35
+ax1.barh(x - width/2, icd_sex_pivot['Male'], width, label='Males', color='steelblue')
+ax1.barh(x + width/2, icd_sex_pivot['Female'], width, label='Females', color='coral')
+ax1.set_yticks(x)
+ax1.set_yticklabels([f'{s}: {ICD10_MAPPING.get(s, s)[:20]}' for s in icd_sex_pivot.index], fontsize=9)
+ax1.set_xlabel('ASR (per 100,000)')
+ax1.set_title(f'ASR by Sex and Category — {int(latest_year)}', fontweight='bold')
+ax1.legend()
+ax1.grid(axis='x', alpha=0.3)
+
+ax2 = axes[1]
+ratio_sorted = icd_sex_pivot.sort_values('ratio', ascending=True)
+colors_ratio = ['coral' if r < 1 else 'steelblue' for r in ratio_sorted['ratio']]
+ax2.barh([f'{s}: {ICD10_MAPPING.get(s, s)[:20]}' for s in ratio_sorted.index],
+         ratio_sorted['ratio'], color=colors_ratio)
+ax2.axvline(x=1, color='gray', linestyle='--', linewidth=2)
+ax2.set_xlabel('Sex Ratio M:F of ASR')
+ax2.set_title('Sex Ratio by ICD Category', fontweight='bold')
+ax2.grid(axis='x', alpha=0.3)
+
+plt.tight_layout()
+save_figure(fig, 'sex_ratio_by_icd_endocrinas.png')
+plt.show()
+```
+
+\newpage
+
+---
+
+## Age Distribution
+
+```{python}
+#| label: fig-age-distribution
+#| fig-cap: "Age distribution of hospitalizations for endocrine diseases"
+#| fig-width: 16
+#| fig-height: 10
+
+# AGE_ORDER already defined in constants block
+
+age_hosp = hosp_overall.groupby('age_group')['hospitalizations'].sum()
+age_hosp = age_hosp.reindex([a for a in AGE_ORDER if a in age_hosp.index])
+
+age_sex = hosp_overall.groupby(['age_group', 'sex'])['hospitalizations'].sum().unstack(fill_value=0)
+age_sex = age_sex.reindex([a for a in AGE_ORDER if a in age_sex.index])
+
+fig, axes = plt.subplots(2, 2, figsize=(16, 10))
+
+# Overall age distribution
+ax1 = axes[0, 0]
+ax1.bar(age_hosp.index, age_hosp.values, color='teal', alpha=0.7)
+ax1.set_xlabel('Age Group')
+ax1.set_ylabel('Hospitalizations')
+ax1.set_title('Overall Distribution', fontweight='bold')
+ax1.tick_params(axis='x', rotation=45)
+ax1.grid(True, alpha=0.3, axis='y')
+
+# By sex
+ax2 = axes[0, 1]
+age_sex.plot(kind='bar', ax=ax2, color=['steelblue', 'coral'], width=0.8)
+ax2.set_xlabel('Age Group')
+ax2.set_ylabel('Hospitalizations')
+ax2.set_title('By Sex', fontweight='bold')
+ax2.tick_params(axis='x', rotation=45)
+ax2.legend(title='Sex')
+ax2.grid(True, alpha=0.3, axis='y')
+
+# By ICD category and age (top 5)
+ax3 = axes[1, 0]
+top5_icd = icd_summary.head(5)['icd_category'].tolist()
+hosp_by_icd_cat = hosp_5year.groupby(['age_group', 'icd_category'])['hospitalizations'].sum().reset_index()
+age_icd = hosp_by_icd_cat[hosp_by_icd_cat['icd_category'].isin(top5_icd)].pivot_table(
+    index='age_group', columns='icd_category', values='hospitalizations', fill_value=0)
+age_icd = age_icd.reindex([a for a in AGE_ORDER if a in age_icd.index])
+age_icd.plot(kind='bar', ax=ax3, width=0.8, stacked=True,
+              color=[ICD_COLORS.get(s, '#ccc') for s in age_icd.columns])
+ax3.set_xlabel('Age Group')
+ax3.set_ylabel('Hospitalizations')
+ax3.set_title('By ICD Category — Top 5 (Stacked)', fontweight='bold')
+ax3.tick_params(axis='x', rotation=45)
+ax3.legend(title='Category', bbox_to_anchor=(1.02, 1), loc='upper left', fontsize=8)
+ax3.grid(True, alpha=0.3, axis='y')
+
+# Elderly focus (60+)
+ax4 = axes[1, 1]
+elderly_groups = ['60-64', '65-69', '70-74', '75-79', '80+']
+elderly = hosp_overall[hosp_overall['age_group'].isin(elderly_groups)]
+eld_by_sex = elderly.groupby(['age_group', 'sex'])['hospitalizations'].sum().unstack(fill_value=0)
+eld_by_sex = eld_by_sex.reindex([a for a in elderly_groups if a in eld_by_sex.index])
+eld_by_sex.plot(kind='bar', ax=ax4, color=['steelblue', 'coral'], width=0.8)
+ax4.set_xlabel('Age Group')
+ax4.set_ylabel('Hospitalizations')
+ax4.set_title('Older Adults (≥60 years)', fontweight='bold')
+ax4.tick_params(axis='x', rotation=45)
+ax4.legend(title='Sex')
+ax4.grid(True, alpha=0.3, axis='y')
+
+plt.suptitle('Age Patterns — Endocrine Diseases (E00-E89)', fontsize=14, fontweight='bold', y=1.02)
+plt.tight_layout()
+save_figure(fig, 'age_distribution_endocrinas.png')
+plt.show()
+```
+
+```{python}
+#| label: tbl-age-summary
+#| tbl-cap: "Summary of hospitalizations by age group — Endocrine diseases"
+#| tbl-cap-location: bottom
+
+age_summary = hosp_overall.groupby('age_group')['hospitalizations'].sum().reset_index()
+total_h = age_summary['hospitalizations'].sum()
+age_summary['percentage'] = (age_summary['hospitalizations'] / total_h * 100).round(2)
+age_summary['age_order'] = age_summary['age_group'].apply(lambda x: AGE_ORDER.index(x) if x in AGE_ORDER else 99)
+age_summary = age_summary.sort_values('age_order').drop(columns='age_order')
+age_summary.columns = ['Age Group', 'Hospitalizations', 'Percentage (%)']
+
+age_summary.style.format({
+    'Hospitalizations': '{:,.0f}',
+    'Percentage (%)': '{:.2f}'
+}).hide(axis="index")
+```
+
+\newpage
+
+## Detailed Analysis by Individual Diagnostic Category
+
+```{python}
+#| label: detail-helper
+#| include: false
+
+def plot_icd_detail(icd_cat, color_primary='darkred'):
+    """Generate a 2×2 panel with trend, sex breakdown, age distribution, and ASR for an ICD category."""
+    cat_hosp = hosp_5year[hosp_5year['icd_category'] == icd_cat]
+    if len(cat_hosp) == 0:
+        return None
+
+    fig, axes = plt.subplots(2, 2, figsize=(16, 10))
+
+    # Trend
+    ax1 = axes[0, 0]
+    yearly = cat_hosp.groupby('year')['hospitalizations'].sum()
+    ax1.plot(yearly.index, yearly.values, marker='o', linewidth=2, color=color_primary)
+    ax1.fill_between(yearly.index, yearly.values, alpha=0.3, color=color_primary)
+    ax1.set_xlabel('Year')
+    ax1.set_ylabel('Hospitalizations')
+    ax1.set_title('Temporal Trend', fontweight='bold')
+    ax1.grid(True, alpha=0.3)
+
+    # By sex
+    ax2 = axes[0, 1]
+    by_sex = cat_hosp.groupby('sex')['hospitalizations'].sum()
+    if len(by_sex) > 0:
+        ax2.pie(by_sex.values, labels=by_sex.index, autopct='%1.1f%%',
+                colors=['steelblue', 'coral'], startangle=90)
+    ax2.set_title('Sex Distribution', fontweight='bold')
+
+    # By age
+    ax3 = axes[1, 0]
+    by_age = cat_hosp.groupby('age_group')['hospitalizations'].sum()
+    by_age = by_age.reindex([a for a in AGE_ORDER if a in by_age.index])
+    ax3.bar(by_age.index, by_age.values, color=color_primary, alpha=0.7)
+    ax3.set_xlabel('Age Group')
+    ax3.set_ylabel('Hospitalizations')
+    ax3.set_title('Age Distribution', fontweight='bold')
+    ax3.tick_params(axis='x', rotation=45)
+    ax3.grid(True, alpha=0.3, axis='y')
+
+    # ASR trend
+    ax4 = axes[1, 1]
+    cat_asr = asr_by_icd[asr_by_icd['icd_category'] == icd_cat]
+    ax4.plot(cat_asr['year'], cat_asr['asr'], marker='s', linewidth=2, color='darkgreen')
+    ax4.fill_between(cat_asr['year'], cat_asr['asr'], alpha=0.2, color='green')
+    ax4.set_xlabel('Year')
+    ax4.set_ylabel('ASR (per 100,000)')
+    ax4.set_title('ASR Trend', fontweight='bold')
+    ax4.grid(True, alpha=0.3)
+
+    plt.suptitle(f'{icd_cat}: {ICD10_MAPPING.get(icd_cat, icd_cat)} — Comprehensive Analysis',
+                 fontsize=14, fontweight='bold', y=1.02)
+    plt.tight_layout()
+    return fig
+```
+
+### E00-E07: Thyroid Disorders
+
+```{python}
+#| label: fig-detail-e00-e07
+#| fig-cap: "Detailed Analysis — Thyroid Disorders (E00-E07)"
+#| fig-width: 16
+#| fig-height: 10
+
+fig = plot_icd_detail('E00-E07', ICD_COLORS['E00-E07'])
+if fig is not None:
+    save_figure(fig, 'detail_E00-E07.png')
+    plt.show()
+```
+
+\newpage
+
+### E08-E13: Diabetes Mellitus
+
+```{python}
+#| label: fig-detail-e08-e13
+#| fig-cap: "Detailed Analysis — Diabetes Mellitus (E08-E13)"
+#| fig-width: 16
+#| fig-height: 10
+
+fig = plot_icd_detail('E08-E13', ICD_COLORS['E08-E13'])
+if fig is not None:
+    save_figure(fig, 'detail_E08-E13.png')
+    plt.show()
+```
+
+\newpage
+
+### E15-E16: Other Glucose Regulation Disorders
+
+```{python}
+#| label: fig-detail-e15-e16
+#| fig-cap: "Detailed Analysis — Other Glucose Regulation Disorders (E15-E16)"
+#| fig-width: 16
+#| fig-height: 10
+
+fig = plot_icd_detail('E15-E16', ICD_COLORS['E15-E16'])
+if fig is not None:
+    save_figure(fig, 'detail_E15-E16.png')
+    plt.show()
+```
+
+\newpage
+
+### E20-E35: Disorders of Other Endocrine Glands
+
+```{python}
+#| label: fig-detail-e20-e35
+#| fig-cap: "Detailed Analysis — Disorders of Other Endocrine Glands (E20-E35)"
+#| fig-width: 16
+#| fig-height: 10
+
+fig = plot_icd_detail('E20-E35', ICD_COLORS['E20-E35'])
+if fig is not None:
+    save_figure(fig, 'detail_E20-E35.png')
+    plt.show()
+```
+
+\newpage
+
+### E36: Intraoperative Complications
+
+```{python}
+#| label: fig-detail-e36
+#| fig-cap: "Detailed Analysis — Intraoperative Complications (E36)"
+#| fig-width: 16
+#| fig-height: 10
+
+fig = plot_icd_detail('E36', ICD_COLORS['E36'])
+if fig is not None:
+    save_figure(fig, 'detail_E36.png')
+    plt.show()
+```
+
+\newpage
+
+### E40-E46: Malnutrition
+
+```{python}
+#| label: fig-detail-e40-e46
+#| fig-cap: "Detailed Analysis — Malnutrition (E40-E46)"
+#| fig-width: 16
+#| fig-height: 10
+
+fig = plot_icd_detail('E40-E46', ICD_COLORS['E40-E46'])
+if fig is not None:
+    save_figure(fig, 'detail_E40-E46.png')
+    plt.show()
+```
+
+\newpage
+
+### E50-E64: Other Nutritional Deficiencies
+
+```{python}
+#| label: fig-detail-e50-e64
+#| fig-cap: "Detailed Analysis — Other Nutritional Deficiencies (E50-E64)"
+#| fig-width: 16
+#| fig-height: 10
+
+fig = plot_icd_detail('E50-E64', ICD_COLORS['E50-E64'])
+if fig is not None:
+    save_figure(fig, 'detail_E50-E64.png')
+    plt.show()
+```
+
+\newpage
+
+### E65-E68: Obesity and Overweight
+
+```{python}
+#| label: fig-detail-e65-e68
+#| fig-cap: "Detailed Analysis — Obesity and Overweight (E65-E68)"
+#| fig-width: 16
+#| fig-height: 10
+
+fig = plot_icd_detail('E65-E68', ICD_COLORS['E65-E68'])
+if fig is not None:
+    save_figure(fig, 'detail_E65-E68.png')
+    plt.show()
+```
+
+\newpage
+
+### E70-E88: Metabolic Disorders
+
+```{python}
+#| label: fig-detail-e70-e88
+#| fig-cap: "Detailed Analysis — Metabolic Disorders (E70-E88)"
+#| fig-width: 16
+#| fig-height: 10
+
+fig = plot_icd_detail('E70-E88', ICD_COLORS['E70-E88'])
+if fig is not None:
+    save_figure(fig, 'detail_E70-E88.png')
+    plt.show()
+```
+
+\newpage
+
+### E89: Post-surgical Complications
+
+```{python}
+#| label: fig-detail-e89
+#| fig-cap: "Detailed Analysis — Post-surgical Complications (E89)"
+#| fig-width: 16
+#| fig-height: 10
+
+fig = plot_icd_detail('E89', ICD_COLORS['E89'])
+if fig is not None:
+    save_figure(fig, 'detail_E89.png')
+    plt.show()
+```
+
+\newpage
+
+## Geospatial Analysis — Municipal-level ASR
+
+```{python}
+#| label: geospatial-calc
+#| include: false
+
+from esda.moran import Moran_Local
+from matplotlib.patches import Patch
+import io, contextlib
+
+# ICD_COLORS already defined in constants block
+ICD_CMAPS = {
+    'E00-E07': 'Reds', 'E08-E13': 'Blues', 'E15-E16': 'Greens',
+    'E20-E35': 'Purples', 'E36': 'Oranges', 'E40-E46': 'YlOrBr',
+    'E50-E64': 'RdPu', 'E65-E68': 'Greys', 'E70-E88': 'BuGn',
+    'E89': 'OrRd',
+}
+
+# --- Compute mean ASR by comuna (total) ---
+who_weights_df = pd.DataFrame([{'age_group': k, 'who_weight': v} for k, v in WHO_STANDARD_POPULATION.items()])
+
+comuna_asr = pd.DataFrame()
+if 'comuna' in pop_data.columns:
+    hosp_comuna = hosp_5year.groupby(['comuna', 'age_group']).agg({'hospitalizations': 'sum'}).reset_index()
+    pop_comuna = pop_data.groupby(['comuna', 'age_group'])['population'].sum().reset_index()
+    merged_c = hosp_comuna.merge(pop_comuna, on=['comuna', 'age_group'], how='left')
+    merged_c = merged_c.dropna(subset=['population'])
+    merged_c = merged_c[merged_c['population'] > 0]
+    merged_c['age_specific_rate'] = (merged_c['hospitalizations'] / merged_c['population']) * 100000
+    merged_c = merged_c.merge(who_weights_df, on='age_group', how='left')
+    merged_c['weighted_rate'] = merged_c['age_specific_rate'] * merged_c['who_weight']
+    comuna_asr = merged_c.groupby('comuna').agg({'weighted_rate': 'sum', 'hospitalizations': 'sum'}).reset_index()
+    comuna_asr['asr'] = (comuna_asr['weighted_rate'] / TOTAL_WHO_WEIGHT).round(2)
+    comuna_asr = comuna_asr.sort_values('asr', ascending=False)
+
+# --- Compute mean ASR by comuna per ICD category ---
+comuna_asr_by_icd = {}
+if 'comuna' in pop_data.columns:
+    for icd_cat in icd_summary['icd_category'].tolist():
+        hosp_icd_com = hosp_5year[hosp_5year['icd_category'] == icd_cat].groupby(
+            ['comuna', 'age_group']).agg({'hospitalizations': 'sum'}).reset_index()
+        m = hosp_icd_com.merge(pop_comuna, on=['comuna', 'age_group'], how='left')
+        m = m.dropna(subset=['population'])
+        m = m[m['population'] > 0]
+        m['age_specific_rate'] = (m['hospitalizations'] / m['population']) * 100000
+        m = m.merge(who_weights_df, on='age_group', how='left')
+        m['weighted_rate'] = m['age_specific_rate'] * m['who_weight']
+        asr_s = m.groupby('comuna').agg({'weighted_rate': 'sum', 'hospitalizations': 'sum'}).reset_index()
+        asr_s['asr'] = (asr_s['weighted_rate'] / TOTAL_WHO_WEIGHT).round(2)
+        if asr_s['asr'].sum() > 0:
+            comuna_asr_by_icd[icd_cat] = asr_s
+
+# --- Excluded comunas (islands / Antarctica) ---
+def is_excluded_comuna(name):
+    if pd.isna(name):
+        return True
+    s = str(name).upper()
+    excluded = ['ISLA DE PASCUA', 'JUAN FERNANDEZ', 'ANTARTICA', 'CABO DE HORNOS', 'ANTARTICA CHILENA']
+    return any(e in s for e in excluded)
+
+# --- Normalize comuna name for matching ---
+def normalize_comuna_spatial(x):
+    if pd.isna(x):
+        return None
+    s = str(x).upper().strip()
+    repl = {'Á': 'A', 'É': 'E', 'Í': 'I', 'Ó': 'O', 'Ú': 'U', 'Ñ': 'N'}
+    for old, new in repl.items():
+        s = s.replace(old, new)
+    s = ''.join(c for c in s if c.isalnum() or c == ' ')
+    return s.strip()
+
+# --- Load shapefile and build spatial GeoDataFrames ---
+has_spatial_data = False
+gdf_chile = None
+gdf_continental = None
+gdf_total = None
+pesos = None
+COMUNA_COL = None
+REGION_CODE_COL = None
+
+shp_candidates = [
+    str(comunas_shp),
+    str(data_base / 'shapefiles' / 'division_comunal.shp'),
+    str(data_base / 'comunas_chile.shp'),
+]
+shp_path = None
+for candidate in shp_candidates:
+    if os.path.exists(candidate):
+        shp_path = candidate
+        break
+
+if shp_path:
+    gdf_chile = gpd.read_file(shp_path)
+
+    for col in ['Comuna', 'COMUNA', 'NOM_COMUNA', 'nom_comuna', 'NAME', 'NOM_COM']:
+        if col in gdf_chile.columns:
+            COMUNA_COL = col
+            break
+    if COMUNA_COL is None:
+        COMUNA_COL = gdf_chile.columns[0]
+
+    for col in ['codregion', 'CODREGION', 'COD_REGION', 'Region', 'REGION']:
+        if col in gdf_chile.columns:
+            REGION_CODE_COL = col
+            break
+
+    gdf_chile['comuna_norm'] = gdf_chile[COMUNA_COL].apply(normalize_comuna_spatial)
+
+    if REGION_CODE_COL:
+        gdf_chile[REGION_CODE_COL] = pd.to_numeric(gdf_chile[REGION_CODE_COL], errors='coerce')
+
+    gdf_continental = gdf_chile[~gdf_chile[COMUNA_COL].apply(is_excluded_comuna)].copy()
+
+    # Merge total ASR
+    if not comuna_asr.empty:
+        ca_copy = comuna_asr.copy()
+        ca_copy['comuna_norm'] = ca_copy['comuna'].apply(normalize_comuna_spatial)
+        gdf_total = gdf_continental.merge(
+            ca_copy[['comuna_norm', 'asr']], on='comuna_norm', how='left'
+        ).rename(columns={'asr': 'asr_total'})
+        gdf_total['asr_total'] = gdf_total['asr_total'].fillna(0)
+        has_spatial_data = True
+
+        # Build spatial weights (suppress island warnings)
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            try:
+                pesos = Queen.from_dataframe(gdf_total, silence_warnings=True)
+            except TypeError:
+                pesos = Queen.from_dataframe(gdf_total)
+
+    # Merge per-ICD category ASR
+    gdf_by_icd = {}
+    for icd_cat, asr_s in comuna_asr_by_icd.items():
+        asr_s_copy = asr_s.copy()
+        asr_s_copy['comuna_norm'] = asr_s_copy['comuna'].apply(normalize_comuna_spatial)
+        gdf_s = gdf_continental.merge(
+            asr_s_copy[['comuna_norm', 'asr']], on='comuna_norm', how='left'
+        )
+        gdf_s['asr'] = gdf_s['asr'].fillna(0)
+        if gdf_s['asr'].sum() > 0:
+            gdf_by_icd[icd_cat] = gdf_s
+```
+
+```{python}
+#| label: tbl-top-comunas
+#| tbl-cap: "Top 20 Municipalities by Mean ASR — Endocrine Diseases (E00-E89)"
+#| tbl-cap-location: bottom
+
+if not comuna_asr.empty:
+    top_comunas = comuna_asr.head(20)[['comuna', 'hospitalizations', 'asr']].copy()
+    top_comunas.columns = ['Municipality', 'Total Hospitalizations', 'ASR (per 100,000)']
+    top_comunas.style.format({
+        'Total Hospitalizations': '{:,.0f}',
+        'ASR (per 100,000)': '{:.2f}'
+    }).hide(axis="index")
+```
+
+### Choropleth Map — Total Endocrine Diseases ASR
+
+```{python}
+#| label: fig-choropleth-total
+#| fig-cap: "ASR Distribution — Endocrine Diseases (E00-E89) by Municipality, Continental Chile"
+#| fig-width: 10
+#| fig-height: 14
+
+if has_spatial_data:
+    fig, ax = plt.subplots(figsize=(10, 14))
+    gdf_total.plot(column='asr_total', cmap='YlOrRd', linewidth=0.3, ax=ax, edgecolor='0.7',
+                   legend=True, legend_kwds={'label': 'ASR (per 100,000)', 'shrink': 0.5})
+    ax.set_title('Endocrine Diseases (E00-E89) — ASR by Municipality\nContinental Chile, 2010–2024',
+                 fontweight='bold', fontsize=12)
+    ax.set_axis_off()
+    plt.tight_layout()
+    save_figure(fig, 'choropleth_asr_total_endocrinas.png')
+    plt.show()
+```
+
+\newpage
+
+### Choropleth Maps by Individual ICD Category
+
+```{python}
+#| label: fig-choropleth-by-icd
+#| fig-cap: "ASR Distribution by Endocrine Disease Category — Continental Chile (2010–2024)"
+#| fig-width: 18
+#| fig-height: 24
+
+if has_spatial_data and len(gdf_by_icd) > 0:
+    icds_with_data = [s for s in icd_summary['icd_category'].tolist() if s in gdf_by_icd]
+    n_icds = len(icds_with_data)
+    ncols = 3
+    nrows = max(1, (n_icds + ncols - 1) // ncols)
+
+    fig, axes = plt.subplots(nrows, ncols, figsize=(18, 6 * nrows))
+    axes = axes.flatten() if n_icds > 1 else [axes]
+
+    for idx, icd_cat in enumerate(icds_with_data):
+        ax = axes[idx]
+        gdf = gdf_by_icd[icd_cat]
+        cmap = ICD_CMAPS.get(icd_cat, 'viridis')
+        gdf.plot(column='asr', cmap=cmap, linewidth=0.2, ax=ax, edgecolor='0.7',
+                 legend=True, legend_kwds={'label': 'ASR', 'shrink': 0.4, 'pad': 0.01})
+        ax.set_title(f'{icd_cat}: {ICD10_MAPPING.get(icd_cat, icd_cat)}', fontweight='bold', fontsize=10)
+        ax.set_axis_off()
+
+    for idx in range(len(icds_with_data), len(axes)):
+        axes[idx].set_visible(False)
+
+    plt.suptitle('ASR Distribution by Endocrine Disease Category — Continental Chile (2010–2024)',
+                 fontsize=14, fontweight='bold', y=1.01)
+    plt.tight_layout()
+    save_figure(fig, 'choropleth_asr_by_icd_endocrinas.png')
+    plt.show()
+```
+
+\newpage
+
+### Global Moran's I — Spatial Autocorrelation
+
+```{python}
+#| label: spatial-moran-global
+#| include: false
+
+moran_total = None
+moran_by_icd = {}
+
+if has_spatial_data and pesos is not None:
+    if gdf_total['asr_total'].var() > 0:
+        try:
+            moran_total = Moran(gdf_total['asr_total'], pesos)
+        except:
+            moran_total = None
+
+    for icd_cat in gdf_by_icd:
+        gdf = gdf_by_icd[icd_cat]
+        if gdf['asr'].var() > 0:
+            try:
+                moran_by_icd[icd_cat] = Moran(gdf['asr'], pesos)
+            except:
+                pass
+```
+
+```{python}
+#| label: tbl-moran-global
+#| tbl-cap: "Global Moran's I — Spatial Autocorrelation Test (Continental Chile)"
+#| tbl-cap-location: bottom
+
+moran_results = []
+
+if moran_total is not None:
+    moran_results.append({
+        'Variable': 'Total E00-E89',
+        "Moran's I": round(moran_total.I, 4),
+        'E[I]': round(moran_total.EI, 4),
+        'Z-score': round(moran_total.z_norm, 4),
+        'P-value': round(moran_total.p_norm, 4),
+        'Interpretation': 'Clustered' if moran_total.I > 0 and moran_total.p_norm < 0.05 else (
+            'Dispersed' if moran_total.I < 0 and moran_total.p_norm < 0.05 else 'Random')
+    })
+
+for icd_cat in moran_by_icd:
+    m = moran_by_icd[icd_cat]
+    moran_results.append({
+        'Variable': f'{icd_cat}: {ICD10_MAPPING.get(icd_cat, icd_cat)}',
+        "Moran's I": round(m.I, 4),
+        'E[I]': round(m.EI, 4),
+        'Z-score': round(m.z_norm, 4),
+        'P-value': round(m.p_norm, 4),
+        'Interpretation': 'Clustered' if m.I > 0 and m.p_norm < 0.05 else (
+            'Dispersed' if m.I < 0 and m.p_norm < 0.05 else 'Random')
+    })
+
+if moran_results:
+    moran_df = pd.DataFrame(moran_results)
+    display(moran_df.style.format({
+        "Moran's I": '{:.4f}', 'E[I]': '{:.4f}', 'Z-score': '{:.4f}', 'P-value': '{:.4f}'
+    }).hide(axis="index"))
+else:
+    display(pd.DataFrame({'Message': ['Insufficient data for Moran analysis']}).style.hide(axis="index"))
+```
+
+```{python}
+#| label: fig-moran-scatterplot
+#| fig-cap: "Moran Scatterplot — Spatial Autocorrelation (Continental Chile)"
+#| fig-width: 8
+#| fig-height: 6
+
+fig, ax = plt.subplots(figsize=(8, 6))
+
+if moran_total is not None:
+    from splot.esda import moran_scatterplot
+    moran_scatterplot(moran_total, zstandard=True, ax=ax)
+    ax.set_title(f"Total E00-E89 — Moran's I = {moran_total.I:.4f} (p = {moran_total.p_norm:.4f})", fontweight='bold')
+else:
+    ax.text(0.5, 0.5, 'Insufficient data for Moran analysis', ha='center', va='center', transform=ax.transAxes, fontsize=12)
+
+plt.suptitle("Global Moran's I — Endocrine Diseases (Continental Chile)", fontsize=14, fontweight='bold', y=1.02)
+plt.tight_layout()
+save_figure(fig, 'moran_scatterplot_endocrinas.png')
+plt.show()
+```
+
+\newpage
+
+### LISA — Local Indicators of Spatial Association
+
+```{python}
+#| label: lisa-calculation
+#| include: false
+
+def classify_lisa(lisa_obj, data):
+    sig = lisa_obj.p_sim < 0.05
+    q = lisa_obj.q
+    labels = ['Not Significant'] * len(data)
+    for i in range(len(data)):
+        if sig[i]:
+            if q[i] == 1:
+                labels[i] = 'High-High (Hot Spot)'
+            elif q[i] == 2:
+                labels[i] = 'Low-High'
+            elif q[i] == 3:
+                labels[i] = 'Low-Low (Cold Spot)'
+            elif q[i] == 4:
+                labels[i] = 'High-Low'
+    return labels
+
+lisa_total = None
+lisa_by_icd = {}
+
+if has_spatial_data and pesos is not None:
+    if gdf_total['asr_total'].var() > 0:
+        try:
+            lisa_total = Moran_Local(gdf_total['asr_total'], pesos)
+            gdf_total['cluster'] = classify_lisa(lisa_total, gdf_total)
+            gdf_total['lisa_p'] = lisa_total.p_sim
+        except:
+            gdf_total['cluster'] = 'No data'
+            gdf_total['lisa_p'] = 1.0
+    else:
+        gdf_total['cluster'] = 'Sin datos'
+
+    for icd_cat in gdf_by_icd:
+        gdf = gdf_by_icd[icd_cat]
+        if gdf['asr'].var() > 0:
+            try:
+                lisa_s = Moran_Local(gdf['asr'], pesos)
+                gdf_by_icd[icd_cat]['cluster'] = classify_lisa(lisa_s, gdf)
+                gdf_by_icd[icd_cat]['lisa_p'] = lisa_s.p_sim
+                lisa_by_icd[icd_cat] = lisa_s
+            except:
+                gdf_by_icd[icd_cat]['cluster'] = 'Sin datos'
+```
+
+```{python}
+#| label: tbl-lisa-clusters-total
+#| tbl-cap: "LISA Clusters — Total Endocrine Diseases (E00-E89), Continental Chile"
+#| tbl-cap-location: bottom
+
+if has_spatial_data and 'cluster' in gdf_total.columns:
+    cl = gdf_total.groupby('cluster').size().reset_index(name='N Municipalities')
+    cl.columns = ['Cluster', 'N Municipalities']
+    cl = cl.sort_values('N Municipalities', ascending=False)
+    display(cl.style.hide(axis="index"))
+```
+
+```{python}
+#| label: fig-lisa-map-total
+#| fig-cap: "LISA Clusters Map — Total Endocrine Diseases (E00-E89), Continental Chile"
+#| fig-width: 10
+#| fig-height: 14
+
+colors_dict = {
+    'High-High (Hot Spot)': '#d73027',
+    'Low-Low (Cold Spot)': '#4575b4',
+    'High-Low': '#fdae61',
+    'Low-High': '#abd9e9',
+    'Not Significant': '#f0f0f0',
+    'No data': '#d9d9d9'
+}
+
+if has_spatial_data and 'cluster' in gdf_total.columns:
+    fig, ax = plt.subplots(figsize=(10, 14))
+    gdf_total.plot(ax=ax, color=gdf_total['cluster'].map(colors_dict), edgecolor='gray', linewidth=0.3)
+    ax.set_title('LISA Clusters — Total Endocrine Diseases (E00-E89)\nContinental Chile', fontsize=12, fontweight='bold')
+    ax.set_axis_off()
+
+    legend_elements = [Patch(facecolor=color, edgecolor='black', label=label)
+                       for label, color in colors_dict.items() if label != 'No data']
+    fig.legend(handles=legend_elements, loc='lower center', ncol=5, fontsize=9,
+               frameon=True, bbox_to_anchor=(0.5, 0.02))
+    plt.tight_layout()
+    save_figure(fig, 'lisa_clusters_total_endocrinas.png')
+    plt.show()
+```
+
+\newpage
+
+### LISA Clusters by Individual ICD Category
+
+```{python}
+#| label: fig-lisa-by-icd
+#| fig-cap: "LISA Cluster Maps by Endocrine Disease Category — Continental Chile"
+#| fig-width: 18
+#| fig-height: 24
+
+icds_with_lisa = [s for s in icd_summary['icd_category'].tolist()
+                   if s in gdf_by_icd and 'cluster' in gdf_by_icd[s].columns]
+
+if has_spatial_data and len(icds_with_lisa) > 0:
+    n = len(icds_with_lisa)
+    ncols = 3
+    nrows = max(1, (n + ncols - 1) // ncols)
+
+    fig, axes = plt.subplots(nrows, ncols, figsize=(18, 6 * nrows))
+    axes = axes.flatten() if n > 1 else [axes]
+
+    for idx, icd_cat in enumerate(icds_with_lisa):
+        ax = axes[idx]
+        gdf = gdf_by_icd[icd_cat]
+        gdf.plot(ax=ax, color=gdf['cluster'].map(colors_dict), edgecolor='gray', linewidth=0.2)
+        ax.set_title(f'{icd_cat}: {ICD10_MAPPING.get(icd_cat, icd_cat)}', fontweight='bold', fontsize=10)
+        ax.set_axis_off()
+
+    for idx in range(n, len(axes)):
+        axes[idx].set_visible(False)
+
+    legend_elements = [Patch(facecolor=color, edgecolor='black', label=label)
+                       for label, color in colors_dict.items() if label != 'No data']
+    fig.legend(handles=legend_elements, loc='lower center', ncol=5, fontsize=9,
+               frameon=True, bbox_to_anchor=(0.5, 0.01))
+    plt.suptitle('LISA Clusters by Endocrine Disease Category — Continental Chile (2010–2024)',
+                 fontsize=14, fontweight='bold', y=1.01)
+    plt.tight_layout()
+    save_figure(fig, 'lisa_clusters_by_icd_endocrinas.png')
+    plt.show()
+```
+
+### Spatial Analysis Summary
+
+```{python}
+#| label: tbl-spatial-summary
+#| tbl-cap: "Summary of Spatial Analysis by Endocrine Disease Category"
+#| tbl-cap-location: bottom
+
+if has_spatial_data:
+    spatial_rows = []
+    # Total
+    spatial_rows.append({
+        'Category': 'Total E00-E89',
+        'Municipalities with Data': int((gdf_total['asr_total'] > 0).sum()),
+        "Moran's I": round(moran_total.I, 4) if moran_total else None,
+        'P-value': round(moran_total.p_norm, 4) if moran_total else None,
+        'Pattern': 'Clustered' if moran_total and moran_total.I > 0 and moran_total.p_norm < 0.05 else 'Random',
+        'Hot Spots': int((gdf_total['cluster'] == 'High-High (Hot Spot)').sum()) if 'cluster' in gdf_total.columns else 0,
+        'Cold Spots': int((gdf_total['cluster'] == 'Low-Low (Cold Spot)').sum()) if 'cluster' in gdf_total.columns else 0,
+    })
+    # Per ICD category
+    for icd_cat in icd_summary['icd_category'].tolist():
+        m = moran_by_icd.get(icd_cat)
+        gdf = gdf_by_icd.get(icd_cat)
+        has_cluster = gdf is not None and 'cluster' in gdf.columns
+        spatial_rows.append({
+            'Category': f'{icd_cat}: {ICD10_MAPPING.get(icd_cat, icd_cat)}',
+            'Municipalities with Data': int((gdf['asr'] > 0).sum()) if gdf is not None else 0,
+            "Moran's I": round(m.I, 4) if m else None,
+            'P-value': round(m.p_norm, 4) if m else None,
+            'Pattern': 'Clustered' if m and m.I > 0 and m.p_norm < 0.05 else ('Dispersed' if m and m.I < 0 and m.p_norm < 0.05 else 'Random'),
+            'Hot Spots': int((gdf['cluster'] == 'High-High (Hot Spot)').sum()) if has_cluster else 0,
+            'Cold Spots': int((gdf['cluster'] == 'Low-Low (Cold Spot)').sum()) if has_cluster else 0,
+        })
+
+    spatial_df = pd.DataFrame(spatial_rows)
+    display(spatial_df.style.format({
+        "Moran's I": '{:.4f}', 'P-value': '{:.4f}'
+    }).hide(axis="index"))
+```
+
+---
+
+## Summary Dashboard
+
+```{python}
+#| label: fig-summary-dashboard
+#| fig-cap: "Summary Dashboard — Endocrine Diseases (E00-E89) in Chile, 2010–2024"
+#| fig-width: 16
+#| fig-height: 12
+
+fig, axes = plt.subplots(2, 3, figsize=(16, 12))
+
+# 1. Total trend
+ax1 = axes[0, 0]
+yearly_total = hosp_overall.groupby('year')['hospitalizations'].sum()
+ax1.plot(yearly_total.index, yearly_total.values, marker='o', linewidth=3, color='darkgreen')
+ax1.fill_between(yearly_total.index, yearly_total.values, alpha=0.3, color='green')
+ax1.set_xlabel('Year')
+ax1.set_ylabel('Hospitalizations')
+ax1.set_title('Overall Trend', fontweight='bold')
+ax1.grid(True, alpha=0.3)
+
+# 2. ICD category distribution pie
+ax2 = axes[0, 1]
+icd_totals = hosp_5year.groupby('icd_category')['hospitalizations'].sum().sort_values(ascending=False)
+pie_colors = [ICD_COLORS.get(s, '#cccccc') for s in icd_totals.index]
+ax2.pie(icd_totals.values, labels=icd_totals.index, autopct='%1.1f%%',
+        colors=pie_colors, textprops={'fontsize': 7})
+ax2.set_title('Distribution by Category', fontweight='bold')
+
+# 3. Sex distribution
+ax3 = axes[0, 2]
+sex_totals = hosp_overall.groupby('sex')['hospitalizations'].sum()
+ax3.bar(sex_totals.index, sex_totals.values, color=['steelblue', 'coral'])
+ax3.set_ylabel('Hospitalizations')
+ax3.set_title('By Sex', fontweight='bold')
+ax3.grid(True, alpha=0.3, axis='y')
+
+# 4. Age distribution
+ax4 = axes[1, 0]
+age_dist = hosp_overall.groupby('age_group')['hospitalizations'].sum()
+age_dist = age_dist.reindex([a for a in AGE_ORDER if a in age_dist.index])
+ax4.bar(age_dist.index, age_dist.values, color='teal', alpha=0.7)
+ax4.set_xlabel('Age Group')
+ax4.set_ylabel('Hospitalizations')
+ax4.set_title('Distribution by Age', fontweight='bold')
+ax4.tick_params(axis='x', rotation=45)
+ax4.grid(True, alpha=0.3, axis='y')
+
+# 5. Top categories bar
+ax5 = axes[1, 1]
+icd_totals_sorted = icd_totals.sort_values(ascending=True)
+bar_c = [ICD_COLORS.get(s, '#cccccc') for s in icd_totals_sorted.index]
+ax5.barh(icd_totals_sorted.index, icd_totals_sorted.values, color=bar_c)
+ax5.set_xlabel('Hospitalizations')
+ax5.set_title('Burden by Category', fontweight='bold')
+ax5.grid(True, alpha=0.3, axis='x')
+
+# 6. ASR comparison Male vs Female
+ax6 = axes[1, 2]
+width = 0.35
+x = np.arange(len(asr_sex_cols))
+ax6.bar(x - width/2, asr_sex_cols['asr_male'], width, label='Males', color='steelblue')
+ax6.bar(x + width/2, asr_sex_cols['asr_female'], width, label='Females', color='coral')
+ax6.set_xlabel('Year')
+ax6.set_ylabel('ASR (per 100,000)')
+ax6.set_title('ASR Comparison by Sex', fontweight='bold')
+ax6.set_xticks(x[::2])
+ax6.set_xticklabels(asr_sex_cols['year'].values[::2].astype(int))
+ax6.legend()
+ax6.grid(True, alpha=0.3, axis='y')
+
+plt.suptitle('Endocrine Diseases (E00-E89) in Chile — Dashboard 2010–2024',
+             fontsize=16, fontweight='bold', y=1.02)
+plt.tight_layout()
+save_figure(fig, 'summary_dashboard_endocrinas.png')
+plt.show()
+```
+
+```{python}
+#| label: tbl-summary-stats
+#| tbl-cap: "Summary General Statistics — Endocrine Diseases (E00-E89)"
+#| tbl-cap-location: bottom
+
+total_hosp = hosp_overall['hospitalizations'].sum()
+n_years = len(YEARS)
+sex_totals_df = hosp_overall.groupby('sex')['hospitalizations'].sum()
+male_total = sex_totals_df.get('Male', 0)
+female_total = sex_totals_df.get('Female', 0)
+top_icd_cat = hosp_5year.groupby('icd_category')['hospitalizations'].sum().idxmax()
+
+summary_df = pd.DataFrame({
+    'Indicator': [
+        'Total Hospitalizations',
+        'Analysis Period',
+        'ICD-10 Categories Evaluated',
+        'Male Hospitalizations',
+        'Female Hospitalizations',
+        'Sex Ratio M:F',
+        'Most Frequent Category',
+        'Mean Annual Hospitalizations'
+    ],
+    'Value': [
+        f'{total_hosp:,.0f}',
+        f'{min(YEARS)}–{max(YEARS)} ({n_years} years)',
+        f'{hosp_5year["icd_category"].nunique()} categories',
+        f'{male_total:,.0f}',
+        f'{female_total:,.0f}',
+        f'{male_total/female_total:.2f}' if female_total > 0 else 'N/A',
+        f'{top_icd_cat} ({ICD10_MAPPING.get(top_icd_cat, top_icd_cat)})',
+        f'{total_hosp/n_years:,.0f}'
+    ]
+})
+
+summary_df.style.hide(axis="index")
+```
+
+\newpage
+
+## ICD-10 Code Reference
+
+```{python}
+#| label: tbl-icd-reference
+#| tbl-cap: "ICD-10 Codes for Endocrine, Nutritional, and Metabolic Diseases (E00-E89)"
+#| tbl-cap-location: bottom
+
+icd_ref = pd.DataFrame([
+    {'ICD-10 Category': k, 'Description': v} for k, v in ICD10_MAPPING.items()
+])
+
+# Add example subcodes
+def get_example_subcodes(cat):
+    examples = {
+        'E00-E07': 'E00 Congenital iodine deficiency syndrome, E03 Hypothyroidism, E05 Thyrotoxicosis',
+        'E08-E13': 'E08 DM due to underlying condition, E10 Type 1 DM, E11 Type 2 DM, E13 Other specified DM',
+        'E15-E16': 'E15 Non-diabetic hypoglycemic coma, E16 Other pancreatic internal secretion disorders',
+        'E20-E35': 'E20 Hypoparathyroidism, E21 Hyperparathyroidism, E22 Pituitary hyperfuntion, E27 Adrenal disorders',
+        'E36': 'E36 Intraoperative endocrine disorders',
+        'E40-E46': 'E40 Kwashiorkor, E41 Nutritional marasmus, E43 Severe protein-calorie malnutrition, E46 Unspecified malnutrition',
+        'E50-E64': 'E50 Vitamin A deficiency, E53 Deficiency of other B vitamins, E55 Vitamin D deficiency, E61 Deficiency of other elements',
+        'E65-E68': 'E65 Localized adiposity, E66 Overweight and obesity, E67 Other overeating, E68 Sequelae of overeating',
+        'E70-E88': 'E70 Aromatic amino acid metabolism disorders, E78 Lipoprotein metabolism disorders, E83 Mineral metabolism disorders, E87 Fluid and electrolyte disorders',
+        'E89': 'E89.0 Post-procedural hypothyroidism, E89.1 Post-procedural hypoinsulinemia',
+    }
+    return examples.get(cat, '')
+
+icd_ref['Example Subcodes'] = icd_ref['ICD-10 Category'].apply(get_example_subcodes)
+
+icd_ref.style.hide(axis="index")
+```
+
+
+\newpage
+
+# Composite Figure — Publication Summary
+
+```{python}
+#| label: fig-composite-summary
+#| fig-cap: "Composite summary of the most relevant results. (A) Total age-standardized hospitalization rate (ASR) for E00-E89, 2010-2024, with the transient 2020 pandemic dip; (B) ASR by sex showing sustained female predominance; (C) total hospitalization burden by ICD-10 category, led by obesity and diabetes; (D) ASR trends for the leading categories; (E) municipal choropleth of total ASR across continental Chile with the global Moran's I clustering statistic; (F) global Moran's I by category, with obesity showing the strongest spatial autocorrelation."
+#| fig-width: 11
+#| fig-height: 13
+
+import os
+
+okabe_ito = ['#E69F00', '#56B4E9', '#009E73', '#F0E442',
+             '#0072B2', '#D55E00', '#CC79A7', '#000000']
+panel_labels = ['A', 'B', 'C', 'D', 'E', 'F']
+
+fig = plt.figure(figsize=(11, 13))
+gs = fig.add_gridspec(3, 2, hspace=0.42, wspace=0.30,
+                      left=0.08, right=0.95, top=0.91, bottom=0.06)
+
+ax_A = fig.add_subplot(gs[0, 0])
+ax_B = fig.add_subplot(gs[0, 1])
+ax_C = fig.add_subplot(gs[1, 0])
+ax_D = fig.add_subplot(gs[1, 1])
+ax_E = fig.add_subplot(gs[2, 0])
+ax_F = fig.add_subplot(gs[2, 1])
+axes_list = [ax_A, ax_B, ax_C, ax_D, ax_E, ax_F]
+
+for ax, lab in zip(axes_list, panel_labels):
+    ax.text(-0.08, 1.06, lab, transform=ax.transAxes,
+            fontsize=13, fontweight='bold', va='top')
+
+# ---- Panel A: Total ASR trend over time ----
+try:
+    a = asr_sex_cols.sort_values('year')
+    ax_A.plot(a['year'], a['asr_total'], marker='o', linewidth=2.5,
+              markersize=6, color='#0072B2')
+    ax_A.fill_between(a['year'], a['asr_total'], alpha=0.15, color='#0072B2')
+    y0 = a[a['year'] == a['year'].min()]['asr_total'].iloc[0]
+    y1 = a[a['year'] == a['year'].max()]['asr_total'].iloc[0]
+    pct = (y1 - y0) / y0 * 100 if y0 else float('nan')
+    ax_A.annotate(f'+{pct:.0f}%', xy=(a['year'].max(), y1),
+                  xytext=(-4, -14), textcoords='offset points',
+                  fontsize=10, fontweight='bold', color='#0072B2', ha='right')
+    ax_A.set_xlabel('Year')
+    ax_A.set_ylabel('ASR (per 100,000 population)')
+    ax_A.set_title('Total age-standardized rate', fontsize=11, fontweight='bold')
+    ax_A.grid(True, alpha=0.25)
+    sns.despine(ax=ax_A)
+except Exception as e:
+    ax_A.axis('off')
+    ax_A.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+              fontsize=8, transform=ax_A.transAxes)
+
+# ---- Panel B: ASR by sex over time ----
+try:
+    for sex, col, lab in [('Female', '#D55E00', 'Females'),
+                          ('Male', '#0072B2', 'Males')]:
+        sd = asr_by_sex[asr_by_sex['sex'] == sex].sort_values('year')
+        ax_B.plot(sd['year'], sd['asr'], marker='o', linewidth=2.5,
+                  markersize=5, color=col, label=lab)
+    ax_B.set_xlabel('Year')
+    ax_B.set_ylabel('ASR (per 100,000 population)')
+    ax_B.set_title('ASR by sex', fontsize=11, fontweight='bold')
+    ax_B.legend(fontsize=9, loc='upper left', frameon=False)
+    ax_B.grid(True, alpha=0.25)
+    sns.despine(ax=ax_B)
+except Exception as e:
+    ax_B.axis('off')
+    ax_B.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+              fontsize=8, transform=ax_B.transAxes)
+
+# ---- Panel C: Hospitalization burden by ICD category ----
+try:
+    cs = icd_summary.sort_values('hospitalizations', ascending=True)
+    total_h = cs['hospitalizations'].sum()
+    labels_c = [f"{r['icd_category']}: {str(r['disease_name'])[:22]}"
+                for _, r in cs.iterrows()]
+    cols_c = [ICD_COLORS.get(c, '#999999') for c in cs['icd_category']]
+    ax_C.barh(range(len(cs)), cs['hospitalizations'], color=cols_c, edgecolor='white')
+    ax_C.set_yticks(range(len(cs)))
+    ax_C.set_yticklabels(labels_c, fontsize=7.5)
+    top2 = cs.tail(2)
+    for i, (_, r) in enumerate(cs.iterrows()):
+        if r['icd_category'] in top2['icd_category'].values:
+            ax_C.text(r['hospitalizations'], i,
+                      f" {r['hospitalizations']/total_h*100:.0f}%",
+                      va='center', ha='left', fontsize=7.5, fontweight='bold')
+    ax_C.set_xlabel('Total hospitalizations (count)')
+    ax_C.set_title('Burden by ICD-10 category, 2010-2024',
+                   fontsize=11, fontweight='bold')
+    ax_C.grid(True, axis='x', alpha=0.25)
+    sns.despine(ax=ax_C)
+except Exception as e:
+    ax_C.axis('off')
+    ax_C.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+              fontsize=8, transform=ax_C.transAxes)
+
+# ---- Panel D: ASR trends for leading categories ----
+try:
+    top_cats = icd_summary.head(5)['icd_category'].tolist()
+    for i, cat in enumerate(top_cats):
+        d = asr_by_icd[asr_by_icd['icd_category'] == cat].sort_values('year')
+        ax_D.plot(d['year'], d['asr'], marker='o', linewidth=2.0,
+                  markersize=4, color=okabe_ito[i % len(okabe_ito)],
+                  label=f"{cat}: {str(ICD10_MAPPING.get(cat, cat))[:16]}")
+    ax_D.set_xlabel('Year')
+    ax_D.set_ylabel('ASR (per 100,000 population)')
+    ax_D.set_title('ASR trends, leading categories', fontsize=11, fontweight='bold')
+    ax_D.legend(fontsize=7, loc='upper left', frameon=False)
+    ax_D.grid(True, alpha=0.25)
+    sns.despine(ax=ax_D)
+except Exception as e:
+    ax_D.axis('off')
+    ax_D.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+              fontsize=8, transform=ax_D.transAxes)
+
+# ---- Panel E: Choropleth of total ASR by municipality ----
+try:
+    if has_spatial_data and gdf_total is not None and 'asr_total' in gdf_total.columns:
+        plot_gdf = gdf_total[gdf_total['asr_total'] > 0]
+        plot_gdf.plot(column='asr_total', cmap='viridis', linewidth=0.15,
+                      ax=ax_E, edgecolor='0.8', legend=True,
+                      legend_kwds={'label': 'ASR (per 100,000)', 'shrink': 0.5})
+        sub = "Municipal ASR, continental Chile"
+        if moran_total is not None:
+            sub = (f"Municipal ASR  (Moran's I = {moran_total.I:.2f}, "
+                   f"p = {moran_total.p_norm:.3f})")
+        ax_E.set_title(sub, fontsize=10, fontweight='bold')
+        ax_E.set_axis_off()
+    else:
+        raise ValueError('no spatial data')
+except Exception as e:
+    ax_E.axis('off')
+    ax_E.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+              fontsize=8, transform=ax_E.transAxes)
+
+# ---- Panel F: Global Moran's I by ICD category ----
+try:
+    rows = []
+    if moran_total is not None:
+        rows.append(('Total E00-E89', moran_total.I, moran_total.p_norm))
+    for cat in icd_summary['icd_category'].tolist():
+        m = moran_by_icd.get(cat)
+        if m is not None:
+            rows.append((cat, m.I, m.p_norm))
+    if not rows:
+        raise ValueError('no Moran results')
+    mdf = pd.DataFrame(rows, columns=['label', 'I', 'p']).sort_values('I')
+    bar_cols = ['#009E73' if p < 0.05 else '#BBBBBB' for p in mdf['p']]
+    ax_F.barh(range(len(mdf)), mdf['I'], color=bar_cols, edgecolor='white')
+    ax_F.set_yticks(range(len(mdf)))
+    ax_F.set_yticklabels(mdf['label'], fontsize=7.5)
+    ax_F.axvline(0, color='black', linewidth=0.8)
+    ax_F.set_xlabel("Global Moran's I")
+    ax_F.set_title("Spatial autocorrelation by category",
+                   fontsize=11, fontweight='bold')
+    ax_F.grid(True, axis='x', alpha=0.25)
+    from matplotlib.patches import Patch as _Patch
+    ax_F.legend(handles=[_Patch(facecolor='#009E73', label='p < 0.05'),
+                         _Patch(facecolor='#BBBBBB', label='n.s.')],
+                fontsize=7, loc='lower right', frameon=False)
+    sns.despine(ax=ax_F)
+except Exception as e:
+    ax_F.axis('off')
+    ax_F.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+              fontsize=8, transform=ax_F.transAxes)
+
+fig.suptitle('Spatiotemporal burden of endocrine, nutritional and metabolic '
+             'diseases (E00-E89) in Chile, 2010-2024',
+             fontsize=14, fontweight='bold', y=0.965)
+
+try:
+    plt.savefig(os.path.join(figures_path, 'composite_summary.png'),
+                dpi=1200, bbox_inches='tight', facecolor='white')
+except Exception as e:
+    pass
+plt.show()
+```
+
+
+\newpage
+
+# Composite Figure — Temporal Dynamics of Endocrine Hospitalizations
+
+```{python}
+#| label: fig-composite-temporal
+#| fig-cap: "Temporal dynamics of endocrine, nutritional and metabolic hospitalizations (E00-E89) in Chile, 2010-2024. (A) Total age-standardized rate (ASR) with the +64% net change and the transient 2020 pandemic dip highlighted; (B) ASR by sex showing sustained female predominance; (C) male-to-female sex ratio of ASR over time, anchored below the parity line; (D) ASR trends of the leading ICD-10 categories led by obesity and diabetes; (E) magnitude of the 2020 pandemic dip relative to the 2019-2021 interpolated expectation; (F) year-on-year percentage change in total ASR."
+#| fig-width: 11
+#| fig-height: 13
+
+import os
+
+okabe_ito = ['#E69F00', '#56B4E9', '#009E73', '#F0E442',
+             '#0072B2', '#D55E00', '#CC79A7', '#000000']
+panel_labels = ['A', 'B', 'C', 'D', 'E', 'F']
+
+fig = plt.figure(figsize=(11, 13))
+gs = fig.add_gridspec(3, 2, hspace=0.42, wspace=0.30,
+                      left=0.08, right=0.95, top=0.91, bottom=0.06)
+
+ax_A = fig.add_subplot(gs[0, 0])
+ax_B = fig.add_subplot(gs[0, 1])
+ax_C = fig.add_subplot(gs[1, 0])
+ax_D = fig.add_subplot(gs[1, 1])
+ax_E = fig.add_subplot(gs[2, 0])
+ax_F = fig.add_subplot(gs[2, 1])
+axes_list = [ax_A, ax_B, ax_C, ax_D, ax_E, ax_F]
+
+for ax, lab in zip(axes_list, panel_labels):
+    ax.text(-0.08, 1.06, lab, transform=ax.transAxes,
+            fontsize=13, fontweight='bold', va='top')
+
+# ---- Panel A: Total ASR trend with pandemic dip highlighted ----
+try:
+    a = asr_sex_cols.sort_values('year')
+    ax_A.plot(a['year'], a['asr_total'], marker='o', linewidth=2.5,
+              markersize=6, color='#0072B2')
+    ax_A.fill_between(a['year'], a['asr_total'], alpha=0.15, color='#0072B2')
+    y0 = a[a['year'] == a['year'].min()]['asr_total'].iloc[0]
+    y1 = a[a['year'] == a['year'].max()]['asr_total'].iloc[0]
+    pct = (y1 - y0) / y0 * 100 if y0 else float('nan')
+    ax_A.annotate(f'+{pct:.0f}% (2010-2024)', xy=(a['year'].max(), y1),
+                  xytext=(-4, -16), textcoords='offset points',
+                  fontsize=9.5, fontweight='bold', color='#0072B2', ha='right')
+    if 2020 in set(a['year']):
+        d20 = a[a['year'] == 2020]['asr_total'].iloc[0]
+        ax_A.scatter([2020], [d20], s=80, color='#D55E00', zorder=5)
+        ax_A.annotate('2020 dip', xy=(2020, d20), xytext=(6, -2),
+                      textcoords='offset points', fontsize=8.5,
+                      fontweight='bold', color='#D55E00', va='center')
+    ax_A.set_xlabel('Year')
+    ax_A.set_ylabel('ASR (per 100,000 population)')
+    ax_A.set_title('Total age-standardized rate', fontsize=11, fontweight='bold')
+    ax_A.grid(True, alpha=0.25)
+    sns.despine(ax=ax_A)
+except Exception as e:
+    ax_A.axis('off')
+    ax_A.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+              fontsize=8, transform=ax_A.transAxes)
+
+# ---- Panel B: ASR by sex over time ----
+try:
+    for sex, col, lab in [('Female', '#D55E00', 'Females'),
+                          ('Male', '#0072B2', 'Males')]:
+        sd = asr_by_sex[asr_by_sex['sex'] == sex].sort_values('year')
+        ax_B.plot(sd['year'], sd['asr'], marker='o', linewidth=2.5,
+                  markersize=5, color=col, label=lab)
+        ax_B.fill_between(sd['year'], sd['asr'], alpha=0.10, color=col)
+    ax_B.set_xlabel('Year')
+    ax_B.set_ylabel('ASR (per 100,000 population)')
+    ax_B.set_title('ASR by sex', fontsize=11, fontweight='bold')
+    ax_B.legend(fontsize=9, loc='upper left', frameon=False)
+    ax_B.grid(True, alpha=0.25)
+    sns.despine(ax=ax_B)
+except Exception as e:
+    ax_B.axis('off')
+    ax_B.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+              fontsize=8, transform=ax_B.transAxes)
+
+# ---- Panel C: Male:female sex ratio of ASR over time ----
+try:
+    sr = asr_sex_cols.sort_values('year').copy()
+    if 'sex_ratio' not in sr.columns:
+        sr['sex_ratio'] = sr['asr_male'] / sr['asr_female'].replace(0, np.nan)
+    sr = sr[sr['sex_ratio'].notna()]
+    ax_C.plot(sr['year'], sr['sex_ratio'], marker='D', linewidth=2.5,
+              markersize=6, color='#CC79A7')
+    ax_C.fill_between(sr['year'], sr['sex_ratio'], 1.0,
+                      where=sr['sex_ratio'] < 1.0, alpha=0.15, color='#CC79A7')
+    ax_C.axhline(1.0, color='#000000', linestyle='--', linewidth=1.3, alpha=0.8)
+    ax_C.annotate('parity (M:F = 1)', xy=(sr['year'].min(), 1.0),
+                  xytext=(2, 4), textcoords='offset points',
+                  fontsize=8, color='#000000', va='bottom')
+    ax_C.set_xlabel('Year')
+    ax_C.set_ylabel('Male:female ratio of ASR')
+    ax_C.set_title('Sex ratio over time (female predominance)',
+                   fontsize=11, fontweight='bold')
+    ax_C.grid(True, alpha=0.25)
+    sns.despine(ax=ax_C)
+except Exception as e:
+    ax_C.axis('off')
+    ax_C.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+              fontsize=8, transform=ax_C.transAxes)
+
+# ---- Panel D: ASR trends of leading ICD-10 categories ----
+try:
+    top_cats = icd_summary.head(5)['icd_category'].tolist()
+    for i, cat in enumerate(top_cats):
+        d = asr_by_icd[asr_by_icd['icd_category'] == cat].sort_values('year')
+        ax_D.plot(d['year'], d['asr'], marker='o', linewidth=2.0,
+                  markersize=4, color=okabe_ito[i % len(okabe_ito)],
+                  label=f"{cat}: {str(ICD10_MAPPING.get(cat, cat))[:16]}")
+    ax_D.set_xlabel('Year')
+    ax_D.set_ylabel('ASR (per 100,000 population)')
+    ax_D.set_title('ASR trends, leading categories', fontsize=11, fontweight='bold')
+    ax_D.legend(fontsize=7, loc='upper left', frameon=False)
+    ax_D.grid(True, alpha=0.25)
+    sns.despine(ax=ax_D)
+except Exception as e:
+    ax_D.axis('off')
+    ax_D.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+              fontsize=8, transform=ax_D.transAxes)
+
+# ---- Panel E: 2020 pandemic dip vs interpolated expectation ----
+try:
+    a = asr_sex_cols.sort_values('year')
+    yr = set(a['year'])
+    if {2019, 2020, 2021}.issubset(yr):
+        v19 = a[a['year'] == 2019]['asr_total'].iloc[0]
+        v20 = a[a['year'] == 2020]['asr_total'].iloc[0]
+        v21 = a[a['year'] == 2021]['asr_total'].iloc[0]
+        expected20 = (v19 + v21) / 2.0
+        deficit = expected20 - v20
+        deficit_pct = deficit / expected20 * 100 if expected20 else float('nan')
+        bars = ax_E.bar(['2019\nobserved', '2020\nexpected', '2020\nobserved', '2021\nobserved'],
+                        [v19, expected20, v20, v21],
+                        color=['#56B4E9', '#999999', '#D55E00', '#56B4E9'],
+                        edgecolor='white')
+        ax_E.annotate('', xy=(2, v20), xytext=(2, expected20),
+                      arrowprops=dict(arrowstyle='<->', color='#000000', lw=1.3))
+        ax_E.text(2.05, (expected20 + v20) / 2.0,
+                  f'-{deficit_pct:.0f}%', fontsize=9, fontweight='bold',
+                  color='#000000', va='center', ha='left')
+        ax_E.set_ylabel('Total ASR (per 100,000 population)')
+        ax_E.set_title('2020 pandemic dip', fontsize=11, fontweight='bold')
+        ax_E.grid(True, axis='y', alpha=0.25)
+        sns.despine(ax=ax_E)
+    else:
+        raise ValueError('pandemic years unavailable')
+except Exception as e:
+    ax_E.axis('off')
+    ax_E.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+              fontsize=8, transform=ax_E.transAxes)
+
+# ---- Panel F: year-on-year percentage change in total ASR ----
+try:
+    a = asr_sex_cols.sort_values('year').copy()
+    a['yoy'] = a['asr_total'].pct_change() * 100
+    yoy = a[a['yoy'].notna()]
+    bar_cols = ['#D55E00' if v < 0 else '#009E73' for v in yoy['yoy']]
+    ax_F.bar(yoy['year'].astype(int), yoy['yoy'], color=bar_cols, edgecolor='white')
+    ax_F.axhline(0, color='#000000', linewidth=0.9)
+    ax_F.set_xlabel('Year')
+    ax_F.set_ylabel('Year-on-year change in total ASR (%)')
+    ax_F.set_title('Annual ASR growth', fontsize=11, fontweight='bold')
+    from matplotlib.patches import Patch as _PatchT
+    ax_F.legend(handles=[_PatchT(facecolor='#009E73', label='increase'),
+                         _PatchT(facecolor='#D55E00', label='decrease')],
+                fontsize=7.5, loc='lower right', frameon=False)
+    ax_F.grid(True, axis='y', alpha=0.25)
+    sns.despine(ax=ax_F)
+except Exception as e:
+    ax_F.axis('off')
+    ax_F.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+              fontsize=8, transform=ax_F.transAxes)
+
+fig.suptitle('Temporal dynamics of endocrine, nutritional and metabolic '
+             'hospitalizations (E00-E89), Chile 2010-2024',
+             fontsize=14, fontweight='bold', y=0.965)
+
+try:
+    plt.savefig(os.path.join(figures_path, 'composite_temporal.png'),
+                dpi=1200, bbox_inches='tight', facecolor='white')
+except Exception as e:
+    pass
+plt.show()
+```
+
+\newpage
+
+# Composite Figure — Spatial and Regional Patterns
+
+```{python}
+#| label: fig-composite-spatial
+#| fig-cap: "Spatial and regional patterns of endocrine, nutritional and metabolic hospitalizations (E00-E89) in Chile, 2010-2024. (A) Municipal choropleth of total ASR across continental Chile with the global Moran's I clustering statistic; (B) regional crude-rate heatmap (region x year) revealing persistent high-rate southern regions; (C) top-10 regions by absolute hospitalization burden; (D) regional crude-rate ranking for the latest year; (E) global Moran's I by ICD-10 category, with obesity showing the strongest spatial autocorrelation; (F) hot- and cold-spot municipality counts from LISA for the leading categories."
+#| fig-width: 11
+#| fig-height: 13
+
+import os
+
+okabe_ito = ['#E69F00', '#56B4E9', '#009E73', '#F0E442',
+             '#0072B2', '#D55E00', '#CC79A7', '#000000']
+panel_labels = ['A', 'B', 'C', 'D', 'E', 'F']
+
+fig = plt.figure(figsize=(11, 13))
+gs = fig.add_gridspec(3, 2, hspace=0.42, wspace=0.32,
+                      left=0.08, right=0.95, top=0.91, bottom=0.06)
+
+ax_A = fig.add_subplot(gs[0, 0])
+ax_B = fig.add_subplot(gs[0, 1])
+ax_C = fig.add_subplot(gs[1, 0])
+ax_D = fig.add_subplot(gs[1, 1])
+ax_E = fig.add_subplot(gs[2, 0])
+ax_F = fig.add_subplot(gs[2, 1])
+axes_list = [ax_A, ax_B, ax_C, ax_D, ax_E, ax_F]
+
+for ax, lab in zip(axes_list, panel_labels):
+    ax.text(-0.08, 1.06, lab, transform=ax.transAxes,
+            fontsize=13, fontweight='bold', va='top')
+
+# ---- Panel A: Municipal choropleth of total ASR ----
+try:
+    if has_spatial_data and gdf_total is not None and 'asr_total' in gdf_total.columns:
+        plot_gdf = gdf_total[gdf_total['asr_total'] > 0]
+        plot_gdf.plot(column='asr_total', cmap='viridis', linewidth=0.15,
+                      ax=ax_A, edgecolor='0.8', legend=True,
+                      legend_kwds={'label': 'ASR (per 100,000)', 'shrink': 0.5})
+        sub = "Municipal ASR, continental Chile"
+        if moran_total is not None:
+            sub = (f"Municipal ASR  (Moran's I = {moran_total.I:.2f}, "
+                   f"p = {moran_total.p_norm:.3f})")
+        ax_A.set_title(sub, fontsize=10, fontweight='bold')
+        ax_A.set_axis_off()
+    else:
+        raise ValueError('no spatial data')
+except Exception as e:
+    ax_A.axis('off')
+    ax_A.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+              fontsize=8, transform=ax_A.transAxes)
+
+# ---- Panel B: Regional crude-rate heatmap (region x year) ----
+try:
+    hm = regional_pivot.copy()
+    hm = hm.dropna(how='all')
+    im = ax_B.imshow(hm.values, aspect='auto', cmap='viridis', origin='upper')
+    ax_B.set_xticks(range(len(hm.columns)))
+    ax_B.set_xticklabels([int(c) for c in hm.columns], rotation=90, fontsize=6.5)
+    ax_B.set_yticks(range(len(hm.index)))
+    ax_B.set_yticklabels(list(hm.index), fontsize=7)
+    ax_B.set_xlabel('Year')
+    ax_B.set_title('Regional crude rate by year', fontsize=11, fontweight='bold')
+    cbar = fig.colorbar(im, ax=ax_B, shrink=0.6, pad=0.02)
+    cbar.set_label('Crude rate (per 100,000)', fontsize=8)
+    cbar.ax.tick_params(labelsize=7)
+except Exception as e:
+    ax_B.axis('off')
+    ax_B.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+              fontsize=8, transform=ax_B.transAxes)
+
+# ---- Panel C: Top-10 regions by hospitalization burden ----
+try:
+    tr = regional_summary.sort_values('hospitalizations', ascending=False).head(10)
+    tr = tr.sort_values('hospitalizations', ascending=True)
+    ax_C.barh(range(len(tr)), tr['hospitalizations'],
+              color='#0072B2', edgecolor='white')
+    ax_C.set_yticks(range(len(tr)))
+    ax_C.set_yticklabels(list(tr['region']), fontsize=8)
+    ax_C.set_xlabel('Total hospitalizations (count)')
+    ax_C.set_title('Top-10 regions by burden, 2010-2024',
+                   fontsize=11, fontweight='bold')
+    ax_C.grid(True, axis='x', alpha=0.25)
+    sns.despine(ax=ax_C)
+except Exception as e:
+    ax_C.axis('off')
+    ax_C.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+              fontsize=8, transform=ax_C.transAxes)
+
+# ---- Panel D: Regional crude-rate ranking, latest year ----
+try:
+    ly = int(regional_merged['year'].max())
+    rd = regional_merged[regional_merged['year'] == ly].copy()
+    rd = rd.sort_values('crude_rate', ascending=True)
+    med = rd['crude_rate'].median()
+    bar_cols = ['#D55E00' if v >= med else '#56B4E9' for v in rd['crude_rate']]
+    ax_D.barh(range(len(rd)), rd['crude_rate'], color=bar_cols, edgecolor='white')
+    ax_D.set_yticks(range(len(rd)))
+    ax_D.set_yticklabels(list(rd['region']), fontsize=7.5)
+    ax_D.set_xlabel('Crude rate (per 100,000 population)')
+    ax_D.set_title(f'Regional crude rate, {ly}', fontsize=11, fontweight='bold')
+    ax_D.grid(True, axis='x', alpha=0.25)
+    sns.despine(ax=ax_D)
+except Exception as e:
+    ax_D.axis('off')
+    ax_D.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+              fontsize=8, transform=ax_D.transAxes)
+
+# ---- Panel E: Global Moran's I by ICD category ----
+try:
+    rows = []
+    if moran_total is not None:
+        rows.append(('Total E00-E89', moran_total.I, moran_total.p_norm))
+    for cat in icd_summary['icd_category'].tolist():
+        m = moran_by_icd.get(cat)
+        if m is not None:
+            rows.append((cat, m.I, m.p_norm))
+    if not rows:
+        raise ValueError('no Moran results')
+    mdf = pd.DataFrame(rows, columns=['label', 'I', 'p']).sort_values('I')
+    bar_cols = ['#009E73' if p < 0.05 else '#BBBBBB' for p in mdf['p']]
+    ax_E.barh(range(len(mdf)), mdf['I'], color=bar_cols, edgecolor='white')
+    ax_E.set_yticks(range(len(mdf)))
+    ax_E.set_yticklabels(list(mdf['label']), fontsize=7.5)
+    ax_E.axvline(0, color='#000000', linewidth=0.8)
+    ax_E.set_xlabel("Global Moran's I")
+    ax_E.set_title('Spatial autocorrelation by category',
+                   fontsize=11, fontweight='bold')
+    ax_E.grid(True, axis='x', alpha=0.25)
+    from matplotlib.patches import Patch as _PatchS
+    ax_E.legend(handles=[_PatchS(facecolor='#009E73', label='p < 0.05'),
+                         _PatchS(facecolor='#BBBBBB', label='n.s.')],
+                fontsize=7, loc='lower right', frameon=False)
+    sns.despine(ax=ax_E)
+except Exception as e:
+    ax_E.axis('off')
+    ax_E.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+              fontsize=8, transform=ax_E.transAxes)
+
+# ---- Panel F: LISA hot/cold spot counts for leading categories ----
+try:
+    cats = icd_summary['icd_category'].tolist()
+    hh_label = 'High-High (Hot Spot)'
+    ll_label = 'Low-Low (Cold Spot)'
+    rows = []
+    if has_spatial_data and gdf_total is not None and 'cluster' in gdf_total.columns:
+        rows.append(('Total E00-E89',
+                     int((gdf_total['cluster'] == hh_label).sum()),
+                     int((gdf_total['cluster'] == ll_label).sum())))
+    for cat in cats:
+        gdf = gdf_by_icd.get(cat) if 'gdf_by_icd' in dir() else None
+        if gdf is not None and 'cluster' in gdf.columns:
+            rows.append((cat,
+                         int((gdf['cluster'] == hh_label).sum()),
+                         int((gdf['cluster'] == ll_label).sum())))
+    if not rows:
+        raise ValueError('no LISA results')
+    ldf = pd.DataFrame(rows, columns=['label', 'hot', 'cold'])
+    ldf = ldf.sort_values('hot', ascending=True).tail(8)
+    y = np.arange(len(ldf))
+    h = 0.4
+    ax_F.barh(y + h/2, ldf['hot'], height=h, color='#D55E00',
+              edgecolor='white', label='Hot spots (High-High)')
+    ax_F.barh(y - h/2, ldf['cold'], height=h, color='#0072B2',
+              edgecolor='white', label='Cold spots (Low-Low)')
+    ax_F.set_yticks(y)
+    ax_F.set_yticklabels(list(ldf['label']), fontsize=7.5)
+    ax_F.set_xlabel('Municipalities (count)')
+    ax_F.set_title('LISA clusters by category', fontsize=11, fontweight='bold')
+    ax_F.legend(fontsize=7, loc='lower right', frameon=False)
+    ax_F.grid(True, axis='x', alpha=0.25)
+    sns.despine(ax=ax_F)
+except Exception as e:
+    ax_F.axis('off')
+    ax_F.text(0.5, 0.5, 'panel unavailable', ha='center', va='center',
+              fontsize=8, transform=ax_F.transAxes)
+
+fig.suptitle('Spatial and regional patterns of endocrine, nutritional and '
+             'metabolic hospitalizations (E00-E89), Chile 2010-2024',
+             fontsize=14, fontweight='bold', y=0.965)
+
+try:
+    plt.savefig(os.path.join(figures_path, 'composite_spatial.png'),
+                dpi=1200, bbox_inches='tight', facecolor='white')
+except Exception as e:
+    pass
+plt.show()
+```
