@@ -15,7 +15,7 @@ author:
     email: "josefina.poblete@ug.uchile.cl"
     orcid: "0000-0000-0000-0000"
   - name: "Amaru Simón Agüero Jiménez"
-    email: "aaguero@miaundes.cl"
+    email: "a.agueroj@udd.cl"
     orcid: "0000-0001-7336-1833"
 date: "2026-06-11"
 lang: en
@@ -81,5 +81,5 @@ Raw GRD/DEIS data are **not redistributed** in this repository (large, publicly 
 ---
 
 <p style="color:#666; font-size:.85rem;">
-Corresponding author: <strong>Amaru Simón Agüero Jiménez</strong> · <a href="https://orcid.org/0000-0001-7336-1833">ORCID 0000-0001-7336-1833</a> · <a href="mailto:aaguero@miaundes.cl">aaguero@miaundes.cl</a>
+Corresponding author: <strong>Amaru Simón Agüero Jiménez</strong> · <a href="https://orcid.org/0000-0001-7336-1833">ORCID 0000-0001-7336-1833</a> · <a href="mailto:a.agueroj@udd.cl">a.agueroj@udd.cl</a>
 </p>

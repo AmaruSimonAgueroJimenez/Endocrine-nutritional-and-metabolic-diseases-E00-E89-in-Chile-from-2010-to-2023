@@ -15,13 +15,14 @@ author:
     email: "josefina.poblete@ug.uchile.cl"
     orcid: "0000-0000-0000-0000"
   - name: "Amaru Simón Agüero Jiménez"
-    email: "aaguero@miaundes.cl"
+    email: "a.agueroj@udd.cl"
     orcid: "0000-0001-7336-1833"
 date: "2026-04-03"
 lang: en
 format:
   html:
     embed-resources: true
+    html-math-method: mathml
     smooth-scroll: true
     toc: true
     toc-depth: 4
@@ -34,6 +35,7 @@ nocite: '@*'
 execute:
   warning: false
   message: false
+  fig-dpi: 300
 ---
 
 ::: {.callout-note appearance="minimal"}
@@ -2869,7 +2871,7 @@ def _parse_ci(txt):
 
 panel_labels = ['A', 'B', 'C', 'D', 'E', 'F']
 fig = plt.figure(figsize=(11, 13))
-gs = fig.add_gridspec(3, 2, hspace=0.55, wspace=0.32,
+gs = fig.add_gridspec(3, 2, hspace=0.66, wspace=0.32,
                       left=0.09, right=0.97, top=0.93, bottom=0.06)
 axes = [fig.add_subplot(gs[r, c]) for r in range(3) for c in range(2)]
 for ax, lab in zip(axes, panel_labels):
@@ -3090,7 +3092,7 @@ def _parse_ci_m(txt):
 
 panel_labels_m = ['A', 'B', 'C', 'D', 'E']
 fig = plt.figure(figsize=(11, 13))
-gs = fig.add_gridspec(3, 2, hspace=0.55, wspace=0.34,
+gs = fig.add_gridspec(3, 2, hspace=0.66, wspace=0.34,
                       left=0.10, right=0.97, top=0.93, bottom=0.06)
 axes = [fig.add_subplot(gs[0, 0]), fig.add_subplot(gs[0, 1]),
         fig.add_subplot(gs[1, 0]), fig.add_subplot(gs[1, 1]),
@@ -3311,7 +3313,7 @@ def _parse_ci_l(txt):
 
 panel_labels_l = ['A', 'B', 'C', 'D', 'E']
 fig = plt.figure(figsize=(11, 13))
-gs = fig.add_gridspec(3, 2, hspace=0.58, wspace=0.34,
+gs = fig.add_gridspec(3, 2, hspace=0.66, wspace=0.34,
                       left=0.10, right=0.97, top=0.93, bottom=0.07)
 axes = [fig.add_subplot(gs[0, 0]), fig.add_subplot(gs[0, 1]),
         fig.add_subplot(gs[1, :]),

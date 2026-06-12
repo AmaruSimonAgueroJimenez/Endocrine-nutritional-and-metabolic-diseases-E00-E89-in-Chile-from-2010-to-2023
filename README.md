@@ -19,7 +19,7 @@
 <br><br>
 
 ### 🌐 Live site
-**https://&lt;your-username&gt;.github.io/&lt;repo-name&gt;/**
+**https://amarusimonaguerojimenez.github.io/Endocrine-nutritional-and-metabolic-diseases-E00-E89-in-Chile/**
 <sub>(update after enabling GitHub Pages — see <a href="#-deploy-github-pages">Deploy</a>)</sub>
 
 </div>
@@ -63,7 +63,7 @@ This repository publishes three complementary, **fully reproducible** analyses o
 | María Matilde Vicuña Watkins | maria.vicuna@ug.uchile.cl |
 | Antonia Fernanda Troncoso Páez | antonia.troncoso.p@ug.uchile.cl |
 | Josefina Poblete Moreno | josefina.poblete@ug.uchile.cl |
-| **Amaru Simón Agüero Jiménez** · _corresponding_ · [ORCID](https://orcid.org/0000-0001-7336-1833) | aaguero@miaundes.cl |
+| **Amaru Simón Agüero Jiménez** · _corresponding_ · [ORCID](https://orcid.org/0000-0001-7336-1833) | a.agueroj@udd.cl |
 
 ## 🗂️ Repository structure
 
@@ -101,7 +101,7 @@ Reports use Quarto `embed-resources: true`, so each `.html` is **self-contained*
 cd endocrinas
 git add -A && git commit -m "Update site"
 git branch -M main
-git remote add origin https://github.com/<your-username>/<repo-name>.git
+git remote add origin https://github.com/AmaruSimonAgueroJimenez/Endocrine-nutritional-and-metabolic-diseases-E00-E89-in-Chile.git
 git push -u origin main
 ```
 
@@ -120,7 +120,7 @@ Then **Settings → Pages → Deploy from a branch → `main` / `/docs`**. Live 
 Agüero Jiménez, A. S., Ramírez Reyes, D. E., Vicuña Watkins, M. M.,
 Troncoso Páez, A. F., & Poblete Moreno, J. (2026). Endocrine, Nutritional
 and Metabolic Diseases (E00–E89) in Chile: a nationwide hospitalization
-analysis (GRD/DEIS, 2010–2024). https://github.com/<your-username>/<repo-name>
+analysis (GRD/DEIS, 2010–2024). https://github.com/AmaruSimonAgueroJimenez/Endocrine-nutritional-and-metabolic-diseases-E00-E89-in-Chile
 ```
 
 ## ⚖️ License

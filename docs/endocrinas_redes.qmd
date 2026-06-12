@@ -15,13 +15,14 @@ author:
     email: "josefina.poblete@ug.uchile.cl"
     orcid: "0000-0000-0000-0000"
   - name: "Amaru Simón Agüero Jiménez"
-    email: "aaguero@miaundes.cl"
+    email: "a.agueroj@udd.cl"
     orcid: "0000-0001-7336-1833"
 date: "2026-04-05"
 lang: en
 format:
   html:
     embed-resources: true
+    html-math-method: mathml
     smooth-scroll: true
     toc: true
     toc-depth: 4
@@ -34,7 +35,14 @@ nocite: '@*'
 execute:
   warning: false
   message: false
+  fig-dpi: 300
 ---
+
+```{=html}
+<style>
+.cell-output-display img, .quarto-figure img, figure img, p > img { max-width: 100% !important; height: auto !important; }
+</style>
+```
 
 ::: {.callout-note appearance="minimal"}
 
@@ -1650,7 +1658,7 @@ This comprehensive network analysis of comorbidities in endocrine disease hospit
 
 **Analysis completed**: 2026-04-05
 **Code repository**: https://github.com/yourrepo
-**Contact**: amaruaguero2004@ug.uchile.cl
+**Contact**: a.agueroj@udd.cl
 
 # References
 
@@ -1672,7 +1680,7 @@ This comprehensive network analysis of comorbidities in endocrine disease hospit
 _OI = ['#E69F00', '#56B4E9', '#009E73', '#F0E442', '#0072B2', '#D55E00', '#CC79A7', '#000000']
 
 fig = plt.figure(figsize=(11, 13))
-gs = fig.add_gridspec(3, 2, hspace=0.45, wspace=0.32)
+gs = fig.add_gridspec(3, 2, hspace=0.66, wspace=0.32)
 _labels = ['A', 'B', 'C', 'D', 'E', 'F']
 _axes = [fig.add_subplot(gs[i // 2, i % 2]) for i in range(6)]
 
@@ -1822,172 +1830,117 @@ plt.show()
 
 ```{python}
 #| label: fig-composite-network
-#| fig-cap: "Composite of the comorbidity co-occurrence network structure. (A) Co-occurrence network for the latest year (circular layout; node size by degree, colour by clinical category, edge width by Jaccard co-occurrence weight); (B) degree heatmap of the most central comorbidity nodes across years; (C) top comorbidities ranked by degree centrality in the latest year; (D) Louvain communities and modularity over time; (E) maximum and average k-core level evolution; (F) network nodes and edges over time."
-#| fig-width: 11
-#| fig-height: 13
+#| fig-cap: "Composite of comorbidity co-occurrence network structure. (A,B) full co-occurrence networks for the first vs last year (circular layout; ALL comorbidities labelled radially, node size by degree, colour by clinical category, edge width by Jaccard weight); (C) degree heatmap; (D) top comorbidities by degree centrality; (E) Louvain communities and modularity; (F) k-core; (G) network nodes and edges over time."
+#| fig-width: 14
+#| fig-height: 22
 
-# Okabe-Ito colorblind-safe categorical palette
 _OI = ['#E69F00', '#56B4E9', '#009E73', '#F0E442', '#0072B2', '#D55E00', '#CC79A7', '#000000']
 
-fig = plt.figure(figsize=(11, 13))
-gs = fig.add_gridspec(3, 2, hspace=0.48, wspace=0.34)
-_labels = ['A', 'B', 'C', 'D', 'E', 'F']
-_axes = [fig.add_subplot(gs[i // 2, i % 2]) for i in range(6)]
+fig = plt.figure(figsize=(14, 22))
+gs = fig.add_gridspec(4, 2, height_ratios=[2.5, 1.0, 1.0, 0.85], hspace=0.55, wspace=0.20,
+                      left=0.05, right=0.97, top=0.965, bottom=0.04)
+axA = fig.add_subplot(gs[0, 0]); axB = fig.add_subplot(gs[0, 1])
+axC = fig.add_subplot(gs[1, 0]); axD = fig.add_subplot(gs[1, 1])
+axE = fig.add_subplot(gs[2, 0]); axF = fig.add_subplot(gs[2, 1])
+axG = fig.add_subplot(gs[3, :])
 
 def _panel_label(ax, txt):
-    ax.text(-0.08, 1.06, txt, transform=ax.transAxes,
-            fontsize=13, fontweight='bold', va='top')
+    ax.text(-0.05, 1.07, txt, transform=ax.transAxes, fontsize=15, fontweight='bold', va='top')
 
-# ---- Panel A: Co-occurrence network, latest year (circular layout) ----
-axA = _axes[0]
-try:
-    _ly = max(networks_filtered.keys())
-    _G = networks_filtered[_ly]
-    _pos = nx.circular_layout(_G)
-    _ew = [_G[_u][_v].get('weight', 1.0) for _u, _v in _G.edges()]
-    _wmin, _wmax = (min(_ew), max(_ew)) if _ew else (0.0, 1.0)
-    _ewidths = ([0.4 + 2.6 * (w - _wmin) / (_wmax - _wmin) for w in _ew]
-                if _wmax > _wmin else [1.2 for _ in _ew])
-    _deg = dict(_G.degree())
-    _nsizes = [_deg.get(n, 1) * 55 for n in _G.nodes()]
-    _ncolors = [get_comorbidity_color(n) for n in _G.nodes()]
-    nx.draw_networkx_edges(_G, _pos, ax=axA, width=_ewidths, alpha=0.35, edge_color='gray')
-    nx.draw_networkx_nodes(_G, _pos, ax=axA, node_size=_nsizes, node_color=_ncolors,
-                           alpha=0.85, edgecolors='black', linewidths=0.6)
-    for _n, (_xx, _yy) in _pos.items():
-        _r = np.hypot(_xx, _yy) or 1.0
-        _ang = np.degrees(np.arctan2(_yy, _xx))
-        _flip = _ang > 90 or _ang < -90
+def _draw_net(ax, G, year):
+    pos = nx.circular_layout(G)
+    ew = [G[u][v].get('weight', 1.0) for u, v in G.edges()]
+    wmin, wmax = (min(ew), max(ew)) if ew else (0.0, 1.0)
+    ewid = ([0.4 + 2.4 * (w - wmin) / (wmax - wmin) for w in ew] if wmax > wmin else [1.2 for _ in ew])
+    deg = dict(G.degree())
+    nsz = [deg.get(n, 1) * 110 for n in G.nodes()]
+    ncl = [get_comorbidity_color(n) for n in G.nodes()]
+    nx.draw_networkx_edges(G, pos, ax=ax, width=ewid, alpha=0.22, edge_color='gray')
+    nx.draw_networkx_nodes(G, pos, ax=ax, node_size=nsz, node_color=ncl, alpha=0.9, edgecolors='black', linewidths=0.6)
+    for _n, (_x, _y) in pos.items():
+        _r = np.hypot(_x, _y) or 1.0
+        _ang = np.degrees(np.arctan2(_y, _x)); _flip = _ang > 90 or _ang < -90
         _rot = _ang + 180 if _flip else _ang
         _lab = _n.split(' ', 1)[1] if ' ' in _n else _n
-        axA.text(_xx + (_xx / _r) * 0.10, _yy + (_yy / _r) * 0.10, _lab,
-                 fontsize=4.6, rotation=_rot, rotation_mode='anchor',
-                 ha='right' if _flip else 'left', va='center', clip_on=False)
-    axA.set_aspect('equal')
-    axA.set_xlim(-1.85, 1.85); axA.set_ylim(-1.7, 1.7)
-    axA.set_title(f'Co-occurrence network {_ly}\n({_G.number_of_nodes()} nodes, {_G.number_of_edges()} edges)',
-                  fontsize=10)
-    axA.axis('off')
-except Exception as e:
-    axA.axis('off'); axA.text(0.5, 0.5, 'panel unavailable', ha='center', va='center', fontsize=8, transform=axA.transAxes)
-_panel_label(axA, _labels[0])
+        ax.text(_x + (_x / _r) * 0.12, _y + (_y / _r) * 0.12, _lab, fontsize=8.5,
+                rotation=_rot, rotation_mode='anchor', ha='right' if _flip else 'left',
+                va='center', clip_on=False)
+    ax.set_aspect('equal'); ax.set_xlim(-2.25, 2.25); ax.set_ylim(-2.15, 2.15)
+    ax.set_title(f'Network {int(year)}\n({G.number_of_nodes()} nodes, {G.number_of_edges()} edges)', fontsize=13, fontweight='bold')
+    ax.axis('off')
 
-# ---- Panel B: Degree heatmap of top central nodes across years ----
-axB = _axes[1]
 try:
-    _yrs = sorted(networks_filtered.keys())
-    _all_nodes = set()
+    _yk = sorted(networks_filtered.keys())
+    _draw_net(axA, networks_filtered[_yk[0]], _yk[0])
+    _draw_net(axB, networks_filtered[_yk[-1]], _yk[-1])
+except Exception as e:
+    for _a in (axA, axB):
+        _a.axis('off'); _a.text(0.5, 0.5, 'panel unavailable', ha='center', va='center', fontsize=8, transform=_a.transAxes)
+_panel_label(axA, 'A'); _panel_label(axB, 'B')
+
+try:
+    _yrs = sorted(networks_filtered.keys()); _all = set()
     for _g in networks_filtered.values():
-        _all_nodes.update(_g.nodes())
-    _deg_yr = {n: {y: dict(networks_filtered[y].degree()).get(n, 0) for y in _yrs}
-               for n in _all_nodes}
-    _avg = {n: np.mean(list(d.values())) for n, d in _deg_yr.items()}
+        _all.update(_g.nodes())
+    _dy = {n: {y: dict(networks_filtered[y].degree()).get(n, 0) for y in _yrs} for n in _all}
+    _avg = {n: np.mean(list(d.values())) for n, d in _dy.items()}
     _top = [n for n, _ in sorted(_avg.items(), key=lambda x: x[1], reverse=True)[:10]]
-    _hm = pd.DataFrame({n: [_deg_yr[n][y] for y in _yrs] for n in _top}, index=_yrs).T
+    _hm = pd.DataFrame({n: [_dy[n][y] for y in _yrs] for n in _top}, index=_yrs).T
     _hm.index = [i.split(' ', 1)[1] if ' ' in i else i for i in _hm.index]
-    sns.heatmap(_hm, annot=True, fmt='d', cmap='viridis',
-                cbar_kws={'label': 'Degree'}, ax=axB, linewidths=0.5,
-                annot_kws={'fontsize': 7})
-    axB.set_xlabel('Year'); axB.set_ylabel('Comorbidity')
-    axB.set_title('Node degree, top central comorbidities')
-    axB.tick_params(axis='y', labelsize=7)
-except Exception as e:
-    axB.axis('off'); axB.text(0.5, 0.5, 'panel unavailable', ha='center', va='center', fontsize=8, transform=axB.transAxes)
-_panel_label(axB, _labels[1])
-
-# ---- Panel C: Top nodes by degree centrality, latest year ----
-axC = _axes[2]
-try:
-    _ly = centrality_df['Year'].max()
-    _cd = (centrality_df[centrality_df['Year'] == _ly]
-           .sort_values('Degree_Centrality', ascending=True).tail(10))
-    _names = [n.split(' ', 1)[1] if ' ' in n else n for n in _cd['Node']]
-    _cols = [get_comorbidity_color(n) for n in _cd['Node']]
-    axC.barh(range(len(_cd)), _cd['Degree_Centrality'].values, color=_cols, alpha=0.85,
-             edgecolor='black', linewidth=0.4)
-    axC.set_yticks(range(len(_cd))); axC.set_yticklabels(_names, fontsize=7)
-    axC.set_xlabel('Degree centrality (0–1)')
-    axC.set_title(f'Most central comorbidities, {int(_ly)}')
-    axC.grid(axis='x', alpha=0.3)
-    sns.despine(ax=axC)
+    sns.heatmap(_hm, annot=True, fmt='d', cmap='viridis', cbar_kws={'label': 'Degree'}, ax=axC, linewidths=0.5, annot_kws={'fontsize': 8})
+    axC.set_xlabel('Year'); axC.set_ylabel('Comorbidity'); axC.set_title('Node degree, top central comorbidities'); axC.tick_params(axis='y', labelsize=8)
 except Exception as e:
     axC.axis('off'); axC.text(0.5, 0.5, 'panel unavailable', ha='center', va='center', fontsize=8, transform=axC.transAxes)
-_panel_label(axC, _labels[2])
+_panel_label(axC, 'C')
 
-# ---- Panel D: Louvain communities + modularity over time (dual axis) ----
-axD = _axes[3]
 try:
-    _cm = community_metrics_df.sort_values('Year')
-    _yrs = _cm['Year'].astype(int).values
-    axD.bar(_yrs, _cm['Num_Communities'].values, color='#56B4E9', alpha=0.75,
-            width=0.6, label='Communities')
-    axD.set_xlabel('Year')
-    axD.set_ylabel('Number of communities', color='#0072B2')
-    axD.tick_params(axis='y', labelcolor='#0072B2')
-    axD.set_xticks(list(_yrs))
-    axD.set_ylim(0, max(3, int(_cm['Num_Communities'].max()) + 1))
-    _axD2 = axD.twinx()
-    _axD2.plot(_yrs, _cm['Modularity'].values, 'o-', color='#009E73',
-               linewidth=2.5, markersize=7, label='Modularity')
-    _axD2.set_ylabel('Modularity Q', color='#009E73')
-    _axD2.tick_params(axis='y', labelcolor='#009E73')
-    _axD2.grid(False)
-    axD.set_title('Louvain communities and modularity')
-    axD.grid(False)
+    _ly = centrality_df['Year'].max()
+    _cd = (centrality_df[centrality_df['Year'] == _ly].sort_values('Degree_Centrality', ascending=True).tail(10))
+    _names = [n.split(' ', 1)[1] if ' ' in n else n for n in _cd['Node']]
+    _cols = [get_comorbidity_color(n) for n in _cd['Node']]
+    axD.barh(range(len(_cd)), _cd['Degree_Centrality'].values, color=_cols, alpha=0.85, edgecolor='black', linewidth=0.4)
+    axD.set_yticks(range(len(_cd))); axD.set_yticklabels(_names, fontsize=8)
+    axD.set_xlabel('Degree centrality (0–1)'); axD.set_title(f'Most central comorbidities, {int(_ly)}'); axD.grid(axis='x', alpha=0.3); sns.despine(ax=axD)
 except Exception as e:
     axD.axis('off'); axD.text(0.5, 0.5, 'panel unavailable', ha='center', va='center', fontsize=8, transform=axD.transAxes)
-_panel_label(axD, _labels[3])
+_panel_label(axD, 'D')
 
-# ---- Panel E: K-core evolution (max and average) ----
-axE = _axes[4]
 try:
-    _kc = kcore_df.sort_values('Year')
-    _yrs = _kc['Year'].astype(int).values
-    axE.plot(_yrs, _kc['Max_K'].values, 'o-', color='#CC79A7',
-             linewidth=2.5, markersize=8, label='Maximum k-core')
-    axE.plot(_yrs, _kc['Avg_K'].values, 's--', color='#009E73',
-             linewidth=2.0, markersize=6, label='Average k-core')
-    axE.axvspan(2019.5, 2021.5, alpha=0.10, color='gray')
-    axE.set_xlabel('Year')
-    axE.set_ylabel('K-core level (k)')
-    axE.set_title('K-core decomposition over time')
-    axE.set_xticks(list(_yrs))
-    axE.legend(fontsize=8, loc='best', framealpha=0.9)
-    axE.grid(True, alpha=0.3)
-    sns.despine(ax=axE)
+    _cm = community_metrics_df.sort_values('Year'); _yrs = _cm['Year'].astype(int).values
+    axE.bar(_yrs, _cm['Num_Communities'].values, color='#56B4E9', alpha=0.75, width=0.6)
+    axE.set_xlabel('Year'); axE.set_ylabel('Number of communities', color='#0072B2'); axE.tick_params(axis='y', labelcolor='#0072B2'); axE.set_xticks(list(_yrs))
+    axE.set_ylim(0, max(3, int(_cm['Num_Communities'].max()) + 1))
+    _e2 = axE.twinx(); _e2.plot(_yrs, _cm['Modularity'].values, 'o-', color='#009E73', linewidth=2.5, markersize=7)
+    _e2.set_ylabel('Modularity Q', color='#009E73'); _e2.tick_params(axis='y', labelcolor='#009E73'); _e2.grid(False)
+    axE.set_title('Louvain communities and modularity'); axE.grid(False)
 except Exception as e:
     axE.axis('off'); axE.text(0.5, 0.5, 'panel unavailable', ha='center', va='center', fontsize=8, transform=axE.transAxes)
-_panel_label(axE, _labels[4])
+_panel_label(axE, 'E')
 
-# ---- Panel F: Network nodes and edges over time ----
-axF = _axes[5]
 try:
-    _gm = global_metrics_df.sort_values('Year')
-    _yrs = _gm['Year'].astype(int).values
-    axF.bar(_yrs, _gm['Nodes'].values, color='#0072B2', alpha=0.75,
-            width=0.6, label='Nodes')
-    axF.set_xlabel('Year')
-    axF.set_ylabel('Number of nodes', color='#0072B2')
-    axF.tick_params(axis='y', labelcolor='#0072B2')
-    axF.set_xticks(list(_yrs))
-    _axF2 = axF.twinx()
-    _axF2.plot(_yrs, _gm['Edges'].values, 'o-', color='#D55E00',
-               linewidth=2.5, markersize=7, label='Edges')
-    _axF2.set_ylabel('Number of edges', color='#D55E00')
-    _axF2.tick_params(axis='y', labelcolor='#D55E00')
-    _axF2.grid(False)
-    axF.set_title('Network size over time')
-    axF.grid(False)
+    _kc = kcore_df.sort_values('Year'); _yrs = _kc['Year'].astype(int).values
+    axF.plot(_yrs, _kc['Max_K'].values, 'o-', color='#CC79A7', linewidth=2.5, markersize=8, label='Maximum k-core')
+    axF.plot(_yrs, _kc['Avg_K'].values, 's--', color='#009E73', linewidth=2.0, markersize=6, label='Average k-core')
+    axF.set_xlabel('Year'); axF.set_ylabel('K-core level (k)'); axF.set_title('K-core decomposition over time'); axF.set_xticks(list(_yrs))
+    axF.legend(fontsize=9, loc='best', framealpha=0.9); axF.grid(True, alpha=0.3); sns.despine(ax=axF)
 except Exception as e:
     axF.axis('off'); axF.text(0.5, 0.5, 'panel unavailable', ha='center', va='center', fontsize=8, transform=axF.transAxes)
-_panel_label(axF, _labels[5])
-
-fig.suptitle('Structure of comorbidity co-occurrence networks in endocrine hospitalizations, Chile GRD 2019–2024',
-             fontsize=13, fontweight='bold', y=0.995)
+_panel_label(axF, 'F')
 
 try:
-    plt.savefig(FIG_DIR / 'composite_network.png', dpi=1200,
-                bbox_inches='tight', facecolor='white')
+    _gm = global_metrics_df.sort_values('Year'); _yrs = _gm['Year'].astype(int).values
+    axG.bar(_yrs, _gm['Nodes'].values, color='#0072B2', alpha=0.75, width=0.6)
+    axG.set_xlabel('Year'); axG.set_ylabel('Number of nodes', color='#0072B2'); axG.tick_params(axis='y', labelcolor='#0072B2'); axG.set_xticks(list(_yrs))
+    _g2 = axG.twinx(); _g2.plot(_yrs, _gm['Edges'].values, 'o-', color='#D55E00', linewidth=2.5, markersize=7)
+    _g2.set_ylabel('Number of edges', color='#D55E00'); _g2.tick_params(axis='y', labelcolor='#D55E00'); _g2.grid(False)
+    axG.set_title('Network size over time'); axG.grid(False)
+except Exception as e:
+    axG.axis('off'); axG.text(0.5, 0.5, 'panel unavailable', ha='center', va='center', fontsize=8, transform=axG.transAxes)
+_panel_label(axG, 'G')
+
+fig.suptitle('Structure of comorbidity co-occurrence networks in endocrine hospitalizations, Chile GRD 2019–2024', fontsize=15, fontweight='bold', y=0.992)
+try:
+    plt.savefig(FIG_DIR / 'composite_network.png', dpi=1200, bbox_inches='tight', facecolor='white')
 except Exception as e:
     pass
 plt.show()
@@ -2007,7 +1960,7 @@ plt.show()
 _OI = ['#E69F00', '#56B4E9', '#009E73', '#F0E442', '#0072B2', '#D55E00', '#CC79A7', '#000000']
 
 fig = plt.figure(figsize=(11, 13))
-gs = fig.add_gridspec(3, 2, hspace=0.48, wspace=0.34)
+gs = fig.add_gridspec(3, 2, hspace=0.66, wspace=0.34)
 _labels = ['A', 'B', 'C', 'D', 'E', 'F']
 _axes = [fig.add_subplot(gs[i // 2, i % 2]) for i in range(6)]
 

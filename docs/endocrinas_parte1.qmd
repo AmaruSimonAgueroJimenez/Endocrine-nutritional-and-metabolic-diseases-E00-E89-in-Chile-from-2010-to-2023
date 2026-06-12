@@ -15,13 +15,14 @@ author:
     email: "josefina.poblete@ug.uchile.cl"
     orcid: "0000-0000-0000-0000"
   - name: "Amaru Simón Agüero Jiménez"
-    email: "aaguero@miaundes.cl"
+    email: "a.agueroj@udd.cl"
     orcid: "0000-0001-7336-1833"
 date: "2026-03-31"
 lang: en
 format:
   html:
     embed-resources: true
+    html-math-method: mathml
     smooth-scroll: true
     toc: true
     toc-depth: 6
@@ -36,6 +37,7 @@ csl: apa-numeric-superscript.csl
 execute:
   warning: false
   message: false
+  fig-dpi: 300
   fig-width: 14
   fig-height: 10
 ---

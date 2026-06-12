@@ -23,7 +23,7 @@ author:
     email: "valentina.ip@ug.uchile.cl"
     orcid: "0000-0000-0000-0000"
   - name: "Amaru Simón Agüero Jiménez"
-    email: "aaguero@miaundes.cl"
+    email: "a.agueroj@udd.cl"
     orcid: "0000-0001-7336-1833"
 date: "2026-06-11"
 lang: es
