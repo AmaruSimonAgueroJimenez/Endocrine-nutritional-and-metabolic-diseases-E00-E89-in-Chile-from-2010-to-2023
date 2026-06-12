@@ -36,12 +36,12 @@ This repository publishes three complementary, **fully reproducible** analyses o
 
 | | Report | Focus | Link |
 |---|--------|-------|:----:|
-| **1** | **Spatiotemporal burden & spatial clustering** | Age-standardized rates 2010–2024 by sex & ICD category, temporal trends, the 2020 pandemic dip, municipal **Moran's I / LISA** | [📄 open](docs/endocrinas_parte1.html) |
-| **2** | **In-hospital mortality & length of stay** | **GEE** logistic / negative-binomial models by category, **OR/IRR** forest plots, ROC/AUC, machine-learning risk prediction (2019–2024) | [📄 open](docs/endocrinas_parte2.html) |
-| **3** | **Comorbidity network analysis** | Jaccard co-occurrence networks, **Louvain** communities, centrality, **k-core** decomposition (2019–2024) | [📄 open](docs/endocrinas_redes.html) |
-| **+** | **Network analysis in health (methods)** | Spanish theory chapter: foundations, centralities, community detection, comorbidity networks | [📘 open](docs/analisis_redes_salud.html) |
+| **1** | **Spatiotemporal burden & spatial clustering** | Age-standardized rates 2010–2024 by sex & ICD category, temporal trends, the 2020 pandemic dip, municipal **Moran's I / LISA** | [📄 open](https://amarusimonaguerojimenez.github.io/Endocrine-nutritional-and-metabolic-diseases-E00-E89-in-Chile/endocrinas_parte1.html) |
+| **2** | **In-hospital mortality & length of stay** | **GEE** logistic / negative-binomial models by category, **OR/IRR** forest plots, ROC/AUC, machine-learning risk prediction (2019–2024) | [📄 open](https://amarusimonaguerojimenez.github.io/Endocrine-nutritional-and-metabolic-diseases-E00-E89-in-Chile/endocrinas_parte2.html) |
+| **3** | **Comorbidity network analysis** | Jaccard co-occurrence networks, **Louvain** communities, centrality, **k-core** decomposition (2019–2024) | [📄 open](https://amarusimonaguerojimenez.github.io/Endocrine-nutritional-and-metabolic-diseases-E00-E89-in-Chile/endocrinas_redes.html) |
+| **+** | **Network analysis in health (methods)** | Spanish theory chapter: foundations, centralities, community detection, comorbidity networks | [📘 open](https://amarusimonaguerojimenez.github.io/Endocrine-nutritional-and-metabolic-diseases-E00-E89-in-Chile/analisis_redes_salud.html) |
 
-▶ Start at the landing page: **[`docs/index.html`](docs/index.html)**
+▶ Start at the landing page: **[`docs/index.html`](https://amarusimonaguerojimenez.github.io/Endocrine-nutritional-and-metabolic-diseases-E00-E89-in-Chile/index.html)**
 
 ## 🖼️ Figure gallery · Galería
 

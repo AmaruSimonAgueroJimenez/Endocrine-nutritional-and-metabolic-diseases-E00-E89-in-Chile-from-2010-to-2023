@@ -42,6 +42,12 @@ execute:
   fig-height: 10
 ---
 
+```{=html}
+<style>
+/* figfix */ .cell-output-display img, .quarto-figure img, figure img, p > img { max-width: 100% !important; height: auto !important; }
+</style>
+```
+
 ::: {.callout-note appearance="minimal"}
 
 ## Resumen
