@@ -1960,7 +1960,7 @@ plt.show()
 _OI = ['#E69F00', '#56B4E9', '#009E73', '#F0E442', '#0072B2', '#D55E00', '#CC79A7', '#000000']
 
 fig = plt.figure(figsize=(11, 13))
-gs = fig.add_gridspec(3, 2, hspace=0.66, wspace=0.34)
+gs = fig.add_gridspec(3, 2, hspace=0.66, wspace=0.52)
 _labels = ['A', 'B', 'C', 'D', 'E', 'F']
 _axes = [fig.add_subplot(gs[i // 2, i % 2]) for i in range(6)]
 
@@ -2031,12 +2031,12 @@ try:
     def _plabel(p):
         _a = p[0].split(' ', 1)[1] if ' ' in p[0] else p[0]
         _b = p[1].split(' ', 1)[1] if ' ' in p[1] else p[1]
-        return f"{_a} ↔ {_b}"
+        return f"{_a}\n↔ {_b}"
     _names = [_plabel(p) for p, _ in _pairs]
     _vals = [v for _, v in _pairs]
     axD.barh(range(len(_pairs)), _vals, color='#0072B2', alpha=0.85,
              edgecolor='black', linewidth=0.4)
-    axD.set_yticks(range(len(_pairs))); axD.set_yticklabels(_names, fontsize=6.5)
+    axD.set_yticks(range(len(_pairs))); axD.set_yticklabels(_names, fontsize=6)
     axD.set_xlabel('Mean co-occurrence count (patients)')
     axD.set_title('Strongest co-occurrence associations')
     axD.grid(axis='x', alpha=0.3)
@@ -2050,12 +2050,12 @@ axE = _axes[4]
 try:
     def _short_pair(p):
         parts = p.split(' ↔ ')
-        return ' ↔ '.join((s.split(' ', 1)[1] if ' ' in s else s) for s in parts)
+        return '\n↔ '.join((s.split(' ', 1)[1] if ' ' in s else s) for s in parts)
     _inc = edge_changes_df.sort_values('Change', ascending=False).head(10).iloc[::-1]
     _names = [_short_pair(p) for p in _inc['Pair']]
     axE.barh(range(len(_inc)), _inc['Change'].values, color='#009E73', alpha=0.85,
              edgecolor='black', linewidth=0.4)
-    axE.set_yticks(range(len(_inc))); axE.set_yticklabels(_names, fontsize=6.5)
+    axE.set_yticks(range(len(_inc))); axE.set_yticklabels(_names, fontsize=6)
     axE.set_xlabel('Change in co-occurrence count (2019→2024)')
     axE.set_title('Associations with largest increase')
     axE.grid(axis='x', alpha=0.3)
@@ -2069,12 +2069,12 @@ axF = _axes[5]
 try:
     def _short_pair_f(p):
         parts = p.split(' ↔ ')
-        return ' ↔ '.join((s.split(' ', 1)[1] if ' ' in s else s) for s in parts)
+        return '\n↔ '.join((s.split(' ', 1)[1] if ' ' in s else s) for s in parts)
     _dec = edge_changes_df.sort_values('Change', ascending=True).head(10).iloc[::-1]
     _names = [_short_pair_f(p) for p in _dec['Pair']]
     axF.barh(range(len(_dec)), _dec['Change'].values, color='#D55E00', alpha=0.85,
              edgecolor='black', linewidth=0.4)
-    axF.set_yticks(range(len(_dec))); axF.set_yticklabels(_names, fontsize=6.5)
+    axF.set_yticks(range(len(_dec))); axF.set_yticklabels(_names, fontsize=6)
     axF.set_xlabel('Change in co-occurrence count (2019→2024)')
     axF.set_title('Associations with largest decrease')
     axF.grid(axis='x', alpha=0.3)
